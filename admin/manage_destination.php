@@ -96,7 +96,7 @@ Destination
 
 
 /* ===============================
-   TABLE DESIGN
+   TABLE CONTAINER
 ================================ */
 
 .table-container {
@@ -104,10 +104,17 @@ Destination
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
 
-/* Table Header */
+/* ===============================
+   TABLE HEADER
+================================ */
+
+.destination-table {
+    margin-bottom: 0;
+}
 
 .destination-table thead {
     background-color: #0057B8;
@@ -128,7 +135,9 @@ Destination
 }
 
 
-/* Table Body */
+/* ===============================
+   TABLE BODY
+================================ */
 
 .destination-table tbody td {
     padding: 14px;
@@ -155,7 +164,9 @@ Destination
 }
 
 
-/* ID Badge */
+/* ===============================
+   ID BADGE
+================================ */
 
 .id-badge {
     background-color: #FFD700;
@@ -166,7 +177,9 @@ Destination
 }
 
 
-/* Image */
+/* ===============================
+   DESTINATION IMAGE
+================================ */
 
 .destination-image {
     width: 80px;
@@ -177,7 +190,9 @@ Destination
 }
 
 
-/* Action buttons */
+/* ===============================
+   ACTION BUTTONS
+================================ */
 
 .action-btn {
     border-radius: 6px;
@@ -192,7 +207,9 @@ Destination
 <body class="bg-light">
 
 
-<!-- Navbar -->
+<!-- ===============================
+     NAVBAR
+================================ -->
 
 <nav class="navbar navbar-dark navbar-blue">
 
@@ -217,10 +234,15 @@ Dashboard
 </nav>
 
 
+
+<!-- ===============================
+     MAIN CONTENT
+================================ -->
+
 <div class="container mt-5">
 
 
-<div class="d-flex justify-content-between mb-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
 
 
 <h2>
@@ -243,10 +265,17 @@ Add Destination
 </div>
 
 
-<table class="table table-bordered table-striped bg-white">
+
+<!-- ===============================
+     DESTINATION TABLE
+================================ -->
+
+<div class="table-container">
+
+<table class="table destination-table">
 
 
-<thead class="table-blue">
+<thead>
 
 <tr>
 
@@ -299,28 +328,47 @@ while($row=mysqli_fetch_assoc($result)){
 <tr>
 
 
+<!-- ID -->
+
 <td>
+
+<span class="id-badge">
 
 <?php echo $row['destination_id']; ?>
 
+</span>
+
 </td>
 
+
+
+<!-- Image -->
 
 <td>
 
 <img src="../assets/images/<?php echo $row['image']; ?>"
-width="80"
-height="60">
+
+class="destination-image">
 
 </td>
 
+
+
+<!-- Name -->
 
 <td>
 
+<strong>
+
 <?php echo $row['destination_name']; ?>
+
+</strong>
 
 </td>
 
+
+
+<!-- Category -->
 
 <td>
 
@@ -329,12 +377,20 @@ height="60">
 </td>
 
 
+
+<!-- Location -->
+
 <td>
+
+<i class="bi bi-geo-alt-fill text-primary"></i>
 
 <?php echo $row['location']; ?>
 
 </td>
 
+
+
+<!-- Action -->
 
 <td>
 
@@ -342,17 +398,21 @@ height="60">
 <!-- Edit -->
 
 <a href="edit_destination.php?id=<?php echo $row['destination_id']; ?>"
-class="btn btn-yellow btn-sm">
+
+class="btn btn-yellow btn-sm action-btn">
 
 <i class="bi bi-pencil"></i>
 
 </a>
 
 
+
 <!-- Delete -->
 
 <a href="manage_destination.php?delete=<?php echo $row['destination_id']; ?>"
-class="btn btn-danger btn-sm"
+
+class="btn btn-danger btn-sm action-btn"
+
 onclick="return confirm('Delete this destination?')">
 
 <i class="bi bi-trash"></i>
@@ -375,8 +435,9 @@ onclick="return confirm('Delete this destination?')">
 
 </tbody>
 
-
 </table>
+
+</div>
 
 
 </div>
