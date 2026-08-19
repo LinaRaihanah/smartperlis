@@ -111,7 +111,7 @@ Logout
 
 <h2 class="mb-4 text-center">
 
-Admin Dashboard
+Dashboard
 
 </h2>
 
@@ -129,7 +129,7 @@ Admin Dashboard
 
 <h4>
 
-Manage Destination
+Destination
 
 </h4>
 
@@ -156,7 +156,7 @@ Open
 
 <h4>
 
-Manage Event
+Event
 
 </h4>
 
@@ -183,7 +183,7 @@ Open
 
 <h4>
 
-Gallery Management
+Gallery
 
 </h4>
 
