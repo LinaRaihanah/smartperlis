@@ -1,3 +1,4 @@
+```php
 <?php
 
 // =====================================
@@ -109,11 +110,15 @@ Officer Dashboard - Smart Perlis
 </title>
 
 
+<!-- BOOTSTRAP -->
+
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
 >
 
+
+<!-- BOOTSTRAP ICONS -->
 
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -123,48 +128,368 @@ Officer Dashboard - Smart Perlis
 
 <style>
 
+/* =====================================
+   GENERAL
+===================================== */
+
 body {
 
-    background:#f5f7f6;
+    background: #F4F7FB;
+
+    font-family: Arial, sans-serif;
+
+    color: #1f2937;
 
 }
 
+
+/* =====================================
+   NAVBAR
+===================================== */
 
 .navbar {
 
-    background:#146c43 !important;
+    background: linear-gradient(
+        135deg,
+        #0B2D5C,
+        #1565C0
+    ) !important;
 
-    border-bottom:4px solid #FFD700;
+    border-bottom: 5px solid #FFC107;
+
+    padding: 16px 0;
 
 }
 
 
+/* LOGO / BRAND */
+
+.navbar-brand {
+
+    font-size: 1.35rem;
+
+    letter-spacing: 0.3px;
+
+}
+
+
+/* USER NAME */
+
+.navbar .text-white {
+
+    font-size: 0.95rem;
+
+}
+
+
+/* LOGOUT BUTTON */
+
+.logout-btn {
+
+    background: #FFC107;
+
+    color: #0B2D5C;
+
+    border: none;
+
+    font-weight: 700;
+
+    border-radius: 8px;
+
+    padding: 8px 16px;
+
+    transition: 0.25s;
+
+}
+
+
+.logout-btn:hover {
+
+    background: #FFD54F;
+
+    color: #0B2D5C;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================
+   DASHBOARD HEADER
+===================================== */
+
+.dashboard-title {
+
+    color: #0B2D5C;
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+}
+
+
+.dashboard-subtitle {
+
+    font-size: 1rem;
+
+}
+
+
+/* =====================================
+   STAT CARDS
+===================================== */
+
 .stat-card {
 
-    border:none;
+    border: none;
 
-    border-radius:16px;
+    border-radius: 18px;
 
-    transition:.25s;
+    background: #ffffff;
+
+    transition: all 0.25s ease;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+.stat-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #1565C0,
+        #FFC107
+    );
 
 }
 
 
 .stat-card:hover {
 
-    transform:translateY(-4px);
+    transform: translateY(-6px);
+
+    box-shadow: 0 12px 30px rgba(11, 45, 92, 0.15) !important;
 
 }
 
+
+/* STAT NUMBER */
+
+.stat-number {
+
+    color: #0B2D5C;
+
+    font-size: 2rem;
+
+}
+
+
+/* STAT LABEL */
+
+.stat-label {
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    color: #6b7280;
+
+}
+
+
+/* STAT ICON */
+
+.stat-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1.7rem;
+
+}
+
+
+/* ICON COLORS */
+
+.destination-icon {
+
+    background: #E3F2FD;
+
+    color: #1565C0;
+
+}
+
+
+.event-icon {
+
+    background: #FFF8E1;
+
+    color: #F9A825;
+
+}
+
+
+.gallery-icon {
+
+    background: #E8EAF6;
+
+    color: #3949AB;
+
+}
+
+
+.rating-icon {
+
+    background: #FFF3E0;
+
+    color: #EF6C00;
+
+}
+
+
+/* =====================================
+   QUICK ACTION CARD
+===================================== */
 
 .quick-card {
 
-    border:none;
+    border: none;
 
-    border-radius:16px;
+    border-radius: 18px;
+
+    background: #ffffff;
 
 }
 
+
+.quick-title {
+
+    color: #0B2D5C;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================
+   QUICK ACTION BUTTONS
+===================================== */
+
+.action-btn {
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    font-weight: 700;
+
+    font-size: 0.95rem;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #1565C0,
+        #FFC107
+    );
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 5px 12px rgba(21, 101, 192, 0.2);
+
+}
+
+
+.action-btn:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 9px 20px rgba(21, 101, 192, 0.3);
+
+}
+
+
+/* ICON INSIDE BUTTON */
+
+.action-btn i {
+
+    margin-right: 7px;
+
+    font-size: 1.1rem;
+
+}
+
+
+/* =====================================
+   BACK TO WEBSITE
+===================================== */
+
+.back-link {
+
+    color: #1565C0;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+
+}
+
+
+.back-link:hover {
+
+    color: #0B2D5C;
+
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+
+    .dashboard-title {
+
+        font-size: 1.7rem;
+
+    }
+
+    .navbar-brand {
+
+        font-size: 1.1rem;
+
+    }
+
+}
 
 </style>
 
@@ -174,77 +499,85 @@ body {
 <body>
 
 
-<!-- NAVBAR -->
+<!-- =====================================
+     NAVBAR
+===================================== -->
 
 <nav class="navbar navbar-dark">
 
 <div class="container">
 
-<span class="navbar-brand fw-bold">
+    <span class="navbar-brand fw-bold">
 
-<i class="bi bi-person-badge-fill"></i>
+        <i class="bi bi-person-badge-fill me-2"></i>
 
-Smart Perlis - Officer
+        Smart Perlis - Officer
 
-</span>
-
-
-<div class="d-flex align-items-center gap-3">
-
-<span class="text-white">
-
-<i class="bi bi-person-circle"></i>
-
-<?php
-
-echo htmlspecialchars($_SESSION['username']);
-
-?>
-
-</span>
+    </span>
 
 
-<a
-    href="../logout.php"
-    class="btn btn-light btn-sm"
->
+    <div class="d-flex align-items-center gap-3">
 
-<i class="bi bi-box-arrow-right"></i>
+        <span class="text-white">
 
-Logout
+            <i class="bi bi-person-circle me-1"></i>
 
-</a>
+            <?php
 
-</div>
+            echo htmlspecialchars($_SESSION['username']);
+
+            ?>
+
+        </span>
+
+
+        <a
+            href="../logout.php"
+            class="btn logout-btn btn-sm"
+        >
+
+            <i class="bi bi-box-arrow-right me-1"></i>
+
+            Logout
+
+        </a>
+
+    </div>
 
 </div>
 
 </nav>
 
 
-<!-- CONTENT -->
+<!-- =====================================
+     MAIN CONTENT
+===================================== -->
 
 <div class="container py-5">
 
 
+<!-- DASHBOARD HEADER -->
+
 <div class="mb-4">
 
-<h2 class="fw-bold">
+    <h2 class="dashboard-title">
 
-Officer Dashboard
+        Officer Dashboard
 
-</h2>
+    </h2>
 
-<p class="text-muted">
+    <p class="text-muted dashboard-subtitle">
 
-Welcome to Smart Perlis Tourism Portal Management
+        Welcome to Smart Perlis Tourism Portal Management
 
-</p>
+    </p>
 
 </div>
 
 
-<!-- STATISTICS -->
+<!-- =====================================
+     STATISTICS
+===================================== -->
 
 <div class="row g-4">
 
@@ -253,31 +586,36 @@ Welcome to Smart Perlis Tourism Portal Management
 
 <div class="col-md-6 col-xl-3">
 
-<div class="card stat-card shadow-sm p-4">
+    <div class="card stat-card shadow-sm p-4">
 
-<div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between align-items-center">
 
-<div>
+            <div>
 
-<small class="text-muted">
+                <div class="stat-label">
 
-Destinations
+                    Destinations
 
-</small>
+                </div>
 
-<h2 class="fw-bold">
+                <h2 class="stat-number fw-bold mb-0">
 
-<?php echo $destinations; ?>
+                    <?php echo $destinations; ?>
 
-</h2>
+                </h2>
 
-</div>
+            </div>
 
-<i class="bi bi-geo-alt-fill fs-1 text-success"></i>
 
-</div>
+            <div class="stat-icon destination-icon">
 
-</div>
+                <i class="bi bi-geo-alt-fill"></i>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -286,31 +624,36 @@ Destinations
 
 <div class="col-md-6 col-xl-3">
 
-<div class="card stat-card shadow-sm p-4">
+    <div class="card stat-card shadow-sm p-4">
 
-<div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between align-items-center">
 
-<div>
+            <div>
 
-<small class="text-muted">
+                <div class="stat-label">
 
-Events
+                    Events
 
-</small>
+                </div>
 
-<h2 class="fw-bold">
+                <h2 class="stat-number fw-bold mb-0">
 
-<?php echo $events; ?>
+                    <?php echo $events; ?>
 
-</h2>
+                </h2>
 
-</div>
+            </div>
 
-<i class="bi bi-calendar-event-fill fs-1 text-primary"></i>
 
-</div>
+            <div class="stat-icon event-icon">
 
-</div>
+                <i class="bi bi-calendar-event-fill"></i>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -319,31 +662,36 @@ Events
 
 <div class="col-md-6 col-xl-3">
 
-<div class="card stat-card shadow-sm p-4">
+    <div class="card stat-card shadow-sm p-4">
 
-<div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between align-items-center">
 
-<div>
+            <div>
 
-<small class="text-muted">
+                <div class="stat-label">
 
-Gallery
+                    Gallery
 
-</small>
+                </div>
 
-<h2 class="fw-bold">
+                <h2 class="stat-number fw-bold mb-0">
 
-<?php echo $gallery; ?>
+                    <?php echo $gallery; ?>
 
-</h2>
+                </h2>
 
-</div>
+            </div>
 
-<i class="bi bi-images fs-1 text-warning"></i>
 
-</div>
+            <div class="stat-icon gallery-icon">
 
-</div>
+                <i class="bi bi-images"></i>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -352,119 +700,144 @@ Gallery
 
 <div class="col-md-6 col-xl-3">
 
-<div class="card stat-card shadow-sm p-4">
+    <div class="card stat-card shadow-sm p-4">
 
-<div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between align-items-center">
 
-<div>
+            <div>
 
-<small class="text-muted">
+                <div class="stat-label">
 
-Ratings
+                    Ratings
 
-</small>
+                </div>
 
-<h2 class="fw-bold">
+                <h2 class="stat-number fw-bold mb-0">
 
-<?php echo $ratings; ?>
+                    <?php echo $ratings; ?>
 
-</h2>
+                </h2>
+
+            </div>
+
+
+            <div class="stat-icon rating-icon">
+
+                <i class="bi bi-star-fill"></i>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-<i class="bi bi-star-fill fs-1 text-danger"></i>
-
-</div>
-
-</div>
 
 </div>
 
 
-</div>
-
-
-<!-- QUICK ACTIONS -->
+<!-- =====================================
+     QUICK ACTIONS
+===================================== -->
 
 <div class="card quick-card shadow-sm mt-5 p-4">
 
-<h4 class="fw-bold">
 
-Quick Actions
+    <h4 class="quick-title mb-1">
 
-</h4>
+        <i class="bi bi-lightning-charge-fill me-2"></i>
+
+        Quick Actions
+
+    </h4>
 
 
-<div class="row g-3 mt-2">
+    <p class="text-muted mb-0">
+
+        Manage your Smart Perlis tourism content
+
+    </p>
 
 
-<div class="col-md-4">
+    <div class="row g-3 mt-2">
 
-<a
-    href="destinations.php"
-    class="btn btn-success w-100 p-3"
->
 
-<i class="bi bi-geo-alt"></i>
+        <!-- DESTINATIONS -->
 
-Manage Destinations
+        <div class="col-md-4">
 
-</a>
+            <a
+                href="destinations.php"
+                class="btn action-btn w-100"
+            >
+
+                <i class="bi bi-geo-alt-fill"></i>
+
+                Manage Destinations
+
+            </a>
+
+        </div>
+
+
+        <!-- EVENTS -->
+
+        <div class="col-md-4">
+
+            <a
+                href="events.php"
+                class="btn action-btn w-100"
+            >
+
+                <i class="bi bi-calendar-event-fill"></i>
+
+                Manage Events
+
+            </a>
+
+        </div>
+
+
+        <!-- GALLERY -->
+
+        <div class="col-md-4">
+
+            <a
+                href="gallery.php"
+                class="btn action-btn w-100"
+            >
+
+                <i class="bi bi-images"></i>
+
+                Manage Gallery
+
+            </a>
+
+        </div>
+
+
+    </div>
 
 </div>
 
 
-<div class="col-md-4">
-
-<a
-    href="events.php"
-    class="btn btn-primary w-100 p-3"
->
-
-<i class="bi bi-calendar-event"></i>
-
-Manage Events
-
-</a>
-
-</div>
-
-
-<div class="col-md-4">
-
-<a
-    href="gallery.php"
-    class="btn btn-warning w-100 p-3"
->
-
-<i class="bi bi-images"></i>
-
-Manage Gallery
-
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- BACK -->
+<!-- =====================================
+     BACK TO WEBSITE
+===================================== -->
 
 <div class="text-center mt-4">
 
-<a
-    href="../index.php"
-    class="text-decoration-none"
->
+    <a
+        href="../index.php"
+        class="text-decoration-none back-link"
+    >
 
-<i class="bi bi-arrow-left"></i>
+        <i class="bi bi-arrow-left me-1"></i>
 
-Back to Website
+        Back to Website
 
-</a>
+    </a>
 
 </div>
 
@@ -475,3 +848,4 @@ Back to Website
 </body>
 
 </html>
+```
