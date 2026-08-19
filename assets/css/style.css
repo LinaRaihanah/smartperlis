@@ -1,0 +1,200 @@
+/* =========================
+   SMART PERLIS TOURISM PORTAL
+   style.css
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+}
+
+/* NAVBAR */
+
+.navbar{
+    padding:15px 0;
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-link{
+    color:white !important;
+    margin-left:15px;
+    transition:0.3s;
+}
+
+.nav-link:hover{
+    color:#ffd54f !important;
+}
+
+/* SLIDER */
+
+.slider-image{
+    height:650px;
+    object-fit:cover;
+}
+
+.carousel-caption{
+    background:rgba(0,0,0,0.45);
+    padding:25px;
+    border-radius:10px;
+    bottom:120px;
+}
+
+.carousel-caption h1{
+    font-size:50px;
+    font-weight:bold;
+}
+
+.carousel-caption p{
+    font-size:20px;
+}
+
+/* SEARCH */
+
+#search{
+    border-radius:40px;
+    padding:18px;
+    border:2px solid #198754;
+}
+
+#search:focus{
+    outline:none;
+    box-shadow:0 0 10px rgba(25,135,84,.3);
+}
+
+/* CARD */
+
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.4s;
+    margin-bottom:30px;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.card img{
+    height:250px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.card h4{
+    font-weight:bold;
+}
+
+.card p{
+    color:#666;
+}
+
+.btn-success{
+    border-radius:30px;
+    padding:10px 25px;
+}
+
+/* FEATURES */
+
+section i{
+    margin-bottom:15px;
+}
+
+section h5{
+    font-weight:bold;
+}
+
+section .col-md-3{
+    padding:25px;
+    transition:.3s;
+}
+
+section .col-md-3:hover{
+    transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:60px;
+}
+
+footer h5{
+    font-weight:bold;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.slider-image{
+    height:450px;
+}
+
+.carousel-caption h1{
+    font-size:35px;
+}
+
+}
+
+@media(max-width:768px){
+
+.slider-image{
+    height:300px;
+}
+
+.carousel-caption{
+    bottom:30px;
+}
+
+.carousel-caption h1{
+    font-size:24px;
+}
+
+.carousel-caption p{
+    font-size:15px;
+}
+
+.navbar-brand{
+    font-size:22px;
+}
+
+.card img{
+    height:200px;
+}
+
+}
+
+@media(max-width:576px){
+
+#search{
+    padding:15px;
+}
+
+.carousel-caption{
+    padding:15px;
+}
+
+.carousel-caption h1{
+    font-size:20px;
+}
+
+.carousel-caption p{
+    font-size:13px;
+}
+
+}
