@@ -11,15 +11,37 @@ $message = "";
 
 if(isset($_POST['submit'])){
 
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $subject = mysqli_real_escape_string($conn, $_POST['subject']);
-    $feedback = mysqli_real_escape_string($conn, $_POST['feedback']);
+    $name = mysqli_real_escape_string(
+        $conn,
+        $_POST['name']
+    );
+
+    $email = mysqli_real_escape_string(
+        $conn,
+        $_POST['email']
+    );
+
+    $message_type = mysqli_real_escape_string(
+        $conn,
+        $_POST['message_type']
+    );
+
+    $subject = mysqli_real_escape_string(
+        $conn,
+        $_POST['subject']
+    );
+
+    $feedback = mysqli_real_escape_string(
+        $conn,
+        $_POST['feedback']
+    );
+
 
     $sql = "INSERT INTO contact_messages
-            (name, email, subject, message)
+            (name, email, message_type, subject, message)
             VALUES
-            ('$name', '$email', '$subject', '$feedback')";
+            ('$name', '$email', '$message_type', '$subject', '$feedback')";
+
 
     if(mysqli_query($conn, $sql)){
 
@@ -36,10 +58,23 @@ if(isset($_POST['submit'])){
 
 if(isset($_POST['rate'])){
 
-    $name = mysqli_real_escape_string($conn, $_POST['rname']);
-    $email = mysqli_real_escape_string($conn, $_POST['remail']);
+    $name = mysqli_real_escape_string(
+        $conn,
+        $_POST['rname']
+    );
+
+    $email = mysqli_real_escape_string(
+        $conn,
+        $_POST['remail']
+    );
+
     $rating = $_POST['rating'];
-    $comment = mysqli_real_escape_string($conn, $_POST['comment']);
+
+    $comment = mysqli_real_escape_string(
+        $conn,
+        $_POST['comment']
+    );
+
 
     mysqli_query(
         $conn,
@@ -48,6 +83,7 @@ if(isset($_POST['rate'])){
         VALUES
         ('$name', '$email', '$rating', '$comment')"
     );
+
 
     $message = "Thank you for your rating!";
 
@@ -68,7 +104,6 @@ if(isset($_POST['rate'])){
 name="viewport"
 content="width=device-width, initial-scale=1.0"
 >
-
 
 <title>
 Contact - Smart Perlis Tourism Portal
@@ -185,11 +220,22 @@ body {
 
 .blue-btn:hover {
 
-    background-color: #004494;
+    background-color: #003F88;
 
-    border-color: #004494;
+    border-color: #003F88;
 
     color: white;
+
+}
+
+
+/* =====================================
+   MESSAGE TYPE
+===================================== */
+
+.message-type {
+
+    border-left: 4px solid #FFD700;
 
 }
 
@@ -282,7 +328,6 @@ body {
 
 }
 
-
 </style>
 
 </head>
@@ -291,17 +336,12 @@ body {
 <body>
 
 
-<!-- =====================================
-     NAVBAR
-===================================== -->
+<!-- NAVBAR -->
 
 <?php include("navbar.php"); ?>
 
 
-
-<!-- =====================================
-     HEADER
-===================================== -->
+<!-- HEADER -->
 
 <section
 class="text-white text-center p-5 contact-header"
@@ -319,25 +359,19 @@ align-items: center;
 >
 
     <h1>
-
         Contact Us
-
     </h1>
 
 
     <p>
-
         Get in touch with Smart Perlis Tourism Portal
-
     </p>
 
 </section>
 
 
 
-<!-- =====================================
-     CONTACT INFORMATION + CONTACT FORM
-===================================== -->
+<!-- CONTACT INFORMATION + CONTACT FORM -->
 
 <div class="container mt-5">
 
@@ -351,11 +385,8 @@ align-items: center;
             <div class="card shadow p-4">
 
                 <h3>
-
                     Tourism Information
-
                 </h3>
-
 
                 <hr>
 
@@ -408,9 +439,7 @@ align-items: center;
             <div class="card shadow p-4">
 
                 <h3>
-
                     Send Message
-
                 </h3>
 
 
@@ -442,10 +471,8 @@ align-items: center;
 
                     <div class="mb-3">
 
-                        <label>
-
+                        <label class="form-label">
                             Name
-
                         </label>
 
 
@@ -464,10 +491,8 @@ align-items: center;
 
                     <div class="mb-3">
 
-                        <label>
-
+                        <label class="form-label">
                             Email
-
                         </label>
 
 
@@ -482,14 +507,61 @@ align-items: center;
 
 
 
+                    <!-- MESSAGE TYPE -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Message Type
+                        </label>
+
+
+                        <select
+                        name="message_type"
+                        class="form-select message-type"
+                        required
+                        >
+
+                            <option value="">
+                                -- Select Message Type --
+                            </option>
+
+                            <option value="Destination Enquiry">
+                                Destination Enquiry
+                            </option>
+
+                            <option value="Event Enquiry">
+                                Event Enquiry
+                            </option>
+
+                            <option value="Gallery Enquiry">
+                                Gallery Enquiry
+                            </option>
+
+                            <option value="Rating / Feedback">
+                                Rating / Feedback
+                            </option>
+
+                            <option value="General Enquiry">
+                                General Enquiry
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
                     <!-- SUBJECT -->
 
                     <div class="mb-3">
 
-                        <label>
-
+                        <label class="form-label">
                             Subject
-
                         </label>
 
 
@@ -497,6 +569,7 @@ align-items: center;
                         type="text"
                         name="subject"
                         class="form-control"
+                        placeholder="Enter your subject"
                         required
                         >
 
@@ -508,10 +581,8 @@ align-items: center;
 
                     <div class="mb-3">
 
-                        <label>
-
+                        <label class="form-label">
                             Message
-
                         </label>
 
 
@@ -519,6 +590,7 @@ align-items: center;
                         name="feedback"
                         class="form-control"
                         rows="5"
+                        placeholder="Enter your message"
                         required
                         ></textarea>
 
@@ -534,7 +606,9 @@ align-items: center;
                     class="btn blue-btn"
                     >
 
-                        Send
+                        <i class="bi bi-send"></i>
+
+                        Send Message
 
                     </button>
 
@@ -560,16 +634,12 @@ align-items: center;
     <div class="card shadow p-4">
 
         <h2 class="text-center mb-4">
-
             Frequently Asked Questions
-
         </h2>
 
 
         <div class="faq-container">
 
-
-            <!-- FAQ 1 -->
 
             <div class="faq-item">
 
@@ -580,16 +650,11 @@ align-items: center;
                 >
 
                     <span>
-
                         What is Smart Perlis Tourism Portal?
-
                     </span>
 
-
                     <span class="faq-arrow">
-
                         ▼
-
                     </span>
 
                 </button>
@@ -607,8 +672,6 @@ align-items: center;
 
 
 
-            <!-- FAQ 2 -->
-
             <div class="faq-item">
 
                 <button
@@ -618,16 +681,11 @@ align-items: center;
                 >
 
                     <span>
-
                         What can I find on this website?
-
                     </span>
 
-
                     <span class="faq-arrow">
-
                         ▼
-
                     </span>
 
                 </button>
@@ -645,8 +703,6 @@ align-items: center;
 
 
 
-            <!-- FAQ 3 -->
-
             <div class="faq-item">
 
                 <button
@@ -656,16 +712,11 @@ align-items: center;
                 >
 
                     <span>
-
                         Do I need an account to use the portal?
-
                     </span>
 
-
                     <span class="faq-arrow">
-
                         ▼
-
                     </span>
 
                 </button>
@@ -683,8 +734,6 @@ align-items: center;
 
 
 
-            <!-- FAQ 4 -->
-
             <div class="faq-item">
 
                 <button
@@ -694,16 +743,11 @@ align-items: center;
                 >
 
                     <span>
-
                         How can I give feedback about the portal?
-
                     </span>
 
-
                     <span class="faq-arrow">
-
                         ▼
-
                     </span>
 
                 </button>
@@ -721,8 +765,6 @@ align-items: center;
 
 
 
-            <!-- FAQ 5 -->
-
             <div class="faq-item">
 
                 <button
@@ -732,16 +774,11 @@ align-items: center;
                 >
 
                     <span>
-
                         How can I contact Smart Perlis Tourism Portal?
-
                     </span>
 
-
                     <span class="faq-arrow">
-
                         ▼
-
                     </span>
 
                 </button>
@@ -775,25 +812,18 @@ align-items: center;
     <div class="card shadow p-4">
 
         <h2 class="text-center">
-
             Rate Our Smart Tourism Portal ⭐
-
         </h2>
 
 
         <form method="POST">
 
 
-            <!-- NAME -->
-
             <div class="mb-3">
 
                 <label>
-
                     Name
-
                 </label>
-
 
                 <input
                 type="text"
@@ -806,16 +836,11 @@ align-items: center;
 
 
 
-            <!-- EMAIL -->
-
             <div class="mb-3">
 
                 <label>
-
                     Email
-
                 </label>
-
 
                 <input
                 type="email"
@@ -828,14 +853,10 @@ align-items: center;
 
 
 
-            <!-- RATING -->
-
             <div class="mb-3">
 
                 <label>
-
                     Rating
-
                 </label>
 
 
@@ -845,37 +866,23 @@ align-items: center;
                 >
 
                     <option value="5">
-
                         ⭐⭐⭐⭐⭐ Excellent
-
                     </option>
-
 
                     <option value="4">
-
                         ⭐⭐⭐⭐ Good
-
                     </option>
-
 
                     <option value="3">
-
                         ⭐⭐⭐ Average
-
                     </option>
-
 
                     <option value="2">
-
                         ⭐⭐ Poor
-
                     </option>
 
-
                     <option value="1">
-
                         ⭐ Bad
-
                     </option>
 
                 </select>
@@ -884,14 +891,10 @@ align-items: center;
 
 
 
-            <!-- COMMENT -->
-
             <div class="mb-3">
 
                 <label>
-
                     Comment
-
                 </label>
 
 
@@ -904,8 +907,6 @@ align-items: center;
             </div>
 
 
-
-            <!-- SUBMIT BUTTON -->
 
             <button
             type="submit"
@@ -926,23 +927,15 @@ align-items: center;
 
 
 
-<!-- =====================================
-     FOOTER
-===================================== -->
+<!-- FOOTER -->
 
 <?php include("footer.php"); ?>
 
-
-
-<!-- Bootstrap JavaScript -->
 
 <script
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
 
-
-
-<!-- FAQ JavaScript -->
 
 <script>
 
