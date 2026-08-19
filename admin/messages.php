@@ -361,7 +361,7 @@ $result = mysqli_query($conn, $sql);
 
 
 <title>
-User Messages
+    Messages
 </title>
 
 
@@ -668,7 +668,7 @@ body {
 
             <i class="bi bi-envelope-fill"></i>
 
-            User Messages
+            Messages
 
         </span>
 
