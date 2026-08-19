@@ -14,55 +14,92 @@ if(!isset($_SESSION['admin'])){
 ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>
     Dashboard
 </title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
+
+
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+>
 
 
 <style>
 
 /* ===============================
-   BLUE + YELLOW THEME
+   BLUE + GREEN THEME
 ================================ */
+
+
+/* =================================
+   BODY
+================================= */
+
+body {
+
+    background-color: #f5f8fc;
+
+}
+
+
+
+/* =================================
+   NAVBAR
+================================= */
 
 .navbar-blue {
 
-    background-color: #0057B8;
+    background:
+        linear-gradient(
+            90deg,
+            #0057B8,
+            #008f5a
+        );
 
 }
 
 
-.btn-blue {
 
-    background-color: #0057B8;
+/* =================================
+   DASHBOARD TITLE
+================================= */
 
-    color: white;
+.dashboard-title {
 
-    border: none;
+    font-size: 3rem;
 
-}
+    font-weight: 700;
 
+    color: #0057B8;
 
-.btn-blue:hover {
-
-    background-color: #003F88;
-
-    color: white;
+    margin-bottom: 35px;
 
 }
 
+
+
+/* =================================
+   BLUE TEXT
+================================= */
 
 .text-blue {
 
@@ -71,38 +108,183 @@ if(!isset($_SESSION['admin'])){
 }
 
 
+
+/* =================================
+   CARDS
+================================= */
+
 .card {
+
+    border: none;
 
     border-top: 4px solid #FFD700;
 
-    transition: 0.3s;
+    border-radius: 12px;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
 
 }
 
 
 .card:hover {
 
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.12) !important;
 
 }
 
 
-.btn-yellow {
 
-    background-color: #FFD700;
+/* =================================
+   CARD TITLE
+================================= */
 
-    color: #000;
+.card h4 {
+
+    font-size: 1.35rem;
+
+    font-weight: 600;
+
+    margin-top: 10px;
+
+    margin-bottom: 18px;
+
+}
+
+
+
+/* =================================
+   ICON
+================================= */
+
+.card i {
+
+    transition: 0.3s;
+
+}
+
+
+.card:hover i {
+
+    transform: scale(1.1);
+
+}
+
+
+
+/* =================================
+   BLUE + GREEN GRADIENT BUTTON
+================================= */
+
+.btn-blue {
+
+    background:
+        linear-gradient(
+            90deg,
+            #0057B8,
+            #008f5a
+        );
+
+    color: white;
 
     border: none;
 
+    font-weight: 600;
+
+    padding: 10px 25px;
+
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.3s;
+
 }
 
 
-.btn-yellow:hover {
 
-    background-color: #E6C200;
+/* =================================
+   BUTTON HOVER
+================================= */
 
-    color: #000;
+.btn-blue:hover {
+
+    background:
+        linear-gradient(
+            90deg,
+            #003f88,
+            #006f46
+        );
+
+    color: white;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,0.2);
+
+}
+
+
+
+/* =================================
+   LOGOUT BUTTON
+================================= */
+
+.logout-btn {
+
+    font-weight: 600;
+
+    border-radius: 8px;
+
+    padding: 8px 18px;
+
+}
+
+
+
+/* =================================
+   NAVBAR TITLE
+================================= */
+
+.navbar-brand {
+
+    font-size: 1.25rem;
+
+    font-weight: 600;
+
+}
+
+
+
+/* =================================
+   CARD BUTTON WIDTH
+================================= */
+
+.card .btn-blue {
+
+    min-width: 120px;
+
+}
+
+
+
+/* =================================
+   RESPONSIVE DASHBOARD TITLE
+================================= */
+
+@media (max-width: 768px) {
+
+    .dashboard-title {
+
+        font-size: 2.3rem;
+
+    }
 
 }
 
@@ -111,7 +293,7 @@ if(!isset($_SESSION['admin'])){
 </head>
 
 
-<body class="bg-light">
+<body>
 
 
 <!-- =================================
@@ -134,7 +316,7 @@ Smart Perlis Tourism Portal - Admin
 
 <a
     href="../logout.php"
-    class="btn btn-light"
+    class="btn btn-light logout-btn"
 >
 
 <i class="bi bi-box-arrow-right"></i>
@@ -157,11 +339,11 @@ Logout
 <div class="container mt-5">
 
 
-<h2 class="mb-4 text-center">
+<h2 class="dashboard-title text-center">
 
-<i class="bi bi-speedometer2 text-blue"></i>
+<i class="bi bi-speedometer2"></i>
 
-    Dashboard
+Dashboard
 
 </h2>
 
