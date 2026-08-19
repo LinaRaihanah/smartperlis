@@ -14,7 +14,7 @@ include("header.php");
     style="color:#0B2D5C;"
 >
 
-    Destination Ratings
+    Ratings
 
 </h2>
 
