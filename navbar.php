@@ -68,35 +68,17 @@
  
                 <!-- DESTINATIONS --> 
  
-                <li class="nav-item destination-dropdown"> 
+                <li class="nav-item"> 
  
                     <a 
-                        class="nav-link destination-button" 
-                        href="#"> 
+                        class="nav-link" 
+                        href="destinations.php"> 
  
                         <i class="bi bi-geo-alt-fill"></i> 
  
                         Destinations 
  
-                    </a>
-
-
-                    <div class="destination-menu">
-
-                        <a href="destinations.php">
-
-                            Destinations
-
-                        </a>
-
-
-                        <a href="transport.php">
-
-                            Transportation & Accommodation
-
-                        </a>
-
-                    </div>
+                    </a> 
  
                 </li> 
  
@@ -186,163 +168,146 @@
                 </li> 
  
  
-                <!-- ADMIN --> 
- 
-                <li class="nav-item"> 
- 
-                    <a 
-                        class="nav-link" 
-                        href="login.php"> 
- 
-                        <i class="bi bi-person-circle"></i> 
- 
-                        Admin 
- 
-                    </a> 
- 
-                </li> 
- 
- 
             </ul> 
  
         </div> 
  
     </div> 
  
-</nav>
-
-
-<style>
-
-/* ================================= */
-/* DESTINATION DROPDOWN */
-/* ================================= */
-
-.destination-dropdown {
-
-    position: relative;
-
-}
-
-
-/* ================================= */
-/* DROPDOWN MENU */
-/* ================================= */
-
-.destination-menu {
-
-    display: none;
-
-    position: absolute;
-
-    top: 100%;
-
-    left: 0;
-
-    min-width: 230px;
-
-    background: #FEFBEA;
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.15);
-
-    z-index: 9999;
-
-    padding: 5px 0;
-
-}
-
-
-/* ================================= */
-/* SHOW DROPDOWN WHEN HOVER */
-/* ================================= */
-
-.destination-dropdown:hover .destination-menu {
-
-    display: block;
-
-}
-
-
-/* ================================= */
-/* DROPDOWN LINK */
-/* ================================= */
-
-.destination-menu a {
-
-    display: block;
-
-    padding: 10px 15px;
-
-    color: #333;
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-}
-
-
-/* ================================= */
-/* DROPDOWN HOVER */
-/* ================================= */
-
-.destination-menu a:hover {
-
-    background: #e7ba75;
-
-    color: #198754;
-
-}
-
-
-/* ================================= */
-/* MOBILE */
-/* ================================= */
-
-@media (max-width: 991px) {
-
-    .destination-menu {
-
-        position: static;
-
-        box-shadow: none;
-
-        border-radius: 0;
-
-        background: transparent;
-
-        padding-left: 15px;
-
-    }
-
-
-    .destination-dropdown:hover .destination-menu {
-
-        display: block;
-
-    }
-
-
-    .destination-menu a {
-
-        color: #ffff;
-
-        padding: 8px 10px;
-
-    }
-
-
-    .destination-menu a:hover {
-
-        background: rgba(255,255,255,0.15);
-
-        color: white;
-
-    }
-
-}
-
+</nav> 
+ 
+ 
+<style> 
+ 
+/* ================================= */ 
+/* DESTINATION DROPDOWN */ 
+/* ================================= */ 
+ 
+.destination-dropdown { 
+ 
+    position: relative; 
+ 
+} 
+ 
+ 
+/* ================================= */ 
+/* DROPDOWN MENU */ 
+/* ================================= */ 
+ 
+.destination-menu { 
+ 
+    display: none; 
+ 
+    position: absolute; 
+ 
+    top: 100%; 
+ 
+    left: 0; 
+ 
+    min-width: 230px; 
+ 
+    background: #FEFBEA; 
+ 
+    border-radius: 8px; 
+ 
+    box-shadow: 
+        0 8px 20px rgba(0,0,0,0.15); 
+ 
+    z-index: 9999; 
+ 
+    padding: 5px 0; 
+ 
+} 
+ 
+ 
+/* ================================= */ 
+/* SHOW DROPDOWN WHEN HOVER */ 
+/* ================================= */ 
+ 
+.destination-dropdown:hover .destination-menu { 
+ 
+    display: block; 
+ 
+} 
+ 
+ 
+/* ================================= */ 
+/* DROPDOWN LINK */ 
+/* ================================= */ 
+ 
+.destination-menu a { 
+ 
+    display: block; 
+ 
+    padding: 10px 15px; 
+ 
+    color: #333; 
+ 
+    text-decoration: none; 
+ 
+    font-size: 14px; 
+ 
+} 
+ 
+ 
+/* ================================= */ 
+/* DROPDOWN HOVER */ 
+/* ================================= */ 
+ 
+.destination-menu a:hover { 
+ 
+    background: #e7ba75; 
+ 
+    color: #198754; 
+ 
+} 
+ 
+ 
+/* ================================= */ 
+/* MOBILE */ 
+/* ================================= */ 
+ 
+@media (max-width: 991px) { 
+ 
+    .destination-menu { 
+ 
+        position: static; 
+ 
+        box-shadow: none; 
+ 
+        border-radius: 0; 
+ 
+        background: transparent; 
+ 
+        padding-left: 15px; 
+ 
+    } 
+ 
+ 
+    .destination-dropdown:hover .destination-menu { 
+ 
+        display: block; 
+ 
+    } 
+ 
+ 
+    .destination-menu a { 
+ 
+        color: #ffff; 
+ 
+        padding: 8px 10px; 
+ 
+    } 
+ 
+ 
+    .destination-menu a:hover { 
+ 
+        background: rgba(255,255,255,0.15); 
+ 
+        color: white; 
+ 
+    } 
+ 
+} 
+ 
 </style>

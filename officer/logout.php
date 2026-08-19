@@ -2,11 +2,26 @@
 
 session_start();
 
-session_unset();
+
+// =====================================
+// CLEAR ALL SESSION DATA
+// =====================================
+
+$_SESSION = array();
+
+
+// =====================================
+// DESTROY SESSION
+// =====================================
 
 session_destroy();
 
-header("Location: login.php");
+
+// =====================================
+// REDIRECT
+// =====================================
+
+header("Location: index.php");
 
 exit();
 

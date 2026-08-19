@@ -37,24 +37,221 @@ if (!isset($_SESSION['admin'])) {
     </title>
 
 
+    <!-- Bootstrap -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* ================================
+           BLUE + YELLOW THEME
+        ================================= */
+
+        body {
+
+            background-color: #f5f8fc;
+
+        }
+
+
+        /* ================================
+           NAVBAR
+        ================================= */
+
+        .navbar-blue {
+
+            background-color: #0057B8;
+
+        }
+
+
+        /* ================================
+           MAIN CARD
+        ================================= */
+
+        .report-card {
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.08);
+
+        }
+
+
+        /* ================================
+           CARD HEADER
+        ================================= */
+
+        .report-header {
+
+            background-color: #0057B8;
+
+            color: white;
+
+            padding: 18px 20px;
+
+            border-bottom: 4px solid #FFD700;
+
+        }
+
+
+        .report-header h4 {
+
+            margin: 0;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ================================
+           TABLE
+        ================================= */
+
+        .visitor-table {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .visitor-table thead {
+
+            background-color: #0057B8;
+
+            color: white;
+
+        }
+
+
+        .visitor-table thead th {
+
+            padding: 14px;
+
+            border: none;
+
+            font-weight: 600;
+
+        }
+
+
+        /* Yellow line */
+
+        .visitor-table thead tr {
+
+            border-bottom: 4px solid #FFD700;
+
+        }
+
+
+        /* Table body */
+
+        .visitor-table tbody td {
+
+            padding: 14px;
+
+            vertical-align: middle;
+
+        }
+
+
+        /* Alternating rows */
+
+        .visitor-table tbody tr:nth-child(even) {
+
+            background-color: #F0F6FF;
+
+        }
+
+
+        .visitor-table tbody tr:nth-child(odd) {
+
+            background-color: #FFFFFF;
+
+        }
+
+
+        /* Hover */
+
+        .visitor-table tbody tr:hover {
+
+            background-color: #FFF8D6;
+
+            transition: 0.2s;
+
+        }
+
+
+        /* ================================
+           VIEW COUNT
+        ================================= */
+
+        .view-badge {
+
+            background-color: #FFD700;
+
+            color: #000;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ================================
+           NUMBER BADGE
+        ================================= */
+
+        .number-badge {
+
+            background-color: #0057B8;
+
+            color: white;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-weight: bold;
+
+        }
+
+    </style>
+
 </head>
 
 
-<body class="bg-light">
+<body>
 
 
 <!-- ================================
      NAVBAR
 ================================ -->
 
-<nav class="navbar navbar-dark bg-success shadow">
+<nav class="navbar navbar-dark navbar-blue">
 
     <div class="container">
+
 
         <span class="navbar-brand fw-bold">
 
@@ -67,15 +264,20 @@ if (!isset($_SESSION['admin'])) {
 
         <a
             href="dashboard.php"
-            class="btn btn-light">
+            class="btn btn-light"
+        >
+
+            <i class="bi bi-speedometer2"></i>
 
             Dashboard
 
         </a>
 
+
     </div>
 
 </nav>
+
 
 
 <!-- ================================
@@ -87,11 +289,16 @@ if (!isset($_SESSION['admin'])) {
 
     <!-- MOST VIEWED -->
 
-    <div class="card shadow">
+    <div class="report-card">
 
-        <div class="card-header bg-success text-white">
 
-            <h4 class="mb-0">
+        <!-- CARD HEADER -->
+
+        <div class="report-header">
+
+            <h4>
+
+                <i class="bi bi-eye-fill"></i>
 
                 Most Viewed Destination
 
@@ -100,35 +307,48 @@ if (!isset($_SESSION['admin'])) {
         </div>
 
 
-        <div class="card-body">
+
+        <!-- CARD BODY -->
+
+        <div class="p-3">
 
 
             <div class="table-responsive">
 
 
                 <table
-                    class="table table-bordered table-hover align-middle"
+                    class="table visitor-table"
                 >
 
-                    <thead class="table-success">
+
+                    <thead>
 
                         <tr>
 
                             <th width="10%">
+
                                 No.
+
                             </th>
+
 
                             <th>
+
                                 Destination
+
                             </th>
 
+
                             <th width="25%">
+
                                 Total View
+
                             </th>
 
                         </tr>
 
                     </thead>
+
 
 
                     <tbody>
@@ -178,50 +398,60 @@ $result = mysqli_query($conn, $sql);
 
 if (!$result) {
 
-    echo '
+?>
 
-        <tr>
 
-            <td
-                colspan="3"
-                class="text-center text-danger">
+                        <tr>
 
-                Database Error:
+                            <td
+                                colspan="3"
+                                class="text-center text-danger py-4"
+                            >
 
-                ' .
+                                <i class="bi bi-exclamation-triangle-fill"></i>
 
-                htmlspecialchars(
-                    mysqli_error($conn)
-                )
+                                Database Error:
 
-                . '
+                                <?php
 
-            </td>
+                                echo htmlspecialchars(
+                                    mysqli_error($conn)
+                                );
 
-        </tr>
+                                ?>
 
-    ';
+                            </td>
+
+                        </tr>
+
+
+<?php
 
 }
 
 
 elseif (mysqli_num_rows($result) == 0) {
 
-    echo '
+?>
 
-        <tr>
 
-            <td
-                colspan="3"
-                class="text-center">
+                        <tr>
 
-                No visitor data available.
+                            <td
+                                colspan="3"
+                                class="text-center py-4"
+                            >
 
-            </td>
+                                <i class="bi bi-bar-chart"></i>
 
-        </tr>
+                                No visitor data available.
 
-    ';
+                            </td>
+
+                        </tr>
+
+
+<?php
 
 }
 
@@ -241,14 +471,26 @@ else {
 
                         <tr>
 
+
+                            <!-- NUMBER -->
+
                             <td>
 
-                                <?php
-                                echo $no;
-                                ?>
+                                <span class="number-badge">
+
+                                    <?php
+
+                                    echo $no;
+
+                                    ?>
+
+                                </span>
 
                             </td>
 
+
+
+                            <!-- DESTINATION -->
 
                             <td>
 
@@ -267,11 +509,14 @@ else {
                             </td>
 
 
+
+                            <!-- TOTAL VIEW -->
+
                             <td>
 
-                                <span
-                                    class="badge bg-success fs-6"
-                                >
+                                <span class="view-badge">
+
+                                    <i class="bi bi-eye-fill"></i>
 
                                     <?php
 
@@ -279,11 +524,10 @@ else {
 
                                     ?>
 
-                                    views
-
                                 </span>
 
                             </td>
+
 
                         </tr>
 

@@ -20,190 +20,387 @@ if(!isset($_SESSION['admin'])){
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>
-Admin Dashboard
+    Dashboard
 </title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Bootstrap -->
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet"
+>
+
+
+<!-- Bootstrap Icons -->
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+rel="stylesheet"
+>
+
 
 <style>
 
 /* ===============================
-   BLUE + YELLOW THEME
+   GENERAL
+================================ */
+
+body {
+
+    background-color: #f5f8fc;
+
+}
+
+
+/* ===============================
+   NAVBAR
 ================================ */
 
 .navbar-blue {
+
     background-color: #0057B8;
+
 }
 
-.btn-blue {
-    background-color: #0057B8;
-    color: white;
-    border: none;
+
+.navbar-brand {
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
+
 }
 
-.btn-blue:hover {
-    background-color: #003F88;
-    color: white;
-}
 
-.text-blue {
+/* ===============================
+   DASHBOARD TITLE
+================================ */
+
+.dashboard-title {
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
     color: #0057B8;
+
+    margin-bottom: 40px;
+
 }
+
+
+.dashboard-title i {
+
+    font-size: 2.8rem;
+
+}
+
+
+/* ===============================
+   CARDS
+================================ */
 
 .card {
-    border-top: 4px solid #FFD700;
+
+    border: none;
+
+    border-top: 5px solid #FFD700;
+
+    border-radius: 12px;
+
+    background-color: white;
+
     transition: 0.3s;
+
 }
+
 
 .card:hover {
-    transform: translateY(-5px);
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.15) !important;
+
 }
 
-.btn-yellow {
-    background-color: #FFD700;
-    color: #000;
-    border: none;
+
+/* ===============================
+   CARD ICON
+================================ */
+
+.card-icon {
+
+    font-size: 3rem;
+
+    color: #0057B8;
+
+    margin-bottom: 10px;
+
 }
 
-.btn-yellow:hover {
-    background-color: #E6C200;
-    color: #000;
+
+/* ===============================
+   CARD TITLE
+================================ */
+
+.card h4 {
+
+    font-size: 1.4rem;
+
+    font-weight: 600;
+
+    color: #333;
+
+    margin-bottom: 18px;
+
 }
+
+
+/* ===============================
+   PASTEL YELLOW BUTTON
+================================ */
+
+.btn-pastel {
+
+    background-color: #FFF3B0;
+
+    color: #0057B8;
+
+    border: 2px solid #FFE680;
+
+    font-weight: 600;
+
+    padding: 10px 28px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+
+}
+
+
+/* ===============================
+   BUTTON HOVER
+================================ */
+
+.btn-pastel:hover {
+
+    background-color: #FFE680;
+
+    color: #003F88;
+
+    border-color: #FFD966;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.12);
+
+}
+
+
+/* ===============================
+   LOGOUT
+================================ */
+
+.logout-btn {
+
+    font-weight: 600;
+
+    border-radius: 7px;
+
+}
+
 
 </style>
 
 </head>
 
-<body class="bg-light">
+
+<body>
 
 
-<!-- Navbar -->
+<!-- =================================
+     NAVBAR
+================================= -->
 
 <nav class="navbar navbar-dark navbar-blue">
 
 <div class="container">
 
+
 <span class="navbar-brand">
+
+<i class="bi bi-geo-alt-fill"></i>
 
 Smart Perlis Tourism Portal - Admin
 
 </span>
 
-<a href="../logout.php"
 
-class="btn btn-light">
+<a
+href="../logout.php"
+class="btn btn-light logout-btn"
+>
+
+<i class="bi bi-box-arrow-right"></i>
 
 Logout
 
 </a>
+
 
 </div>
 
 </nav>
 
 
+
+<!-- =================================
+     DASHBOARD
+================================= -->
+
 <div class="container mt-5">
 
-<h2 class="mb-4 text-center">
+
+<h2 class="dashboard-title text-center">
+
+<i class="bi bi-speedometer2"></i>
 
 Dashboard
 
 </h2>
 
 
+
 <div class="row g-4">
 
 
-<!-- Destination -->
+
+<!-- =================================
+     DESTINATION
+================================= -->
 
 <div class="col-md-4">
 
 <div class="card shadow p-4 text-center">
 
-<i class="bi bi-geo-alt-fill fs-1 text-blue"></i>
+
+<i class="bi bi-geo-alt-fill card-icon"></i>
+
 
 <h4>
 
-Manage Destination
+Destination
 
 </h4>
 
-<a href="manage_destination.php" 
-class="btn btn-blue">
+
+<a
+href="manage_destination.php"
+class="btn btn-pastel"
+>
 
 Manage
 
 </a>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- Event -->
+
+
+<!-- =================================
+     EVENT
+================================= -->
 
 <div class="col-md-4">
 
 <div class="card shadow p-4 text-center">
 
-<i class="bi bi-calendar-event fs-1 text-blue"></i>
+
+<i class="bi bi-calendar-event card-icon"></i>
+
 
 <h4>
 
-Manage Event
+Event
 
 </h4>
 
-<a href="manage_event.php"
-class="btn btn-blue">
+
+<a
+href="manage_event.php"
+class="btn btn-pastel"
+>
 
 Manage
 
 </a>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- Gallery -->
+
+
+<!-- =================================
+     GALLERY
+================================= -->
 
 <div class="col-md-4">
 
 <div class="card shadow p-4 text-center">
 
-<i class="bi bi-images fs-1 text-blue"></i>
+
+<i class="bi bi-images card-icon"></i>
+
 
 <h4>
 
-Gallery 
+Gallery
 
 </h4>
 
-<a href="manage_gallery.php"
-class="btn btn-blue">
+
+<a
+href="manage_gallery.php"
+class="btn btn-pastel"
+>
 
 Manage
 
 </a>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- Visitor Rating -->
+
+
+<!-- =================================
+     VISITOR RATING
+================================= -->
 
 <div class="col-md-4">
 
 <div class="card shadow p-4 text-center">
 
-<i class="bi bi-star-fill fs-1 text-blue"></i>
+
+<i class="bi bi-star-fill card-icon"></i>
+
 
 <h4>
 
@@ -211,25 +408,34 @@ Visitor Rating
 
 </h4>
 
-<a href="manage_rating.php"
-class="btn btn-blue">
+
+<a
+href="manage_rating.php"
+class="btn btn-pastel"
+>
 
 View
 
 </a>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- Messages -->
+
+
+<!-- =================================
+     MESSAGES
+================================= -->
 
 <div class="col-md-4">
 
 <div class="card shadow p-4 text-center">
 
-<i class="bi bi-envelope-fill fs-1 text-blue"></i>
+
+<i class="bi bi-envelope-fill card-icon"></i>
+
 
 <h4>
 
@@ -237,25 +443,34 @@ Messages
 
 </h4>
 
-<a href="messages.php"
-class="btn btn-blue">
+
+<a
+href="messages.php"
+class="btn btn-pastel"
+>
 
 Respond
 
 </a>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- Visitor Analytics -->
+
+
+<!-- =================================
+     VISITOR ANALYTICS
+================================= -->
 
 <div class="col-md-4">
 
 <div class="card shadow p-4 text-center">
 
-<i class="bi bi-bar-chart-fill fs-1 text-blue"></i>
+
+<i class="bi bi-bar-chart-fill card-icon"></i>
+
 
 <h4>
 
@@ -263,16 +478,21 @@ Visitor Analytics
 
 </h4>
 
-<a href="visitor_report.php"
-class="btn btn-blue">
+
+<a
+href="visitor_report.php"
+class="btn btn-pastel"
+>
 
 View
 
 </a>
 
+
 </div>
 
 </div>
+
 
 
 </div>

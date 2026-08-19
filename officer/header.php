@@ -1,5 +1,7 @@
 <?php
+
 include("auth.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +13,8 @@ include("auth.php");
 <meta charset="UTF-8">
 
 <meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
 >
 
 <title>
@@ -20,13 +22,13 @@ Officer Dashboard - Smart Perlis Tourism Portal
 </title>
 
 <link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
 >
 
 <link
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
 >
 
 <style>
@@ -103,7 +105,9 @@ body {
 <div class="row">
 
 
-<!-- SIDEBAR -->
+<!-- =====================================
+     SIDEBAR
+===================================== -->
 
 <div class="col-md-3 col-lg-2 sidebar p-0">
 
@@ -129,7 +133,7 @@ Smart Perlis Tourism Portal
 
 <a href="dashboard.php">
 
-<i class="bi bi-speedometer2"></i>
+<i class="bi bi-speedometer2 me-2"></i>
 
 Dashboard
 
@@ -138,7 +142,7 @@ Dashboard
 
 <a href="destinations.php">
 
-<i class="bi bi-geo-alt"></i>
+<i class="bi bi-geo-alt me-2"></i>
 
 Destinations
 
@@ -147,7 +151,7 @@ Destinations
 
 <a href="events.php">
 
-<i class="bi bi-calendar-event"></i>
+<i class="bi bi-calendar-event me-2"></i>
 
 Events
 
@@ -156,7 +160,7 @@ Events
 
 <a href="gallery.php">
 
-<i class="bi bi-images"></i>
+<i class="bi bi-images me-2"></i>
 
 Gallery
 
@@ -165,7 +169,7 @@ Gallery
 
 <a href="ratings.php">
 
-<i class="bi bi-star"></i>
+<i class="bi bi-star me-2"></i>
 
 Ratings
 
@@ -174,7 +178,7 @@ Ratings
 
 <a href="visitor_report.php">
 
-<i class="bi bi-bar-chart"></i>
+<i class="bi bi-bar-chart me-2"></i>
 
 Visitor Report
 
@@ -186,7 +190,7 @@ Visitor Report
 
 <a href="../logout.php">
 
-<i class="bi bi-box-arrow-right"></i>
+<i class="bi bi-box-arrow-right me-2"></i>
 
 Logout
 
@@ -196,10 +200,10 @@ Logout
 </div>
 
 
-
-<!-- MAIN -->
+<!-- =====================================
+     MAIN
+===================================== -->
 
 <div class="col-md-9 col-lg-10">
-
 
 <div class="p-4">
