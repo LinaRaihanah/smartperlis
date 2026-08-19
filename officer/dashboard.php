@@ -134,7 +134,7 @@ Officer Dashboard - Smart Perlis
 
 body {
 
-    background: #F4F7FB;
+    background: #FFFDF5;
 
     font-family: Arial, sans-serif;
 
@@ -162,8 +162,6 @@ body {
 }
 
 
-/* LOGO / BRAND */
-
 .navbar-brand {
 
     font-size: 1.35rem;
@@ -173,8 +171,6 @@ body {
 }
 
 
-/* USER NAME */
-
 .navbar .text-white {
 
     font-size: 0.95rem;
@@ -182,7 +178,9 @@ body {
 }
 
 
-/* LOGOUT BUTTON */
+/* =====================================
+   LOGOUT BUTTON
+===================================== */
 
 .logout-btn {
 
@@ -246,7 +244,7 @@ body {
 
     border-radius: 18px;
 
-    background: #ffffff;
+    background: #FFF9E8;
 
     transition: all 0.25s ease;
 
@@ -284,12 +282,16 @@ body {
 
     transform: translateY(-6px);
 
-    box-shadow: 0 12px 30px rgba(11, 45, 92, 0.15) !important;
+    box-shadow:
+        0 12px 30px
+        rgba(11, 45, 92, 0.15) !important;
 
 }
 
 
-/* STAT NUMBER */
+/* =====================================
+   STAT NUMBER
+===================================== */
 
 .stat-number {
 
@@ -300,7 +302,9 @@ body {
 }
 
 
-/* STAT LABEL */
+/* =====================================
+   STAT LABEL
+===================================== */
 
 .stat-label {
 
@@ -313,7 +317,9 @@ body {
 }
 
 
-/* STAT ICON */
+/* =====================================
+   STAT ICON
+===================================== */
 
 .stat-icon {
 
@@ -334,7 +340,9 @@ body {
 }
 
 
-/* ICON COLORS */
+/* =====================================
+   ICON COLORS
+===================================== */
 
 .destination-icon {
 
@@ -382,7 +390,7 @@ body {
 
     border-radius: 18px;
 
-    background: #ffffff;
+    background: #FFF9E8;
 
 }
 
@@ -422,7 +430,9 @@ body {
 
     transition: all 0.25s ease;
 
-    box-shadow: 0 5px 12px rgba(21, 101, 192, 0.2);
+    box-shadow:
+        0 5px 12px
+        rgba(21, 101, 192, 0.2);
 
 }
 
@@ -433,12 +443,12 @@ body {
 
     transform: translateY(-3px);
 
-    box-shadow: 0 9px 20px rgba(21, 101, 192, 0.3);
+    box-shadow:
+        0 9px 20px
+        rgba(21, 101, 192, 0.3);
 
 }
 
-
-/* ICON INSIDE BUTTON */
 
 .action-btn i {
 
