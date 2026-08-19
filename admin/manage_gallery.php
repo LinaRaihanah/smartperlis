@@ -141,7 +141,7 @@ if(isset($_POST['add'])){
 
 <title>
 
-Manage Gallery
+Gallery
 
 </title>
 
@@ -171,7 +171,7 @@ Manage Gallery
 
 <span class="navbar-brand">
 
-Manage Gallery
+Gallery
 
 </span>
 

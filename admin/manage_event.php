@@ -54,7 +54,7 @@ if (isset($_GET['delete'])) {
     >
 
     <title>
-        Manage Event
+        Event
     </title>
 
 
@@ -89,7 +89,7 @@ if (isset($_GET['delete'])) {
 
         <span class="navbar-brand">
 
-            Manage Event
+            Event
 
         </span>
 

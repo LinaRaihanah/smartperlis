@@ -55,7 +55,7 @@ if(isset($_GET['delete'])){
 
 
 <title>
-Manage Destination
+Destination
 </title>
 
 
@@ -83,7 +83,7 @@ Manage Destination
 
 <a class="navbar-brand">
 
-Manage Destination
+Destination
 
 </a>
 

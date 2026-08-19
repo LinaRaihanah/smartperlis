@@ -50,7 +50,7 @@ $avgData = mysqli_fetch_assoc($avgQuery);
 
 
 <title>
-Manage Rating
+Rating
 </title>
 
 
