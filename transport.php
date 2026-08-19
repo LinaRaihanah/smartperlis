@@ -618,7 +618,9 @@ body {
 
             Explore<br>
 
-            Transport in Perlis
+            Transport  and Places <br>
+            
+            to Stay in Perlis
 
         </h1>
 
@@ -680,7 +682,6 @@ body {
 
                 <div
                     class="area-card"
-                    onclick="openGoogleMaps('Kangar')"
                 >
 
                     <div class="area-icon">
@@ -763,7 +764,6 @@ body {
 
                 <div
                     class="area-card"
-                    onclick="openGoogleMaps('Arau')"
                 >
 
                     <div class="area-icon">
@@ -846,7 +846,6 @@ body {
 
                 <div
                     class="area-card"
-                    onclick="openGoogleMaps('Padang Besar')"
                 >
 
                     <div class="area-icon">
@@ -929,7 +928,6 @@ body {
 
                 <div
                     class="area-card"
-                    onclick="openGoogleMaps('Kuala Perlis')"
                 >
 
                     <div class="area-icon">
@@ -1130,25 +1128,26 @@ function openTransportationMap(
     event.stopPropagation();
 
 
+    var locations = {
+
+        "Kangar": "6.4414,100.1986,14z",
+
+        "Arau": "6.4310,100.2697,14z",
+
+        "Padang Besar": "6.6588,100.3217,14z",
+
+        "Kuala Perlis": "6.4000,100.1347,14z"
+
+    };
+
+
     var googleURL =
 
-        "https://www.google.com/maps/search/?api=1&query="
+        "https://www.google.com/maps/search/transportation/@"
 
         +
 
-        encodeURIComponent(
-
-            "transportation in "
-
-            +
-
-            area
-
-            +
-
-            ", Perlis"
-
-        );
+        locations[area];
 
 
     window.location.href = googleURL;
@@ -1174,25 +1173,26 @@ function openAccommodationMap(
     event.stopPropagation();
 
 
+    var locations = {
+
+        "Kangar": "6.4414,100.1986,14z",
+
+        "Arau": "6.4310,100.2697,14z",
+
+        "Padang Besar": "6.6588,100.3217,14z",
+
+        "Kuala Perlis": "6.4000,100.1347,14z"
+
+    };
+
+
     var googleURL =
 
-        "https://www.google.com/maps/search/?api=1&query="
+        "https://www.google.com/maps/search/hotels/@"
 
         +
 
-        encodeURIComponent(
-
-            "accommodation in "
-
-            +
-
-            area
-
-            +
-
-            ", Perlis"
-
-        );
+        locations[area];
 
 
     window.location.href = googleURL;
