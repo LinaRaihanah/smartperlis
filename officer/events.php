@@ -1,3 +1,4 @@
+```php
 <?php
 
 include("header.php");
@@ -20,7 +21,6 @@ if (isset($_GET['delete'])) {
     header("Location: events.php");
 
     exit();
-
 }
 
 
@@ -36,11 +36,13 @@ if (isset($_POST['add_event'])) {
             $_POST['event_name']
         );
 
-    $start_date =
-        $_POST['start_date'];
+    // START DATE
+    $date =
+        $_POST['event_date'];
 
+    // END DATE
     $end_date =
-        $_POST['end_date'];
+        $_POST['event_end_date'];
 
     $location =
         mysqli_real_escape_string(
@@ -70,8 +72,8 @@ if (isset($_POST['add_event'])) {
         "INSERT INTO events
         (
             event_name,
-            start_date,
-            end_date,
+            event_date,
+            event_end_date,
             location,
             description,
             image
@@ -81,7 +83,7 @@ if (isset($_POST['add_event'])) {
 
         (
             '$name',
-            '$start_date',
+            '$date',
             '$end_date',
             '$location',
             '$description',
@@ -102,11 +104,30 @@ if (isset($_POST['add_event'])) {
 <style>
 
 /* ======================================
-   PAGE THEME
+   COLOUR THEME
+====================================== */
+
+:root {
+
+    --navy: #0B2D5C;
+
+    --blue: #1565C0;
+
+    --yellow: #FFC107;
+
+    --background: #F4F7FB;
+
+}
+
+
+/* ======================================
+   PAGE BACKGROUND
 ====================================== */
 
 body {
-    background-color: #F4F7FB;
+
+    background-color: var(--background);
+
 }
 
 
@@ -115,19 +136,26 @@ body {
 ====================================== */
 
 .page-title {
-    color: #0B2D5C;
+
+    color: var(--navy);
+
     font-weight: 700;
+
 }
 
 
 /* ======================================
-   CARD
+   EVENT CARD
 ====================================== */
 
 .event-card {
+
     border: none;
+
     border-radius: 15px;
+
     overflow: hidden;
+
 }
 
 
@@ -135,42 +163,51 @@ body {
    TABLE HEADER
 ====================================== */
 
-.event-table thead {
-    background: #0B2D5C;
-    color: white;
-}
-
 .event-table thead th {
-    background: #0B2D5C;
+
+    background-color: var(--navy);
+
     color: white;
+
     border: none;
+
     padding: 14px;
+
+    white-space: nowrap;
+
 }
 
 
 /* ======================================
-   TABLE
+   TABLE BODY
 ====================================== */
 
 .event-table tbody td {
+
     vertical-align: middle;
+
     padding: 14px;
+
 }
 
+
 .event-table tbody tr:hover {
-    background-color: #eef4fb;
+
+    background-color: #EEF4FB;
+
 }
 
 
 /* ======================================
-   EVENT IMAGE
+   EVENT NAME
 ====================================== */
 
-.event-image {
-    width: 80px;
-    height: 55px;
-    object-fit: cover;
-    border-radius: 8px;
+.event-name {
+
+    color: var(--navy);
+
+    font-weight: 600;
+
 }
 
 
@@ -179,106 +216,183 @@ body {
 ====================================== */
 
 .date-badge {
+
     display: inline-block;
-    background: #FFF3CD;
-    color: #0B2D5C;
+
+    background-color: #FFF3CD;
+
+    color: var(--navy);
+
     padding: 6px 10px;
+
     border-radius: 8px;
+
     font-weight: 600;
+
+    white-space: nowrap;
+
 }
 
 
 /* ======================================
-   DURATION
+   DURATION BADGE
 ====================================== */
 
 .duration-badge {
+
     display: inline-block;
-    background: #E3F2FD;
-    color: #1565C0;
+
+    background-color: #E3F2FD;
+
+    color: var(--blue);
+
     padding: 6px 10px;
+
     border-radius: 8px;
+
     font-weight: 600;
+
+    white-space: nowrap;
+
 }
 
 
 /* ======================================
-   ADD BUTTON
+   IMAGE
+====================================== */
+
+.event-image {
+
+    width: 80px;
+
+    height: 55px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+}
+
+
+/* ======================================
+   ADD EVENT BUTTON
 ====================================== */
 
 .btn-add-event {
+
     background: linear-gradient(
         135deg,
-        #1565C0,
-        #FFC107
+        var(--blue),
+        var(--yellow)
     );
 
     border: none;
+
     color: white;
+
     font-weight: 600;
+
     padding: 10px 18px;
+
     border-radius: 8px;
 
     transition: 0.3s;
+
 }
 
+
 .btn-add-event:hover {
+
     transform: translateY(-2px);
+
     color: white;
-    box-shadow: 0 5px 15px rgba(21, 101, 192, 0.25);
+
+    box-shadow:
+        0 5px 15px
+        rgba(21, 101, 192, 0.25);
+
 }
 
 
 /* ======================================
-   MODAL
+   MODAL HEADER
 ====================================== */
 
 .modal-header {
-    background: #0B2D5C;
+
+    background-color: var(--navy);
+
     color: white;
+
 }
 
+
 .modal-header .btn-close {
+
     filter: brightness(0) invert(1);
+
 }
 
 
 /* ======================================
-   FORM
+   FORM LABEL
 ====================================== */
 
 .form-label {
-    color: #0B2D5C;
-    font-weight: 600;
-}
 
-.form-control:focus {
-    border-color: #1565C0;
-    box-shadow: 0 0 0 0.2rem rgba(21, 101, 192, 0.15);
+    color: var(--navy);
+
+    font-weight: 600;
+
 }
 
 
 /* ======================================
-   MODAL ADD BUTTON
+   FORM INPUT
+====================================== */
+
+.form-control:focus {
+
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(21, 101, 192, 0.15);
+
+}
+
+
+/* ======================================
+   SAVE BUTTON
 ====================================== */
 
 .btn-save-event {
+
     background: linear-gradient(
         135deg,
-        #1565C0,
-        #FFC107
+        var(--blue),
+        var(--yellow)
     );
 
     border: none;
+
     color: white;
+
     font-weight: 600;
+
     padding: 10px 20px;
+
     border-radius: 8px;
+
 }
 
+
 .btn-save-event:hover {
+
     color: white;
+
     opacity: 0.9;
+
 }
 
 
@@ -287,8 +401,22 @@ body {
 ====================================== */
 
 .btn-delete {
-    background: #dc3545;
+
     border: none;
+
+}
+
+
+/* ======================================
+   EMPTY END DATE
+====================================== */
+
+.no-date {
+
+    color: #888;
+
+    font-size: 14px;
+
 }
 
 </style>
@@ -298,10 +426,15 @@ body {
      PAGE HEADER
 ====================================== -->
 
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div
+    class="d-flex justify-content-between align-items-center mb-4"
+>
+
 
     <h2 class="page-title mb-0">
+
         Events
+
     </h2>
 
 
@@ -317,6 +450,7 @@ body {
 
     </button>
 
+
 </div>
 
 
@@ -327,11 +461,15 @@ body {
 
 <div class="card shadow-sm event-card">
 
+
     <div class="card-body">
+
 
         <div class="table-responsive">
 
+
             <table class="table table-hover event-table">
+
 
                 <thead>
 
@@ -363,12 +501,16 @@ body {
 
                 <?php
 
+                // ======================================
+                // GET EVENTS
+                // ======================================
+
                 $result =
                     mysqli_query(
                         $conn,
                         "SELECT *
                          FROM events
-                         ORDER BY start_date DESC"
+                         ORDER BY event_date DESC"
                     );
 
 
@@ -379,22 +521,35 @@ body {
 
 
                     // ======================================
-                    // CALCULATE EVENT DURATION
+                    // CALCULATE DURATION
                     // ======================================
 
-                    $start =
-                        new DateTime(
-                            $row['start_date']
-                        );
-
-                    $end =
-                        new DateTime(
-                            $row['end_date']
-                        );
+                    $duration = null;
 
 
-                    $duration =
-                        $start->diff($end)->days + 1;
+                    if (
+                        !empty(
+                            $row['event_end_date']
+                        )
+                    ) {
+
+                        $start =
+                            new DateTime(
+                                $row['event_date']
+                            );
+
+                        $end =
+                            new DateTime(
+                                $row['event_end_date']
+                            );
+
+
+                        $duration =
+                            $start
+                            ->diff($end)
+                            ->days + 1;
+
+                    }
 
                 ?>
 
@@ -407,7 +562,9 @@ body {
                     <td>
 
                         <?php
+
                         echo $row['event_id'];
+
                         ?>
 
                     </td>
@@ -417,7 +574,7 @@ body {
 
                     <td>
 
-                        <strong style="color:#0B2D5C;">
+                        <strong class="event-name">
 
                             <?php
 
@@ -443,7 +600,7 @@ body {
                             echo date(
                                 'd M Y',
                                 strtotime(
-                                    $row['start_date']
+                                    $row['event_date']
                                 )
                             );
 
@@ -458,20 +615,49 @@ body {
 
                     <td>
 
-                        <span class="date-badge">
+                        <?php
 
-                            <?php
+                        if (
+                            !empty(
+                                $row['event_end_date']
+                            )
+                        ) {
 
-                            echo date(
-                                'd M Y',
-                                strtotime(
-                                    $row['end_date']
-                                )
-                            );
+                        ?>
 
-                            ?>
+                            <span class="date-badge">
 
-                        </span>
+                                <?php
+
+                                echo date(
+                                    'd M Y',
+                                    strtotime(
+                                        $row['event_end_date']
+                                    )
+                                );
+
+                                ?>
+
+                            </span>
+
+                        <?php
+
+                        }
+                        else {
+
+                        ?>
+
+                            <span class="no-date">
+
+                                Not specified
+
+                            </span>
+
+                        <?php
+
+                        }
+
+                        ?>
 
                     </td>
 
@@ -480,23 +666,49 @@ body {
 
                     <td>
 
-                        <span class="duration-badge">
+                        <?php
 
-                            <?php
+                        if ($duration !== null) {
 
-                            echo $duration;
+                        ?>
 
-                            ?>
+                            <span class="duration-badge">
 
-                            <?php
+                                <?php
 
-                            echo ($duration == 1)
-                                ? ' Day'
-                                : ' Days';
+                                echo $duration;
 
-                            ?>
+                                ?>
 
-                        </span>
+                                <?php
+
+                                echo
+                                    ($duration == 1)
+                                    ? ' Day'
+                                    : ' Days';
+
+                                ?>
+
+                            </span>
+
+                        <?php
+
+                        }
+                        else {
+
+                        ?>
+
+                            <span class="no-date">
+
+                                Not specified
+
+                            </span>
+
+                        <?php
+
+                        }
+
+                        ?>
 
                     </td>
 
@@ -527,6 +739,7 @@ body {
                                 );
                             ?>"
                             class="event-image"
+                            alt="Event Image"
                         >
 
                     </td>
@@ -563,11 +776,15 @@ body {
 
                 </tbody>
 
+
             </table>
+
 
         </div>
 
+
     </div>
+
 
 </div>
 
@@ -594,6 +811,7 @@ body {
 
             <div class="modal-header">
 
+
                 <h5 class="modal-title">
 
                     <i class="bi bi-calendar-event"></i>
@@ -609,6 +827,7 @@ body {
                     data-bs-dismiss="modal"
                 >
                 </button>
+
 
             </div>
 
@@ -626,6 +845,7 @@ body {
 
                     <div class="mb-3">
 
+
                         <label class="form-label">
 
                             Event Name
@@ -641,11 +861,12 @@ body {
                             required
                         >
 
+
                     </div>
 
 
 
-                    <!-- START + END DATE -->
+                    <!-- START DATE + END DATE -->
 
                     <div class="row">
 
@@ -653,6 +874,7 @@ body {
                         <!-- START DATE -->
 
                         <div class="col-md-6 mb-3">
+
 
                             <label class="form-label">
 
@@ -663,18 +885,21 @@ body {
 
                             <input
                                 type="date"
-                                name="start_date"
-                                id="start_date"
+                                name="event_date"
+                                id="event_date"
                                 class="form-control"
                                 required
                             >
 
+
                         </div>
+
 
 
                         <!-- END DATE -->
 
                         <div class="col-md-6 mb-3">
+
 
                             <label class="form-label">
 
@@ -685,11 +910,11 @@ body {
 
                             <input
                                 type="date"
-                                name="end_date"
-                                id="end_date"
+                                name="event_end_date"
+                                id="event_end_date"
                                 class="form-control"
-                                required
                             >
+
 
                         </div>
 
@@ -701,6 +926,7 @@ body {
                     <!-- LOCATION -->
 
                     <div class="mb-3">
+
 
                         <label class="form-label">
 
@@ -717,6 +943,7 @@ body {
                             required
                         >
 
+
                     </div>
 
 
@@ -724,6 +951,7 @@ body {
                     <!-- DESCRIPTION -->
 
                     <div class="mb-3">
+
 
                         <label class="form-label">
 
@@ -740,6 +968,7 @@ body {
                             required
                         ></textarea>
 
+
                     </div>
 
 
@@ -747,6 +976,7 @@ body {
                     <!-- IMAGE -->
 
                     <div class="mb-3">
+
 
                         <label class="form-label">
 
@@ -762,11 +992,13 @@ body {
                             placeholder="event.jpg"
                         >
 
+
                         <small class="text-muted">
 
                             Example: event.jpg
 
                         </small>
+
 
                     </div>
 
@@ -812,7 +1044,9 @@ body {
 
         </div>
 
+
     </div>
+
 
 </div>
 
@@ -824,37 +1058,53 @@ body {
 
 <script>
 
-document
-    .getElementById("start_date")
-    .addEventListener("change", function() {
 
-        document
-            .getElementById("end_date")
-            .min = this.value;
-
-    });
+const startDate =
+    document.getElementById("event_date");
 
 
-document
-    .getElementById("end_date")
-    .addEventListener("change", function() {
-
-        let start =
-            document.getElementById("start_date").value;
-
-        let end =
-            this.value;
+const endDate =
+    document.getElementById("event_end_date");
 
 
-        if (start && end && end < start) {
 
-            alert("End date cannot be earlier than start date.");
+/*
+    Prevent end date from being
+    earlier than start date
+*/
 
-            this.value = "";
+startDate.addEventListener(
+    "change",
+    function() {
+
+        endDate.min = this.value;
+
+    }
+);
+
+
+
+endDate.addEventListener(
+    "change",
+    function() {
+
+        if (
+            startDate.value &&
+            endDate.value &&
+            endDate.value < startDate.value
+        ) {
+
+            alert(
+                "End date cannot be earlier than start date."
+            );
+
+            endDate.value = "";
 
         }
 
-    });
+    }
+);
+
 
 </script>
 
@@ -865,3 +1115,4 @@ document
 include("footer.php");
 
 ?>
+```
