@@ -67,6 +67,14 @@ Destination
 }
 
 
+/* Logo Icon */
+
+.logo-icon {
+    color: #FFD700;
+    font-size: 28px;
+}
+
+
 /* Main Blue Button */
 
 .btn-blue {
@@ -215,15 +223,28 @@ Destination
 
 <div class="container">
 
-<a class="navbar-brand">
 
-Destination
+<!-- Logo + Portal Name -->
+
+<a class="navbar-brand d-flex align-items-center gap-2">
+
+<i class="bi bi-geo-alt-fill logo-icon"></i>
+
+<span>
+
+Smart Perlis Tourism Portal
+
+</span>
 
 </a>
 
 
+<!-- Dashboard -->
+
 <a href="dashboard.php"
 class="btn btn-light">
+
+<i class="bi bi-speedometer2"></i>
 
 Dashboard
 
