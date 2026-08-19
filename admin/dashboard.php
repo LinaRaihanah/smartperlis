@@ -129,15 +129,14 @@ Dashboard
 
 <h4>
 
-Destination
+Manage Destination
 
 </h4>
 
-<a href="manage_destination.php"
-
+<a href="manage_destination.php" 
 class="btn btn-blue">
 
-Open
+Manage
 
 </a>
 
@@ -156,15 +155,14 @@ Open
 
 <h4>
 
-Event
+Manage Event
 
 </h4>
 
 <a href="manage_event.php"
-
 class="btn btn-blue">
 
-Open
+Manage
 
 </a>
 
@@ -183,15 +181,14 @@ Open
 
 <h4>
 
-Gallery
+Gallery 
 
 </h4>
 
 <a href="manage_gallery.php"
-
 class="btn btn-blue">
 
-Open
+Manage
 
 </a>
 
@@ -215,10 +212,9 @@ Visitor Rating
 </h4>
 
 <a href="manage_rating.php"
-
 class="btn btn-blue">
 
-Open
+View
 
 </a>
 
@@ -242,10 +238,9 @@ Messages
 </h4>
 
 <a href="messages.php"
-
 class="btn btn-blue">
 
-Open
+Respond
 
 </a>
 
@@ -269,10 +264,9 @@ Visitor Analytics
 </h4>
 
 <a href="visitor_report.php"
-
 class="btn btn-blue">
 
-Open
+View
 
 </a>
 
