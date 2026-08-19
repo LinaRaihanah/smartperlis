@@ -14,45 +14,34 @@ if(!isset($_SESSION['admin'])){
 ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
     Dashboard
 </title>
 
-
 <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet"
 >
 
-
 <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+rel="stylesheet"
 >
 
 
 <style>
 
 /* ===============================
-   BLUE + GREEN THEME
+   BLUE + YELLOW THEME
 ================================ */
-
-
-/* =================================
-   BODY
-================================= */
 
 body {
 
@@ -61,27 +50,20 @@ body {
 }
 
 
-
-/* =================================
+/* ===============================
    NAVBAR
-================================= */
+================================ */
 
 .navbar-blue {
 
-    background:
-        linear-gradient(
-            90deg,
-            #0057B8,
-            #008f5a
-        );
+    background-color: #0057B8;
 
 }
 
 
-
-/* =================================
+/* ===============================
    DASHBOARD TITLE
-================================= */
+================================ */
 
 .dashboard-title {
 
@@ -91,102 +73,93 @@ body {
 
     color: #0057B8;
 
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 
 }
 
 
+/* Dashboard Icon */
 
-/* =================================
-   BLUE TEXT
-================================= */
+.dashboard-title i {
 
-.text-blue {
-
-    color: #0057B8;
+    font-size: 3rem;
 
 }
 
 
-
-/* =================================
+/* ===============================
    CARDS
-================================= */
+================================ */
 
 .card {
 
     border: none;
 
-    border-top: 4px solid #FFD700;
+    border-top: 5px solid #FFD700;
 
     border-radius: 12px;
 
-    transition:
-        transform 0.3s,
-        box-shadow 0.3s;
+    transition: 0.3s;
+
+    background-color: white;
 
 }
 
 
 .card:hover {
 
-    transform: translateY(-6px);
+    transform: translateY(-7px);
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,0.12) !important;
+        0 8px 20px rgba(0,0,0,0.15) !important;
 
 }
 
 
+/* ===============================
+   CARD ICONS
+================================ */
 
-/* =================================
+.card-icon {
+
+    font-size: 3rem;
+
+    color: #0057B8;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* ===============================
    CARD TITLE
-================================= */
+================================ */
 
 .card h4 {
 
-    font-size: 1.35rem;
+    font-size: 1.4rem;
 
     font-weight: 600;
 
-    margin-top: 10px;
-
     margin-bottom: 18px;
 
-}
-
-
-
-/* =================================
-   ICON
-================================= */
-
-.card i {
-
-    transition: 0.3s;
+    color: #333;
 
 }
 
 
-.card:hover i {
+/* ===============================
+   BLUE + YELLOW GRADIENT BUTTON
+================================ */
 
-    transform: scale(1.1);
-
-}
-
-
-
-/* =================================
-   BLUE + GREEN GRADIENT BUTTON
-================================= */
-
-.btn-blue {
+.btn-gradient {
 
     background:
         linear-gradient(
             90deg,
-            #0057B8,
-            #008f5a
+            #0057B8 0%,
+            #0066CC 45%,
+            #FFD700 100%
         );
 
     color: white;
@@ -199,94 +172,58 @@ body {
 
     border-radius: 8px;
 
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s,
-        background 0.3s;
+    transition: 0.3s;
 
 }
 
 
+/* Button Hover */
 
-/* =================================
-   BUTTON HOVER
-================================= */
-
-.btn-blue:hover {
+.btn-gradient:hover {
 
     background:
         linear-gradient(
             90deg,
-            #003f88,
-            #006f46
+            #003F88 0%,
+            #0057B8 45%,
+            #E6C200 100%
         );
 
     color: white;
 
-    transform: translateY(-2px);
+    transform: scale(1.05);
 
     box-shadow:
-        0 5px 12px rgba(0,0,0,0.2);
+        0 4px 10px rgba(0,0,0,0.2);
 
 }
 
 
+/* ===============================
+   NAVBAR TITLE
+================================ */
 
-/* =================================
+.navbar-brand {
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
+
+}
+
+
+/* ===============================
    LOGOUT BUTTON
-================================= */
+================================ */
 
 .logout-btn {
 
     font-weight: 600;
 
-    border-radius: 8px;
-
-    padding: 8px 18px;
+    border-radius: 7px;
 
 }
 
-
-
-/* =================================
-   NAVBAR TITLE
-================================= */
-
-.navbar-brand {
-
-    font-size: 1.25rem;
-
-    font-weight: 600;
-
-}
-
-
-
-/* =================================
-   CARD BUTTON WIDTH
-================================= */
-
-.card .btn-blue {
-
-    min-width: 120px;
-
-}
-
-
-
-/* =================================
-   RESPONSIVE DASHBOARD TITLE
-================================= */
-
-@media (max-width: 768px) {
-
-    .dashboard-title {
-
-        font-size: 2.3rem;
-
-    }
-
-}
 
 </style>
 
@@ -362,7 +299,7 @@ Dashboard
 <div class="card shadow p-4 text-center">
 
 
-<i class="bi bi-geo-alt-fill fs-1 text-blue"></i>
+<i class="bi bi-geo-alt-fill card-icon"></i>
 
 
 <h4>
@@ -374,7 +311,7 @@ Destination
 
 <a
     href="manage_destination.php"
-    class="btn btn-blue"
+    class="btn btn-gradient"
 >
 
 Manage
@@ -397,7 +334,7 @@ Manage
 <div class="card shadow p-4 text-center">
 
 
-<i class="bi bi-calendar-event fs-1 text-blue"></i>
+<i class="bi bi-calendar-event card-icon"></i>
 
 
 <h4>
@@ -409,7 +346,7 @@ Event
 
 <a
     href="manage_event.php"
-    class="btn btn-blue"
+    class="btn btn-gradient"
 >
 
 Manage
@@ -432,7 +369,7 @@ Manage
 <div class="card shadow p-4 text-center">
 
 
-<i class="bi bi-images fs-1 text-blue"></i>
+<i class="bi bi-images card-icon"></i>
 
 
 <h4>
@@ -444,7 +381,7 @@ Gallery
 
 <a
     href="manage_gallery.php"
-    class="btn btn-blue"
+    class="btn btn-gradient"
 >
 
 Manage
@@ -467,7 +404,7 @@ Manage
 <div class="card shadow p-4 text-center">
 
 
-<i class="bi bi-star-fill fs-1 text-blue"></i>
+<i class="bi bi-star-fill card-icon"></i>
 
 
 <h4>
@@ -479,7 +416,7 @@ Visitor Rating
 
 <a
     href="manage_rating.php"
-    class="btn btn-blue"
+    class="btn btn-gradient"
 >
 
 View
@@ -502,7 +439,7 @@ View
 <div class="card shadow p-4 text-center">
 
 
-<i class="bi bi-envelope-fill fs-1 text-blue"></i>
+<i class="bi bi-envelope-fill card-icon"></i>
 
 
 <h4>
@@ -514,7 +451,7 @@ Messages
 
 <a
     href="messages.php"
-    class="btn btn-blue"
+    class="btn btn-gradient"
 >
 
 Respond
@@ -537,7 +474,7 @@ Respond
 <div class="card shadow p-4 text-center">
 
 
-<i class="bi bi-bar-chart-fill fs-1 text-blue"></i>
+<i class="bi bi-bar-chart-fill card-icon"></i>
 
 
 <h4>
@@ -549,7 +486,7 @@ Visitor Analytics
 
 <a
     href="visitor_report.php"
-    class="btn btn-blue"
+    class="btn btn-gradient"
 >
 
 View
