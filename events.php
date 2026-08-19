@@ -53,7 +53,10 @@ include("config.php");
 
     <style>
 
-        /* Navbar gradient warna Perlis */
+        /* =====================================
+           NAVBAR - PERLIS THEME
+        ===================================== */
+
         .navbar {
 
             background:
@@ -67,7 +70,9 @@ include("config.php");
         }
 
 
-        /* BODY COLOR */
+        /* =====================================
+           BODY
+        ===================================== */
 
         body {
 
@@ -76,7 +81,9 @@ include("config.php");
         }
 
 
-        /* HEADER FONT */
+        /* =====================================
+           HEADER
+        ===================================== */
 
         section h1 {
 
@@ -98,6 +105,53 @@ include("config.php");
         }
 
 
+        /* =====================================
+           CALENDAR ICON
+        ===================================== */
+
+        .calendar-icon {
+
+            color: #0057B8;
+
+        }
+
+
+        /* =====================================
+           EVENT ICONS
+        ===================================== */
+
+        .event-icon {
+
+            color: #0057B8;
+
+        }
+
+
+        /* =====================================
+           JOIN EVENT BUTTON
+        ===================================== */
+
+        .join-btn {
+
+            background-color: #0057B8;
+
+            border-color: #0057B8;
+
+            color: white;
+
+        }
+
+
+        .join-btn:hover {
+
+            background-color: #004494;
+
+            border-color: #004494;
+
+            color: white;
+
+        }
+
     </style>
 
 </head>
@@ -106,7 +160,9 @@ include("config.php");
 <body>
 
 
-<!-- NAVBAR -->
+<!-- ========================================
+     NAVBAR
+======================================== -->
 
 <?php include("navbar.php"); ?>
 
@@ -156,7 +212,7 @@ include("config.php");
 
     <h2 class="text-center mb-4">
 
-        <i class="bi bi-calendar3 text-success"></i>
+        <i class="bi bi-calendar3 calendar-icon"></i>
 
         Upcoming Events
 
@@ -289,13 +345,6 @@ elseif (mysqli_num_rows($result) > 0) {
         |--------------------------------------------------------------------------
         | DURATION
         |--------------------------------------------------------------------------
-        |
-        | Example:
-        |
-        | 01 Jun → 03 Jun
-        |
-        | = 3 days
-        |
         */
 
         $duration =
@@ -313,6 +362,7 @@ elseif (mysqli_num_rows($result) > 0) {
 ?>
 
 
+
         <!-- EVENT CARD -->
 
         <div class="col-md-4 mb-4">
@@ -324,16 +374,20 @@ elseif (mysqli_num_rows($result) > 0) {
 
                 <img
                     src="assets/images/<?php
+
                         echo htmlspecialchars(
                             $row['image']
                         );
+
                     ?>"
                     class="card-img-top"
                     style="height: 220px; object-fit: cover;"
                     alt="<?php
+
                         echo htmlspecialchars(
                             $row['event_name']
                         );
+
                     ?>"
                 >
 
@@ -362,7 +416,7 @@ elseif (mysqli_num_rows($result) > 0) {
                     <p>
 
                         <i
-                            class="bi bi-calendar-event text-success"
+                            class="bi bi-calendar-event event-icon"
                         ></i>
 
                         <strong>
@@ -386,7 +440,7 @@ elseif (mysqli_num_rows($result) > 0) {
                     <p>
 
                         <i
-                            class="bi bi-calendar-check text-success"
+                            class="bi bi-calendar-check event-icon"
                         ></i>
 
                         <strong>
@@ -410,7 +464,7 @@ elseif (mysqli_num_rows($result) > 0) {
                     <p>
 
                         <i
-                            class="bi bi-calendar-day text-success"
+                            class="bi bi-calendar-day event-icon"
                         ></i>
 
                         <strong>
@@ -432,7 +486,7 @@ elseif (mysqli_num_rows($result) > 0) {
                     <p>
 
                         <i
-                            class="bi bi-clock text-success"
+                            class="bi bi-clock event-icon"
                         ></i>
 
                         <strong>
@@ -464,7 +518,7 @@ elseif (mysqli_num_rows($result) > 0) {
                     <p>
 
                         <i
-                            class="bi bi-geo-alt text-success"
+                            class="bi bi-geo-alt event-icon"
                         ></i>
 
                         <strong>
@@ -505,7 +559,7 @@ elseif (mysqli_num_rows($result) > 0) {
 
                         <a
                             href="contact.php"
-                            class="btn btn-success"
+                            class="btn join-btn"
                         >
 
                             Join Event
@@ -559,7 +613,9 @@ else {
      FULLCALENDAR JAVASCRIPT
 ======================================== -->
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js">
+</script>
 
 
 <script>
@@ -569,11 +625,7 @@ document.addEventListener(
     function () {
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | CALENDAR ELEMENT
-        |--------------------------------------------------------------------------
-        */
+        /* CALENDAR ELEMENT */
 
         const calendarElement =
             document.getElementById(
@@ -581,11 +633,7 @@ document.addEventListener(
             );
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | CREATE CALENDAR
-        |--------------------------------------------------------------------------
-        */
+        /* CREATE CALENDAR */
 
         const calendar =
             new FullCalendar.Calendar(
@@ -593,30 +641,18 @@ document.addEventListener(
                 {
 
 
-                    /*
-                    |--------------------------------------------------------------------------
-                    | DEFAULT VIEW
-                    |--------------------------------------------------------------------------
-                    */
+                    /* DEFAULT VIEW */
 
                     initialView:
                         'dayGridMonth',
 
 
-                    /*
-                    |--------------------------------------------------------------------------
-                    | CALENDAR HEIGHT
-                    |--------------------------------------------------------------------------
-                    */
+                    /* CALENDAR HEIGHT */
 
                     height: 'auto',
 
 
-                    /*
-                    |--------------------------------------------------------------------------
-                    | HEADER
-                    |--------------------------------------------------------------------------
-                    */
+                    /* HEADER */
 
                     headerToolbar: {
 
@@ -632,21 +668,11 @@ document.addEventListener(
                     },
 
 
-                    /*
-                    |--------------------------------------------------------------------------
-                    | EVENTS FROM DATABASE
-                    |--------------------------------------------------------------------------
-                    */
+                    /* EVENTS FROM DATABASE */
 
                     events: [
 
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| GET EVENTS FOR CALENDAR
-|--------------------------------------------------------------------------
-*/
 
 $calendarSQL = "
 
@@ -683,11 +709,7 @@ if ($calendarResult) {
     ) {
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | START DATE
-        |--------------------------------------------------------------------------
-        */
+        /* START DATE */
 
         $start =
             new DateTime(
@@ -695,11 +717,7 @@ if ($calendarResult) {
             );
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | END DATE
-        |--------------------------------------------------------------------------
-        */
+        /* END DATE */
 
         $end =
             new DateTime(
@@ -714,24 +732,6 @@ if ($calendarResult) {
         |
         | FullCalendar uses an EXCLUSIVE end date.
         |
-        | Example:
-        |
-        | Database:
-        |
-        | Start = 01 Jun
-        | End   = 03 Jun
-        |
-        | We send:
-        |
-        | Start = 01 Jun
-        | End   = 04 Jun
-        |
-        | So FullCalendar displays:
-        |
-        | 01 Jun
-        | 02 Jun
-        | 03 Jun
-        |
         */
 
         $end->modify(
@@ -744,34 +744,42 @@ if ($calendarResult) {
 
                             id:
                                 <?php
+
                                 echo json_encode(
                                     $event['event_id']
                                 );
+
                                 ?>,
 
                             title:
                                 <?php
+
                                 echo json_encode(
                                     $event['event_name']
                                 );
+
                                 ?>,
 
                             start:
                                 <?php
+
                                 echo json_encode(
                                     $start->format(
                                         'Y-m-d'
                                     )
                                 );
+
                                 ?>,
 
                             end:
                                 <?php
+
                                 echo json_encode(
                                     $end->format(
                                         'Y-m-d'
                                     )
                                 );
+
                                 ?>,
 
                             allDay: true
@@ -789,32 +797,16 @@ if ($calendarResult) {
                     ],
 
 
-                    /*
-                    |--------------------------------------------------------------------------
-                    | WHEN USER CLICKS EVENT
-                    |--------------------------------------------------------------------------
-                    */
+
+                    /* EVENT CLICK */
 
                     eventClick:
                         function(info) {
 
 
-                            /*
-                            | Get event start
-                            */
-
                             const start =
                                 info.event.start;
 
-
-                            /*
-                            | Get event end
-                            |
-                            | FullCalendar's end is
-                            | exclusive, so subtract
-                            | one day to show the
-                            | actual database end date.
-                            */
 
                             let end = null;
 
@@ -833,9 +825,7 @@ if ($calendarResult) {
                             }
 
 
-                            /*
-                            | Format dates
-                            */
+                            /* FORMAT DATES */
 
                             const startText =
                                 start
@@ -863,9 +853,7 @@ if ($calendarResult) {
                                     : '-';
 
 
-                            /*
-                            | Show information
-                            */
+                            /* SHOW INFORMATION */
 
                             alert(
 
@@ -885,11 +873,7 @@ if ($calendarResult) {
             );
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | DISPLAY CALENDAR
-        |--------------------------------------------------------------------------
-        */
+        /* DISPLAY CALENDAR */
 
         calendar.render();
 
@@ -901,7 +885,9 @@ if ($calendarResult) {
 
 
 
-<!-- FOOTER -->
+<!-- ========================================
+     FOOTER
+======================================== -->
 
 <?php include("footer.php"); ?>
 
