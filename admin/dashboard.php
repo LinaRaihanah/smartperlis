@@ -1,11 +1,21 @@
 <?php
 
-// =====================================
-// SMART PERLIS
-// ADMIN DASHBOARD
-// =====================================
+session_start();
 
-require_once "auth.php";
+include("../config.php");
+
+
+// ========================================
+// CHECK ADMIN LOGIN
+// ========================================
+
+if (!isset($_SESSION['admin'])) {
+
+    header("Location: ../login.php");
+
+    exit();
+
+}
 
 ?>
 
@@ -23,15 +33,19 @@ require_once "auth.php";
 >
 
 <title>
-Admin Dashboard - Smart Perlis
+Admin Dashboard - Smart Perlis Tourism Portal
 </title>
 
+
+<!-- Bootstrap -->
 
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
 >
 
+
+<!-- Bootstrap Icons -->
 
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -41,65 +55,182 @@ Admin Dashboard - Smart Perlis
 
 <style>
 
+/* ========================================
+   BLUE + YELLOW THEME
+======================================== */
+
 body {
 
-    background:#f5f7f6;
+    background-color: #f5f8fc;
 
 }
 
 
-.navbar {
+/* ========================================
+   NAVBAR
+======================================== */
 
-    background:#003F7D !important;
+.navbar-blue {
 
-    border-bottom:4px solid #FFD700;
-
-}
-
-
-.admin-card {
-
-    border:none;
-
-    border-radius:18px;
-
-    transition:.25s;
+    background-color: #0057B8;
 
 }
 
 
-.admin-card:hover {
+/* ========================================
+   DASHBOARD TITLE
+======================================== */
 
-    transform:translateY(-5px);
+.dashboard-title {
 
-}
+    color: #0057B8;
 
-
-.card-icon {
-
-    font-size:45px;
-
-    color:#0057A8;
+    font-weight: 700;
 
 }
 
 
-.btn-perlis {
+/* ========================================
+   DASHBOARD CARDS
+======================================== */
 
-    background:#0057A8;
+.dashboard-card {
 
-    color:white;
+    background-color: white;
 
-    border:none;
+    border-radius: 12px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    transition: 0.2s;
+
+    height: 100%;
+
+    border-top: 4px solid #FFD700;
 
 }
 
 
-.btn-perlis:hover {
+.dashboard-card:hover {
 
-    background:#003F7D;
+    transform: translateY(-5px);
 
-    color:white;
+    box-shadow:
+        0 7px 18px rgba(0,0,0,0.12);
+
+}
+
+
+/* ========================================
+   ICON
+======================================== */
+
+.dashboard-icon {
+
+    font-size: 45px;
+
+    color: #0057B8;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* ========================================
+   CARD TITLE
+======================================== */
+
+.dashboard-card h5 {
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* ========================================
+   CARD TEXT
+======================================== */
+
+.dashboard-card p {
+
+    color: #666;
+
+    min-height: 45px;
+
+}
+
+
+/* ========================================
+   BLUE BUTTON
+======================================== */
+
+.btn-blue {
+
+    background-color: #0057B8;
+
+    color: white;
+
+    border: none;
+
+}
+
+
+.btn-blue:hover {
+
+    background-color: #003F88;
+
+    color: white;
+
+}
+
+
+/* ========================================
+   YELLOW BUTTON
+======================================== */
+
+.btn-yellow {
+
+    background-color: #FFD700;
+
+    color: #000;
+
+    border: none;
+
+}
+
+
+.btn-yellow:hover {
+
+    background-color: #E6C200;
+
+    color: #000;
+
+}
+
+
+/* ========================================
+   WELCOME CARD
+======================================== */
+
+.welcome-card {
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    border-left: 5px solid #0057B8;
 
 }
 
@@ -111,305 +242,356 @@ body {
 <body>
 
 
-<!-- NAVBAR -->
+<!-- ========================================
+     NAVBAR
+======================================== -->
 
-<nav class="navbar navbar-dark">
+<nav class="navbar navbar-dark navbar-blue">
 
-<div class="container">
-
-<span class="navbar-brand fw-bold">
-
-<i class="bi bi-shield-lock-fill"></i>
-
-Smart Perlis - Admin
-
-</span>
+    <div class="container">
 
 
-<div class="d-flex align-items-center gap-3">
+        <!-- LOGO / BRAND -->
 
-<span class="text-white">
+        <span class="navbar-brand fw-bold">
 
-<i class="bi bi-person-circle"></i>
+            <i class="bi bi-geo-alt-fill"></i>
 
-<?php
+            Smart Perlis Tourism Portal
 
-echo htmlspecialchars($_SESSION['username']);
-
-?>
-
-</span>
+        </span>
 
 
-<a
-    href="../logout.php"
-    class="btn btn-light btn-sm"
->
+        <!-- LOGOUT -->
 
-<i class="bi bi-box-arrow-right"></i>
+        <a
+            href="../logout.php"
+            class="btn btn-yellow"
+        >
 
-Logout
+            <i class="bi bi-box-arrow-right"></i>
 
-</a>
+            Logout
 
-</div>
+        </a>
 
-</div>
+
+    </div>
 
 </nav>
 
 
-<!-- CONTENT -->
 
-<div class="container py-5">
+<!-- ========================================
+     MAIN CONTENT
+======================================== -->
+
+<div class="container mt-5 mb-5">
 
 
-<div class="mb-5">
+    <!-- ====================================
+         WELCOME
+    ==================================== -->
 
-<h2 class="fw-bold">
+    <div class="welcome-card mb-5">
 
-Admin Dashboard
+        <h2 class="dashboard-title">
 
-</h2>
+            <i class="bi bi-speedometer2"></i>
 
-<p class="text-muted">
+            Admin Dashboard
 
-Manage Smart Perlis Tourism Portal
+        </h2>
 
-</p>
+
+        <p class="mb-0">
+
+            Welcome to the Smart Perlis Tourism Portal
+            Administration Panel.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- ====================================
+         MANAGEMENT MODULES
+    ==================================== -->
+
+    <div class="row g-4">
+
+
+        <!-- DESTINATION -->
+
+        <div class="col-md-4">
+
+            <div class="dashboard-card">
+
+
+                <i class="bi bi-geo-alt-fill dashboard-icon"></i>
+
+
+                <h5>
+
+                    Destination Management
+
+                </h5>
+
+
+                <p>
+
+                    Add, edit and manage tourism
+                    destinations in Perlis.
+
+                </p>
+
+
+                <a
+                    href="manage_destination.php"
+                    class="btn btn-blue"
+                >
+
+                    <i class="bi bi-arrow-right-circle"></i>
+
+                    Manage Destination
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- EVENTS -->
+
+        <div class="col-md-4">
+
+            <div class="dashboard-card">
+
+
+                <i class="bi bi-calendar-event-fill dashboard-icon"></i>
+
+
+                <h5>
+
+                    Event Management
+
+                </h5>
+
+
+                <p>
+
+                    Manage tourism events,
+                    dates and locations.
+
+                </p>
+
+
+                <a
+                    href="manage_event.php"
+                    class="btn btn-blue"
+                >
+
+                    <i class="bi bi-arrow-right-circle"></i>
+
+                    Manage Events
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- GALLERY -->
+
+        <div class="col-md-4">
+
+            <div class="dashboard-card">
+
+
+                <i class="bi bi-images dashboard-icon"></i>
+
+
+                <h5>
+
+                    Gallery Management
+
+                </h5>
+
+
+                <p>
+
+                    Upload and manage tourism
+                    gallery images.
+
+                </p>
+
+
+                <a
+                    href="manage_gallery.php"
+                    class="btn btn-blue"
+                >
+
+                    <i class="bi bi-arrow-right-circle"></i>
+
+                    Manage Gallery
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MESSAGES -->
+
+        <div class="col-md-4">
+
+            <div class="dashboard-card">
+
+
+                <i class="bi bi-envelope-fill dashboard-icon"></i>
+
+
+                <h5>
+
+                    User Messages
+
+                </h5>
+
+
+                <p>
+
+                    View visitor messages and
+                    reply to enquiries.
+
+                </p>
+
+
+                <a
+                    href="messages.php"
+                    class="btn btn-blue"
+                >
+
+                    <i class="bi bi-arrow-right-circle"></i>
+
+                    View Messages
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RATINGS -->
+
+        <div class="col-md-4">
+
+            <div class="dashboard-card">
+
+
+                <i class="bi bi-star-fill dashboard-icon"></i>
+
+
+                <h5>
+
+                    Visitor Ratings
+
+                </h5>
+
+
+                <p>
+
+                    View visitor ratings,
+                    comments and satisfaction.
+
+                </p>
+
+
+                <a
+                    href="rating.php"
+                    class="btn btn-blue"
+                >
+
+                    <i class="bi bi-arrow-right-circle"></i>
+
+                    View Ratings
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- VISITOR ANALYTICS -->
+
+        <div class="col-md-4">
+
+            <div class="dashboard-card">
+
+
+                <i class="bi bi-bar-chart-fill dashboard-icon"></i>
+
+
+                <h5>
+
+                    Visitor Analytics
+
+                </h5>
+
+
+                <p>
+
+                    View visitor statistics
+                    and destination popularity.
+
+                </p>
+
+
+                <a
+                    href="visitor_report.php"
+                    class="btn btn-blue"
+                >
+
+                    <i class="bi bi-arrow-right-circle"></i>
+
+                    View Analytics
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
 
 </div>
 
 
-<div class="row g-4">
-
-
-<!-- DESTINATION -->
-
-<div class="col-md-6 col-lg-4">
-
-<div class="card admin-card shadow-sm p-4 text-center h-100">
-
-<i class="bi bi-geo-alt-fill card-icon"></i>
-
-<h4 class="mt-3">
-
-Manage Destinations
-
-</h4>
-
-<p class="text-muted">
-
-Add, edit and remove tourism destinations.
-
-</p>
-
-<a
-    href="manage_destination.php"
-    class="btn btn-perlis"
->
-
-Open
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- EVENTS -->
-
-<div class="col-md-6 col-lg-4">
-
-<div class="card admin-card shadow-sm p-4 text-center h-100">
-
-<i class="bi bi-calendar-event-fill card-icon"></i>
-
-<h4 class="mt-3">
-
-Manage Events
-
-</h4>
-
-<p class="text-muted">
-
-Manage tourism events and activities.
-
-</p>
-
-<a
-    href="manage_event.php"
-    class="btn btn-perlis"
->
-
-Open
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- GALLERY -->
-
-<div class="col-md-6 col-lg-4">
-
-<div class="card admin-card shadow-sm p-4 text-center h-100">
-
-<i class="bi bi-images card-icon"></i>
-
-<h4 class="mt-3">
-
-Gallery Management
-
-</h4>
-
-<p class="text-muted">
-
-Manage tourism gallery images.
-
-</p>
-
-<a
-    href="manage_gallery.php"
-    class="btn btn-perlis"
->
-
-Open
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- RATINGS -->
-
-<div class="col-md-6 col-lg-4">
-
-<div class="card admin-card shadow-sm p-4 text-center h-100">
-
-<i class="bi bi-star-fill card-icon"></i>
-
-<h4 class="mt-3">
-
-Visitor Ratings
-
-</h4>
-
-<p class="text-muted">
-
-View and manage visitor ratings.
-
-</p>
-
-<a
-    href="manage_rating.php"
-    class="btn btn-perlis"
->
-
-Open
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- MESSAGES -->
-
-<div class="col-md-6 col-lg-4">
-
-<div class="card admin-card shadow-sm p-4 text-center h-100">
-
-<i class="bi bi-envelope-fill card-icon"></i>
-
-<h4 class="mt-3">
-
-Messages
-
-</h4>
-
-<p class="text-muted">
-
-View messages submitted by visitors.
-
-</p>
-
-<a
-    href="messages.php"
-    class="btn btn-perlis"
->
-
-Open
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- ANALYTICS -->
-
-<div class="col-md-6 col-lg-4">
-
-<div class="card admin-card shadow-sm p-4 text-center h-100">
-
-<i class="bi bi-bar-chart-fill card-icon"></i>
-
-<h4 class="mt-3">
-
-Visitor Analytics
-
-</h4>
-
-<p class="text-muted">
-
-View visitor statistics and reports.
-
-</p>
-
-<a
-    href="visitor_report.php"
-    class="btn btn-perlis"
->
-
-Open
-
-</a>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<!-- BACK TO WEBSITE -->
-
-<div class="text-center mt-5">
-
-<a
-    href="../index.php"
-    class="text-decoration-none"
->
-
-<i class="bi bi-arrow-left"></i>
-
-Back to Website
-
-</a>
-
-</div>
-
-
-</div>
+<!-- ========================================
+     BOOTSTRAP JS
+======================================== -->
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
 
 
 </body>
