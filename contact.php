@@ -2,36 +2,26 @@
 
 include("config.php");
 
-
 $message = "";
 
 
-// Contact form
+// =====================================
+// CONTACT FORM
+// =====================================
 
 if(isset($_POST['submit'])){
 
-
-    $name = mysqli_real_escape_string($conn,$_POST['name']);
-
-    $email = mysqli_real_escape_string($conn,$_POST['email']);
-
-    $subject = mysqli_real_escape_string($conn,$_POST['subject']);
-
-    $feedback = mysqli_real_escape_string($conn,$_POST['feedback']);
-
-
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $subject = mysqli_real_escape_string($conn, $_POST['subject']);
+    $feedback = mysqli_real_escape_string($conn, $_POST['feedback']);
 
     $sql = "INSERT INTO contact_messages
+            (name, email, subject, message)
+            VALUES
+            ('$name', '$email', '$subject', '$feedback')";
 
-    (name,email,subject,message)
-
-    VALUES
-
-    ('$name','$email','$subject','$feedback')";
-
-
-
-    if(mysqli_query($conn,$sql)){
+    if(mysqli_query($conn, $sql)){
 
         $message = "Message sent successfully!";
 
@@ -40,53 +30,44 @@ if(isset($_POST['submit'])){
 }
 
 
-
-// Rating form
+// =====================================
+// RATING FORM
+// =====================================
 
 if(isset($_POST['rate'])){
 
-
-    $name = mysqli_real_escape_string($conn,$_POST['rname']);
-
-    $email = mysqli_real_escape_string($conn,$_POST['remail']);
-
+    $name = mysqli_real_escape_string($conn, $_POST['rname']);
+    $email = mysqli_real_escape_string($conn, $_POST['remail']);
     $rating = $_POST['rating'];
+    $comment = mysqli_real_escape_string($conn, $_POST['comment']);
 
-    $comment = mysqli_real_escape_string($conn,$_POST['comment']);
-
-
-
-    mysqli_query($conn,
-
-    "INSERT INTO ratings
-
-    (name,email,rating,comment)
-
-    VALUES
-
-    ('$name','$email','$rating','$comment')"
-
+    mysqli_query(
+        $conn,
+        "INSERT INTO ratings
+        (name, email, rating, comment)
+        VALUES
+        ('$name', '$email', '$rating', '$comment')"
     );
-
-
 
     $message = "Thank you for your rating!";
 
 }
 
-
 ?>
 
 
-
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 
 <title>
@@ -94,18 +75,35 @@ Contact - Smart Perlis Tourism Portal
 </title>
 
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap -->
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet"
+>
 
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+rel="stylesheet"
+>
 
 
-<link rel="stylesheet" href="assets/css/style.css">
+<!-- Custom CSS -->
+
+<link
+rel="stylesheet"
+href="assets/css/style.css"
+>
 
 
 <style>
 
-/* BODY PAGE */
+/* =====================================
+   BODY
+===================================== */
 
 body {
 
@@ -114,7 +112,9 @@ body {
 }
 
 
-/* Navbar gradient warna Perlis */
+/* =====================================
+   NAVBAR
+===================================== */
 
 .navbar {
 
@@ -129,7 +129,9 @@ body {
 }
 
 
-/* HEADER FONT */
+/* =====================================
+   CONTACT HEADER
+===================================== */
 
 .contact-header h1 {
 
@@ -150,8 +152,138 @@ body {
 
 }
 
-</style>
 
+/* =====================================
+   TOURISM INFORMATION ICON
+===================================== */
+
+.info-icon {
+
+    color: #0057B8;
+
+    margin-right: 5px;
+
+}
+
+
+/* =====================================
+   BLUE BUTTON
+===================================== */
+
+.blue-btn {
+
+    background-color: #0057B8;
+
+    border-color: #0057B8;
+
+    color: white;
+
+    font-weight: 500;
+
+}
+
+
+.blue-btn:hover {
+
+    background-color: #004494;
+
+    border-color: #004494;
+
+    color: white;
+
+}
+
+
+/* =====================================
+   FAQ
+===================================== */
+
+.faq-item {
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    margin-bottom: 10px;
+
+    overflow: hidden;
+
+}
+
+
+.faq-question {
+
+    width: 100%;
+
+    border: none;
+
+    background: white;
+
+    padding: 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    text-align: left;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.faq-question:hover {
+
+    background: #fffbea;
+
+}
+
+
+.faq-arrow {
+
+    font-size: 14px;
+
+    transition: 0.3s;
+
+}
+
+
+.faq-answer {
+
+    display: none;
+
+    padding: 18px;
+
+    background: #f8f9fa;
+
+    border-top: 1px solid #ddd;
+
+    line-height: 1.6;
+
+}
+
+
+.faq-item.active .faq-answer {
+
+    display: block;
+
+}
+
+
+.faq-item.active .faq-arrow {
+
+    transform: rotate(180deg);
+
+}
+
+
+</style>
 
 </head>
 
@@ -159,16 +291,20 @@ body {
 <body>
 
 
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
 <?php include("navbar.php"); ?>
 
 
 
+<!-- =====================================
+     HEADER
+===================================== -->
 
-
-<!-- HEADER -->
-
-
-<section class="text-white text-center p-5 contact-header"
+<section
+class="text-white text-center p-5 contact-header"
 style="
 background-image: url('assets/images/header.jpg');
 background-size: cover;
@@ -179,407 +315,646 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-">
+"
+>
+
+    <h1>
+
+        Contact Us
+
+    </h1>
 
 
-<h1>
+    <p>
 
-Contact Us
+        Get in touch with Smart Perlis Tourism Portal
 
-</h1>
-
-
-<p>
-
-Get in touch with Smart Perlis Tourism Portal
-
-</p>
-
+    </p>
 
 </section>
 
 
 
-
-
-
+<!-- =====================================
+     CONTACT INFORMATION + CONTACT FORM
+===================================== -->
 
 <div class="container mt-5">
 
+    <div class="row">
 
-<div class="row">
 
+        <!-- CONTACT INFORMATION -->
 
+        <div class="col-md-5">
 
+            <div class="card shadow p-4">
 
+                <h3>
 
-<!-- CONTACT INFORMATION -->
+                    Tourism Information
 
+                </h3>
 
-<div class="col-md-5">
 
+                <hr>
 
-<div class="card shadow p-4">
 
+                <p>
 
-<h3>
+                    <i class="bi bi-geo-alt-fill info-icon"></i>
 
-Tourism Information
+                    Perlis, Malaysia
 
-</h3>
+                </p>
 
 
-<hr>
+                <p>
 
+                    <i class="bi bi-envelope-fill info-icon"></i>
 
+                    info@smartperlis.com
 
-<p>
+                </p>
 
-<i class="bi bi-geo-alt-fill text-success"></i>
 
-Perlis, Malaysia
+                <p>
 
-</p>
+                    <i class="bi bi-telephone-fill info-icon"></i>
 
+                    +604-0000000
 
+                </p>
 
-<p>
 
-<i class="bi bi-envelope-fill text-success"></i>
+                <p>
 
-info@smartperlis.com
+                    <i class="bi bi-clock-fill info-icon"></i>
 
-</p>
+                    Monday - Friday (8.00 AM - 5.00 PM)
 
+                </p>
 
+            </div>
 
-<p>
+        </div>
 
-<i class="bi bi-telephone-fill text-success"></i>
 
-+604-0000000
 
-</p>
+        <!-- CONTACT FORM -->
 
+        <div class="col-md-7">
 
+            <div class="card shadow p-4">
 
-<p>
+                <h3>
 
-<i class="bi bi-clock-fill text-success"></i>
+                    Send Message
 
-Monday - Friday (8.00 AM - 5.00 PM)
+                </h3>
 
-</p>
 
+                <!-- SUCCESS MESSAGE -->
 
-</div>
+                <?php
 
+                if($message != ""){
 
-</div>
+                ?>
 
+                    <div class="alert alert-success">
 
+                        <?php echo $message; ?>
 
+                    </div>
 
+                <?php
 
+                }
 
+                ?>
 
-<!-- CONTACT FORM -->
 
+                <form method="POST">
 
-<div class="col-md-7">
 
+                    <!-- NAME -->
 
-<div class="card shadow p-4">
+                    <div class="mb-3">
 
+                        <label>
 
-<h3>
+                            Name
 
-Send Message
+                        </label>
 
-</h3>
 
+                        <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        required
+                        >
 
+                    </div>
 
-<?php
 
-if($message!=""){
 
-?>
+                    <!-- EMAIL -->
 
-<div class="alert alert-success">
+                    <div class="mb-3">
 
-<?php echo $message; ?>
+                        <label>
 
-</div>
+                            Email
 
+                        </label>
 
-<?php
 
-}
+                        <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        required
+                        >
 
-?>
+                    </div>
 
 
 
+                    <!-- SUBJECT -->
 
+                    <div class="mb-3">
 
-<form method="POST">
+                        <label>
 
+                            Subject
 
+                        </label>
 
-<div class="mb-3">
 
+                        <input
+                        type="text"
+                        name="subject"
+                        class="form-control"
+                        required
+                        >
 
-<label>
+                    </div>
 
-Name
 
-</label>
 
+                    <!-- MESSAGE -->
 
-<input type="text"
-name="name"
-class="form-control"
-required>
+                    <div class="mb-3">
 
+                        <label>
 
-</div>
+                            Message
 
+                        </label>
 
 
+                        <textarea
+                        name="feedback"
+                        class="form-control"
+                        rows="5"
+                        required
+                        ></textarea>
 
+                    </div>
 
-<div class="mb-3">
 
 
-<label>
+                    <!-- SEND BUTTON -->
 
-Email
+                    <button
+                    type="submit"
+                    name="submit"
+                    class="btn blue-btn"
+                    >
 
-</label>
+                        Send
 
+                    </button>
 
-<input type="email"
-name="email"
-class="form-control"
-required>
 
+                </form>
 
-</div>
+            </div>
 
+        </div>
 
-
-
-
-
-<div class="mb-3">
-
-
-<label>
-
-Subject
-
-</label>
-
-
-<input type="text"
-name="subject"
-class="form-control"
-required>
-
-
-</div>
-
-
-
-
-
-
-<div class="mb-3">
-
-
-<label>
-
-Message
-
-</label>
-
-
-<textarea
-name="feedback"
-class="form-control"
-rows="5"
-required></textarea>
-
-
-</div>
-
-
-
-
-
-<button type="submit"
-name="submit"
-class="btn btn-success">
-
-
-Send
-
-
-</button>
-
-
-
-
-</form>
-
-
-
-</div>
-
+    </div>
 
 </div>
 
 
 
+<!-- =====================================
+     FAQ SECTION
+===================================== -->
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+
+        <h2 class="text-center mb-4">
+
+            Frequently Asked Questions
+
+        </h2>
+
+
+        <div class="faq-container">
+
+
+            <!-- FAQ 1 -->
+
+            <div class="faq-item">
+
+                <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+                >
+
+                    <span>
+
+                        What is Smart Perlis Tourism Portal?
+
+                    </span>
+
+
+                    <span class="faq-arrow">
+
+                        ▼
+
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Smart Perlis Tourism Portal is a tourism website
+                    that provides information about tourist attractions,
+                    events and tourism activities in Perlis.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 2 -->
+
+            <div class="faq-item">
+
+                <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+                >
+
+                    <span>
+
+                        What can I find on this website?
+
+                    </span>
+
+
+                    <span class="faq-arrow">
+
+                        ▼
+
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    You can find information about tourist attractions,
+                    tourism events, activities and other tourism
+                    information available in Perlis.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 3 -->
+
+            <div class="faq-item">
+
+                <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+                >
+
+                    <span>
+
+                        Do I need an account to use the portal?
+
+                    </span>
+
+
+                    <span class="faq-arrow">
+
+                        ▼
+
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    No. You can browse tourism information and explore
+                    attractions without an account. An account may be
+                    required for certain features.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 4 -->
+
+            <div class="faq-item">
+
+                <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+                >
+
+                    <span>
+
+                        How can I give feedback about the portal?
+
+                    </span>
+
+
+                    <span class="faq-arrow">
+
+                        ▼
+
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    You can send your feedback through the Contact Us
+                    form or submit a rating and comment in the rating
+                    section below.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 5 -->
+
+            <div class="faq-item">
+
+                <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+                >
+
+                    <span>
+
+                        How can I contact Smart Perlis Tourism Portal?
+
+                    </span>
+
+
+                    <span class="faq-arrow">
+
+                        ▼
+
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    You can contact us by using the contact information
+                    provided on this page or by sending a message through
+                    the Contact Us form.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </div>
 
 
-</div>
 
-
-
-
-
+<!-- =====================================
+     RATING SECTION
+===================================== -->
 
 <div class="container mt-5 mb-5">
 
+    <div class="card shadow p-4">
 
-<div class="card shadow p-4">
+        <h2 class="text-center">
 
+            Rate Our Smart Tourism Portal ⭐
 
-<h2 class="text-center">
-
-Rate Our Smart Tourism Portal ⭐
-
-</h2>
+        </h2>
 
 
-
-<form method="POST">
-
+        <form method="POST">
 
 
-<div class="mb-3">
+            <!-- NAME -->
 
-<label>Name</label>
+            <div class="mb-3">
 
-<input type="text"
-name="rname"
-class="form-control"
-required>
+                <label>
+
+                    Name
+
+                </label>
+
+
+                <input
+                type="text"
+                name="rname"
+                class="form-control"
+                required
+                >
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="mb-3">
+
+                <label>
+
+                    Email
+
+                </label>
+
+
+                <input
+                type="email"
+                name="remail"
+                class="form-control"
+                required
+                >
+
+            </div>
+
+
+
+            <!-- RATING -->
+
+            <div class="mb-3">
+
+                <label>
+
+                    Rating
+
+                </label>
+
+
+                <select
+                name="rating"
+                class="form-control"
+                >
+
+                    <option value="5">
+
+                        ⭐⭐⭐⭐⭐ Excellent
+
+                    </option>
+
+
+                    <option value="4">
+
+                        ⭐⭐⭐⭐ Good
+
+                    </option>
+
+
+                    <option value="3">
+
+                        ⭐⭐⭐ Average
+
+                    </option>
+
+
+                    <option value="2">
+
+                        ⭐⭐ Poor
+
+                    </option>
+
+
+                    <option value="1">
+
+                        ⭐ Bad
+
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- COMMENT -->
+
+            <div class="mb-3">
+
+                <label>
+
+                    Comment
+
+                </label>
+
+
+                <textarea
+                name="comment"
+                class="form-control"
+                rows="4"
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- SUBMIT BUTTON -->
+
+            <button
+            type="submit"
+            name="rate"
+            class="btn blue-btn"
+            >
+
+                Submit
+
+            </button>
+
+
+        </form>
+
+    </div>
 
 </div>
 
 
 
-
-<div class="mb-3">
-
-<label>Email</label>
-
-<input type="email"
-name="remail"
-class="form-control"
-required>
-
-</div>
-
-
-
-
-<div class="mb-3">
-
-<label>Rating</label>
-
-
-<select name="rating"
-class="form-control">
-
-
-<option value="5">
-⭐⭐⭐⭐⭐ Excellent
-</option>
-
-
-<option value="4">
-⭐⭐⭐⭐ Good
-</option>
-
-
-<option value="3">
-⭐⭐⭐ Average
-</option>
-
-
-<option value="2">
-⭐⭐ Poor
-</option>
-
-
-<option value="1">
-⭐ Bad
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-<div class="mb-3">
-
-<label>Comment</label>
-
-
-<textarea name="comment"
-class="form-control"
-rows="4"></textarea>
-
-
-</div>
-
-
-
-
-<button type="submit"
-name="rate"
-class="btn btn-success">
-
-
-Submit
-
-
-</button>
-
-
-
-</form>
-
-
-
-</div>
-
-
-</div>
-
+<!-- =====================================
+     FOOTER
+===================================== -->
 
 <?php include("footer.php"); ?>
 
+
+
+<!-- Bootstrap JavaScript -->
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- FAQ JavaScript -->
+
+<script>
+
+function toggleFAQ(button) {
+
+    var faqItem = button.parentElement;
+
+    faqItem.classList.toggle("active");
+
+}
+
+</script>
 
 
 </body>

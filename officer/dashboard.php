@@ -232,7 +232,7 @@ class="btn btn-success w-100 p-3"
 
 <i class="bi bi-geo-alt"></i>
 
-Manage Destinations
+Destinations
 
 </a>
 
@@ -248,7 +248,7 @@ class="btn btn-primary w-100 p-3"
 
 <i class="bi bi-calendar-event"></i>
 
-Manage Events
+Events
 
 </a>
 
@@ -264,7 +264,7 @@ class="btn btn-warning w-100 p-3"
 
 <i class="bi bi-images"></i>
 
-Manage Gallery
+Gallery
 
 </a>
 

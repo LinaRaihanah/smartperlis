@@ -54,7 +54,7 @@ if (isset($_GET['delete'])) {
     >
 
     <title>
-        Manage Event
+        Event
     </title>
 
 
@@ -73,6 +73,176 @@ if (isset($_GET['delete'])) {
         rel="stylesheet"
     >
 
+
+<style>
+
+/* ===============================
+   BLUE + YELLOW THEME
+================================ */
+
+.navbar-blue {
+    background-color: #0057B8;
+}
+
+
+/* Logo Icon */
+
+.logo-icon {
+    color: #FFD700;
+    font-size: 28px;
+}
+
+
+/* ===============================
+   BLUE BUTTON
+================================ */
+
+.btn-blue {
+    background-color: #0057B8;
+    color: white;
+    border: none;
+}
+
+.btn-blue:hover {
+    background-color: #003F88;
+    color: white;
+}
+
+
+/* ===============================
+   YELLOW BUTTON
+================================ */
+
+.btn-yellow {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+}
+
+.btn-yellow:hover {
+    background-color: #E6C200;
+    color: #000;
+}
+
+
+/* ===============================
+   TABLE CONTAINER
+================================ */
+
+.table-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+
+/* ===============================
+   EVENT TABLE
+================================ */
+
+.event-table {
+    margin-bottom: 0;
+}
+
+
+/* Table Header */
+
+.event-table thead {
+    background-color: #0057B8;
+    color: white;
+}
+
+.event-table thead th {
+    padding: 15px;
+    border: none;
+    font-weight: 600;
+}
+
+
+/* Yellow line */
+
+.event-table thead tr {
+    border-bottom: 4px solid #FFD700;
+}
+
+
+/* ===============================
+   TABLE BODY
+================================ */
+
+.event-table tbody td {
+    padding: 14px;
+    vertical-align: middle;
+}
+
+
+/* Alternating rows */
+
+.event-table tbody tr:nth-child(even) {
+    background-color: #F0F6FF;
+}
+
+.event-table tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+
+/* Hover effect */
+
+.event-table tbody tr:hover {
+    background-color: #FFF8D6;
+    transition: 0.2s;
+}
+
+
+/* ===============================
+   ID BADGE
+================================ */
+
+.id-badge {
+    background-color: #FFD700;
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+/* ===============================
+   EVENT IMAGE
+================================ */
+
+.event-image {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #E6F0FF;
+}
+
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+
+.action-btn {
+    border-radius: 6px;
+    margin-right: 4px;
+}
+
+
+/* ===============================
+   LOCATION ICON
+================================ */
+
+.location-icon {
+    color: #0057B8;
+}
+
+</style>
+
 </head>
 
 
@@ -83,21 +253,34 @@ if (isset($_GET['delete'])) {
      NAVBAR
 ======================================== -->
 
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar navbar-dark navbar-blue">
 
     <div class="container">
 
-        <span class="navbar-brand">
 
-            Manage Event
+        <!-- Logo + Portal Name -->
 
-        </span>
+        <a class="navbar-brand d-flex align-items-center gap-2">
 
+            <i class="bi bi-geo-alt-fill logo-icon"></i>
+
+            <span>
+
+                Smart Perlis Tourism Portal
+
+            </span>
+
+        </a>
+
+
+        <!-- Dashboard -->
 
         <a
             href="dashboard.php"
             class="btn btn-light"
         >
+
+            <i class="bi bi-speedometer2"></i>
 
             Dashboard
 
@@ -118,7 +301,7 @@ if (isset($_GET['delete'])) {
 
     <!-- HEADER -->
 
-    <div class="d-flex justify-content-between mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
         <h2>
 
@@ -129,7 +312,7 @@ if (isset($_GET['delete'])) {
 
         <a
             href="add_event.php"
-            class="btn btn-success"
+            class="btn btn-blue"
         >
 
             <i class="bi bi-plus-circle"></i>
@@ -146,56 +329,57 @@ if (isset($_GET['delete'])) {
          EVENT TABLE
     ======================================== -->
 
-    <div class="table-responsive">
+    <div class="table-container">
 
-        <table
-            class="table table-bordered table-striped bg-white"
-        >
+        <div class="table-responsive">
 
-            <thead class="table-success">
-
-                <tr>
-
-                    <th>
-                        ID
-                    </th>
+            <table class="table event-table">
 
 
-                    <th>
-                        Image
-                    </th>
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
 
 
-                    <th>
-                        Event Name
-                    </th>
+                        <th>
+                            Image
+                        </th>
 
 
-                    <th>
-                        Start Date
-                    </th>
+                        <th>
+                            Event Name
+                        </th>
 
 
-                    <th>
-                        End Date
-                    </th>
+                        <th>
+                            Start Date
+                        </th>
 
 
-                    <th>
-                        Location
-                    </th>
+                        <th>
+                            End Date
+                        </th>
 
 
-                    <th>
-                        Action
-                    </th>
-
-                </tr>
-
-            </thead>
+                        <th>
+                            Location
+                        </th>
 
 
-            <tbody>
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
 
 
 <?php
@@ -212,24 +396,26 @@ if (!$result) {
 
 ?>
 
-                <tr>
+                    <tr>
 
-                    <td
-                        colspan="7"
-                        class="text-center text-danger"
-                    >
+                        <td
+                            colspan="7"
+                            class="text-center text-danger"
+                        >
 
-                        Database Error:
+                            Database Error:
 
-                        <?php
-                        echo htmlspecialchars(
-                            mysqli_error($conn)
-                        );
-                        ?>
+                            <?php
 
-                    </td>
+                            echo htmlspecialchars(
+                                mysqli_error($conn)
+                            );
 
-                </tr>
+                            ?>
+
+                        </td>
+
+                    </tr>
 
 <?php
 
@@ -238,18 +424,18 @@ elseif (mysqli_num_rows($result) == 0) {
 
 ?>
 
-                <tr>
+                    <tr>
 
-                    <td
-                        colspan="7"
-                        class="text-center"
-                    >
+                        <td
+                            colspan="7"
+                            class="text-center"
+                        >
 
-                        No events available.
+                            No events available.
 
-                    </td>
+                        </td>
 
-                </tr>
+                    </tr>
 
 <?php
 
@@ -262,176 +448,195 @@ else {
 ?>
 
 
-                <tr>
+                    <tr>
 
 
-                    <!-- ID -->
+                        <!-- ID -->
 
-                    <td>
+                        <td>
 
-                        <?php
-                        echo (int) $row['event_id'];
-                        ?>
+                            <span class="id-badge">
 
-                    </td>
+                                <?php
+
+                                echo (int)
+                                    $row['event_id'];
+
+                                ?>
+
+                            </span>
+
+                        </td>
 
 
 
-                    <!-- IMAGE -->
+                        <!-- IMAGE -->
 
-                    <td>
+                        <td>
 
-                        <img
-                            src="../assets/images/<?php
+                            <img
+                                src="../assets/images/<?php
+                                    echo htmlspecialchars(
+                                        $row['image']
+                                    );
+                                ?>"
+                                class="event-image"
+                                alt="Event Image"
+                            >
+
+                        </td>
+
+
+
+                        <!-- EVENT NAME -->
+
+                        <td>
+
+                            <strong>
+
+                                <?php
+
                                 echo htmlspecialchars(
-                                    $row['image']
+                                    $row['event_name']
                                 );
-                            ?>"
-                            width="80"
-                            height="60"
-                            style="object-fit: cover;"
-                            alt="Event Image"
-                        >
 
-                    </td>
+                                ?>
+
+                            </strong>
+
+                        </td>
 
 
 
-                    <!-- EVENT NAME -->
+                        <!-- START DATE -->
 
-                    <td>
+                        <td>
 
-                        <?php
-                        echo htmlspecialchars(
-                            $row['event_name']
-                        );
-                        ?>
+                            <i class="bi bi-calendar-event location-icon"></i>
 
-                    </td>
+                            <?php
 
+                            if (!empty($row['event_date'])) {
 
+                                echo date(
+                                    "d M Y",
+                                    strtotime(
+                                        $row['event_date']
+                                    )
+                                );
 
-                    <!-- START DATE -->
+                            }
+                            else {
 
-                    <td>
+                                echo "-";
 
-                        <?php
+                            }
 
-                        if (!empty($row['event_date'])) {
+                            ?>
 
-                            echo date(
-                                "d M Y",
-                                strtotime(
-                                    $row['event_date']
-                                )
-                            );
-
-                        }
-                        else {
-
-                            echo "-";
-
-                        }
-
-                        ?>
-
-                    </td>
+                        </td>
 
 
 
-                    <!-- END DATE -->
+                        <!-- END DATE -->
 
-                    <td>
+                        <td>
 
-                        <?php
+                            <i class="bi bi-calendar-check location-icon"></i>
 
-                        if (
-                            !empty(
-                                $row['event_end_date']
-                            )
-                        ) {
+                            <?php
 
-                            echo date(
-                                "d M Y",
-                                strtotime(
+                            if (
+                                !empty(
                                     $row['event_end_date']
                                 )
+                            ) {
+
+                                echo date(
+                                    "d M Y",
+                                    strtotime(
+                                        $row['event_end_date']
+                                    )
+                                );
+
+                            }
+                            else {
+
+                                echo "-";
+
+                            }
+
+                            ?>
+
+                        </td>
+
+
+
+                        <!-- LOCATION -->
+
+                        <td>
+
+                            <i class="bi bi-geo-alt-fill location-icon"></i>
+
+                            <?php
+
+                            echo htmlspecialchars(
+                                $row['location']
                             );
 
-                        }
-                        else {
+                            ?>
 
-                            echo "-";
-
-                        }
-
-                        ?>
-
-                    </td>
+                        </td>
 
 
 
-                    <!-- LOCATION -->
+                        <!-- ACTION -->
 
-                    <td>
-
-                        <?php
-                        echo htmlspecialchars(
-                            $row['location']
-                        );
-                        ?>
-
-                    </td>
+                        <td>
 
 
+                            <!-- EDIT -->
 
-                    <!-- ACTION -->
+                            <a
+                                href="edit_event.php?id=<?php
+                                    echo (int)
+                                        $row['event_id'];
+                                ?>"
+                                class="btn btn-yellow btn-sm action-btn"
+                                title="Edit Event"
+                            >
 
-                    <td>
+                                <i class="bi bi-pencil"></i>
 
-
-                        <!-- EDIT -->
-
-                        <a
-                            href="edit_event.php?id=<?php
-                                echo (int)
-                                    $row['event_id'];
-                            ?>"
-                            class="btn btn-warning btn-sm"
-                            title="Edit Event"
-                        >
-
-                            <i class="bi bi-pencil"></i>
-
-                        </a>
+                            </a>
 
 
 
-                        <!-- DELETE -->
+                            <!-- DELETE -->
 
-                        <a
-                            href="manage_event.php?delete=<?php
-                                echo (int)
-                                    $row['event_id'];
-                            ?>"
-                            class="btn btn-danger btn-sm"
-                            title="Delete Event"
-                            onclick="
-                                return confirm(
-                                    'Delete this event?'
-                                );
-                            "
-                        >
+                            <a
+                                href="manage_event.php?delete=<?php
+                                    echo (int)
+                                        $row['event_id'];
+                                ?>"
+                                class="btn btn-danger btn-sm action-btn"
+                                title="Delete Event"
+                                onclick="
+                                    return confirm(
+                                        'Delete this event?'
+                                    );
+                                "
+                            >
 
-                            <i class="bi bi-trash"></i>
+                                <i class="bi bi-trash"></i>
 
-                        </a>
-
-
-                    </td>
+                            </a>
 
 
-                </tr>
+                        </td>
+
+
+                    </tr>
 
 
 <?php
@@ -443,9 +648,11 @@ else {
 ?>
 
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
+
+        </div>
 
     </div>
 
