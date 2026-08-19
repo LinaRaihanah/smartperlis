@@ -1,3 +1,4 @@
+```php
 <?php
 
 // =====================================
@@ -109,7 +110,9 @@ Officer Dashboard - Smart Perlis
 </title>
 
 
-<!-- BOOTSTRAP -->
+<!-- =====================================
+     BOOTSTRAP
+===================================== -->
 
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -117,7 +120,9 @@ Officer Dashboard - Smart Perlis
 >
 
 
-<!-- BOOTSTRAP ICONS -->
+<!-- =====================================
+     BOOTSTRAP ICONS
+===================================== -->
 
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -161,6 +166,10 @@ body {
 }
 
 
+/* =====================================
+   NAVBAR BRAND
+===================================== */
+
 .navbar-brand {
 
     font-size: 1.35rem;
@@ -169,6 +178,17 @@ body {
 
 }
 
+
+.navbar-brand i {
+
+    color: #FFC107;
+
+}
+
+
+/* =====================================
+   USER
+===================================== */
 
 .navbar .text-white {
 
@@ -219,16 +239,20 @@ body {
 
     color: #0B2D5C;
 
-    font-size: 2rem;
+    font-size: 2.3rem;
 
     font-weight: 800;
+
+    margin-bottom: 8px;
 
 }
 
 
 .dashboard-subtitle {
 
-    font-size: 1rem;
+    font-size: 1.05rem;
+
+    color: #6b7280;
 
 }
 
@@ -254,6 +278,8 @@ body {
 }
 
 
+/* TOP GRADIENT LINE */
+
 .stat-card::before {
 
     content: "";
@@ -276,6 +302,8 @@ body {
 
 }
 
+
+/* HOVER */
 
 .stat-card:hover {
 
@@ -340,7 +368,7 @@ body {
 
 
 /* =====================================
-   ICON COLORS
+   DESTINATION ICON
 ===================================== */
 
 .destination-icon {
@@ -352,6 +380,10 @@ body {
 }
 
 
+/* =====================================
+   EVENT ICON
+===================================== */
+
 .event-icon {
 
     background: #FFF8E1;
@@ -361,6 +393,10 @@ body {
 }
 
 
+/* =====================================
+   GALLERY ICON
+===================================== */
+
 .gallery-icon {
 
     background: #E8EAF6;
@@ -369,6 +405,10 @@ body {
 
 }
 
+
+/* =====================================
+   RATING ICON
+===================================== */
 
 .rating-icon {
 
@@ -393,6 +433,10 @@ body {
 
 }
 
+
+/* =====================================
+   QUICK ACTION TITLE
+===================================== */
 
 .quick-title {
 
@@ -436,6 +480,8 @@ body {
 }
 
 
+/* BUTTON HOVER */
+
 .action-btn:hover {
 
     color: #ffffff;
@@ -448,6 +494,8 @@ body {
 
 }
 
+
+/* BUTTON ICON */
 
 .action-btn i {
 
@@ -488,13 +536,28 @@ body {
 
     .dashboard-title {
 
-        font-size: 1.7rem;
+        font-size: 1.8rem;
 
     }
 
+
+    .dashboard-subtitle {
+
+        font-size: 0.95rem;
+
+    }
+
+
     .navbar-brand {
 
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+
+    }
+
+
+    .navbar .d-flex {
+
+        gap: 8px !important;
 
     }
 
@@ -516,16 +579,22 @@ body {
 
 <div class="container">
 
+
+    <!-- BRAND -->
+
     <span class="navbar-brand fw-bold">
 
-        <i class="bi bi-person-badge-fill me-2"></i>
+        <i class="bi bi-geo-alt-fill me-2"></i>
 
-        Smart Perlis - Officer
+        Smart Perlis Tourism Portal - Officer
 
     </span>
 
 
+    <!-- USER + LOGOUT -->
+
     <div class="d-flex align-items-center gap-3">
+
 
         <span class="text-white">
 
@@ -551,7 +620,9 @@ body {
 
         </a>
 
+
     </div>
+
 
 </div>
 
@@ -565,290 +636,321 @@ body {
 <div class="container py-5">
 
 
-<!-- DASHBOARD HEADER -->
+    <!-- =================================
+         DASHBOARD HEADER
+    ================================= -->
 
-<div class="mb-4">
-
-    <h2 class="dashboard-title">
-
-        Officer Dashboard
-
-    </h2>
-
-    <p class="text-muted dashboard-subtitle">
-
-        Welcome to Smart Perlis Tourism Portal Management
-
-    </p>
-
-</div>
+    <div class="text-center mb-5">
 
 
-<!-- =====================================
-     STATISTICS
-===================================== -->
+        <h2 class="dashboard-title">
 
-<div class="row g-4">
+            Officer Dashboard
+
+        </h2>
 
 
-<!-- DESTINATIONS -->
+        <p class="dashboard-subtitle">
 
-<div class="col-md-6 col-xl-3">
+            Welcome to Smart Perlis Tourism Portal Management
 
-    <div class="card stat-card shadow-sm p-4">
+        </p>
 
-        <div class="d-flex justify-content-between align-items-center">
 
-            <div>
+    </div>
 
-                <div class="stat-label">
 
-                    Destinations
+    <!-- =================================
+         STATISTICS
+    ================================= -->
+
+    <div class="row g-4">
+
+
+        <!-- =============================
+             DESTINATIONS
+        ============================== -->
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="card stat-card shadow-sm p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+
+                    <div>
+
+                        <div class="stat-label">
+
+                            Destinations
+
+                        </div>
+
+
+                        <h2 class="stat-number fw-bold mb-0">
+
+                            <?php echo $destinations; ?>
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="stat-icon destination-icon">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                    </div>
+
 
                 </div>
 
-                <h2 class="stat-number fw-bold mb-0">
-
-                    <?php echo $destinations; ?>
-
-                </h2>
-
-            </div>
-
-
-            <div class="stat-icon destination-icon">
-
-                <i class="bi bi-geo-alt-fill"></i>
-
             </div>
 
         </div>
 
-    </div>
 
-</div>
+        <!-- =============================
+             EVENTS
+        ============================== -->
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="card stat-card shadow-sm p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
 
 
-<!-- EVENTS -->
+                    <div>
 
-<div class="col-md-6 col-xl-3">
+                        <div class="stat-label">
 
-    <div class="card stat-card shadow-sm p-4">
+                            Events
 
-        <div class="d-flex justify-content-between align-items-center">
+                        </div>
 
-            <div>
 
-                <div class="stat-label">
+                        <h2 class="stat-number fw-bold mb-0">
 
-                    Events
+                            <?php echo $events; ?>
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="stat-icon event-icon">
+
+                        <i class="bi bi-calendar-event-fill"></i>
+
+                    </div>
+
 
                 </div>
 
-                <h2 class="stat-number fw-bold mb-0">
-
-                    <?php echo $events; ?>
-
-                </h2>
-
-            </div>
-
-
-            <div class="stat-icon event-icon">
-
-                <i class="bi bi-calendar-event-fill"></i>
-
             </div>
 
         </div>
 
-    </div>
 
-</div>
+        <!-- =============================
+             GALLERY
+        ============================== -->
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="card stat-card shadow-sm p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
 
 
-<!-- GALLERY -->
+                    <div>
 
-<div class="col-md-6 col-xl-3">
+                        <div class="stat-label">
 
-    <div class="card stat-card shadow-sm p-4">
+                            Gallery
 
-        <div class="d-flex justify-content-between align-items-center">
+                        </div>
 
-            <div>
 
-                <div class="stat-label">
+                        <h2 class="stat-number fw-bold mb-0">
 
-                    Gallery
+                            <?php echo $gallery; ?>
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="stat-icon gallery-icon">
+
+                        <i class="bi bi-images"></i>
+
+                    </div>
+
 
                 </div>
 
-                <h2 class="stat-number fw-bold mb-0">
-
-                    <?php echo $gallery; ?>
-
-                </h2>
-
-            </div>
-
-
-            <div class="stat-icon gallery-icon">
-
-                <i class="bi bi-images"></i>
-
             </div>
 
         </div>
 
-    </div>
 
-</div>
+        <!-- =============================
+             RATINGS
+        ============================== -->
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="card stat-card shadow-sm p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
 
 
-<!-- RATINGS -->
+                    <div>
 
-<div class="col-md-6 col-xl-3">
+                        <div class="stat-label">
 
-    <div class="card stat-card shadow-sm p-4">
+                            Ratings
 
-        <div class="d-flex justify-content-between align-items-center">
+                        </div>
 
-            <div>
 
-                <div class="stat-label">
+                        <h2 class="stat-number fw-bold mb-0">
 
-                    Ratings
+                            <?php echo $ratings; ?>
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="stat-icon rating-icon">
+
+                        <i class="bi bi-star-fill"></i>
+
+                    </div>
+
 
                 </div>
 
-                <h2 class="stat-number fw-bold mb-0">
-
-                    <?php echo $ratings; ?>
-
-                </h2>
-
             </div>
-
-
-            <div class="stat-icon rating-icon">
-
-                <i class="bi bi-star-fill"></i>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</div>
-
-
-<!-- =====================================
-     QUICK ACTIONS
-===================================== -->
-
-<div class="card quick-card shadow-sm mt-5 p-4">
-
-
-    <h4 class="quick-title mb-1">
-
-        <i class="bi bi-lightning-charge-fill me-2"></i>
-
-        Quick Actions
-
-    </h4>
-
-
-    <p class="text-muted mb-0">
-
-        Manage your Smart Perlis tourism content
-
-    </p>
-
-
-    <div class="row g-3 mt-2">
-
-
-        <!-- DESTINATIONS -->
-
-        <div class="col-md-4">
-
-            <a
-                href="destinations.php"
-                class="btn action-btn w-100"
-            >
-
-                <i class="bi bi-geo-alt-fill"></i>
-
-                Manage Destinations
-
-            </a>
-
-        </div>
-
-
-        <!-- EVENTS -->
-
-        <div class="col-md-4">
-
-            <a
-                href="events.php"
-                class="btn action-btn w-100"
-            >
-
-                <i class="bi bi-calendar-event-fill"></i>
-
-                Manage Events
-
-            </a>
-
-        </div>
-
-
-        <!-- GALLERY -->
-
-        <div class="col-md-4">
-
-            <a
-                href="gallery.php"
-                class="btn action-btn w-100"
-            >
-
-                <i class="bi bi-images"></i>
-
-                Manage Gallery
-
-            </a>
 
         </div>
 
 
     </div>
 
-</div>
+
+    <!-- =================================
+         QUICK ACTIONS
+    ================================= -->
+
+    <div class="card quick-card shadow-sm mt-5 p-4">
 
 
-<!-- =====================================
-     BACK TO WEBSITE
-===================================== -->
+        <h4 class="quick-title mb-1">
 
-<div class="text-center mt-4">
+            <i class="bi bi-lightning-charge-fill me-2"></i>
 
-    <a
-        href="../index.php"
-        class="text-decoration-none back-link"
-    >
+            Quick Actions
 
-        <i class="bi bi-arrow-left me-1"></i>
+        </h4>
 
-        Back to Website
 
-    </a>
+        <p class="text-muted mb-0">
 
-</div>
+            Manage your Smart Perlis tourism content
+
+        </p>
+
+
+        <div class="row g-3 mt-2">
+
+
+            <!-- =========================
+                 MANAGE DESTINATIONS
+            ========================== -->
+
+            <div class="col-md-4">
+
+                <a
+                    href="destinations.php"
+                    class="btn action-btn w-100"
+                >
+
+                    <i class="bi bi-geo-alt-fill"></i>
+
+                    Manage Destinations
+
+                </a>
+
+            </div>
+
+
+            <!-- =========================
+                 MANAGE EVENTS
+            ========================== -->
+
+            <div class="col-md-4">
+
+                <a
+                    href="events.php"
+                    class="btn action-btn w-100"
+                >
+
+                    <i class="bi bi-calendar-event-fill"></i>
+
+                    Manage Events
+
+                </a>
+
+            </div>
+
+
+            <!-- =========================
+                 MANAGE GALLERY
+            ========================== -->
+
+            <div class="col-md-4">
+
+                <a
+                    href="gallery.php"
+                    class="btn action-btn w-100"
+                >
+
+                    <i class="bi bi-images"></i>
+
+                    Manage Gallery
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================
+         BACK TO WEBSITE
+    ================================= -->
+
+    <div class="text-center mt-4">
+
+        <a
+            href="../index.php"
+            class="text-decoration-none back-link"
+        >
+
+            <i class="bi bi-arrow-left me-1"></i>
+
+            Back to Website
+
+        </a>
+
+    </div>
 
 
 </div>
