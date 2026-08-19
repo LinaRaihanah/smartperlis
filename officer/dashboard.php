@@ -105,7 +105,7 @@ if ($result) {
 >
 
 <title>
-Officer Dashboard - Smart Perlis
+    Dashboard - Smart Perlis
 </title>
 
 
@@ -644,7 +644,7 @@ body {
 
         <h2 class="dashboard-title">
 
-            Officer Dashboard
+            Dashboard
 
         </h2>
 

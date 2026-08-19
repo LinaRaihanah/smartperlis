@@ -18,7 +18,7 @@ include("auth.php");
 >
 
 <title>
-Officer Dashboard - Smart Perlis Tourism Portal
+    Dashboard - Smart Perlis Tourism Portal
 </title>
 
 <link
