@@ -4,7 +4,11 @@ session_start();
 
 include("../config.php");
 
+
+// =====================================
 // PHPMailer
+// =====================================
+
 require_once("../PHPMailer/src/Exception.php");
 require_once("../PHPMailer/src/PHPMailer.php");
 require_once("../PHPMailer/src/SMTP.php");
@@ -20,6 +24,7 @@ use PHPMailer\PHPMailer\Exception;
 if (!isset($_SESSION['admin'])) {
 
     header("Location: ../login.php");
+
     exit();
 
 }
@@ -32,19 +37,22 @@ if (!isset($_SESSION['admin'])) {
 $replyMessage = "";
 $replyError = "";
 
+
 if (isset($_POST['send_reply'])) {
 
-    // Get message ID
     $messageId = intval($_POST['message_id']);
 
     $recipientEmail = trim($_POST['recipient_email']);
+
     $recipientName = trim($_POST['recipient_name']);
+
     $replySubject = trim($_POST['reply_subject']);
+
     $replyText = trim($_POST['reply_message']);
 
 
     // =====================================
-    // CHECK EMAIL
+    // VALIDATE EMAIL
     // =====================================
 
     if (!filter_var($recipientEmail, FILTER_VALIDATE_EMAIL)) {
@@ -55,7 +63,7 @@ if (isset($_POST['send_reply'])) {
 
 
     // =====================================
-    // CHECK MESSAGE
+    // VALIDATE MESSAGE
     // =====================================
 
     elseif (empty($replyText)) {
@@ -66,7 +74,7 @@ if (isset($_POST['send_reply'])) {
 
 
     // =====================================
-    // CHECK MESSAGE ID
+    // VALIDATE MESSAGE ID
     // =====================================
 
     elseif ($messageId <= 0) {
@@ -80,17 +88,21 @@ if (isset($_POST['send_reply'])) {
 
         $mail = new PHPMailer(true);
 
+
         try {
 
             // =====================================
-            // SMTP
+            // SMTP SETTINGS
             // =====================================
 
             $mail->isSMTP();
 
             $mail->Host = MAIL_HOST;
+
             $mail->SMTPAuth = true;
+
             $mail->Username = MAIL_USERNAME;
+
             $mail->Password = MAIL_PASSWORD;
 
             $mail->SMTPSecure =
@@ -129,6 +141,7 @@ if (isset($_POST['send_reply'])) {
 
 
             // Safe name
+
             $safeName = htmlspecialchars(
                 $recipientName,
                 ENT_QUOTES,
@@ -137,6 +150,7 @@ if (isset($_POST['send_reply'])) {
 
 
             // Safe message
+
             $safeMessage = nl2br(
                 htmlspecialchars(
                     $replyText,
@@ -151,26 +165,42 @@ if (isset($_POST['send_reply'])) {
             // =====================================
 
             $mail->Body = "
-                <div style='font-family: Arial, sans-serif;'>
-                    
-                    <p>Dear {$safeName},</p>
 
-                    <p>{$safeMessage}</p>
+                <div
+                    style='
+                        font-family: Arial, sans-serif;
+                        line-height: 1.6;
+                    '
+                >
+
+                    <p>
+                        Dear {$safeName},
+                    </p>
+
+                    <p>
+                        {$safeMessage}
+                    </p>
 
                     <br>
 
                     <p>
+
                         Best regards,<br>
-                        <strong>" .
-                        htmlspecialchars(
-                            MAIL_FROM_NAME,
-                            ENT_QUOTES,
-                            'UTF-8'
-                        ) .
-                        "</strong>
+
+                        <strong>
+                            " .
+                            htmlspecialchars(
+                                MAIL_FROM_NAME,
+                                ENT_QUOTES,
+                                'UTF-8'
+                            ) .
+                        "
+                        </strong>
+
                     </p>
 
                 </div>
+
             ";
 
 
@@ -179,8 +209,11 @@ if (isset($_POST['send_reply'])) {
             // =====================================
 
             $mail->AltBody =
-                "Dear " . $recipientName . ",\n\n" .
-                $replyText . "\n\n" .
+                "Dear " .
+                $recipientName .
+                ",\n\n" .
+                $replyText .
+                "\n\n" .
                 "Best regards,\n" .
                 MAIL_FROM_NAME;
 
@@ -220,6 +253,7 @@ if (isset($_POST['send_reply'])) {
                         $recipientEmail;
 
                 }
+
                 else {
 
                     $replyError =
@@ -231,6 +265,7 @@ if (isset($_POST['send_reply'])) {
                 mysqli_stmt_close($stmt);
 
             }
+
             else {
 
                 $replyError =
@@ -252,6 +287,61 @@ if (isset($_POST['send_reply'])) {
 
 }
 
+
+// =====================================
+// MESSAGE TYPE FILTER
+// =====================================
+
+$filterType = "";
+
+
+if (isset($_GET['message_type'])) {
+
+    $filterType = mysqli_real_escape_string(
+        $conn,
+        $_GET['message_type']
+    );
+
+}
+
+
+// =====================================
+// GET MESSAGES
+// =====================================
+
+if ($filterType != "") {
+
+    $sql = "
+
+        SELECT *
+
+        FROM contact_messages
+
+        WHERE message_type = '$filterType'
+
+        ORDER BY created_at DESC
+
+    ";
+
+}
+
+else {
+
+    $sql = "
+
+        SELECT *
+
+        FROM contact_messages
+
+        ORDER BY created_at DESC
+
+    ";
+
+}
+
+
+$result = mysqli_query($conn, $sql);
+
 ?>
 
 
@@ -263,47 +353,341 @@ if (isset($_POST['send_reply'])) {
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
 
-<title>User Messages</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 
-<!-- BOOTSTRAP -->
+<title>
+    Messages
+</title>
+
+
+<!-- =====================================
+     BOOTSTRAP
+===================================== -->
 
 <link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-rel="stylesheet">
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
+
+
+<!-- =====================================
+     BOOTSTRAP ICONS
+===================================== -->
+
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =====================================
+   BODY
+===================================== */
+
+body {
+
+    background-color: #f5f8fc;
+
+}
+
+
+/* =====================================
+   BLUE + YELLOW THEME
+===================================== */
+
+.navbar-blue {
+
+    background-color: #0057B8;
+
+}
+
+
+.btn-blue {
+
+    background-color: #0057B8;
+
+    color: white;
+
+    border: none;
+
+}
+
+
+.btn-blue:hover {
+
+    background-color: #003F88;
+
+    color: white;
+
+}
+
+
+.btn-yellow {
+
+    background-color: #FFD700;
+
+    color: #000;
+
+    border: none;
+
+}
+
+
+.btn-yellow:hover {
+
+    background-color: #E6C200;
+
+    color: #000;
+
+}
+
+
+/* =====================================
+   DASHBOARD BUTTON
+===================================== */
+
+.dashboard-btn {
+
+    color: #0057B8;
+
+    font-weight: 600;
+
+    border: none;
+
+}
+
+
+.dashboard-btn:hover {
+
+    background-color: #FFD700;
+
+    color: #000;
+
+}
+
+
+/* =====================================
+   FILTER CARD
+===================================== */
+
+.filter-card {
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    border-top: 4px solid #FFD700;
+
+}
+
+
+/* =====================================
+   TABLE CONTAINER
+===================================== */
+
+.table-container {
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================
+   TABLE
+===================================== */
+
+.message-table {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =====================================
+   TABLE HEADER
+===================================== */
+
+.message-table thead {
+
+    background-color: #0057B8;
+
+    color: white;
+
+}
+
+
+.message-table thead th {
+
+    padding: 14px;
+
+    border: none;
+
+    font-weight: 600;
+
+}
+
+
+/* Yellow line */
+
+.message-table thead tr {
+
+    border-bottom: 4px solid #FFD700;
+
+}
+
+
+/* =====================================
+   TABLE BODY
+===================================== */
+
+.message-table tbody td {
+
+    padding: 14px;
+
+    vertical-align: middle;
+
+}
+
+
+/* Alternating rows */
+
+.message-table tbody tr:nth-child(even) {
+
+    background-color: #F0F6FF;
+
+}
+
+
+/* Hover */
+
+.message-table tbody tr:hover {
+
+    background-color: #FFF8D6;
+
+    transition: 0.2s;
+
+}
+
+
+/* =====================================
+   MESSAGE TYPE BADGE
+===================================== */
+
+.type-badge {
+
+    background-color: #FFD700;
+
+    color: #000;
+
+    padding: 7px 10px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    display: inline-block;
+
+}
+
+
+/* =====================================
+   MODAL
+===================================== */
+
+.modal-header-blue {
+
+    background-color: #0057B8;
+
+    color: white;
+
+}
+
+
+/* =====================================
+   EMAIL LINK
+===================================== */
+
+.message-table a {
+
+    color: #0057B8;
+
+    text-decoration: none;
+
+}
+
+
+.message-table a:hover {
+
+    text-decoration: underline;
+
+}
+
+</style>
 
 </head>
 
 
-<body class="bg-light">
+<body>
 
 
 <!-- =====================================
      NAVBAR
 ===================================== -->
 
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar navbar-dark navbar-blue">
 
-<div class="container">
-
-<span class="navbar-brand">
-
-User Messages
-
-</span>
+    <div class="container">
 
 
-<a href="dashboard.php"
-   class="btn btn-light">
+        <!-- PAGE TITLE -->
 
-Dashboard
+        <span class="navbar-brand">
 
-</a>
+            <i class="bi bi-envelope-fill"></i>
 
-</div>
+            Messages
+
+        </span>
+
+
+        <!-- DASHBOARD -->
+
+        <a
+            href="dashboard.php"
+            class="btn btn-light dashboard-btn"
+        >
+
+            <i class="bi bi-speedometer2"></i>
+
+            Dashboard
+
+        </a>
+
+
+    </div>
 
 </nav>
 
@@ -316,308 +700,609 @@ Dashboard
 <div class="container mt-5">
 
 
-<h2 class="mb-4">
+    <!-- PAGE TITLE -->
 
-Contact Messages
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-</h2>
+        <h2>
+
+            <i class="bi bi-chat-left-text"></i>
+
+            Messages
+
+        </h2>
+
+    </div>
 
 
 
-<!-- SUCCESS MESSAGE -->
+    <!-- =====================================
+         SUCCESS MESSAGE
+    ===================================== -->
 
-<?php if ($replyMessage != "") { ?>
+    <?php if ($replyMessage != "") { ?>
 
-<div class="alert alert-success">
+        <div class="alert alert-success">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <?php
+
+            echo htmlspecialchars(
+                $replyMessage
+            );
+
+            ?>
+
+        </div>
+
+    <?php } ?>
+
+
+
+    <!-- =====================================
+         ERROR MESSAGE
+    ===================================== -->
+
+    <?php if ($replyError != "") { ?>
+
+        <div class="alert alert-danger">
+
+            <i class="bi bi-exclamation-triangle-fill"></i>
+
+            <?php
+
+            echo htmlspecialchars(
+                $replyError
+            );
+
+            ?>
+
+        </div>
+
+    <?php } ?>
+
+
+
+    <!-- =====================================
+         FILTER
+    ===================================== -->
+
+    <div class="filter-card mb-4">
+
+
+        <form method="GET">
+
+
+            <div class="row align-items-end">
+
+
+                <!-- MESSAGE TYPE -->
+
+                <div class="col-md-5">
+
+                    <label
+                        class="form-label fw-bold"
+                    >
+
+                        <i class="bi bi-funnel-fill"></i>
+
+                        Filter by Message Type
+
+                    </label>
+
+
+                    <select
+                        name="message_type"
+                        class="form-select"
+                    >
+
+
+                        <option value="">
+
+                            All Message Types
+
+                        </option>
+
+
+                        <option
+                            value="Destination Enquiry"
+
+                            <?php
+
+                            if (
+                                $filterType ==
+                                "Destination Enquiry"
+                            ) {
+
+                                echo "selected";
+
+                            }
+
+                            ?>
+                        >
+
+                            Destination Enquiry
+
+                        </option>
+
+
+                        <option
+                            value="Event Enquiry"
+
+                            <?php
+
+                            if (
+                                $filterType ==
+                                "Event Enquiry"
+                            ) {
+
+                                echo "selected";
+
+                            }
+
+                            ?>
+                        >
+
+                            Event Enquiry
+
+                        </option>
+
+
+                        <option
+                            value="Gallery Enquiry"
+
+                            <?php
+
+                            if (
+                                $filterType ==
+                                "Gallery Enquiry"
+                            ) {
+
+                                echo "selected";
+
+                            }
+
+                            ?>
+                        >
+
+                            Gallery Enquiry
+
+                        </option>
+
+
+                        <option
+                            value="Rating / Feedback"
+
+                            <?php
+
+                            if (
+                                $filterType ==
+                                "Rating / Feedback"
+                            ) {
+
+                                echo "selected";
+
+                            }
+
+                            ?>
+                        >
+
+                            Rating / Feedback
+
+                        </option>
+
+
+                        <option
+                            value="General Enquiry"
+
+                            <?php
+
+                            if (
+                                $filterType ==
+                                "General Enquiry"
+                            ) {
+
+                                echo "selected";
+
+                            }
+
+                            ?>
+                        >
+
+                            General Enquiry
+
+                        </option>
+
+
+                        <option
+                            value="Other"
+
+                            <?php
+
+                            if (
+                                $filterType ==
+                                "Other"
+                            ) {
+
+                                echo "selected";
+
+                            }
+
+                            ?>
+                        >
+
+                            Other
+
+                        </option>
+
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- BUTTONS -->
+
+                <div class="col-md-4 mt-3 mt-md-0">
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-blue"
+                    >
+
+                        <i class="bi bi-filter"></i>
+
+                        Apply Filter
+
+                    </button>
+
+
+                    <a
+                        href="messages.php"
+                        class="btn btn-yellow"
+                    >
+
+                        <i class="bi bi-arrow-clockwise"></i>
+
+                        Reset
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         MESSAGE TABLE
+    ===================================== -->
+
+    <div class="table-container">
+
+
+        <div class="table-responsive">
+
+
+            <table class="table message-table">
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Message Type</th>
+
+                        <th>Subject</th>
+
+                        <th>Message</th>
+
+                        <th>Date</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
 
 <?php
-echo htmlspecialchars($replyMessage);
-?>
 
-</div>
-
-<?php } ?>
-
+if (
+    $result &&
+    mysqli_num_rows($result) > 0
+) {
 
 
-<!-- ERROR MESSAGE -->
-
-<?php if ($replyError != "") { ?>
-
-<div class="alert alert-danger">
-
-<?php
-echo htmlspecialchars($replyError);
-?>
-
-</div>
-
-<?php } ?>
-
-
-
-<!-- =====================================
-     MESSAGES TABLE
-===================================== -->
-
-<div class="table-responsive">
-
-
-<table class="table table-bordered table-striped bg-white">
-
-
-<thead class="table-success">
-
-<tr>
-
-<th>ID</th>
-
-<th>Name</th>
-
-<th>Email</th>
-
-<th>Subject</th>
-
-<th>Message</th>
-
-<th>Date</th>
-
-<th>Status</th>
-
-<th>Action</th>
-
-</tr>
-
-</thead>
-
-
-
-<tbody>
-
-
-<?php
-
-$result = mysqli_query(
-    $conn,
-    "SELECT *
-     FROM contact_messages
-     ORDER BY created_at DESC"
-);
-
-
-if ($result) {
-
-    while ($row = mysqli_fetch_assoc($result)) {
+    while (
+        $row =
+        mysqli_fetch_assoc($result)
+    ) {
 
 ?>
 
 
-<tr>
+                    <tr>
 
 
-<!-- ID -->
+                        <!-- ID -->
 
-<td>
+                        <td>
 
-<?php
+                            <strong>
 
-echo htmlspecialchars(
-    $row['message_id']
-);
+                                <?php
 
-?>
+                                echo htmlspecialchars(
+                                    $row['message_id']
+                                );
 
-</td>
+                                ?>
 
+                            </strong>
 
+                        </td>
 
-<!-- NAME -->
 
-<td>
 
-<?php
+                        <!-- NAME -->
 
-echo htmlspecialchars(
-    $row['name']
-);
+                        <td>
 
-?>
+                            <strong>
 
-</td>
+                                <?php
 
+                                echo htmlspecialchars(
+                                    $row['name']
+                                );
 
+                                ?>
 
-<!-- EMAIL -->
+                            </strong>
 
-<td>
+                        </td>
 
-<a href="mailto:<?php
 
-echo htmlspecialchars(
-    $row['email']
-);
 
-?>">
+                        <!-- EMAIL -->
 
-<?php
+                        <td>
 
-echo htmlspecialchars(
-    $row['email']
-);
+                            <a
+                                href="mailto:<?php
+                                    echo htmlspecialchars(
+                                        $row['email']
+                                    );
+                                ?>"
+                            >
 
-?>
+                                <?php
 
-</a>
+                                echo htmlspecialchars(
+                                    $row['email']
+                                );
 
-</td>
+                                ?>
 
+                            </a>
 
+                        </td>
 
-<!-- SUBJECT -->
 
-<td>
 
-<?php
+                        <!-- MESSAGE TYPE -->
 
-echo htmlspecialchars(
-    $row['subject']
-);
+                        <td>
 
-?>
+                            <span class="type-badge">
 
-</td>
+                                <?php
 
+                                echo htmlspecialchars(
+                                    $row['message_type']
+                                );
 
+                                ?>
 
-<!-- MESSAGE -->
+                            </span>
 
-<td>
+                        </td>
 
-<?php
 
-echo nl2br(
-    htmlspecialchars(
-        $row['message']
-    )
-);
 
-?>
+                        <!-- SUBJECT -->
 
-</td>
+                        <td>
 
+                            <?php
 
+                            echo htmlspecialchars(
+                                $row['subject']
+                            );
 
-<!-- DATE -->
+                            ?>
 
-<td>
+                        </td>
 
-<?php
 
-echo htmlspecialchars(
-    $row['created_at']
-);
 
-?>
+                        <!-- MESSAGE -->
 
-</td>
+                        <td>
 
+                            <?php
 
+                            echo nl2br(
+                                htmlspecialchars(
+                                    $row['message']
+                                )
+                            );
 
-<!-- STATUS -->
+                            ?>
 
-<td>
+                        </td>
 
-<?php
 
-if ($row['reply_status'] === 'Replied') {
 
-?>
+                        <!-- DATE -->
 
-<span class="badge bg-success">
+                        <td>
 
-Replied
+                            <?php
 
-</span>
+                            echo htmlspecialchars(
+                                $row['created_at']
+                            );
 
-<?php
+                            ?>
 
-}
-else {
+                        </td>
 
-?>
 
-<span class="badge bg-warning text-dark">
 
-Not Replied
+                        <!-- STATUS -->
 
-</span>
+                        <td>
 
-<?php
 
-}
+                            <?php
 
-?>
+                            if (
+                                $row['reply_status']
+                                === 'Replied'
+                            ) {
 
-</td>
+                            ?>
 
+                                <span
+                                    class="badge bg-success"
+                                >
 
+                                    <i
+                                        class="bi bi-check-circle"
+                                    ></i>
 
-<!-- ACTION -->
+                                    Replied
 
-<td>
+                                </span>
 
-<button
-    type="button"
-    class="btn btn-success btn-sm reply-btn"
+                            <?php
 
-    data-bs-toggle="modal"
-    data-bs-target="#replyModal"
+                            }
 
-    data-id="<?php
+                            else {
 
-    echo htmlspecialchars(
-        $row['message_id'],
-        ENT_QUOTES
-    );
+                            ?>
 
-    ?>"
+                                <span
+                                    class="badge bg-warning text-dark"
+                                >
 
-    data-email="<?php
+                                    <i
+                                        class="bi bi-clock"
+                                    ></i>
 
-    echo htmlspecialchars(
-        $row['email'],
-        ENT_QUOTES
-    );
+                                    Not Replied
 
-    ?>"
+                                </span>
 
-    data-name="<?php
+                            <?php
 
-    echo htmlspecialchars(
-        $row['name'],
-        ENT_QUOTES
-    );
+                            }
 
-    ?>"
+                            ?>
 
-    data-subject="<?php
+                        </td>
 
-    echo htmlspecialchars(
-        $row['subject'],
-        ENT_QUOTES
-    );
 
-    ?>"
->
 
-Reply
+                        <!-- ACTION -->
 
-</button>
+                        <td>
 
-</td>
 
+                            <button
+                                type="button"
 
-</tr>
+                                class="btn btn-blue btn-sm"
+
+                                data-bs-toggle="modal"
+
+                                data-bs-target="#replyModal"
+
+                                data-id="<?php
+
+                                echo htmlspecialchars(
+                                    $row['message_id'],
+                                    ENT_QUOTES
+                                );
+
+                                ?>"
+
+                                data-email="<?php
+
+                                echo htmlspecialchars(
+                                    $row['email'],
+                                    ENT_QUOTES
+                                );
+
+                                ?>"
+
+                                data-name="<?php
+
+                                echo htmlspecialchars(
+                                    $row['name'],
+                                    ENT_QUOTES
+                                );
+
+                                ?>"
+
+                                data-subject="<?php
+
+                                echo htmlspecialchars(
+                                    $row['subject'],
+                                    ENT_QUOTES
+                                );
+
+                                ?>"
+                            >
+
+                                <i
+                                    class="bi bi-reply-fill"
+                                ></i>
+
+                                Respond
+
+                            </button>
+
+
+                        </td>
+
+
+                    </tr>
 
 
 <?php
@@ -625,20 +1310,42 @@ Reply
     }
 
 }
+
 else {
 
 ?>
 
-<tr>
 
-<td colspan="8"
-    class="text-center text-danger">
+                    <tr>
 
-Unable to load messages.
+                        <td
+                            colspan="9"
+                            class="text-center py-5"
+                        >
 
-</td>
+                            <i
+                                class="bi bi-inbox fs-1 text-primary"
+                            ></i>
 
-</tr>
+                            <br>
+
+                            <br>
+
+                            <strong>
+
+                                No messages found.
+
+                            </strong>
+
+                            <br>
+
+                            Try selecting a different
+                            message type.
+
+                        </td>
+
+                    </tr>
+
 
 <?php
 
@@ -647,11 +1354,15 @@ Unable to load messages.
 ?>
 
 
-</tbody>
+                </tbody>
 
-</table>
+            </table>
 
-</div>
+
+        </div>
+
+    </div>
+
 
 </div>
 
@@ -662,208 +1373,215 @@ Unable to load messages.
 ===================================== -->
 
 <div
-class="modal fade"
-id="replyModal"
-tabindex="-1"
-aria-hidden="true"
+    class="modal fade"
+    id="replyModal"
+    tabindex="-1"
+    aria-hidden="true"
 >
 
 
-<div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg">
 
 
-<div class="modal-content">
+        <div class="modal-content">
 
 
-<!-- MODAL HEADER -->
+            <!-- MODAL HEADER -->
 
-<div class="modal-header bg-success text-white">
+            <div
+                class="modal-header modal-header-blue"
+            >
+
+                <h5 class="modal-title">
+
+                    <i
+                        class="bi bi-reply-fill"
+                    ></i>
+
+                    Respond to User
+
+                </h5>
 
 
-<h5 class="modal-title">
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                >
+                </button>
 
-Reply to User
-
-</h5>
+            </div>
 
 
-<button
-type="button"
-class="btn-close btn-close-white"
-data-bs-dismiss="modal">
-</button>
 
+            <!-- FORM -->
+
+            <form method="POST">
+
+
+                <!-- MESSAGE ID -->
+
+                <input
+                    type="hidden"
+                    name="message_id"
+                    id="messageId"
+                >
+
+
+                <div class="modal-body">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label fw-bold"
+                        >
+
+                            To
+
+                        </label>
+
+
+                        <input
+                            type="email"
+                            name="recipient_email"
+                            id="recipientEmail"
+                            class="form-control"
+                            readonly
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- NAME -->
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label fw-bold"
+                        >
+
+                            Name
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            name="recipient_name"
+                            id="recipientName"
+                            class="form-control"
+                            readonly
+                        >
+
+                    </div>
+
+
+
+                    <!-- SUBJECT -->
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label fw-bold"
+                        >
+
+                            Subject
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            name="reply_subject"
+                            id="replySubject"
+                            class="form-control"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- REPLY -->
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label fw-bold"
+                        >
+
+                            Your Reply
+
+                        </label>
+
+
+                        <textarea
+                            name="reply_message"
+                            class="form-control"
+                            rows="7"
+                            placeholder="Type your reply here..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- MODAL FOOTER -->
+
+                <div class="modal-footer">
+
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                    >
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        name="send_reply"
+                        class="btn btn-blue"
+                    >
+
+                        <i
+                            class="bi bi-send-fill"
+                        ></i>
+
+                        Send Reply
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
 
 </div>
 
-
-
-<!-- FORM -->
-
-<form method="POST">
-
-
-<!-- Hidden Message ID -->
-
-<input
-    type="hidden"
-    name="message_id"
-    id="messageId"
->
-
-
-<div class="modal-body">
 
 
 <!-- =====================================
-     EMAIL
-===================================== -->
-
-<div class="mb-3">
-
-<label class="form-label">
-
-To
-
-</label>
-
-
-<input
-type="email"
-name="recipient_email"
-id="recipientEmail"
-class="form-control"
-readonly
-required
->
-
-</div>
-
-
-
-<!-- =====================================
-     NAME
-===================================== -->
-
-<div class="mb-3">
-
-<label class="form-label">
-
-Name
-
-</label>
-
-
-<input
-type="text"
-name="recipient_name"
-id="recipientName"
-class="form-control"
-readonly
->
-
-</div>
-
-
-
-<!-- =====================================
-     SUBJECT
-===================================== -->
-
-<div class="mb-3">
-
-<label class="form-label">
-
-Subject
-
-</label>
-
-
-<input
-type="text"
-name="reply_subject"
-id="replySubject"
-class="form-control"
-required
->
-
-</div>
-
-
-
-<!-- =====================================
-     MESSAGE
-===================================== -->
-
-<div class="mb-3">
-
-<label class="form-label">
-
-Your Reply
-
-</label>
-
-
-<textarea
-name="reply_message"
-class="form-control"
-rows="7"
-placeholder="Type your reply here..."
-required
-></textarea>
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================
-     MODAL FOOTER
-===================================== -->
-
-<div class="modal-footer">
-
-
-<button
-type="button"
-class="btn btn-secondary"
-data-bs-dismiss="modal"
->
-
-Cancel
-
-</button>
-
-
-<button
-type="submit"
-name="send_reply"
-class="btn btn-success"
->
-
-Send Reply
-
-</button>
-
-
-</div>
-
-
-</form>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================
-     BOOTSTRAP JS
+     BOOTSTRAP JAVASCRIPT
 ===================================== -->
 
 <script
@@ -884,13 +1602,14 @@ document.getElementById("replyModal");
 
 replyModal.addEventListener(
     "show.bs.modal",
-    function (event) {
+    function(event) {
+
 
         const button =
             event.relatedTarget;
 
 
-        // Get message ID
+        // Message ID
 
         const id =
             button.getAttribute(
@@ -898,7 +1617,7 @@ replyModal.addEventListener(
             );
 
 
-        // Get email
+        // Email
 
         const email =
             button.getAttribute(
@@ -906,7 +1625,7 @@ replyModal.addEventListener(
             );
 
 
-        // Get name
+        // Name
 
         const name =
             button.getAttribute(
@@ -914,7 +1633,7 @@ replyModal.addEventListener(
             );
 
 
-        // Get subject
+        // Subject
 
         const subject =
             button.getAttribute(
@@ -922,7 +1641,7 @@ replyModal.addEventListener(
             );
 
 
-        // Put values into form
+        // Fill form
 
         document.getElementById(
             "messageId"
@@ -942,6 +1661,7 @@ replyModal.addEventListener(
         document.getElementById(
             "replySubject"
         ).value = "Re: " + subject;
+
 
     }
 );
