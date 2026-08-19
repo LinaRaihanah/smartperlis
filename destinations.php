@@ -10,122 +10,507 @@ include("config.php");
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>
-        Destinations - Smart Perlis Tourism Portal
-    </title>
-
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+<title>
+Transport - Smart Perlis Tourism Portal
+</title>
 
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-        rel="stylesheet">
+<!-- Bootstrap -->
+
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
 
 
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css">
+<!-- Bootstrap Icons -->
+
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+>
 
 
-    <style>
+<!-- Your CSS -->
 
-        /* BODY PAGE */
-
-        body {
-
-            background: #fefbea;
-
-        }
+<link
+    rel="stylesheet"
+    href="assets/css/style.css"
+>
 
 
-        /* Navbar gradient kuning dan biru */
-        .navbar {
+<style>
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #FFD700 0%,
-                    #F5C400 40%,
-                    #0057B8 100%
-                ) !important;
+/* ================================= */
+/* BODY */
+/* ================================= */
 
-        }
+body {
 
+    background: #fefbea;
 
-        .destination-card .card {
-
-            transition: 0.3s;
-
-            border: none;
-
-            overflow: hidden;
-
-        }
+}
 
 
-        .destination-card .card:hover {
+/* ================================= */
+/* NAVBAR */
+/* ================================= */
 
-            transform: translateY(-8px);
+.navbar {
 
-            box-shadow:
-                0 15px 30px rgba(0,0,0,0.15) !important;
+    background:
+        linear-gradient(
+            90deg,
+            #FFD700 0%,
+            #F5C400 40%,
+            #0057B8 100%
+        ) !important;
 
-        }
-
-
-        .destination-card img {
-
-            object-fit: cover;
-
-            transition: 0.3s;
-
-        }
+}
 
 
-        .destination-card .card:hover img {
+/* ================================= */
+/* HEADER */
+/* ================================= */
 
-            transform: scale(1.05);
+.transport-header {
 
-        }
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.98) 0%,
+            rgba(255,255,255,0.92) 40%,
+            rgba(255,255,255,0.25) 100%
+        ),
+        url('assets/images/header.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    min-height: 450px;
+
+    padding: 60px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
 
 
-        .hero-destination {
+/* ================================= */
+/* HEADER CONTAINER */
+/* ================================= */
 
-            background-image:
-                url('assets/images/header.jpg');
+.transport-header .container {
 
-            background-size: cover;
+    position: relative;
 
-            background-position: center;
+    z-index: 2;
 
-            background-repeat: no-repeat;
+}
 
-            color: white;
 
-            min-height: 400px;
+/* ================================= */
+/* SMALL TITLE */
+/* ================================= */
 
-            padding: 80px 20px;
+.transport-header .small-title {
 
-            display: flex;
+    color: #f5b400;
 
-            flex-direction: column;
+    font-size: 16px;
 
-            justify-content: center;
+    font-weight: 700;
 
-            align-items: center;
+    margin-bottom: 12px;
 
-        }
+}
 
-    </style>
+
+/* ================================= */
+/* HEADER TITLE */
+/* ================================= */
+
+.transport-header h1 {
+
+    color: #10233f;
+
+    font-size: 3.5rem;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+
+    text-align: left;
+
+}
+
+
+/* ================================= */
+/* HEADER DESCRIPTION */
+/* ================================= */
+
+.transport-header p {
+
+    color: #536174;
+
+    font-size: 1.15rem;
+
+    max-width: 520px;
+
+    margin: 0;
+
+    text-align: left;
+
+}
+
+
+/* ================================= */
+/* CAR IMAGE */
+/* ================================= */
+
+.header-car {
+
+    position: absolute;
+
+    right: 4%;
+
+    bottom: 15px;
+
+    width: 480px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+/* ================================= */
+/* AREA SECTION */
+/* ================================= */
+
+.area-section {
+
+    padding: 70px 0 70px;
+
+}
+
+
+/* ================================= */
+/* AREA SECTION TITLE */
+/* ================================= */
+
+.area-section-title {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+
+/* ================================= */
+/* AREA TITLE */
+/* ================================= */
+
+.area-section-title h2 {
+
+    color: #163b2a;
+
+    font-weight: 800;
+
+    font-size: 2.2rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* ================================= */
+/* AREA DESCRIPTION */
+/* ================================= */
+
+.area-section-title p {
+
+    color: #777;
+
+    margin: 0;
+
+}
+
+
+/* ================================= */
+/* AREA CARD */
+/* ================================= */
+
+.area-card {
+
+    border: none;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 30px 20px;
+
+    height: 100%;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* ================================= */
+/* TOP LINE */
+/* ================================= */
+
+.area-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #FFD700,
+            #F5C400,
+            #0057B8
+        );
+
+}
+
+
+/* ================================= */
+/* CARD HOVER */
+/* ================================= */
+
+.area-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.15);
+
+}
+
+
+/* ================================= */
+/* AREA ICON */
+/* ================================= */
+
+.area-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e8f5ee;
+
+    color: #198754;
+
+    font-size: 34px;
+
+    transition: 0.3s;
+
+}
+
+
+/* ================================= */
+/* ICON HOVER */
+/* ================================= */
+
+.area-card:hover .area-icon {
+
+    background: #198754;
+
+    color: white;
+
+    transform: scale(1.08);
+
+}
+
+
+/* ================================= */
+/* AREA NAME */
+/* ================================= */
+
+.area-card h4 {
+
+    font-weight: 700;
+
+    color: #163b2a;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* ================================= */
+/* AREA DESCRIPTION */
+/* ================================= */
+
+.area-card p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ================================= */
+/* EXPLORE BUTTON */
+/* ================================= */
+
+.area-select-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 18px;
+
+    border-radius: 50px;
+
+    background: #e8f5ee;
+
+    color: #198754;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+
+/* ================================= */
+/* BUTTON HOVER */
+/* ================================= */
+
+.area-card:hover .area-select-btn {
+
+    background: #198754;
+
+    color: white;
+
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media(max-width:768px) {
+
+    .transport-header {
+
+        min-height: 600px;
+
+        padding: 50px 20px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .transport-header h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+
+    .transport-header p {
+
+        font-size: 1rem;
+
+    }
+
+
+    /* CAR IMAGE - MOBILE */
+
+    .header-car {
+
+        right: 50%;
+
+        transform: translateX(50%);
+
+        bottom: 20px;
+
+        width: 330px;
+
+    }
+
+
+    .area-section {
+
+        padding: 50px 0 40px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -136,386 +521,300 @@ include("config.php");
 <?php include("navbar.php"); ?>
 
 
-<!-- HERO -->
+<!-- ================================= -->
+<!-- HEADER -->
+<!-- ================================= -->
 
-<section class="hero-destination text-center">
+<section class="transport-header">
 
     <div class="container">
 
-        <h1 class="display-4 fw-bold">
+        <div class="small-title">
 
-            Explore Perlis Destinations
+            ✦ Easy Travel, Better Journey
+
+        </div>
+
+
+        <h1>
+
+            Explore<br>
+
+            Transport in Perlis
 
         </h1>
 
 
-        <p class="lead">
+        <p>
 
-            Discover beautiful places, food and culture of Perlis
+            Find buses, trains, taxis and ferry services around Perlis
 
         </p>
+
+    </div>
+
+
+    <!-- CAR IMAGE -->
+
+    <img
+        src="assets/images/car.png"
+        alt="Car"
+        class="header-car"
+    >
+
+</section>
+
+
+
+<!-- ================================= -->
+<!-- AREA SELECTION -->
+<!-- ================================= -->
+
+<section class="area-section">
+
+    <div class="container">
+
+
+        <div class="area-section-title">
+
+            <h2>
+
+                Choose Your Area
+
+            </h2>
+
+
+            <p>
+
+                Select an area to explore transportation services in Perlis.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+
+            <!-- ================================= -->
+            <!-- KANGAR -->
+            <!-- ================================= -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div
+                    class="area-card"
+                    onclick="openGoogleMaps('Kangar')"
+                >
+
+                    <div class="area-icon">
+
+                        <i class="bi bi-building-fill"></i>
+
+                    </div>
+
+
+                    <h4>
+
+                        Kangar
+
+                    </h4>
+
+
+                    <p>
+
+                        Main city transport hub in Perlis
+
+                    </p>
+
+
+                    <span class="area-select-btn">
+
+                        Explore Transport
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================= -->
+            <!-- ARAU -->
+            <!-- ================================= -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div
+                    class="area-card"
+                    onclick="openGoogleMaps('Arau')"
+                >
+
+                    <div class="area-icon">
+
+                        <i class="bi bi-train-front-fill"></i>
+
+                    </div>
+
+
+                    <h4>
+
+                        Arau
+
+                    </h4>
+
+
+                    <p>
+
+                        Railway and local transport services
+
+                    </p>
+
+
+                    <span class="area-select-btn">
+
+                        Explore Transport
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================= -->
+            <!-- PADANG BESAR -->
+            <!-- ================================= -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div
+                    class="area-card"
+                    onclick="openGoogleMaps('Padang Besar')"
+                >
+
+                    <div class="area-icon">
+
+                        <i class="bi bi-bus-front-fill"></i>
+
+                    </div>
+
+
+                    <h4>
+
+                        Padang Besar
+
+                    </h4>
+
+
+                    <p>
+
+                        Railway, bus and border transport
+
+                    </p>
+
+
+                    <span class="area-select-btn">
+
+                        Explore Transport
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================= -->
+            <!-- KUALA PERLIS -->
+            <!-- ================================= -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div
+                    class="area-card"
+                    onclick="openGoogleMaps('Kuala Perlis')"
+                >
+
+                    <div class="area-icon">
+
+                        <i class="bi bi-water"></i>
+
+                    </div>
+
+
+                    <h4>
+
+                        Kuala Perlis
+
+                    </h4>
+
+
+                    <p>
+
+                        Ferry, bus and local transport services
+
+                    </p>
+
+
+                    <span class="area-select-btn">
+
+                        Explore Transport
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- SEARCH -->
 
-<div class="container mt-5">
-
-    <div class="card shadow-sm p-4">
-
-        <div class="row g-3">
-
-
-            <div class="col-md-7">
-
-                <label class="form-label fw-bold">
-
-                    Search Destination
-
-                </label>
-
-                <div class="input-group">
-
-                    <span class="input-group-text">
-
-                        <i class="bi bi-search"></i>
-
-                    </span>
-
-
-                    <input
-                        type="text"
-                        id="keyword"
-                        class="form-control"
-                        placeholder="Search destination, location..."
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-5">
-
-                <label class="form-label fw-bold">
-
-                    Category
-
-                </label>
-
-
-                <select
-                    id="category"
-                    class="form-select">
-
-                    <option value="All">
-
-                        All Categories
-
-                    </option>
-
-
-                    <option value="Nature">
-
-                        Nature
-
-                    </option>
-
-
-                    <option value="Culture">
-
-                        Culture
-
-                    </option>
-
-
-                    <option value="Food">
-
-                        Food
-
-                    </option>
-
-
-                    <option value="Adventure">
-
-                        Adventure
-
-                    </option>
-
-
-                    <option value="Lake">
-
-                        Lake
-
-                    </option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- DESTINATION -->
-
-<div class="container mt-5 mb-5">
-
-    <div
-        class="row"
-        id="destinationList">
-
-
-<?php
-
-$sql = "
-    SELECT *
-    FROM destinations
-    ORDER BY destination_name ASC
-";
-
-
-$result = mysqli_query($conn, $sql);
-
-
-if (!$result) {
-
-    echo '
-
-    <div class="col-12">
-
-        <div class="alert alert-danger">
-
-            Database Error:
-
-            ' . htmlspecialchars(mysqli_error($conn)) . '
-
-        </div>
-
-    </div>
-
-    ';
-
-}
-
-
-elseif (mysqli_num_rows($result) == 0) {
-
-    echo '
-
-    <div class="col-12 text-center">
-
-        <div class="alert alert-warning">
-
-            No destinations available.
-
-        </div>
-
-    </div>
-
-    ';
-
-}
-
-
-else {
-
-
-    while ($row = mysqli_fetch_assoc($result)) {
-
-?>
-
-
-        <div class="col-md-4 mb-4 destination-card">
-
-            <div class="card shadow h-100">
-
-
-                <img
-                    src="assets/images/<?php
-                    echo htmlspecialchars($row['image']);
-                    ?>"
-                    class="card-img-top"
-                    height="230"
-                    alt="<?php
-                    echo htmlspecialchars(
-                        $row['destination_name']
-                    );
-                    ?>"
-                >
-
-
-                <div class="card-body d-flex flex-column">
-
-
-                    <h4 class="fw-bold">
-
-                        <?php
-                        echo htmlspecialchars(
-                            $row['destination_name']
-                        );
-                        ?>
-
-                    </h4>
-
-
-                    <p class="text-muted">
-
-                        <i
-                            class="bi bi-geo-alt-fill text-success">
-                        </i>
-
-                        <?php
-                        echo htmlspecialchars(
-                            $row['location']
-                        );
-                        ?>
-
-                    </p>
-
-
-                    <p>
-
-                        <?php
-                        echo htmlspecialchars(
-                            $row['description']
-                        );
-                        ?>
-
-                    </p>
-
-
-                    <div>
-
-                        <span class="badge bg-success">
-
-                            <?php
-                            echo htmlspecialchars(
-                                $row['category']
-                            );
-                            ?>
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="mt-auto pt-3">
-
-
-                        <a
-                            href="destination-details.php?id=<?php
-                            echo (int)$row['destination_id'];
-                            ?>"
-                            class="btn btn-success w-100">
-
-                            <i class="bi bi-eye"></i>
-
-                            View Details
-
-                        </a>
-
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-<?php
-
-    }
-
-}
-
-?>
-
-
-    </div>
-
-</div>
-
-
-<?php include("footer.php"); ?>
-
+<!-- ================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================= -->
 
 <script>
 
-function loadDestination() {
+function openGoogleMaps(area) {
 
-    let keyword =
-        document.getElementById("keyword").value;
+    var googleURL =
+        "https://www.google.com/maps/search/?api=1&query="
+        +
+        encodeURIComponent(area + ", Perlis");
 
-    let category =
-        document.getElementById("category").value;
-
-
-    let xhr =
-        new XMLHttpRequest();
-
-
-    xhr.open(
-        "POST",
-        "search_destination.php",
-        true
-    );
-
-
-    xhr.setRequestHeader(
-        "Content-Type",
-        "application/x-www-form-urlencoded"
-    );
-
-
-    xhr.onload = function() {
-
-        if (xhr.status === 200) {
-
-            document.getElementById(
-                "destinationList"
-            ).innerHTML = xhr.responseText;
-
-        }
-
-    };
-
-
-    xhr.send(
-        "keyword="
-        + encodeURIComponent(keyword)
-        + "&category="
-        + encodeURIComponent(category)
+    window.open(
+        googleURL,
+        "_blank"
     );
 
 }
 
-
-document
-    .getElementById("keyword")
-    .addEventListener(
-        "keyup",
-        loadDestination
-    );
-
-
-document
-    .getElementById("category")
-    .addEventListener(
-        "change",
-        loadDestination
-    );
-
 </script>
+
+
+
+<?php include("footer.php"); ?>
 
 
 </body>
