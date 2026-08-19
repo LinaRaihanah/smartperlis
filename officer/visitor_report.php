@@ -3,7 +3,9 @@
 include("header.php");
 
 
+// ==========================================
 // TOTAL VISITS
+// ==========================================
 
 $result =
 mysqli_query(
@@ -16,7 +18,9 @@ $totalVisits =
 mysqli_fetch_assoc($result)['total'];
 
 
+// ==========================================
 // DESTINATION VIEWS
+// ==========================================
 
 $result =
 mysqli_query(
@@ -31,254 +35,405 @@ mysqli_fetch_assoc($result)['total'];
 
 ?>
 
-<h2 class="fw-bold mb-4">
 
-Visitor Analytics
+
+<!-- ==========================================
+     PAGE TITLE
+========================================== -->
+
+<h2
+    class="fw-bold mb-4"
+    style="color:#0B2D5C;"
+>
+
+    Visitor Analytics
 
 </h2>
 
 
+
+<!-- ==========================================
+     ANALYTICS CARDS
+========================================== -->
 
 <div class="row g-4 mb-5">
 
 
-<div class="col-md-6">
+    <!-- TOTAL VISITS -->
+
+    <div class="col-md-6">
+
+        <div
+            class="card shadow-sm border-0 p-4 h-100"
+            style="
+                border-radius:12px;
+                background:white;
+                border-left:5px solid #1565C0 !important;
+            "
+        >
+
+            <div
+                class="d-flex justify-content-between
+                       align-items-center"
+            >
 
 
-<div class="card shadow-sm p-4">
+                <div>
+
+                    <small
+                        class="fw-semibold"
+                        style="color:#6c757d;"
+                    >
+
+                        Total Visits
+
+                    </small>
 
 
-<div class="d-flex justify-content-between">
+                    <h2
+                        class="fw-bold mb-0 mt-1"
+                        style="color:#0B2D5C;"
+                    >
+
+                        <?php
+
+                        echo $totalVisits;
+
+                        ?>
+
+                    </h2>
+
+                </div>
 
 
-<div>
+                <div
+                    class="rounded-circle d-flex
+                           align-items-center
+                           justify-content-center"
+                    style="
+                        width:60px;
+                        height:60px;
+                        background:#E3F2FD;
+                    "
+                >
 
-<small class="text-muted">
+                    <i
+                        class="bi bi-people fs-2"
+                        style="color:#1565C0;"
+                    ></i>
 
-Total Visits
+                </div>
 
-</small>
 
-<h2>
+            </div>
 
-<?php
-echo $totalVisits;
-?>
+        </div>
 
-</h2>
+    </div>
+
+
+
+    <!-- DESTINATION VIEWS -->
+
+    <div class="col-md-6">
+
+        <div
+            class="card shadow-sm border-0 p-4 h-100"
+            style="
+                border-radius:12px;
+                background:white;
+                border-left:5px solid #FFC107 !important;
+            "
+        >
+
+            <div
+                class="d-flex justify-content-between
+                       align-items-center"
+            >
+
+
+                <div>
+
+                    <small
+                        class="fw-semibold"
+                        style="color:#6c757d;"
+                    >
+
+                        Destination Views
+
+                    </small>
+
+
+                    <h2
+                        class="fw-bold mb-0 mt-1"
+                        style="color:#0B2D5C;"
+                    >
+
+                        <?php
+
+                        echo $destinationViews;
+
+                        ?>
+
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="rounded-circle d-flex
+                           align-items-center
+                           justify-content-center"
+                    style="
+                        width:60px;
+                        height:60px;
+                        background:#FFF8E1;
+                    "
+                >
+
+                    <i
+                        class="bi bi-eye fs-2"
+                        style="color:#FFC107;"
+                    ></i>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
 
 </div>
 
 
-<i class="bi bi-people fs-1 text-success"></i>
 
+<!-- ==========================================
+     MOST VIEWED DESTINATIONS
+========================================== -->
 
-</div>
+<div
+    class="card shadow-sm border-0"
+    style="
+        border-radius:12px;
+        background:white;
+    "
+>
 
-</div>
+    <div class="card-body p-4">
 
-</div>
 
+        <h4
+            class="fw-bold mb-4"
+            style="color:#0B2D5C;"
+        >
 
+            Most Viewed Destinations
 
-<div class="col-md-6">
+        </h4>
 
 
-<div class="card shadow-sm p-4">
 
+        <div class="table-responsive">
 
-<div class="d-flex justify-content-between">
 
+            <table
+                class="table table-hover align-middle"
+            >
 
-<div>
 
-<small class="text-muted">
+                <!-- TABLE HEADER -->
 
-Destination Views
+                <thead
+                    style="
+                        background:#0B2D5C;
+                        color:white;
+                    "
+                >
 
-</small>
+                    <tr>
 
-<h2>
+                        <th class="py-3">
+                            Rank
+                        </th>
 
-<?php
-echo $destinationViews;
-?>
+                        <th class="py-3">
+                            Destination
+                        </th>
 
-</h2>
+                        <th class="py-3">
+                            Total Views
+                        </th>
 
-</div>
+                    </tr>
 
+                </thead>
 
-<i class="bi bi-eye fs-1 text-primary"></i>
 
 
-</div>
+                <!-- TABLE BODY -->
 
-</div>
+                <tbody>
 
-</div>
 
+                <?php
 
-</div>
+                $sql = "
 
+                SELECT
 
+                    destinations.destination_id,
 
-<!-- MOST VIEWED -->
+                    destinations.destination_name,
 
-<div class="card shadow-sm">
+                    COUNT(
+                        visitor_logs.destination_id
+                    ) AS total_view
 
-<div class="card-body">
+                FROM visitor_logs
 
+                INNER JOIN destinations
 
-<h4 class="mb-4">
+                ON visitor_logs.destination_id =
+                   destinations.destination_id
 
-Most Viewed Destinations
+                WHERE visitor_logs.destination_id IS NOT NULL
 
-</h4>
+                GROUP BY
 
+                    destinations.destination_id,
 
-<div class="table-responsive">
+                    destinations.destination_name
 
+                ORDER BY total_view DESC
 
-<table class="table table-bordered">
+                ";
 
 
-<thead class="table-success">
+                $result =
+                    mysqli_query(
+                        $conn,
+                        $sql
+                    );
 
-<tr>
 
-<th>
+                $rank = 1;
 
-Rank
 
-</th>
+                while (
+                    $row =
+                    mysqli_fetch_assoc($result)
+                ) {
 
-<th>
+                ?>
 
-Destination
 
-</th>
+                    <tr>
 
-<th>
 
-Total Views
+                        <!-- RANK -->
 
-</th>
+                        <td>
 
-</tr>
+                            <?php
 
-</thead>
+                            if ($rank == 1) {
 
+                                echo
+                                '<span
+                                    class="fw-bold"
+                                    style="color:#FFC107;"
+                                >
+                                    <i class="bi bi-trophy-fill"></i>
+                                    1
+                                </span>';
 
-<tbody>
+                            }
+                            else {
 
+                                echo $rank;
 
-<?php
+                            }
 
-$sql = "
+                            $rank++;
 
-SELECT
+                            ?>
 
-destinations.destination_id,
+                        </td>
 
-destinations.destination_name,
 
-COUNT(
-    visitor_logs.destination_id
-) AS total_view
 
-FROM visitor_logs
+                        <!-- DESTINATION -->
 
-INNER JOIN destinations
+                        <td>
 
-ON visitor_logs.destination_id =
-destinations.destination_id
+                            <strong
+                                style="color:#1565C0;"
+                            >
 
-WHERE visitor_logs.destination_id IS NOT NULL
+                                <?php
 
-GROUP BY
+                                echo htmlspecialchars(
+                                    $row['destination_name']
+                                );
 
-destinations.destination_id,
+                                ?>
 
-destinations.destination_name
+                            </strong>
 
-ORDER BY total_view DESC
+                        </td>
 
-";
 
 
-$result =
-mysqli_query(
-    $conn,
-    $sql
-);
+                        <!-- TOTAL VIEWS -->
 
+                        <td>
 
-$rank = 1;
+                            <span
+                                class="badge fw-semibold"
+                                style="
+                                    background:#1565C0;
+                                    color:white;
+                                    padding:8px 12px;
+                                    border-radius:6px;
+                                "
+                            >
 
+                                <?php
 
-while (
-    $row =
-    mysqli_fetch_assoc($result)
-) {
+                                echo $row['total_view'];
 
-?>
+                                ?>
 
+                                views
 
-<tr>
+                            </span>
 
-<td>
+                        </td>
 
-<?php
-echo $rank++;
-?>
 
-</td>
+                    </tr>
 
 
-<td>
+                <?php
 
-<?php
-echo htmlspecialchars(
-$row['destination_name']
-);
-?>
+                }
 
-</td>
+                ?>
 
 
-<td>
+                </tbody>
 
-<span class="badge bg-success">
 
-<?php
-echo $row['total_view'];
-?>
+            </table>
 
-views
 
-</span>
+        </div>
 
-</td>
 
-
-</tr>
-
-
-<?php
-
-}
-
-?>
-
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 

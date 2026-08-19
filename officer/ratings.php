@@ -5,198 +5,296 @@ include("header.php");
 ?>
 
 
-<h2 class="fw-bold mb-4">
+<!-- ==========================================
+     PAGE TITLE
+========================================== -->
 
-Destination Ratings
+<h2
+    class="fw-bold mb-4"
+    style="color:#0B2D5C;"
+>
+
+    Destination Ratings
 
 </h2>
 
 
-<div class="card shadow-sm">
 
-<div class="card-body">
+<!-- ==========================================
+     RATINGS CARD
+========================================== -->
 
+<div
+    class="card shadow-sm border-0"
+    style="
+        border-radius:12px;
+        background:white;
+    "
+>
 
-<div class="table-responsive">
+    <div class="card-body p-4">
 
 
-<table class="table table-hover align-middle">
+        <div class="table-responsive">
 
 
-<thead class="table-success">
+            <table
+                class="table table-hover align-middle mb-0"
+            >
 
-<tr>
 
-<th>#</th>
+                <!-- TABLE HEADER -->
 
-<th>Name</th>
+                <thead
+                    style="
+                        background:#0B2D5C;
+                        color:white;
+                    "
+                >
 
-<th>Destination</th>
+                    <tr>
 
-<th>Rating</th>
+                        <th class="py-3">
+                            #
+                        </th>
 
-<th>Comment</th>
+                        <th class="py-3">
+                            Name
+                        </th>
 
-<th>Date</th>
+                        <th class="py-3">
+                            Destination
+                        </th>
 
-</tr>
+                        <th class="py-3">
+                            Rating
+                        </th>
 
-</thead>
+                        <th class="py-3">
+                            Comment
+                        </th>
 
+                        <th class="py-3">
+                            Date
+                        </th>
 
-<tbody>
+                    </tr>
 
+                </thead>
 
-<?php
 
-$sql = "
 
-SELECT
+                <!-- TABLE BODY -->
 
-destination_ratings.*,
+                <tbody>
 
-destinations.destination_name
 
-FROM destination_ratings
+                <?php
 
-JOIN destinations
+                $sql = "
 
-ON destination_ratings.destination_id =
-destinations.destination_id
+                SELECT
 
-ORDER BY
-destination_ratings.created_at DESC
+                    destination_ratings.*,
 
-";
+                    destinations.destination_name
 
+                FROM destination_ratings
 
-$result =
-mysqli_query(
-    $conn,
-    $sql
-);
+                JOIN destinations
 
+                ON destination_ratings.destination_id =
+                   destinations.destination_id
 
-$count = 1;
+                ORDER BY
+                    destination_ratings.created_at DESC
 
+                ";
 
-while (
-    $row =
-    mysqli_fetch_assoc($result)
-) {
 
-?>
+                $result =
+                    mysqli_query(
+                        $conn,
+                        $sql
+                    );
 
 
-<tr>
+                $count = 1;
 
-<td>
 
-<?php
-echo $count++;
-?>
+                while (
+                    $row =
+                    mysqli_fetch_assoc($result)
+                ) {
 
-</td>
+                ?>
 
 
-<td>
+                    <tr>
 
-<?php
-echo htmlspecialchars(
-$row['name']
-);
-?>
 
-</td>
+                        <!-- NUMBER -->
 
+                        <td>
 
-<td>
+                            <?php
 
-<strong>
+                            echo $count++;
 
-<?php
-echo htmlspecialchars(
-$row['destination_name']
-);
-?>
+                            ?>
 
-</strong>
+                        </td>
 
-</td>
 
 
-<td>
+                        <!-- NAME -->
 
+                        <td>
 
-<?php
+                            <strong
+                                style="color:#0B2D5C;"
+                            >
 
-for (
-    $i = 1;
-    $i <= 5;
-    $i++
-) {
+                                <?php
 
-    if (
-        $i <= $row['rating']
-    ) {
+                                echo htmlspecialchars(
+                                    $row['name']
+                                );
 
-        echo
-        '<i class="bi bi-star-fill text-warning"></i>';
+                                ?>
 
-    }
+                            </strong>
 
-}
+                        </td>
 
-?>
 
 
-</td>
+                        <!-- DESTINATION -->
 
+                        <td>
 
-<td>
+                            <strong
+                                style="color:#1565C0;"
+                            >
 
-<?php
-echo htmlspecialchars(
-$row['comment']
-);
-?>
+                                <?php
 
-</td>
+                                echo htmlspecialchars(
+                                    $row['destination_name']
+                                );
 
+                                ?>
 
-<td>
+                            </strong>
 
-<?php
-echo date(
-    'd M Y',
-    strtotime(
-        $row['created_at']
-    )
-);
-?>
+                        </td>
 
-</td>
 
 
-</tr>
+                        <!-- RATING -->
 
+                        <td>
 
-<?php
+                        <?php
 
-}
+                        for (
+                            $i = 1;
+                            $i <= 5;
+                            $i++
+                        ) {
 
-?>
+                            if (
+                                $i <= $row['rating']
+                            ) {
 
+                                echo
+                                '<i
+                                    class="bi bi-star-fill"
+                                    style="color:#FFC107;"
+                                ></i>';
 
-</tbody>
+                            }
+                            else {
 
-</table>
+                                echo
+                                '<i
+                                    class="bi bi-star"
+                                    style="color:#FFC107;"
+                                ></i>';
+
+                            }
+
+                        }
+
+                        ?>
+
+                        </td>
+
+
+
+                        <!-- COMMENT -->
+
+                        <td>
+
+                            <span
+                                class="text-muted"
+                            >
+
+                                <?php
+
+                                echo htmlspecialchars(
+                                    $row['comment']
+                                );
+
+                                ?>
+
+                            </span>
+
+                        </td>
+
+
+
+                        <!-- DATE -->
+
+                        <td>
+
+                            <?php
+
+                            echo date(
+                                'd M Y',
+                                strtotime(
+                                    $row['created_at']
+                                )
+                            );
+
+                            ?>
+
+                        </td>
+
+
+                    </tr>
+
+
+                <?php
+
+                }
+
+                ?>
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </div>
 
 </div>
 
-</div>
-
-</div>
 
 
 <?php
