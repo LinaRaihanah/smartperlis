@@ -1,9 +1,12 @@
+```php
 <?php
 
 include("header.php");
 
 
+// =====================================
 // DELETE
+// =====================================
 
 if (
     isset($_GET['delete'])
@@ -27,7 +30,9 @@ if (
 }
 
 
+// =====================================
 // ADD
+// =====================================
 
 if (
     isset($_POST['add_destination'])
@@ -110,7 +115,9 @@ if (
 }
 
 
+// =====================================
 // UPDATE
+// =====================================
 
 if (
     isset($_POST['update_destination'])
@@ -191,7 +198,9 @@ if (
 }
 
 
+// =====================================
 // EDIT DATA
+// =====================================
 
 $editData = null;
 
@@ -221,44 +230,481 @@ if (
 ?>
 
 
-<div class="d-flex justify-content-between mb-4">
+<!-- =====================================
+     PAGE STYLE
+===================================== -->
 
-<h2 class="fw-bold">
+<style>
 
-Destinations
+/* =====================================
+   GENERAL PAGE
+===================================== */
 
-</h2>
+body {
+
+    background: #FFFDF5;
+
+}
 
 
-<button
-class="btn btn-success"
-data-bs-toggle="modal"
-data-bs-target="#destinationModal"
->
+/* =====================================
+   PAGE TITLE
+===================================== */
 
-<i class="bi bi-plus-lg"></i>
+.page-title {
 
-Add Destination
+    color: #0B2D5C;
 
-</button>
+    font-size: 2rem;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================
+   ADD DESTINATION BUTTON
+===================================== */
+
+.add-btn {
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 10px 18px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #1565C0,
+        #FFC107
+    );
+
+    transition: all 0.25s ease;
+
+    box-shadow:
+        0 5px 12px
+        rgba(21, 101, 192, 0.2);
+
+}
+
+
+.add-btn:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(21, 101, 192, 0.3);
+
+}
+
+
+/* =====================================
+   TABLE CARD
+===================================== */
+
+.destination-card {
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: #FFF9E8;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================
+   TABLE
+===================================== */
+
+.destination-table {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =====================================
+   TABLE HEADER
+===================================== */
+
+.destination-table thead {
+
+    background: #0B2D5C;
+
+}
+
+
+.destination-table thead th {
+
+    background: #0B2D5C;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    border: none;
+
+    padding: 14px;
+
+}
+
+
+/* =====================================
+   TABLE BODY
+===================================== */
+
+.destination-table tbody td {
+
+    background: #FFF9E8;
+
+    padding: 14px;
+
+    border-color: #F1E7C8;
+
+}
+
+
+/* =====================================
+   TABLE HOVER
+===================================== */
+
+.destination-table tbody tr:hover td {
+
+    background: #FFF3CD;
+
+}
+
+
+/* =====================================
+   DESTINATION IMAGE
+===================================== */
+
+.destination-image {
+
+    width: 80px;
+
+    height: 55px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: 2px solid #F1E7C8;
+
+}
+
+
+/* =====================================
+   CATEGORY BADGE
+===================================== */
+
+.category-badge {
+
+    background: #FFC107;
+
+    color: #0B2D5C;
+
+    font-weight: 700;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+}
+
+
+/* =====================================
+   EDIT BUTTON
+===================================== */
+
+.edit-btn {
+
+    background: #1565C0;
+
+    border: none;
+
+    color: #ffffff;
+
+    border-radius: 7px;
+
+}
+
+
+.edit-btn:hover {
+
+    background: #0B2D5C;
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================
+   DELETE BUTTON
+===================================== */
+
+.delete-btn {
+
+    background: #DC3545;
+
+    border: none;
+
+    color: #ffffff;
+
+    border-radius: 7px;
+
+}
+
+
+.delete-btn:hover {
+
+    background: #B02A37;
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================
+   MODAL
+===================================== */
+
+.modal-content {
+
+    background: #FFF9E8;
+
+    border: none;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================
+   MODAL HEADER
+===================================== */
+
+.modal-header {
+
+    background: linear-gradient(
+        135deg,
+        #0B2D5C,
+        #1565C0
+    );
+
+    color: #ffffff;
+
+    border-bottom: 4px solid #FFC107;
+
+    padding: 18px 22px;
+
+}
+
+
+.modal-title {
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================
+   FORM LABEL
+===================================== */
+
+.form-label {
+
+    color: #0B2D5C;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================
+   FORM INPUTS
+===================================== */
+
+.form-control,
+.form-select {
+
+    background: #FFFDF5;
+
+    border: 1px solid #D8D0B8;
+
+    border-radius: 9px;
+
+    padding: 10px 12px;
+
+}
+
+
+.form-control:focus,
+.form-select:focus {
+
+    background: #ffffff;
+
+    border-color: #1565C0;
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(21, 101, 192, 0.15);
+
+}
+
+
+/* =====================================
+   MODAL FOOTER
+===================================== */
+
+.modal-footer {
+
+    background: #FFF3CD;
+
+    border-top: 1px solid #F1E7C8;
+
+}
+
+
+/* =====================================
+   UPDATE BUTTON
+===================================== */
+
+.update-btn {
+
+    background: #1565C0;
+
+    border: none;
+
+    color: #ffffff;
+
+    border-radius: 9px;
+
+    padding: 10px 20px;
+
+    font-weight: 700;
+
+}
+
+
+.update-btn:hover {
+
+    background: #0B2D5C;
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================
+   ADD MODAL BUTTON
+===================================== */
+
+.modal-add-btn {
+
+    background: linear-gradient(
+        135deg,
+        #1565C0,
+        #FFC107
+    );
+
+    border: none;
+
+    color: #ffffff;
+
+    border-radius: 9px;
+
+    padding: 10px 20px;
+
+    font-weight: 700;
+
+}
+
+
+.modal-add-btn:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+
+    .page-title {
+
+        font-size: 1.7rem;
+
+    }
+
+}
+
+</style>
+
+
+<!-- =====================================
+     PAGE HEADER
+===================================== -->
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2 class="page-title mb-0">
+
+        <i class="bi bi-geo-alt-fill me-2"></i>
+
+        Destinations
+
+    </h2>
+
+
+    <button
+        class="btn add-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#destinationModal"
+    >
+
+        <i class="bi bi-plus-lg me-1"></i>
+
+        Add Destination
+
+    </button>
 
 </div>
 
 
+<!-- =====================================
+     DESTINATION TABLE
+===================================== -->
 
-<!-- TABLE -->
+<div class="card destination-card shadow-sm">
 
-<div class="card shadow-sm">
-
-<div class="card-body">
+<div class="card-body p-0">
 
 <div class="table-responsive">
 
 
-<table class="table table-hover align-middle">
+<table class="table destination-table table-hover align-middle">
 
 
-<thead class="table-success">
+<thead>
 
 <tr>
 
@@ -305,9 +751,13 @@ while (
 
 <td>
 
+<strong>
+
 <?php
 echo $row['destination_id'];
 ?>
+
+</strong>
 
 </td>
 
@@ -315,15 +765,14 @@ echo $row['destination_id'];
 <td>
 
 <img
-src="../assets/images/<?php
-echo htmlspecialchars(
-$row['image']
-);
-?>"
-width="80"
-height="55"
-style="object-fit:cover;border-radius:8px;"
+    src="../assets/images/<?php
+    echo htmlspecialchars(
+        $row['image']
+    );
+    ?>"
+    class="destination-image"
 >
+
 
 </td>
 
@@ -334,7 +783,7 @@ style="object-fit:cover;border-radius:8px;"
 
 <?php
 echo htmlspecialchars(
-$row['destination_name']
+    $row['destination_name']
 );
 ?>
 
@@ -345,11 +794,11 @@ $row['destination_name']
 
 <td>
 
-<span class="badge bg-success">
+<span class="badge category-badge">
 
 <?php
 echo htmlspecialchars(
-$row['category']
+    $row['category']
 );
 ?>
 
@@ -360,9 +809,11 @@ $row['category']
 
 <td>
 
+<i class="bi bi-geo-alt me-1 text-primary"></i>
+
 <?php
 echo htmlspecialchars(
-$row['location']
+    $row['location']
 );
 ?>
 
@@ -373,26 +824,28 @@ $row['location']
 
 
 <a
-href="destinations.php?edit=<?php
-echo $row['destination_id'];
-?>"
-class="btn btn-sm btn-primary"
+    href="destinations.php?edit=<?php
+    echo $row['destination_id'];
+    ?>"
+    class="btn btn-sm edit-btn me-1"
+    title="Edit"
 >
 
-<i class="bi bi-pencil"></i>
+    <i class="bi bi-pencil"></i>
 
 </a>
 
 
 <a
-href="destinations.php?delete=<?php
-echo $row['destination_id'];
-?>"
-class="btn btn-sm btn-danger"
-onclick="return confirm('Delete this destination?')"
+    href="destinations.php?delete=<?php
+    echo $row['destination_id'];
+    ?>"
+    class="btn btn-sm delete-btn"
+    title="Delete"
+    onclick="return confirm('Delete this destination?')"
 >
 
-<i class="bi bi-trash"></i>
+    <i class="bi bi-trash"></i>
 
 </a>
 
@@ -420,13 +873,14 @@ onclick="return confirm('Delete this destination?')"
 </div>
 
 
-
-<!-- MODAL -->
+<!-- =====================================
+     ADD / EDIT MODAL
+===================================== -->
 
 <div
-class="modal fade"
-id="destinationModal"
-tabindex="-1"
+    class="modal fade"
+    id="destinationModal"
+    tabindex="-1"
 >
 
 <div class="modal-dialog modal-lg">
@@ -434,9 +888,13 @@ tabindex="-1"
 <div class="modal-content">
 
 
+<!-- MODAL HEADER -->
+
 <div class="modal-header">
 
 <h5 class="modal-title">
+
+<i class="bi bi-geo-alt-fill me-2"></i>
 
 <?php
 
@@ -450,9 +908,9 @@ echo $editData
 
 
 <button
-type="button"
-class="btn-close"
-data-bs-dismiss="modal"
+    type="button"
+    class="btn-close btn-close-white"
+    data-bs-dismiss="modal"
 ></button>
 
 </div>
@@ -461,7 +919,7 @@ data-bs-dismiss="modal"
 <form method="POST">
 
 
-<div class="modal-body">
+<div class="modal-body p-4">
 
 
 <?php
@@ -471,11 +929,11 @@ if ($editData) {
 ?>
 
 <input
-type="hidden"
-name="destination_id"
-value="<?php
-echo $editData['destination_id'];
-?>"
+    type="hidden"
+    name="destination_id"
+    value="<?php
+    echo $editData['destination_id'];
+    ?>"
 >
 
 <?php
@@ -488,6 +946,8 @@ echo $editData['destination_id'];
 <div class="row g-3">
 
 
+<!-- DESTINATION NAME -->
+
 <div class="col-md-6">
 
 <label class="form-label">
@@ -497,21 +957,23 @@ Destination Name
 </label>
 
 <input
-type="text"
-name="destination_name"
-class="form-control"
-required
-value="<?php
-echo $editData
-? htmlspecialchars(
-$editData['destination_name']
-)
-: '';
-?>"
+    type="text"
+    name="destination_name"
+    class="form-control"
+    required
+    value="<?php
+    echo $editData
+        ? htmlspecialchars(
+            $editData['destination_name']
+        )
+        : '';
+    ?>"
 >
 
 </div>
 
+
+<!-- CATEGORY -->
 
 <div class="col-md-6">
 
@@ -522,30 +984,62 @@ Category
 </label>
 
 <select
-name="category"
-class="form-select"
-required
+    name="category"
+    class="form-select"
+    required
 >
 
-<option value="Nature">
+<option
+    value="Nature"
+    <?php
+    if (
+        $editData &&
+        $editData['category'] == 'Nature'
+    ) echo 'selected';
+    ?>
+>
 
 Nature
 
 </option>
 
-<option value="Culture">
+<option
+    value="Culture"
+    <?php
+    if (
+        $editData &&
+        $editData['category'] == 'Culture'
+    ) echo 'selected';
+    ?>
+>
 
 Culture
 
 </option>
 
-<option value="Food">
+<option
+    value="Food"
+    <?php
+    if (
+        $editData &&
+        $editData['category'] == 'Food'
+    ) echo 'selected';
+    ?>
+>
 
 Food
 
 </option>
 
-<option value="Adventure">
+<option
+    value="Adventure"
+    <?php
+    if (
+        $editData &&
+        $editData['category'] == 'Adventure'
+    ) echo 'selected';
+    ?>
+>
 
 Adventure
 
@@ -556,6 +1050,8 @@ Adventure
 </div>
 
 
+<!-- LOCATION -->
+
 <div class="col-md-6">
 
 <label class="form-label">
@@ -565,21 +1061,23 @@ Location
 </label>
 
 <input
-type="text"
-name="location"
-class="form-control"
-required
-value="<?php
-echo $editData
-? htmlspecialchars(
-$editData['location']
-)
-: '';
-?>"
+    type="text"
+    name="location"
+    class="form-control"
+    required
+    value="<?php
+    echo $editData
+        ? htmlspecialchars(
+            $editData['location']
+        )
+        : '';
+    ?>"
 >
 
 </div>
 
+
+<!-- IMAGE -->
 
 <div class="col-md-6">
 
@@ -590,21 +1088,23 @@ Image Filename
 </label>
 
 <input
-type="text"
-name="image"
-class="form-control"
-placeholder="gua_kelam.jpg"
-value="<?php
-echo $editData
-? htmlspecialchars(
-$editData['image']
-)
-: '';
-?>"
+    type="text"
+    name="image"
+    class="form-control"
+    placeholder="gua_kelam.jpg"
+    value="<?php
+    echo $editData
+        ? htmlspecialchars(
+            $editData['image']
+        )
+        : '';
+    ?>"
 >
 
 </div>
 
+
+<!-- DESCRIPTION -->
 
 <div class="col-12">
 
@@ -615,22 +1115,24 @@ Description
 </label>
 
 <textarea
-name="description"
-class="form-control"
-rows="4"
-required
+    name="description"
+    class="form-control"
+    rows="4"
+    required
 ><?php
 
 echo $editData
-? htmlspecialchars(
-$editData['description']
-)
-: '';
+    ? htmlspecialchars(
+        $editData['description']
+    )
+    : '';
 
 ?></textarea>
 
 </div>
 
+
+<!-- LATITUDE -->
 
 <div class="col-md-6">
 
@@ -641,20 +1143,22 @@ Latitude
 </label>
 
 <input
-type="text"
-name="latitude"
-class="form-control"
-value="<?php
-echo $editData
-? htmlspecialchars(
-$editData['latitude']
-)
-: '';
-?>"
+    type="text"
+    name="latitude"
+    class="form-control"
+    value="<?php
+    echo $editData
+        ? htmlspecialchars(
+            $editData['latitude']
+        )
+        : '';
+    ?>"
 >
 
 </div>
 
+
+<!-- LONGITUDE -->
 
 <div class="col-md-6">
 
@@ -665,16 +1169,16 @@ Longitude
 </label>
 
 <input
-type="text"
-name="longitude"
-class="form-control"
-value="<?php
-echo $editData
-? htmlspecialchars(
-$editData['longitude']
-)
-: '';
-?>"
+    type="text"
+    name="longitude"
+    class="form-control"
+    value="<?php
+    echo $editData
+        ? htmlspecialchars(
+            $editData['longitude']
+        )
+        : '';
+    ?>"
 >
 
 </div>
@@ -682,11 +1186,13 @@ $editData['longitude']
 
 </div>
 
-
 </div>
 
 
+<!-- MODAL FOOTER -->
+
 <div class="modal-footer">
+
 
 <?php
 
@@ -695,10 +1201,12 @@ if ($editData) {
 ?>
 
 <button
-type="submit"
-name="update_destination"
-class="btn btn-primary"
+    type="submit"
+    name="update_destination"
+    class="btn update-btn"
 >
+
+<i class="bi bi-check-lg me-1"></i>
 
 Update Destination
 
@@ -711,10 +1219,12 @@ Update Destination
 ?>
 
 <button
-type="submit"
-name="add_destination"
-class="btn btn-success"
+    type="submit"
+    name="add_destination"
+    class="btn modal-add-btn"
 >
+
+<i class="bi bi-plus-lg me-1"></i>
 
 Add Destination
 
@@ -725,6 +1235,7 @@ Add Destination
 }
 
 ?>
+
 
 </div>
 
@@ -740,6 +1251,10 @@ Add Destination
 
 
 <?php
+
+// =====================================
+// AUTO OPEN EDIT MODAL
+// =====================================
 
 if ($editData) {
 
@@ -769,3 +1284,4 @@ document.addEventListener(
 include("footer.php");
 
 ?>
+```
