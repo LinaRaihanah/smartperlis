@@ -708,7 +708,7 @@ body {
 
             <i class="bi bi-chat-left-text"></i>
 
-            Contact Messages
+            Messages
 
         </h2>
 
