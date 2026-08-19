@@ -46,7 +46,7 @@ mysqli_fetch_assoc($result)['total'];
     style="color:#0B2D5C;"
 >
 
-    Visitor Analytics
+    Visitor Report
 
 </h2>
 

@@ -257,7 +257,7 @@ if (!isset($_SESSION['admin'])) {
 
             <i class="bi bi-bar-chart-fill"></i>
 
-            Visitor Analytics
+            Visitor Report
 
         </span>
 
