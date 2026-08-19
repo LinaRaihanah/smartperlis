@@ -118,6 +118,20 @@ if (isset($_POST['edit_gallery'])) {
 
 
 <!-- ==========================================
+     CREAM PAGE BACKGROUND
+========================================== -->
+
+<div
+    style="
+        background:#FFFDF5;
+        min-height:100vh;
+        margin:-24px;
+        padding:24px;
+    "
+>
+
+
+<!-- ==========================================
      PAGE HEADER
 ========================================== -->
 
@@ -138,7 +152,8 @@ if (isset($_POST['edit_gallery'])) {
         </h2>
 
         <p
-            class="text-muted mb-0"
+            class="mb-0"
+            style="color:#6c757d;"
         >
 
             Manage tourism gallery images
@@ -156,6 +171,7 @@ if (isset($_POST['edit_gallery'])) {
             background:#1565C0;
             border:none;
             border-radius:8px;
+            box-shadow:0 3px 8px rgba(21,101,192,0.20);
         "
     >
 
@@ -217,29 +233,87 @@ while (
 
 
     <div
-        class="card shadow-sm h-100 border-0"
+        class="card h-100 border-0"
         style="
-            border-radius:12px;
+            border-radius:14px;
             overflow:hidden;
             background:white;
+            box-shadow:
+                0 4px 15px
+                rgba(11,45,92,0.08);
+            transition:all 0.25s ease;
+        "
+
+        onmouseover="
+            this.style.transform='translateY(-4px)';
+            this.style.boxShadow='0 8px 22px rgba(11,45,92,0.14)';
+        "
+
+        onmouseout="
+            this.style.transform='translateY(0)';
+            this.style.boxShadow='0 4px 15px rgba(11,45,92,0.08)';
         "
     >
 
 
         <!-- IMAGE -->
 
-        <img
-            src="../assets/images/<?php
-                echo htmlspecialchars(
-                    $row['image']
-                );
-            ?>"
+        <div
             style="
-                height:220px;
-                width:100%;
-                object-fit:cover;
+                position:relative;
+                overflow:hidden;
             "
         >
+
+            <img
+                src="../assets/images/<?php
+                    echo htmlspecialchars(
+                        $row['image']
+                    );
+                ?>"
+                alt="<?php
+                    echo htmlspecialchars(
+                        $row['caption']
+                    );
+                ?>"
+                style="
+                    height:220px;
+                    width:100%;
+                    object-fit:cover;
+                    display:block;
+                "
+            >
+
+            <!-- IMAGE LABEL -->
+
+            <div
+                style="
+                    position:absolute;
+                    bottom:12px;
+                    left:12px;
+                    background:rgba(11,45,92,0.90);
+                    color:white;
+                    padding:6px 11px;
+                    border-radius:6px;
+                    font-size:12px;
+                    font-weight:600;
+                "
+            >
+
+                <i class="bi bi-geo-alt-fill"></i>
+
+                <?php
+
+                echo htmlspecialchars(
+                    $row['destination_name']
+                );
+
+                ?>
+
+            </div>
+
+        </div>
+
 
 
         <div class="card-body p-4">
@@ -248,7 +322,7 @@ while (
             <!-- DESTINATION -->
 
             <h5
-                class="fw-bold"
+                class="fw-bold mb-2"
                 style="color:#0B2D5C;"
             >
 
@@ -266,7 +340,12 @@ while (
             <!-- CAPTION -->
 
             <p
-                class="text-muted mb-4"
+                class="mb-4"
+                style="
+                    color:#6c757d;
+                    font-size:14px;
+                    line-height:1.6;
+                "
             >
 
                 <?php
@@ -292,7 +371,7 @@ while (
 
                 <button
                     type="button"
-                    class="btn btn-sm fw-semibold"
+                    class="btn btn-sm fw-semibold px-3"
                     data-bs-toggle="modal"
                     data-bs-target="#editModal<?php
                         echo $row['gallery_id'];
@@ -301,7 +380,7 @@ while (
                         background:#FFC107;
                         color:#0B2D5C;
                         border:none;
-                        border-radius:6px;
+                        border-radius:7px;
                     "
                 >
 
@@ -319,11 +398,14 @@ while (
                     href="gallery.php?delete=<?php
                         echo $row['gallery_id'];
                     ?>"
-                    class="btn btn-danger btn-sm fw-semibold"
+                    class="btn btn-danger btn-sm fw-semibold px-3"
                     onclick="
                         return confirm(
                             'Delete this image?'
                         )
+                    "
+                    style="
+                        border-radius:7px;
                     "
                 >
 
@@ -360,8 +442,13 @@ while (
 
     <div class="modal-dialog">
 
-        <div class="modal-content"
-             style="border-radius:12px;"
+        <div
+            class="modal-content"
+            style="
+                border-radius:14px;
+                border:none;
+                overflow:hidden;
+            "
         >
 
 
@@ -420,6 +507,7 @@ while (
 
                         <label
                             class="form-label fw-semibold"
+                            style="color:#0B2D5C;"
                         >
 
                             Destination
@@ -511,6 +599,7 @@ while (
 
                         <label
                             class="form-label fw-semibold"
+                            style="color:#0B2D5C;"
                         >
 
                             Image Filename
@@ -540,6 +629,7 @@ while (
 
                         <label
                             class="form-label fw-semibold"
+                            style="color:#0B2D5C;"
                         >
 
                             Caption
@@ -637,7 +727,11 @@ while (
 
         <div
             class="modal-content"
-            style="border-radius:12px;"
+            style="
+                border-radius:14px;
+                border:none;
+                overflow:hidden;
+            "
         >
 
 
@@ -684,6 +778,7 @@ while (
 
                         <label
                             class="form-label fw-semibold"
+                            style="color:#0B2D5C;"
                         >
 
                             Destination
@@ -758,6 +853,7 @@ while (
 
                         <label
                             class="form-label fw-semibold"
+                            style="color:#0B2D5C;"
                         >
 
                             Image Filename
@@ -783,6 +879,7 @@ while (
 
                         <label
                             class="form-label fw-semibold"
+                            style="color:#0B2D5C;"
                         >
 
                             Caption
@@ -849,6 +946,10 @@ while (
     </div>
 
 </div>
+
+
+</div>
+<!-- END CREAM PAGE BACKGROUND -->
 
 
 
