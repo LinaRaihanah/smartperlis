@@ -12,248 +12,53 @@ include("config.php");
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>
 Interactive Map - Smart Perlis Tourism Portal
 </title>
 
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap -->
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet"
+>
 
 
-<!-- BOOTSTRAP ICONS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+rel="stylesheet"
+>
 
 
-<link rel="stylesheet" href="assets/css/style.css">
+<!-- Your CSS -->
+
+<link
+rel="stylesheet"
+href="assets/css/style.css"
+>
 
 
 <!-- Leaflet CSS -->
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-
-
-</head>
-
-
-<body>
-
-
-<?php include("navbar.php"); ?>
-
-
-<!-- HEADER -->
-
-<section class="map-header">
-
-    <div class="container">
-
-        <h1>
-            Interactive Tourism Map
-        </h1>
-
-        <p>
-            Explore interesting destinations around Perlis
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- MAP -->
-
-<div class="container mt-5 mb-5">
-
-    <div class="map-wrapper">
-
-
-        <div class="map-title">
-
-            <h3>
-                Explore Perlis
-            </h3>
-
-            <p>
-                Click on an area to explore tourist attractions
-            </p>
-
-        </div>
-
-
-
-        <!-- MAP -->
-
-        <div id="map">
-
-
-            <!-- ============================== -->
-            <!-- MAP CONTROL BUTTONS -->
-            <!-- ============================== -->
-
-            <div class="map-controls">
-
-
-                <!-- UP -->
-
-                <button
-                    onclick="moveMap('up')"
-                    title="Move Up"
-                >
-
-                    ▲
-
-                </button>
-
-
-
-                <!-- LEFT -->
-
-                <button
-                    onclick="moveMap('left')"
-                    title="Move Left"
-                >
-
-                    ◀
-
-                </button>
-
-
-
-                <!-- RESET -->
-
-                <button
-                    onclick="resetMap()"
-                    title="Reset Map"
-                >
-
-                    ●
-
-                </button>
-
-
-
-                <!-- RIGHT -->
-
-                <button
-                    onclick="moveMap('right')"
-                    title="Move Right"
-                >
-
-                    ▶
-
-                </button>
-
-
-
-                <!-- DOWN -->
-
-                <button
-                    onclick="moveMap('down')"
-                    title="Move Down"
-                >
-
-                    ▼
-
-                </button>
-
-
-
-                <!-- ZOOM BUTTONS -->
-
-                <div class="zoom-buttons">
-
-
-                    <button
-                        onclick="zoomMap('in')"
-                        title="Zoom In"
-                    >
-
-                        +
-
-                    </button>
-
-
-                    <button
-                        onclick="zoomMap('out')"
-                        title="Zoom Out"
-                    >
-
-                        −
-
-                    </button>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- ============================== -->
-        <!-- INFO PANEL -->
-        <!-- ============================== -->
-
-        <div
-            id="infoPanel"
-            class="info-panel"
-        >
-
-
-            <button
-                class="close-btn"
-                onclick="closePanel()"
-            >
-
-                ×
-
-            </button>
-
-
-
-            <h3 id="areaName">
-
-                Select an area
-
-            </h3>
-
-
-
-            <p id="areaDescription">
-
-                Click Padang Besar, Kangar or Arau on the map.
-
-            </p>
-
-
-
-            <div id="destinationList">
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"
+>
 
 
 <style>
 
-
-/* ================================= */
-/* BODY PAGE */
-/* ================================= */
+/* ==========================================
+   BODY
+========================================== */
 
 body {
 
@@ -262,7 +67,9 @@ body {
 }
 
 
-/* Navbar gradient warna Perlis */
+/* ==========================================
+   NAVBAR
+========================================== */
 
 .navbar {
 
@@ -277,9 +84,9 @@ body {
 }
 
 
-/* ================================= */
-/* HEADER */
-/* ================================= */
+/* ==========================================
+   HEADER
+========================================== */
 
 .map-header {
 
@@ -331,20 +138,21 @@ body {
 }
 
 
-
-/* ================================= */
-/* MAP CONTAINER */
-/* ================================= */
+/* ==========================================
+   MAP WRAPPER
+========================================== */
 
 .map-wrapper {
 
     position: relative;
 
-    background: linear-gradient(
-        135deg,
-        #fffdf5 0%,
-        #fefbea 50%,
-        #f8f1dc 100%;)
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf5 0%,
+            #fefbea 50%,
+            #f8f1dc 100%
+        );
 
     border-radius: 20px;
 
@@ -356,16 +164,15 @@ body {
 }
 
 
-
-/* ================================= */
-/* MAP TITLE */
-/* ================================= */
+/* ==========================================
+   MAP TITLE
+========================================== */
 
 .map-title {
 
     text-align: center;
 
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
 }
 
@@ -374,7 +181,7 @@ body {
 
     font-weight: 700;
 
-    color: #198754;
+    color: #0057B8;
 
 }
 
@@ -383,13 +190,14 @@ body {
 
     color: #777;
 
+    margin-bottom: 0;
+
 }
 
 
-
-/* ================================= */
-/* MAP */
-/* ================================= */
+/* ==========================================
+   REAL MAP
+========================================== */
 
 #map {
 
@@ -397,231 +205,71 @@ body {
 
     width: 100%;
 
-    background: white;
-
     position: relative;
 
     border-radius: 15px;
 
+    overflow: hidden;
+
+    border: 3px solid #0057B8;
+
 }
 
 
-/* Buang background map tile */
+/* ==========================================
+   LEAFLET MAP
+========================================== */
 
 .leaflet-container {
 
-    background: white;
+    background: #e8e8e8;
+
+    font-family: Arial, sans-serif;
 
 }
 
 
+/* ==========================================
+   AREA STYLE
+========================================== */
 
-/* ================================= */
-/* MAP CONTROL */
-/* ================================= */
+.area-normal {
 
-.map-controls {
+    fill: #0057B8;
 
-    position: absolute;
+    fill-opacity: 0.12;
 
-    left: 25px;
+    stroke: #0057B8;
 
-    bottom: 25px;
-
-    z-index: 1000;
-
-    display: grid;
-
-    grid-template-columns: 45px 45px 45px;
-
-    grid-template-rows: 45px 45px 45px;
-
-    gap: 5px;
-
-}
-
-
-
-/* Semua button */
-
-.map-controls button {
-
-    width: 45px;
-
-    height: 45px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: white;
-
-    color: #198754;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.20);
-
-    cursor: pointer;
+    stroke-width: 3;
 
     transition: 0.2s;
 
 }
 
 
-/* Hover */
-
-.map-controls button:hover {
-
-    background: #198754;
-
-    color: white;
-
-    transform: scale(1.05);
-
-}
-
-
-
-/* ================================= */
-/* ARROW POSITION */
-/* ================================= */
-
-
-/* UP */
-
-.map-controls > button:nth-child(1) {
-
-    grid-column: 2;
-
-    grid-row: 1;
-
-}
-
-
-/* LEFT */
-
-.map-controls > button:nth-child(2) {
-
-    grid-column: 1;
-
-    grid-row: 2;
-
-}
-
-
-/* RESET */
-
-.map-controls > button:nth-child(3) {
-
-    grid-column: 2;
-
-    grid-row: 2;
-
-}
-
-
-/* RIGHT */
-
-.map-controls > button:nth-child(4) {
-
-    grid-column: 3;
-
-    grid-row: 2;
-
-}
-
-
-/* DOWN */
-
-.map-controls > button:nth-child(5) {
-
-    grid-column: 2;
-
-    grid-row: 3;
-
-}
-
-
-
-/* ================================= */
-/* ZOOM BUTTONS */
-/* ================================= */
-
-.zoom-buttons {
-
-    position: absolute;
-
-    left: 150px;
-
-    top: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-}
-
-
-.zoom-buttons button {
-
-    width: 45px;
-
-    height: 45px;
-
-    font-size: 25px;
-
-}
-
-
-
-/* ================================= */
-/* PERLIS AREA */
-/* ================================= */
-
-.area-normal {
-
-    fill: #198754;
-
-    fill-opacity: 0.18;
-
-    stroke: #198754;
-
-    stroke-width: 3;
-
-    transition: all 0.2s;
-
-}
-
-
 .area-hover {
 
-    fill: #198754;
+    fill: #0057B8;
 
-    fill-opacity: 0.45;
+    fill-opacity: 0.35;
 
-    stroke: #0f5132;
+    stroke: #003f88;
 
     stroke-width: 5;
 
 }
 
 
-
-/* ================================= */
-/* LABEL */
-/* ================================= */
+/* ==========================================
+   AREA LABEL
+========================================== */
 
 .area-label {
 
     background: white;
 
-    border: none;
+    border: 2px solid #0057B8;
 
     border-radius: 8px;
 
@@ -629,7 +277,7 @@ body {
 
     font-weight: bold;
 
-    color: #198754;
+    color: #0057B8;
 
     box-shadow:
         0 3px 10px rgba(0,0,0,0.15);
@@ -637,10 +285,9 @@ body {
 }
 
 
-
-/* ================================= */
-/* INFO PANEL */
-/* ================================= */
+/* ==========================================
+   INFO PANEL
+========================================== */
 
 .info-panel {
 
@@ -648,9 +295,9 @@ body {
 
     position: absolute;
 
-    right: 30px;
+    right: 45px;
 
-    top: 100px;
+    top: 120px;
 
     width: 320px;
 
@@ -665,7 +312,7 @@ body {
     padding: 25px;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.2);
+        0 10px 30px rgba(0,0,0,0.25);
 
     z-index: 1000;
 
@@ -674,17 +321,16 @@ body {
 
 .info-panel h3 {
 
-    color: #198754;
+    color: #0057B8;
 
     font-weight: bold;
 
 }
 
 
-
-/* ================================= */
-/* CLOSE BUTTON */
-/* ================================= */
+/* ==========================================
+   CLOSE BUTTON
+========================================== */
 
 .close-btn {
 
@@ -702,17 +348,27 @@ body {
 
     color: #777;
 
+    cursor: pointer;
+
 }
 
 
+.close-btn:hover {
 
-/* ================================= */
-/* DESTINATION CARD */
-/* ================================= */
+    color: #0057B8;
+
+}
+
+
+/* ==========================================
+   DESTINATION CARD
+========================================== */
 
 .destination-card {
 
     border: 1px solid #ddd;
+
+    border-left: 4px solid #0057B8;
 
     border-radius: 10px;
 
@@ -727,7 +383,9 @@ body {
 
     margin-bottom: 5px;
 
-    color: #198754;
+    color: #0057B8;
+
+    font-weight: bold;
 
 }
 
@@ -741,16 +399,15 @@ body {
 }
 
 
-
-/* ================================= */
-/* GOOGLE MAP BUTTON */
-/* ================================= */
+/* ==========================================
+   GOOGLE MAP BUTTON
+========================================== */
 
 .google-btn {
 
     display: inline-block;
 
-    background: #198754;
+    background: #0057B8;
 
     color: white;
 
@@ -767,62 +424,295 @@ body {
 
 .google-btn:hover {
 
-    background: #146c43;
+    background: #003f88;
 
     color: white;
 
 }
 
 
+/* ==========================================
+   MAP ATTRIBUTION
+========================================== */
+
+.leaflet-control-attribution {
+
+    font-size: 10px;
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    #map {
+
+        height: 500px;
+
+    }
+
+
+    .map-wrapper {
+
+        padding: 15px;
+
+    }
+
+
+    .info-panel {
+
+        position: absolute;
+
+        left: 20px;
+
+        right: 20px;
+
+        top: 100px;
+
+        width: auto;
+
+    }
+
+
+    .map-header h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+}
+
 </style>
 
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+========================================== -->
+
+<?php include("navbar.php"); ?>
 
 
 
-<!-- LEAFLET JS -->
+<!-- ==========================================
+     HEADER
+========================================== -->
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<section class="map-header">
+
+    <div class="container">
+
+        <h1>
+
+            Interactive Tourism Map
+
+        </h1>
+
+
+        <p>
+
+            Explore interesting destinations around Perlis
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     MAP SECTION
+========================================== -->
+
+<div class="container mt-5 mb-5">
+
+    <div class="map-wrapper">
+
+
+        <!-- MAP TITLE -->
+
+        <div class="map-title">
+
+            <h3>
+
+                <i class="bi bi-map"></i>
+
+                Explore Perlis
+
+            </h3>
+
+
+            <p>
+
+                Click on an area to explore tourist attractions
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ==================================
+             MAP
+        ================================== -->
+
+        <div id="map"></div>
+
+
+
+        <!-- ==================================
+             INFO PANEL
+        ================================== -->
+
+        <div
+            id="infoPanel"
+            class="info-panel"
+        >
+
+
+            <button
+                type="button"
+                class="close-btn"
+                onclick="closePanel()"
+            >
+
+                ×
+
+            </button>
+
+
+            <h3 id="areaName">
+
+                Select an area
+
+            </h3>
+
+
+            <p id="areaDescription">
+
+                Click Padang Besar, Kangar or Arau
+                on the map.
+
+            </p>
+
+
+            <div id="destinationList"></div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     LEAFLET JS
+========================================== -->
+
+<script
+src="https://unpkg.com/leaflet/dist/leaflet.js">
+</script>
 
 
 
 <script>
 
+/* ==========================================
+   CREATE MAP
+========================================== */
 
-// ==========================================
-// CREATE MAP
-// ==========================================
+var map = L.map(
+    'map',
+    {
 
-var map = L.map('map', {
+        /*
+        |--------------------------------------------------------------------------
+        | DISABLE USER MOVEMENT
+        |--------------------------------------------------------------------------
+        */
 
-    zoomControl: false,
+        dragging: false,
 
-    attributionControl: false
+        scrollWheelZoom: false,
 
-});
+        doubleClickZoom: false,
+
+        boxZoom: false,
+
+        keyboard: false,
+
+        touchZoom: false,
+
+        zoomControl: false,
+
+        attributionControl: true
+
+    }
+);
 
 
 
-// ==========================================
-// VARIABLE UNTUK PERLIS MAP
-// ==========================================
+/* ==========================================
+   REAL MAP BACKGROUND
+========================================== */
 
-var perlisAreas;
+L.tileLayer(
+
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+    {
+
+        maxZoom: 19,
+
+        attribution:
+            '&copy; OpenStreetMap contributors'
+
+    }
+
+).addTo(map);
 
 
 
-// ==========================================
-// DESTINATION DATA FROM DATABASE
-// ==========================================
+/* ==========================================
+   DESTINATION DATA FROM DATABASE
+========================================== */
 
 var destinations = [
 
 <?php
 
-$sql = "SELECT * FROM destinations";
+$sql = "
 
-$result = mysqli_query($conn, $sql);
+    SELECT *
 
-while ($row = mysqli_fetch_assoc($result)) {
+    FROM destinations
+
+";
+
+
+$result = mysqli_query(
+    $conn,
+    $sql
+);
+
+
+if ($result) {
+
+    while (
+        $row =
+        mysqli_fetch_assoc($result)
+    ) {
 
 ?>
 
@@ -830,35 +720,61 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     name:
 
-    <?php echo json_encode(
+    <?php
+
+    echo json_encode(
         $row['destination_name']
-    ); ?>,
+    );
+
+    ?>,
 
 
     location:
 
-    <?php echo json_encode(
+    <?php
+
+    echo json_encode(
         $row['location']
-    ); ?>,
+    );
+
+    ?>,
 
 
     latitude:
 
-    <?php echo $row['latitude'] ?? 6.4449; ?>,
+    <?php
+
+    echo isset($row['latitude'])
+        ? $row['latitude']
+        : 6.4449;
+
+    ?>,
 
 
     longitude:
 
-    <?php echo $row['longitude'] ?? 100.1986; ?>,
+    <?php
+
+    echo isset($row['longitude'])
+        ? $row['longitude']
+        : 100.1986;
+
+    ?>,
 
 
     id:
 
-    <?php echo $row['destination_id']; ?>
+    <?php
+
+    echo $row['destination_id'];
+
+    ?>
 
 },
 
 <?php
+
+    }
 
 }
 
@@ -868,9 +784,17 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 
-// ==========================================
-// LOAD PERLIS SHAPE
-// ==========================================
+/* ==========================================
+   PERLIS AREA VARIABLE
+========================================== */
+
+var perlisAreas;
+
+
+
+/* ==========================================
+   LOAD PERLIS SHAPE
+========================================== */
 
 fetch(
 
@@ -879,183 +803,203 @@ fetch(
 )
 
 
-.then(response => response.json())
+.then(
+    response =>
+        response.json()
+)
 
 
-.then(data => {
+.then(
+    data => {
 
 
-    // ======================================
-    // CREATE PERLIS AREAS
-    // ======================================
+        /* ==================================
+           CREATE PERLIS AREAS
+        ================================== */
 
-    perlisAreas = L.geoJSON(
+        perlisAreas =
+            L.geoJSON(
 
-        data,
+                data,
 
-        {
+                {
 
+                    style:
+                    function(feature) {
 
-            style: function(feature) {
+                        return {
 
-                return {
+                            className:
+                                'area-normal',
 
-                    className: 'area-normal',
+                            fillColor:
+                                '#0057B8',
 
-                    fillColor: '#198754',
+                            fillOpacity:
+                                0.12,
 
-                    fillOpacity: 0.18,
+                            color:
+                                '#0057B8',
 
-                    color: '#198754',
+                            weight:
+                                3
 
-                    weight: 3
-
-                };
-
-            },
-
-
-            onEachFeature: function(
-                feature,
-                layer
-            ) {
-
-
-                // ==========================
-                // GET AREA NAME
-                // ==========================
-
-                var fullName =
-                    feature.properties.name;
-
-
-                var areaName =
-                    fullName
-
-                    .replace(
-                        "P.001 ",
-                        ""
-                    )
-
-                    .replace(
-                        "P.002 ",
-                        ""
-                    )
-
-                    .replace(
-                        "P.003 ",
-                        ""
-                    );
-
-
-
-                // ==========================
-                // AREA LABEL
-                // ==========================
-
-                layer.bindTooltip(
-
-                    areaName,
-
-                    {
-
-                        permanent: true,
-
-                        direction: 'center',
-
-                        className: 'area-label'
-
-                    }
-
-                );
-
-
-
-                // ==========================
-                // HOVER
-                // ==========================
-
-                layer.on({
-
-                    mouseover:
-                    function(e) {
-
-                        e.target.setStyle({
-
-                            fillOpacity: 0.45,
-
-                            weight: 5
-
-                        });
+                        };
 
                     },
 
 
-                    mouseout:
-                    function(e) {
+                    /* ==========================
+                       AREA EVENTS
+                    ========================== */
 
-                        e.target.setStyle({
-
-                            fillOpacity: 0.18,
-
-                            weight: 3
-
-                        });
-
-                    },
+                    onEachFeature:
+                    function(
+                        feature,
+                        layer
+                    ) {
 
 
-                    // ======================
-                    // CLICK
-                    // ======================
+                        /* GET AREA NAME */
 
-                    click:
-                    function(e) {
+                        var fullName =
+                            feature.properties.name
+                            || "Perlis Area";
 
-                        showArea(
+
+                        var areaName =
+                            fullName
+
+                            .replace(
+                                "P.001 ",
+                                ""
+                            )
+
+                            .replace(
+                                "P.002 ",
+                                ""
+                            )
+
+                            .replace(
+                                "P.003 ",
+                                ""
+                            );
+
+
+
+                        /* ==========================
+                           AREA LABEL
+                        ========================== */
+
+                        layer.bindTooltip(
 
                             areaName,
 
-                            e.target
+                            {
+
+                                permanent:
+                                    true,
+
+                                direction:
+                                    'center',
+
+                                className:
+                                    'area-label'
+
+                            }
 
                         );
 
+
+
+                        /* ==========================
+                           AREA EVENTS
+                        ========================== */
+
+                        layer.on({
+
+                            mouseover:
+                            function(e) {
+
+                                e.target.setStyle({
+
+                                    fillOpacity:
+                                        0.35,
+
+                                    weight:
+                                        5
+
+                                });
+
+                            },
+
+
+                            mouseout:
+                            function(e) {
+
+                                e.target.setStyle({
+
+                                    fillOpacity:
+                                        0.12,
+
+                                    weight:
+                                        3
+
+                                });
+
+                            },
+
+
+                            click:
+                            function(e) {
+
+                                showArea(
+
+                                    areaName,
+
+                                    e.target
+
+                                );
+
+                            }
+
+                        });
+
                     }
 
-                });
+                }
+
+            ).addTo(map);
+
+
+
+        /* ==================================
+           FIT MAP TO PERLIS
+        ================================== */
+
+        map.fitBounds(
+
+            perlisAreas.getBounds(),
+
+            {
+
+                padding:
+                    [40, 40]
 
             }
 
-        }
-
-    ).addTo(map);
+        );
 
 
+    }
 
-    // ======================================
-    // FIT MAP TO PERLIS
-    // ======================================
-
-    map.fitBounds(
-
-        perlisAreas.getBounds(),
-
-        {
-
-            padding: [30, 30]
-
-        }
-
-    );
-
-
-});
+);
 
 
 
-// ==========================================
-// SHOW AREA
-// ==========================================
+/* ==========================================
+   SHOW AREA
+========================================== */
 
 function showArea(
 
@@ -1065,7 +1009,7 @@ function showArea(
 ) {
 
 
-    // Show panel
+    /* SHOW PANEL */
 
     document.getElementById(
         "infoPanel"
@@ -1073,7 +1017,7 @@ function showArea(
 
 
 
-    // Area name
+    /* AREA NAME */
 
     document.getElementById(
         "areaName"
@@ -1081,7 +1025,7 @@ function showArea(
 
 
 
-    // Description
+    /* DESCRIPTION */
 
     document.getElementById(
         "areaDescription"
@@ -1095,7 +1039,7 @@ function showArea(
 
 
 
-    // Destination container
+    /* DESTINATION LIST */
 
     var list =
 
@@ -1108,15 +1052,15 @@ function showArea(
 
 
 
-    // ======================================
-    // FIND DESTINATIONS
-    // ======================================
+    /* ==================================
+       FIND DESTINATIONS
+    ================================== */
 
     var found = false;
 
 
-
     destinations.forEach(
+
         function(destination) {
 
 
@@ -1124,7 +1068,6 @@ function showArea(
 
                 destination.location
                 .toLowerCase();
-
 
 
             var selectedArea =
@@ -1146,9 +1089,7 @@ function showArea(
 
 
 
-                // ==========================
-                // GOOGLE MAP URL
-                // ==========================
+                /* GOOGLE MAP URL */
 
                 var googleURL =
 
@@ -1170,16 +1111,15 @@ function showArea(
 
 
 
-                // ==========================
-                // DESTINATION CARD
-                // ==========================
+                /* DESTINATION CARD */
 
                 list.innerHTML += `
 
                     <div class="destination-card">
 
-
                         <h5>
+
+                            <i class="bi bi-geo-alt-fill"></i>
 
                             ${destination.name}
 
@@ -1203,10 +1143,11 @@ function showArea(
 
                         >
 
+                            <i class="bi bi-map"></i>
+
                             View on Google Maps
 
                         </a>
-
 
                     </div>
 
@@ -1220,9 +1161,9 @@ function showArea(
 
 
 
-    // ======================================
-    // IF NO DESTINATION FOUND
-    // ======================================
+    /* ==================================
+       NO DESTINATION
+    ================================== */
 
     if (!found) {
 
@@ -1249,8 +1190,9 @@ function showArea(
 
             <div class="destination-card">
 
-
                 <h5>
+
+                    <i class="bi bi-map"></i>
 
                     Tourist Attractions
 
@@ -1275,10 +1217,11 @@ function showArea(
 
                 >
 
+                    <i class="bi bi-map"></i>
+
                     Explore on Google Maps
 
                 </a>
-
 
             </div>
 
@@ -1290,9 +1233,9 @@ function showArea(
 
 
 
-// ==========================================
-// CLOSE INFO PANEL
-// ==========================================
+/* ==========================================
+   CLOSE INFO PANEL
+========================================== */
 
 function closePanel() {
 
@@ -1302,140 +1245,13 @@ function closePanel() {
 
 }
 
-
-
-// ==========================================
-// MOVE MAP
-// ==========================================
-
-function moveMap(direction) {
-
-
-    var distance = 150;
-
-
-
-    // MOVE UP
-
-    if (
-        direction === 'up'
-    ) {
-
-        map.panBy(
-            [0, -distance]
-        );
-
-    }
-
-
-
-    // MOVE DOWN
-
-    if (
-        direction === 'down'
-    ) {
-
-        map.panBy(
-            [0, distance]
-        );
-
-    }
-
-
-
-    // MOVE LEFT
-
-    if (
-        direction === 'left'
-    ) {
-
-        map.panBy(
-            [-distance, 0]
-        );
-
-    }
-
-
-
-    // MOVE RIGHT
-
-    if (
-        direction === 'right'
-    ) {
-
-        map.panBy(
-            [distance, 0]
-        );
-
-    }
-
-}
-
-
-
-// ==========================================
-// ZOOM MAP
-// ==========================================
-
-function zoomMap(type) {
-
-
-    // ZOOM IN
-
-    if (
-        type === 'in'
-    ) {
-
-        map.zoomIn();
-
-    }
-
-
-
-    // ZOOM OUT
-
-    if (
-        type === 'out'
-    ) {
-
-        map.zoomOut();
-
-    }
-
-}
-
-
-
-// ==========================================
-// RESET MAP
-// ==========================================
-
-function resetMap() {
-
-
-    if (perlisAreas) {
-
-
-        map.fitBounds(
-
-            perlisAreas.getBounds(),
-
-            {
-
-                padding: [30, 30]
-
-            }
-
-        );
-
-    }
-
-}
-
-
 </script>
 
 
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
 
 <?php include("footer.php"); ?>
 
