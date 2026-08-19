@@ -20,16 +20,25 @@ if(!isset($_SESSION['admin'])){
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>
     Dashboard
 </title>
 
+
+<!-- Bootstrap -->
+
 <link
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 rel="stylesheet"
 >
+
+
+<!-- Bootstrap Icons -->
 
 <link
 href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -40,7 +49,7 @@ rel="stylesheet"
 <style>
 
 /* ===============================
-   BLUE + YELLOW THEME
+   GENERAL
 ================================ */
 
 body {
@@ -57,6 +66,15 @@ body {
 .navbar-blue {
 
     background-color: #0057B8;
+
+}
+
+
+.navbar-brand {
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
 
 }
 
@@ -78,11 +96,9 @@ body {
 }
 
 
-/* Dashboard Icon */
-
 .dashboard-title i {
 
-    font-size: 3rem;
+    font-size: 2.8rem;
 
 }
 
@@ -99,9 +115,9 @@ body {
 
     border-radius: 12px;
 
-    transition: 0.3s;
-
     background-color: white;
+
+    transition: 0.3s;
 
 }
 
@@ -117,7 +133,7 @@ body {
 
 
 /* ===============================
-   CARD ICONS
+   CARD ICON
 ================================ */
 
 .card-icon {
@@ -141,34 +157,28 @@ body {
 
     font-weight: 600;
 
-    margin-bottom: 18px;
-
     color: #333;
+
+    margin-bottom: 18px;
 
 }
 
 
 /* ===============================
-   BLUE + YELLOW GRADIENT BUTTON
+   PASTEL YELLOW BUTTON
 ================================ */
 
-.btn-gradient {
+.btn-pastel {
 
-    background:
-        linear-gradient(
-            90deg,
-            #0057B8 0%,
-            #0066CC 45%,
-            #FFD700 100%
-        );
+    background-color: #FFF3B0;
 
-    color: white;
+    color: #0057B8;
 
-    border: none;
+    border: 2px solid #FFE680;
 
     font-weight: 600;
 
-    padding: 10px 25px;
+    padding: 10px 28px;
 
     border-radius: 8px;
 
@@ -177,43 +187,28 @@ body {
 }
 
 
-/* Button Hover */
+/* ===============================
+   BUTTON HOVER
+================================ */
 
-.btn-gradient:hover {
+.btn-pastel:hover {
 
-    background:
-        linear-gradient(
-            90deg,
-            #003F88 0%,
-            #0057B8 45%,
-            #E6C200 100%
-        );
+    background-color: #FFE680;
 
-    color: white;
+    color: #003F88;
+
+    border-color: #FFD966;
 
     transform: scale(1.05);
 
     box-shadow:
-        0 4px 10px rgba(0,0,0,0.2);
+        0 4px 10px rgba(0,0,0,0.12);
 
 }
 
 
 /* ===============================
-   NAVBAR TITLE
-================================ */
-
-.navbar-brand {
-
-    font-size: 1.2rem;
-
-    font-weight: 600;
-
-}
-
-
-/* ===============================
-   LOGOUT BUTTON
+   LOGOUT
 ================================ */
 
 .logout-btn {
@@ -252,8 +247,8 @@ Smart Perlis Tourism Portal - Admin
 
 
 <a
-    href="../logout.php"
-    class="btn btn-light logout-btn"
+href="../logout.php"
+class="btn btn-light logout-btn"
 >
 
 <i class="bi bi-box-arrow-right"></i>
@@ -310,8 +305,8 @@ Destination
 
 
 <a
-    href="manage_destination.php"
-    class="btn btn-gradient"
+href="manage_destination.php"
+class="btn btn-pastel"
 >
 
 Manage
@@ -345,8 +340,8 @@ Event
 
 
 <a
-    href="manage_event.php"
-    class="btn btn-gradient"
+href="manage_event.php"
+class="btn btn-pastel"
 >
 
 Manage
@@ -380,8 +375,8 @@ Gallery
 
 
 <a
-    href="manage_gallery.php"
-    class="btn btn-gradient"
+href="manage_gallery.php"
+class="btn btn-pastel"
 >
 
 Manage
@@ -415,8 +410,8 @@ Visitor Rating
 
 
 <a
-    href="manage_rating.php"
-    class="btn btn-gradient"
+href="manage_rating.php"
+class="btn btn-pastel"
 >
 
 View
@@ -450,8 +445,8 @@ Messages
 
 
 <a
-    href="messages.php"
-    class="btn btn-gradient"
+href="messages.php"
+class="btn btn-pastel"
 >
 
 Respond
@@ -485,8 +480,8 @@ Visitor Analytics
 
 
 <a
-    href="visitor_report.php"
-    class="btn btn-gradient"
+href="visitor_report.php"
+class="btn btn-pastel"
 >
 
 View
