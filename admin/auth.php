@@ -2,7 +2,7 @@
 
 // =====================================
 // SMART PERLIS
-// OFFICER AUTHENTICATION
+// ADMIN AUTHENTICATION
 // =====================================
 
 session_start();
@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id'])) {
 
 if (
     !isset($_SESSION['role']) ||
-    $_SESSION['role'] !== 'officer'
+    $_SESSION['role'] !== 'admin'
 ) {
 
     echo "
@@ -68,17 +68,21 @@ if (
 
                         <div class='card-body text-center p-5'>
 
-                            <i
-                                class='bi bi-shield-x text-danger'
-                                style='font-size:60px;'
-                            ></i>
+                            <div class='mb-3'>
 
-                            <h3 class='fw-bold mt-3'>
+                                <i
+                                    class='bi bi-shield-x text-danger'
+                                    style='font-size:60px;'
+                                ></i>
+
+                            </div>
+
+                            <h3 class='fw-bold'>
                                 Access Denied
                             </h3>
 
                             <p class='text-muted'>
-                                This page is available for officers only.
+                                This page is available for administrators only.
                             </p>
 
                             <a
@@ -109,7 +113,7 @@ if (
 
 
 // =====================================
-// OFFICER VERIFIED
+// ADMIN VERIFIED
 // =====================================
 
 if (

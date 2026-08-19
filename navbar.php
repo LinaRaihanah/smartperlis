@@ -9,9 +9,7 @@
 
     <div class="container">
 
-
         <!-- LOGO -->
-
         <a
             class="navbar-brand fw-bold"
             href="index.php">
@@ -24,7 +22,6 @@
 
 
         <!-- MOBILE BUTTON -->
-
         <button
             class="navbar-toggler"
             type="button"
@@ -40,17 +37,14 @@
 
 
         <!-- MENU -->
-
         <div
             class="collapse navbar-collapse"
             id="navbarMenu">
-
 
             <ul class="navbar-nav ms-auto">
 
 
                 <!-- HOME -->
-
                 <li class="nav-item">
 
                     <a
@@ -67,7 +61,6 @@
 
 
                 <!-- DESTINATIONS -->
-
                 <li class="nav-item">
 
                     <a
@@ -84,7 +77,6 @@
 
 
                 <!-- EVENTS -->
-
                 <li class="nav-item">
 
                     <a
@@ -101,7 +93,6 @@
 
 
                 <!-- ANALYTICS -->
-
                 <li class="nav-item">
 
                     <a
@@ -118,7 +109,6 @@
 
 
                 <!-- MAP -->
-
                 <li class="nav-item">
 
                     <a
@@ -135,7 +125,6 @@
 
 
                 <!-- CONTACT -->
-
                 <li class="nav-item">
 
                     <a
@@ -152,7 +141,6 @@
 
 
                 <!-- GALLERY -->
-
                 <li class="nav-item">
 
                     <a
@@ -162,23 +150,6 @@
                         <i class="bi bi-images"></i>
 
                         Gallery
-
-                    </a>
-
-                </li>
-
-
-                <!-- ADMIN -->
-
-                <li class="nav-item">
-
-                    <a
-                        class="nav-link"
-                        href="login.php">
-
-                        <i class="bi bi-person-circle"></i>
-
-                        Admin
 
                     </a>
 

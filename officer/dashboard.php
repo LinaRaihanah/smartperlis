@@ -1,60 +1,233 @@
 <?php
 
-include("header.php");
+// =====================================
+// SMART PERLIS
+// OFFICER DASHBOARD
+// =====================================
+
+require_once "auth.php";
+
+include("../config.php");
 
 
-// Count destinations
+// =====================================
+// COUNT DESTINATIONS
+// =====================================
 
-$result =
-mysqli_query(
+$result = mysqli_query(
     $conn,
     "SELECT COUNT(*) AS total FROM destinations"
 );
 
-$destinations =
-mysqli_fetch_assoc($result)['total'];
+$destinations = 0;
+
+if ($result) {
+
+    $row = mysqli_fetch_assoc($result);
+
+    $destinations = $row['total'] ?? 0;
+
+}
 
 
-// Count events
+// =====================================
+// COUNT EVENTS
+// =====================================
 
-$result =
-mysqli_query(
+$result = mysqli_query(
     $conn,
     "SELECT COUNT(*) AS total FROM events"
 );
 
-$events =
-mysqli_fetch_assoc($result)['total'];
+$events = 0;
+
+if ($result) {
+
+    $row = mysqli_fetch_assoc($result);
+
+    $events = $row['total'] ?? 0;
+
+}
 
 
-// Count gallery
+// =====================================
+// COUNT GALLERY
+// =====================================
 
-$result =
-mysqli_query(
+$result = mysqli_query(
     $conn,
     "SELECT COUNT(*) AS total FROM gallery"
 );
 
-$gallery =
-mysqli_fetch_assoc($result)['total'];
+$gallery = 0;
+
+if ($result) {
+
+    $row = mysqli_fetch_assoc($result);
+
+    $gallery = $row['total'] ?? 0;
+
+}
 
 
-// Count ratings
+// =====================================
+// COUNT RATINGS
+// =====================================
 
-$result =
-mysqli_query(
+$result = mysqli_query(
     $conn,
     "SELECT COUNT(*) AS total FROM destination_ratings"
 );
 
-$ratings =
-mysqli_fetch_assoc($result)['total'];
+$ratings = 0;
+
+if ($result) {
+
+    $row = mysqli_fetch_assoc($result);
+
+    $ratings = $row['total'] ?? 0;
+
+}
 
 ?>
 
-<div class="d-flex justify-content-between align-items-center mb-4">
+<!DOCTYPE html>
 
-<div>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+Officer Dashboard - Smart Perlis
+</title>
+
+
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
+
+
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+>
+
+
+<style>
+
+body {
+
+    background:#f5f7f6;
+
+}
+
+
+.navbar {
+
+    background:#146c43 !important;
+
+    border-bottom:4px solid #FFD700;
+
+}
+
+
+.stat-card {
+
+    border:none;
+
+    border-radius:16px;
+
+    transition:.25s;
+
+}
+
+
+.stat-card:hover {
+
+    transform:translateY(-4px);
+
+}
+
+
+.quick-card {
+
+    border:none;
+
+    border-radius:16px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-dark">
+
+<div class="container">
+
+<span class="navbar-brand fw-bold">
+
+<i class="bi bi-person-badge-fill"></i>
+
+Smart Perlis - Officer
+
+</span>
+
+
+<div class="d-flex align-items-center gap-3">
+
+<span class="text-white">
+
+<i class="bi bi-person-circle"></i>
+
+<?php
+
+echo htmlspecialchars($_SESSION['username']);
+
+?>
+
+</span>
+
+
+<a
+    href="../logout.php"
+    class="btn btn-light btn-sm"
+>
+
+<i class="bi bi-box-arrow-right"></i>
+
+Logout
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- CONTENT -->
+
+<div class="container py-5">
+
+
+<div class="mb-4">
 
 <h2 class="fw-bold">
 
@@ -70,8 +243,8 @@ Welcome to Smart Perlis Tourism Portal Management
 
 </div>
 
-</div>
 
+<!-- STATISTICS -->
 
 <div class="row g-4">
 
@@ -100,7 +273,7 @@ Destinations
 
 </div>
 
-<i class="bi bi-geo-alt fs-1 text-success"></i>
+<i class="bi bi-geo-alt-fill fs-1 text-success"></i>
 
 </div>
 
@@ -133,7 +306,7 @@ Events
 
 </div>
 
-<i class="bi bi-calendar-event fs-1 text-primary"></i>
+<i class="bi bi-calendar-event-fill fs-1 text-primary"></i>
 
 </div>
 
@@ -199,7 +372,7 @@ Ratings
 
 </div>
 
-<i class="bi bi-star fs-1 text-danger"></i>
+<i class="bi bi-star-fill fs-1 text-danger"></i>
 
 </div>
 
@@ -211,9 +384,11 @@ Ratings
 </div>
 
 
-<div class="card shadow-sm mt-5 p-4">
+<!-- QUICK ACTIONS -->
 
-<h4>
+<div class="card quick-card shadow-sm mt-5 p-4">
+
+<h4 class="fw-bold">
 
 Quick Actions
 
@@ -226,13 +401,13 @@ Quick Actions
 <div class="col-md-4">
 
 <a
-href="destinations.php"
-class="btn btn-success w-100 p-3"
+    href="destinations.php"
+    class="btn btn-success w-100 p-3"
 >
 
 <i class="bi bi-geo-alt"></i>
 
-Destinations
+Manage Destinations
 
 </a>
 
@@ -242,13 +417,13 @@ Destinations
 <div class="col-md-4">
 
 <a
-href="events.php"
-class="btn btn-primary w-100 p-3"
+    href="events.php"
+    class="btn btn-primary w-100 p-3"
 >
 
 <i class="bi bi-calendar-event"></i>
 
-Events
+Manage Events
 
 </a>
 
@@ -258,13 +433,13 @@ Events
 <div class="col-md-4">
 
 <a
-href="gallery.php"
-class="btn btn-warning w-100 p-3"
+    href="gallery.php"
+    class="btn btn-warning w-100 p-3"
 >
 
 <i class="bi bi-images"></i>
 
-Gallery
+Manage Gallery
 
 </a>
 
@@ -276,8 +451,27 @@ Gallery
 </div>
 
 
-<?php
+<!-- BACK -->
 
-include("footer.php");
+<div class="text-center mt-4">
 
-?>
+<a
+    href="../index.php"
+    class="text-decoration-none"
+>
+
+<i class="bi bi-arrow-left"></i>
+
+Back to Website
+
+</a>
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

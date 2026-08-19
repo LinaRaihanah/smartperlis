@@ -4,7 +4,10 @@ session_start();
 
 include("config.php");
 
+// =====================================
 // PHPMailer
+// =====================================
+
 require_once __DIR__ . "/PHPMailer/src/Exception.php";
 require_once __DIR__ . "/PHPMailer/src/PHPMailer.php";
 require_once __DIR__ . "/PHPMailer/src/SMTP.php";
@@ -12,7 +15,38 @@ require_once __DIR__ . "/PHPMailer/src/SMTP.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
+// =====================================
+// ERROR
+// =====================================
+
 $error = "";
+
+
+// =====================================
+// IF ALREADY LOGGED IN
+// =====================================
+
+if (
+    isset($_SESSION['user_id']) &&
+    isset($_SESSION['role'])
+) {
+
+    if ($_SESSION['role'] === 'admin') {
+
+        header("Location: admin/dashboard.php");
+        exit();
+
+    }
+
+    if ($_SESSION['role'] === 'officer') {
+
+        header("Location: officer/dashboard.php");
+        exit();
+
+    }
+
+}
 
 
 // =====================================
@@ -26,7 +60,7 @@ if (isset($_POST['login'])) {
 
 
     // =====================================
-    // VALIDATION
+    // VALIDATE INPUT
     // =====================================
 
     if ($username === "" || $password === "") {
@@ -37,7 +71,7 @@ if (isset($_POST['login'])) {
 
 
         // =====================================
-        // FIND ADMIN / OFFICER
+        // GET ADMIN / OFFICER
         // =====================================
 
         $stmt = mysqli_prepare(
@@ -63,24 +97,32 @@ if (isset($_POST['login'])) {
 
         } else {
 
+
             mysqli_stmt_bind_param(
                 $stmt,
                 "s",
                 $username
             );
 
+
             mysqli_stmt_execute($stmt);
 
-            $result = mysqli_stmt_get_result($stmt);
+
+            $result =
+                mysqli_stmt_get_result($stmt);
 
 
             // =====================================
             // USER FOUND
             // =====================================
 
-            if ($result && mysqli_num_rows($result) === 1) {
+            if (
+                $result &&
+                mysqli_num_rows($result) === 1
+            ) {
 
-                $user = mysqli_fetch_assoc($result);
+                $user =
+                    mysqli_fetch_assoc($result);
 
 
                 // =====================================
@@ -90,8 +132,12 @@ if (isset($_POST['login'])) {
                 $password_correct = false;
 
 
-                // Support password_hash()
+                // -------------------------------------
+                // PASSWORD HASH
+                // -------------------------------------
+
                 if (
+                    !empty($user['password']) &&
                     password_verify(
                         $password,
                         $user['password']
@@ -103,7 +149,17 @@ if (isset($_POST['login'])) {
                 }
 
 
-                // Support existing plain-text password
+                // -------------------------------------
+                // SUPPORT OLD PLAIN TEXT PASSWORD
+                // -------------------------------------
+                // This is kept only so existing accounts
+                // can still login.
+                //
+                // After successful login, you should
+                // eventually convert old passwords to
+                // password_hash().
+                // -------------------------------------
+
                 elseif (
                     $password === $user['password']
                 ) {
@@ -120,335 +176,487 @@ if (isset($_POST['login'])) {
                 if ($password_correct) {
 
 
-                    // =====================================
-                    // GENERATE OTP
-                    // =====================================
+                    // =================================
+                    // CHECK EMAIL
+                    // =================================
 
-                    $otp = str_pad(
-                        random_int(0, 999999),
-                        6,
-                        "0",
-                        STR_PAD_LEFT
-                    );
-
-
-                    // Hash OTP
-                    $otp_hash = password_hash(
-                        $otp,
-                        PASSWORD_DEFAULT
-                    );
-
-
-                    // OTP expires in 10 minutes
-                    $otp_expiry = date(
-                        "Y-m-d H:i:s",
-                        time() + 600
-                    );
-
-
-                    // =====================================
-                    // SAVE OTP
-                    // =====================================
-
-                    $update = mysqli_prepare(
-                        $conn,
-                        "
-                        UPDATE users
-                        SET
-                            otp = ?,
-                            otp_expiry = ?
-                        WHERE user_id = ?
-                        "
-                    );
-
-
-                    if (!$update) {
+                    if (
+                        empty($user['email'])
+                    ) {
 
                         $error =
-                            "Unable to generate verification code.";
+                            "No registered email address is available for this account.";
 
                     } else {
 
-                        mysqli_stmt_bind_param(
-                            $update,
-                            "ssi",
-                            $otp_hash,
-                            $otp_expiry,
-                            $user['user_id']
-                        );
+
+                        // =================================
+                        // GENERATE NEW OTP
+                        // =================================
+
+                        try {
+
+                            $otp =
+                                str_pad(
+                                    (string) random_int(
+                                        0,
+                                        999999
+                                    ),
+                                    6,
+                                    "0",
+                                    STR_PAD_LEFT
+                                );
+
+                        } catch (Exception $e) {
+
+                            $error =
+                                "Unable to generate verification code.";
+
+                            $otp = null;
+
+                        }
 
 
-                        if (
-                            mysqli_stmt_execute($update)
-                        ) {
+                        if ($otp !== null) {
 
 
-                            // =====================================
-                            // SEND OTP EMAIL
-                            // =====================================
+                            // =================================
+                            // HASH OTP
+                            // =================================
 
-                            $mail = new PHPMailer(true);
-
-
-                            try {
-
-                                // SMTP
-                                $mail->isSMTP();
-
-                                $mail->Host = MAIL_HOST;
-
-                                $mail->SMTPAuth = true;
-
-                                $mail->Username =
-                                    MAIL_USERNAME;
-
-                                $mail->Password =
-                                    MAIL_PASSWORD;
-
-                                $mail->SMTPSecure =
-                                    PHPMailer::ENCRYPTION_STARTTLS;
-
-                                $mail->Port =
-                                    MAIL_PORT;
-
-                                $mail->CharSet = "UTF-8";
-
-
-                                // Sender
-                                $mail->setFrom(
-                                    MAIL_USERNAME,
-                                    MAIL_FROM_NAME
+                            $otp_hash =
+                                password_hash(
+                                    $otp,
+                                    PASSWORD_DEFAULT
                                 );
 
 
-                                // Receiver
-                                $mail->addAddress(
-                                    $user['email'],
-                                    $user['username']
-                                );
+                            if ($otp_hash === false) {
+
+                                $error =
+                                    "Unable to secure verification code.";
+
+                            } else {
 
 
-                                // Email
-                                $mail->isHTML(true);
+                                // =================================
+                                // OTP EXPIRY
+                                // =================================
 
-                                $mail->Subject =
-                                    "Smart Perlis - Login Verification Code";
-
-
-                                $safe_username =
-                                    htmlspecialchars(
-                                        $user['username'],
-                                        ENT_QUOTES,
-                                        "UTF-8"
+                                $otp_expiry =
+                                    date(
+                                        "Y-m-d H:i:s",
+                                        time() + 600
                                     );
 
 
-                                $mail->Body = "
+                                // =================================
+                                // SAVE OTP
+                                // =================================
 
-                                <!DOCTYPE html>
-
-                                <html>
-
-                                <body style='
-                                    margin:0;
-                                    padding:0;
-                                    background:#f4f7fb;
-                                    font-family:Arial,sans-serif;
-                                '>
-
-                                <div style='
-                                    max-width:600px;
-                                    margin:30px auto;
-                                    background:white;
-                                    border-radius:18px;
-                                    padding:35px;
-                                    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-                                '>
-
-                                    <div style='text-align:center;'>
-
-                                        <div style='
-                                            font-size:45px;
-                                            color:#F4C300;
-                                            margin-bottom:10px;
-                                        '>
-                                            ★
-                                        </div>
-
-                                        <h2 style='
-                                            color:#003B73;
-                                            margin-bottom:5px;
-                                        '>
-                                            Smart Perlis Tourism Portal
-                                        </h2>
-
-                                        <p style='
-                                            color:#777;
-                                            margin-top:0;
-                                        '>
-                                            Tourism Portal
-                                        </p>
-
-                                    </div>
-
-                                    <hr style='
-                                        border:none;
-                                        border-top:1px solid #eeeeee;
-                                    '>
-
-                                    <p>
-                                        Hello
-                                        <strong>
-                                            {$safe_username}
-                                        </strong>,
-                                    </p>
-
-                                    <p>
-                                        A login attempt was made
-                                        to your Smart Perlis Tourism Portal
-                                        account.
-                                    </p>
-
-                                    <p>
-                                        Your verification code is:
-                                    </p>
-
-                                    <div style='
-                                        text-align:center;
-                                        margin:30px 0;
-                                    '>
-
-                                        <span style='
-                                            display:inline-block;
-                                            background:#003B73;
-                                            color:white;
-                                            font-size:32px;
-                                            font-weight:bold;
-                                            letter-spacing:8px;
-                                            padding:18px 28px;
-                                            border-radius:12px;
-                                        '>
-                                            {$otp}
-                                        </span>
-
-                                    </div>
-
-                                    <p>
-                                        This code will expire
-                                        in <strong>10 minutes</strong>.
-                                    </p>
-
-                                    <p style='color:#777;'>
-                                        If you did not attempt
-                                        to login, please ignore
-                                        this email.
-                                    </p>
-
-                                    <hr style='
-                                        border:none;
-                                        border-top:1px solid #eeeeee;
-                                    '>
-
-                                    <p style='
-                                        color:#999;
-                                        font-size:13px;
-                                        text-align:center;
-                                    '>
-                                        Smart Perlis Tourism Portal
-                                    </p>
-
-                                </div>
-
-                                </body>
-
-                                </html>
-                                ";
+                                $update =
+                                    mysqli_prepare(
+                                        $conn,
+                                        "
+                                        UPDATE users
+                                        SET
+                                            otp = ?,
+                                            otp_expiry = ?
+                                        WHERE user_id = ?
+                                        AND role IN ('admin', 'officer')
+                                        "
+                                    );
 
 
-                                $mail->AltBody =
-                                    "Your Smart Perlis Tourism Portal login " .
-                                    "verification code is: " .
-                                    $otp .
-                                    ". The code expires in 10 minutes.";
+                                if (!$update) {
 
+                                    $error =
+                                        "Unable to prepare verification code.";
 
-                                // SEND
-                                $mail->send();
+                                } else {
 
-
-                                // =====================================
-                                // SAVE PENDING LOGIN
-                                // =====================================
-
-                                $_SESSION['pending_user_id'] =
-                                    $user['user_id'];
-
-                                $_SESSION['pending_username'] =
-                                    $user['username'];
-
-                                $_SESSION['pending_email'] =
-                                    $user['email'];
-
-                                $_SESSION['pending_role'] =
-                                    $user['role'];
-
-
-                                // =====================================
-                                // REDIRECT
-                                // =====================================
-
-                                header(
-                                    "Location: verify.php"
-                                );
-
-                                exit();
-
-
-                            } catch (Exception $e) {
-
-                                // Clear OTP if email failed
-                                $clear = mysqli_prepare(
-                                    $conn,
-                                    "
-                                    UPDATE users
-                                    SET
-                                        otp = NULL,
-                                        otp_expiry = NULL
-                                    WHERE user_id = ?
-                                    "
-                                );
-
-
-                                if ($clear) {
 
                                     mysqli_stmt_bind_param(
-                                        $clear,
-                                        "i",
+                                        $update,
+                                        "ssi",
+                                        $otp_hash,
+                                        $otp_expiry,
                                         $user['user_id']
                                     );
 
-                                    mysqli_stmt_execute($clear);
+
+                                    if (
+                                        mysqli_stmt_execute(
+                                            $update
+                                        )
+                                    ) {
+
+
+                                        // =================================
+                                        // SEND EMAIL
+                                        // =================================
+
+                                        $mail =
+                                            new PHPMailer(true);
+
+
+                                        try {
+
+
+                                            // =================================
+                                            // SMTP
+                                            // =================================
+
+                                            $mail->isSMTP();
+
+                                            $mail->Host =
+                                                MAIL_HOST;
+
+                                            $mail->SMTPAuth =
+                                                true;
+
+                                            $mail->Username =
+                                                MAIL_USERNAME;
+
+                                            $mail->Password =
+                                                MAIL_PASSWORD;
+
+                                            $mail->SMTPSecure =
+                                                PHPMailer::ENCRYPTION_STARTTLS;
+
+                                            $mail->Port =
+                                                MAIL_PORT;
+
+                                            $mail->CharSet =
+                                                "UTF-8";
+
+
+                                            // =================================
+                                            // SENDER
+                                            // =================================
+
+                                            $mail->setFrom(
+                                                MAIL_USERNAME,
+                                                MAIL_FROM_NAME
+                                            );
+
+
+                                            // =================================
+                                            // RECEIVER
+                                            // =================================
+
+                                            $mail->addAddress(
+                                                $user['email'],
+                                                $user['username']
+                                            );
+
+
+                                            // =================================
+                                            // EMAIL FORMAT
+                                            // =================================
+
+                                            $mail->isHTML(true);
+
+
+                                            $mail->Subject =
+                                                "Smart Perlis Tourism Portal - Login Verification Code";
+
+
+                                            // =================================
+                                            // SAFE USERNAME
+                                            // =================================
+
+                                            $safe_username =
+                                                htmlspecialchars(
+                                                    $user['username'],
+                                                    ENT_QUOTES,
+                                                    "UTF-8"
+                                                );
+
+
+                                            // =================================
+                                            // ROLE
+                                            // =================================
+
+                                            $safe_role =
+                                                htmlspecialchars(
+                                                    ucfirst(
+                                                        $user['role']
+                                                    ),
+                                                    ENT_QUOTES,
+                                                    "UTF-8"
+                                                );
+
+
+                                            // =================================
+                                            // EMAIL BODY
+                                            // =================================
+
+                                            $mail->Body = "
+
+                                            <!DOCTYPE html>
+
+                                            <html>
+
+                                            <body style='
+                                                margin:0;
+                                                padding:0;
+                                                background:#f4f7fb;
+                                                font-family:Arial,sans-serif;
+                                            '>
+
+                                            <div style='
+                                                max-width:600px;
+                                                margin:30px auto;
+                                                background:white;
+                                                border-radius:18px;
+                                                padding:35px;
+                                                box-shadow:0 5px 20px rgba(0,0,0,0.08);
+                                            '>
+
+                                                <div style='
+                                                    text-align:center;
+                                                '>
+
+                                                    <div style='
+                                                        font-size:45px;
+                                                        color:#F4C300;
+                                                        margin-bottom:10px;
+                                                    '>
+                                                        ★
+                                                    </div>
+
+                                                    <h2 style='
+                                                        color:#003B73;
+                                                        margin-bottom:5px;
+                                                    '>
+                                                        Smart Perlis Tourism Portal
+                                                    </h2>
+
+                                                    <p style='
+                                                        color:#777;
+                                                        margin-top:0;
+                                                    '>
+                                                        Secure Login Verification
+                                                    </p>
+
+                                                </div>
+
+
+                                                <hr style='
+                                                    border:none;
+                                                    border-top:1px solid #eeeeee;
+                                                '>
+
+
+                                                <p>
+
+                                                    Hello
+                                                    <strong>
+                                                        {$safe_username}
+                                                    </strong>,
+
+                                                </p>
+
+
+                                                <p>
+
+                                                    A login attempt was made
+                                                    to your
+                                                    <strong>
+                                                        {$safe_role}
+                                                    </strong>
+                                                    account.
+
+                                                </p>
+
+
+                                                <p>
+
+                                                    Your 6-digit verification
+                                                    code is:
+
+                                                </p>
+
+
+                                                <div style='
+                                                    text-align:center;
+                                                    margin:30px 0;
+                                                '>
+
+                                                    <span style='
+                                                        display:inline-block;
+                                                        background:#003B73;
+                                                        color:white;
+                                                        font-size:32px;
+                                                        font-weight:bold;
+                                                        letter-spacing:8px;
+                                                        padding:18px 28px;
+                                                        border-radius:12px;
+                                                    '>
+                                                        {$otp}
+                                                    </span>
+
+                                                </div>
+
+
+                                                <p>
+
+                                                    This verification code will
+                                                    expire in
+                                                    <strong>
+                                                        10 minutes
+                                                    </strong>.
+
+                                                </p>
+
+
+                                                <p style='
+                                                    color:#777;
+                                                '>
+
+                                                    If you did not attempt
+                                                    to login, please ignore
+                                                    this email.
+
+                                                </p>
+
+
+                                                <hr style='
+                                                    border:none;
+                                                    border-top:1px solid #eeeeee;
+                                                '>
+
+
+                                                <p style='
+                                                    color:#999;
+                                                    font-size:13px;
+                                                    text-align:center;
+                                                '>
+
+                                                    Smart Perlis Tourism Portal
+
+                                                </p>
+
+
+                                            </div>
+
+                                            </body>
+
+                                            </html>
+
+                                            ";
+
+
+                                            // =================================
+                                            // PLAIN TEXT EMAIL
+                                            // =================================
+
+                                            $mail->AltBody =
+                                                "Smart Perlis Tourism Portal\n\n" .
+                                                "Your login verification code is: " .
+                                                $otp .
+                                                "\n\n" .
+                                                "This code expires in 10 minutes.";
+
+
+                                            // =================================
+                                            // SEND EMAIL
+                                            // =================================
+
+                                            $mail->send();
+
+
+                                            // =================================
+                                            // CLEAR OLD PENDING SESSION
+                                            // =================================
+
+                                            unset(
+                                                $_SESSION['pending_user_id'],
+                                                $_SESSION['pending_username'],
+                                                $_SESSION['pending_email'],
+                                                $_SESSION['pending_role']
+                                            );
+
+
+                                            // =================================
+                                            // CREATE PENDING SESSION
+                                            // =================================
+
+                                            $_SESSION['pending_user_id'] =
+                                                (int) $user['user_id'];
+
+                                            $_SESSION['pending_username'] =
+                                                $user['username'];
+
+                                            $_SESSION['pending_email'] =
+                                                $user['email'];
+
+                                            $_SESSION['pending_role'] =
+                                                $user['role'];
+
+
+                                            // =================================
+                                            // REDIRECT VERIFY
+                                            // =================================
+
+                                            header(
+                                                "Location: verify.php"
+                                            );
+
+                                            exit();
+
+
+                                        } catch (Exception $e) {
+
+
+                                            // =================================
+                                            // CLEAR OTP IF EMAIL FAILED
+                                            // =================================
+
+                                            $clear =
+                                                mysqli_prepare(
+                                                    $conn,
+                                                    "
+                                                    UPDATE users
+                                                    SET
+                                                        otp = NULL,
+                                                        otp_expiry = NULL
+                                                    WHERE user_id = ?
+                                                    "
+                                                );
+
+
+                                            if ($clear) {
+
+                                                mysqli_stmt_bind_param(
+                                                    $clear,
+                                                    "i",
+                                                    $user['user_id']
+                                                );
+
+                                                mysqli_stmt_execute(
+                                                    $clear
+                                                );
+
+                                            }
+
+
+                                            $error =
+                                                "Unable to send verification email.";
+
+                                        }
+
+                                    } else {
+
+                                        $error =
+                                            "Unable to save verification code.";
+
+                                    }
 
                                 }
 
-
-                                $error =
-                                    "Unable to send verification email.";
-
-                                // For localhost testing
-                                $error .=
-                                    "<br><small>" .
-                                    htmlspecialchars(
-                                        $mail->ErrorInfo
-                                    ) .
-                                    "</small>";
-
                             }
-
-                        } else {
-
-                            $error =
-                                "Unable to save verification code.";
 
                         }
 
@@ -495,15 +703,11 @@ Login - Smart Perlis Tourism Portal
 </title>
 
 
-<!-- Bootstrap -->
-
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
 >
 
-
-<!-- Bootstrap Icons -->
 
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -512,10 +716,6 @@ Login - Smart Perlis Tourism Portal
 
 
 <style>
-
-/* =====================================
-   BODY
-===================================== */
 
 body {
 
@@ -542,10 +742,6 @@ body {
 }
 
 
-/* =====================================
-   LOGIN CARD
-===================================== */
-
 .login-card {
 
     width:100%;
@@ -560,10 +756,6 @@ body {
 
 }
 
-
-/* =====================================
-   HEADER
-===================================== */
 
 .login-header {
 
@@ -601,10 +793,6 @@ body {
 }
 
 
-/* =====================================
-   BODY
-===================================== */
-
 .login-body {
 
     padding:35px;
@@ -613,10 +801,6 @@ body {
 
 }
 
-
-/* =====================================
-   FORM
-===================================== */
 
 .form-label {
 
@@ -649,16 +833,10 @@ body {
 
     background:#f1f5f9;
 
-    border-radius:10px 0 0 10px;
-
     color:#003B73;
 
 }
 
-
-/* =====================================
-   PASSWORD BUTTON
-===================================== */
 
 .input-group .btn-outline-secondary {
 
@@ -677,10 +855,6 @@ body {
 
 }
 
-
-/* =====================================
-   LOGIN BUTTON
-===================================== */
 
 .login-btn {
 
@@ -704,10 +878,6 @@ body {
 }
 
 
-/* =====================================
-   BACK LINK
-===================================== */
-
 .back-link {
 
     color:#003B73;
@@ -728,20 +898,12 @@ body {
 }
 
 
-/* =====================================
-   ALERT
-===================================== */
-
 .alert-danger {
 
     border-radius:10px;
 
 }
 
-
-/* =====================================
-   RESPONSIVE
-===================================== */
 
 @media (max-width:576px) {
 
@@ -783,10 +945,6 @@ body {
 <div class="card login-card shadow-lg">
 
 
-<!-- =====================================
-     HEADER
-===================================== -->
-
 <div class="login-header">
 
 <i class="bi bi-shield-lock-fill login-icon"></i>
@@ -806,10 +964,6 @@ Admin & Officer Login
 </div>
 
 
-<!-- =====================================
-     BODY
-===================================== -->
-
 <div class="login-body">
 
 
@@ -828,10 +982,6 @@ sent to your registered email.
 </p>
 
 
-<!-- =====================================
-     ERROR MESSAGE
-===================================== -->
-
 <?php if ($error !== "") { ?>
 
 <div class="alert alert-danger text-center">
@@ -845,17 +995,11 @@ sent to your registered email.
 <?php } ?>
 
 
-<!-- =====================================
-     LOGIN FORM
-===================================== -->
-
 <form
     method="POST"
     autocomplete="off"
 >
 
-
-<!-- USERNAME -->
 
 <div class="mb-3">
 
@@ -880,6 +1024,7 @@ Username
     name="username"
     class="form-control"
     placeholder="Enter username"
+    value="<?php echo htmlspecialchars($username ?? '', ENT_QUOTES, 'UTF-8'); ?>"
     required
 >
 
@@ -887,8 +1032,6 @@ Username
 
 </div>
 
-
-<!-- PASSWORD -->
 
 <div class="mb-4">
 
@@ -936,10 +1079,6 @@ Password
 </div>
 
 
-<!-- =====================================
-     LOGIN BUTTON
-===================================== -->
-
 <button
     type="submit"
     name="login"
@@ -956,10 +1095,6 @@ Login
 </form>
 
 
-<!-- =====================================
-     OTP INFO
-===================================== -->
-
 <div class="text-center mt-4">
 
 <small class="text-muted">
@@ -973,10 +1108,6 @@ registered email.
 
 </div>
 
-
-<!-- =====================================
-     BACK TO WEBSITE
-===================================== -->
 
 <div class="text-center mt-4">
 
@@ -1004,10 +1135,6 @@ Back to Website
 
 </div>
 
-
-<!-- =====================================
-     JAVASCRIPT
-===================================== -->
 
 <script>
 

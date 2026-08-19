@@ -4,6 +4,11 @@ session_start();
 
 include("config.php");
 
+
+// =====================================
+// ERROR
+// =====================================
+
 $error = "";
 
 
@@ -11,7 +16,10 @@ $error = "";
 // CHECK PENDING LOGIN
 // =====================================
 
-if (!isset($_SESSION['pending_user_id'])) {
+if (
+    !isset($_SESSION['pending_user_id']) ||
+    !isset($_SESSION['pending_role'])
+) {
 
     header("Location: login.php");
     exit();
@@ -19,7 +27,33 @@ if (!isset($_SESSION['pending_user_id'])) {
 }
 
 
-$user_id = $_SESSION['pending_user_id'];
+$user_id =
+    (int) $_SESSION['pending_user_id'];
+
+$pending_role =
+    $_SESSION['pending_role'];
+
+
+// =====================================
+// ONLY ADMIN / OFFICER
+// =====================================
+
+if (
+    $pending_role !== 'admin' &&
+    $pending_role !== 'officer'
+) {
+
+    unset(
+        $_SESSION['pending_user_id'],
+        $_SESSION['pending_username'],
+        $_SESSION['pending_email'],
+        $_SESSION['pending_role']
+    );
+
+    header("Location: login.php");
+    exit();
+
+}
 
 
 // =====================================
@@ -28,14 +62,20 @@ $user_id = $_SESSION['pending_user_id'];
 
 if (isset($_POST['verify'])) {
 
-    $otp = trim($_POST['otp'] ?? "");
+    $otp =
+        trim($_POST['otp'] ?? "");
 
 
     // =====================================
     // VALIDATE OTP FORMAT
     // =====================================
 
-    if (!preg_match('/^[0-9]{6}$/', $otp)) {
+    if (
+        !preg_match(
+            '/^[0-9]{6}$/',
+            $otp
+        )
+    ) {
 
         $error =
             "Please enter a valid 6-digit verification code.";
@@ -47,204 +87,298 @@ if (isset($_POST['verify'])) {
         // GET USER
         // =====================================
 
-        $stmt = mysqli_prepare(
-            $conn,
-            "
-            SELECT
-                user_id,
-                username,
-                email,
-                role,
-                otp,
-                otp_expiry
-            FROM users
-            WHERE user_id = ?
-            AND role IN ('admin', 'officer')
-            LIMIT 1
-            "
-        );
+        $stmt =
+            mysqli_prepare(
+                $conn,
+                "
+                SELECT
+                    user_id,
+                    username,
+                    email,
+                    role,
+                    otp,
+                    otp_expiry
+                FROM users
+                WHERE user_id = ?
+                AND role IN ('admin', 'officer')
+                LIMIT 1
+                "
+            );
 
 
-        mysqli_stmt_bind_param(
-            $stmt,
-            "i",
-            $user_id
-        );
-
-        mysqli_stmt_execute($stmt);
-
-        $result =
-            mysqli_stmt_get_result($stmt);
-
-
-        if (
-            !$result ||
-            mysqli_num_rows($result) !== 1
-        ) {
+        if (!$stmt) {
 
             $error =
-                "Admin or officer account not found.";
+                "Database error.";
 
         } else {
 
-            $user =
-                mysqli_fetch_assoc($result);
+
+            mysqli_stmt_bind_param(
+                $stmt,
+                "i",
+                $user_id
+            );
+
+
+            mysqli_stmt_execute($stmt);
+
+
+            $result =
+                mysqli_stmt_get_result($stmt);
 
 
             // =====================================
-            // CHECK OTP EXISTS
+            // USER NOT FOUND
             // =====================================
 
             if (
-                empty($user['otp']) ||
-                empty($user['otp_expiry'])
+                !$result ||
+                mysqli_num_rows($result) !== 1
             ) {
 
                 $error =
-                    "Verification code is not available. Please login again.";
+                    "Admin or officer account not found.";
 
-            }
-
-
-            // =====================================
-            // CHECK EXPIRY
-            // =====================================
-
-            elseif (
-                strtotime($user['otp_expiry']) < time()
-            ) {
-
-                $error =
-                    "Verification code has expired. Please login again.";
-
-            }
+            } else {
 
 
-            // =====================================
-            // VERIFY OTP
-            // =====================================
-
-            elseif (
-                !password_verify(
-                    $otp,
-                    $user['otp']
-                )
-            ) {
-
-                $error =
-                    "Invalid verification code.";
-
-            }
-
-
-            // =====================================
-            // OTP CORRECT
-            // =====================================
-
-            else {
+                $user =
+                    mysqli_fetch_assoc($result);
 
 
                 // =====================================
-                // CLEAR OTP
+                // MAKE SURE ROLE MATCHES
                 // =====================================
 
-                $clear = mysqli_prepare(
-                    $conn,
-                    "
-                    UPDATE users
-                    SET
-                        otp = NULL,
-                        otp_expiry = NULL
-                    WHERE user_id = ?
-                    "
-                );
+                if (
+                    $user['role'] !== $pending_role
+                ) {
 
-
-                mysqli_stmt_bind_param(
-                    $clear,
-                    "i",
-                    $user_id
-                );
-
-                mysqli_stmt_execute($clear);
-
-
-                // =====================================
-                // CREATE SESSION
-                // =====================================
-
-                $_SESSION['user_id'] =
-                    $user['user_id'];
-
-                $_SESSION['username'] =
-                    $user['username'];
-
-                $_SESSION['email'] =
-                    $user['email'];
-
-                $_SESSION['role'] =
-                    $user['role'];
-
-                $_SESSION['verified'] =
-                    true;
-
-
-                // =====================================
-                // REMOVE PENDING LOGIN
-                // =====================================
-
-                unset($_SESSION['pending_user_id']);
-                unset($_SESSION['pending_username']);
-                unset($_SESSION['pending_email']);
-                unset($_SESSION['pending_role']);
-
-
-                // =====================================
-                // ADMIN
-                // =====================================
-
-                if ($user['role'] === 'admin') {
-
-                    $_SESSION['admin'] =
-                        $user['username'];
-
-                    header(
-                        "Location: admin/dashboard.php"
-                    );
-
-                    exit();
+                    $error =
+                        "Account verification failed.";
 
                 }
 
 
                 // =====================================
-                // OFFICER
+                // CHECK OTP EXISTS
                 // =====================================
 
-                elseif ($user['role'] === 'officer') {
+                elseif (
+                    empty($user['otp']) ||
+                    empty($user['otp_expiry'])
+                ) {
 
-                    $_SESSION['officer'] =
-                        $user['username'];
-
-                    header(
-                        "Location: officer/dashboard.php"
-                    );
-
-                    exit();
+                    $error =
+                        "Verification code is not available. Please login again.";
 
                 }
 
 
-                // Safety fallback
+                // =====================================
+                // CHECK EXPIRY
+                // =====================================
+
+                elseif (
+                    strtotime(
+                        $user['otp_expiry']
+                    ) === false ||
+                    strtotime(
+                        $user['otp_expiry']
+                    ) < time()
+                ) {
+
+                    $error =
+                        "Verification code has expired. Please login again.";
+
+                }
+
+
+                // =====================================
+                // VERIFY HASH
+                // =====================================
+
+                elseif (
+                    !password_verify(
+                        $otp,
+                        $user['otp']
+                    )
+                ) {
+
+                    $error =
+                        "Invalid verification code.";
+
+                }
+
+
+                // =====================================
+                // OTP CORRECT
+                // =====================================
+
                 else {
 
-                    session_destroy();
 
-                    header(
-                        "Location: login.php"
-                    );
+                    // =================================
+                    // CLEAR OTP
+                    // =================================
 
-                    exit();
+                    $clear =
+                        mysqli_prepare(
+                            $conn,
+                            "
+                            UPDATE users
+                            SET
+                                otp = NULL,
+                                otp_expiry = NULL
+                            WHERE user_id = ?
+                            "
+                        );
+
+
+                    if (!$clear) {
+
+                        $error =
+                            "Unable to complete verification.";
+
+                    } else {
+
+
+                        mysqli_stmt_bind_param(
+                            $clear,
+                            "i",
+                            $user_id
+                        );
+
+
+                        if (
+                            !mysqli_stmt_execute(
+                                $clear
+                            )
+                        ) {
+
+                            $error =
+                                "Unable to complete verification.";
+
+                        } else {
+
+
+                            // =================================
+                            // REGENERATE SESSION ID
+                            // =================================
+
+                            session_regenerate_id(true);
+
+
+                            // =================================
+                            // CREATE FINAL LOGIN SESSION
+                            // =================================
+
+                            $_SESSION['user_id'] =
+                                (int) $user['user_id'];
+
+                            $_SESSION['username'] =
+                                $user['username'];
+
+                            $_SESSION['email'] =
+                                $user['email'];
+
+                            $_SESSION['role'] =
+                                $user['role'];
+
+                            $_SESSION['verified'] =
+                                true;
+
+
+                            // =================================
+                            // OPTIONAL ROLE SESSION
+                            // =================================
+
+                            if (
+                                $user['role'] === 'admin'
+                            ) {
+
+                                $_SESSION['admin'] =
+                                    $user['username'];
+
+                            }
+
+                            elseif (
+                                $user['role'] === 'officer'
+                            ) {
+
+                                $_SESSION['officer'] =
+                                    $user['username'];
+
+                            }
+
+
+                            // =================================
+                            // REMOVE PENDING LOGIN
+                            // =================================
+
+                            unset(
+                                $_SESSION['pending_user_id'],
+                                $_SESSION['pending_username'],
+                                $_SESSION['pending_email'],
+                                $_SESSION['pending_role']
+                            );
+
+
+                            // =================================
+                            // ADMIN
+                            // =================================
+
+                            if (
+                                $user['role'] === 'admin'
+                            ) {
+
+                                header(
+                                    "Location: admin/dashboard.php"
+                                );
+
+                                exit();
+
+                            }
+
+
+                            // =================================
+                            // OFFICER
+                            // =================================
+
+                            elseif (
+                                $user['role'] === 'officer'
+                            ) {
+
+                                header(
+                                    "Location: officer/dashboard.php"
+                                );
+
+                                exit();
+
+                            }
+
+
+                            // =================================
+                            // SAFETY FALLBACK
+                            // =================================
+
+                            else {
+
+                                session_unset();
+                                session_destroy();
+
+                                header(
+                                    "Location: login.php"
+                                );
+
+                                exit();
+
+                            }
+
+                        }
+
+                    }
 
                 }
 
@@ -306,9 +440,9 @@ body {
     background:
         linear-gradient(
             135deg,
-            #0b3d2e,
-            #146b4a,
-            #d4af37
+            #003B73,
+            #0056A6,
+            #F4C300
         );
 
     font-family:Arial,sans-serif;
@@ -341,7 +475,7 @@ body {
 
     border-radius:50%;
 
-    background:#0b3d2e;
+    background:#003B73;
 
     color:white;
 
@@ -373,6 +507,17 @@ body {
 }
 
 
+.otp-input:focus {
+
+    border-color:#0056A6;
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(0,86,166,0.15);
+
+}
+
+
 .verify-btn {
 
     height:52px;
@@ -383,14 +528,41 @@ body {
 
     font-weight:bold;
 
-    background:#0b3d2e;
+    background:#003B73;
 
 }
 
 
 .verify-btn:hover {
 
-    background:#146b4a;
+    background:#0056A6;
+
+}
+
+
+.back-link {
+
+    color:#003B73;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+.back-link:hover {
+
+    color:#F4C300;
+
+    text-decoration:underline;
+
+}
+
+
+.alert-danger {
+
+    border-radius:10px;
 
 }
 
@@ -413,7 +585,9 @@ body {
 <div class="card verify-card shadow-lg">
 
 
-<!-- ICON -->
+<!-- =====================================
+     ICON
+===================================== -->
 
 <div class="text-center">
 
@@ -441,7 +615,9 @@ registered email address.
 </div>
 
 
-<!-- ERROR -->
+<!-- =====================================
+     ERROR
+===================================== -->
 
 <?php if ($error !== "") { ?>
 
@@ -456,7 +632,9 @@ registered email address.
 <?php } ?>
 
 
-<!-- EMAIL -->
+<!-- =====================================
+     EMAIL
+===================================== -->
 
 <div class="text-center mb-4">
 
@@ -470,12 +648,15 @@ OTP sent to
 
 <br>
 
+
 <strong>
 
 <?php
 
 echo htmlspecialchars(
-    $_SESSION['pending_email']
+    $_SESSION['pending_email'] ?? '',
+    ENT_QUOTES,
+    'UTF-8'
 );
 
 ?>
@@ -485,7 +666,9 @@ echo htmlspecialchars(
 </div>
 
 
-<!-- FORM -->
+<!-- =====================================
+     FORM
+===================================== -->
 
 <form
     method="POST"
@@ -503,6 +686,7 @@ Verification Code
 <input
     type="text"
     name="otp"
+    id="otp"
     class="form-control otp-input mb-4"
     maxlength="6"
     inputmode="numeric"
@@ -529,14 +713,15 @@ Verify & Login
 </form>
 
 
-<!-- BACK -->
+<!-- =====================================
+     BACK
+===================================== -->
 
 <div class="text-center mt-4">
 
 <a
     href="login.php"
-    class="text-decoration-none"
-    style="color:#0b3d2e;"
+    class="back-link"
 >
 
 <i class="bi bi-arrow-left me-1"></i>
@@ -555,6 +740,25 @@ Back to Login
 </div>
 
 </div>
+
+
+<script>
+
+document
+.getElementById("otp")
+.addEventListener(
+    "input",
+    function() {
+
+        this.value =
+            this.value
+            .replace(/\D/g, "")
+            .slice(0, 6);
+
+    }
+);
+
+</script>
 
 
 </body>
