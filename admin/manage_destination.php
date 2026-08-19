@@ -66,6 +66,9 @@ Destination
     background-color: #0057B8;
 }
 
+
+/* Main Blue Button */
+
 .btn-blue {
     background-color: #0057B8;
     color: white;
@@ -77,10 +80,8 @@ Destination
     color: white;
 }
 
-.table-blue {
-    background-color: #0057B8;
-    color: white;
-}
+
+/* Yellow Button */
 
 .btn-yellow {
     background-color: #FFD700;
@@ -91,6 +92,96 @@ Destination
 .btn-yellow:hover {
     background-color: #E6C200;
     color: #000;
+}
+
+
+/* ===============================
+   TABLE DESIGN
+================================ */
+
+.table-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+/* Table Header */
+
+.destination-table thead {
+    background-color: #0057B8;
+    color: white;
+}
+
+.destination-table thead th {
+    padding: 15px;
+    border: none;
+    font-weight: 600;
+}
+
+
+/* Yellow line under header */
+
+.destination-table thead tr {
+    border-bottom: 4px solid #FFD700;
+}
+
+
+/* Table Body */
+
+.destination-table tbody td {
+    padding: 14px;
+    vertical-align: middle;
+}
+
+
+/* Alternating rows */
+
+.destination-table tbody tr:nth-child(even) {
+    background-color: #F0F6FF;
+}
+
+.destination-table tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+
+/* Hover effect */
+
+.destination-table tbody tr:hover {
+    background-color: #FFF8D6;
+    transition: 0.2s;
+}
+
+
+/* ID Badge */
+
+.id-badge {
+    background-color: #FFD700;
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+/* Image */
+
+.destination-image {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #E6F0FF;
+}
+
+
+/* Action buttons */
+
+.action-btn {
+    border-radius: 6px;
+    margin-right: 4px;
 }
 
 </style>
