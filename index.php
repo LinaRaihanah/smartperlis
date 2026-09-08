@@ -965,6 +965,60 @@ Events
 </li>
 
 
+<!-- ANALYTICS -->
+
+<li class="nav-item">
+
+<a
+    class="nav-link"
+    href="analytics.php"
+>
+
+<i class="bi bi-bar-chart-fill"></i>
+
+Analytics
+
+</a>
+
+</li>
+
+
+<!-- MAP -->
+
+<li class="nav-item">
+
+<a
+    class="nav-link"
+    href="map.php"
+>
+
+<i class="bi bi-map-fill"></i>
+
+Map
+
+</a>
+
+</li>
+
+
+<!-- CONTACT -->
+
+<li class="nav-item">
+
+<a
+    class="nav-link"
+    href="contact.php"
+>
+
+<i class="bi bi-envelope-fill"></i>
+
+Contact
+
+</a>
+
+</li>
+
+
 <!-- GALLERY -->
 
 <li class="nav-item">
@@ -986,6 +1040,7 @@ Gallery
 </ul>
 
 </div>
+
 
 </div>
 
@@ -1126,6 +1181,7 @@ Explore Destinations
     placeholder="Search destinations..."
 >
 
+
 </div>
 
 </div>
@@ -1224,9 +1280,9 @@ if (
 ) {
 
 
-    while (
-        $row = mysqli_fetch_assoc($result)
-    ) {
+while (
+    $row = mysqli_fetch_assoc($result)
+) {
 
 
 ?>
@@ -1390,7 +1446,7 @@ View Details
 
 <?php
 
-    }
+}
 
 }
 
@@ -1703,6 +1759,7 @@ function performSearch() {
 
             }
 
+
             else {
 
 
@@ -1730,6 +1787,7 @@ function performSearch() {
 
 
     }
+
 
     else {
 

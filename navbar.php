@@ -4,7 +4,16 @@
 // navbar.php 
 // ================================ 
 ?> 
- 
+
+
+<!-- GOOGLE FONT - SAME AS INDEX.PHP -->
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow"> 
  
     <div class="container"> 
@@ -18,7 +27,7 @@
  
             <i class="bi bi-geo-alt-fill"></i> 
  
-            SMART PERLIS TOURISM PORTAL 
+            Smart Perlis Tourism Portal
  
         </a> 
  
@@ -68,17 +77,37 @@
  
                 <!-- DESTINATIONS --> 
  
-                <li class="nav-item"> 
+                <li class="nav-item destination-dropdown"> 
  
                     <a 
-                        class="nav-link" 
+                        class="nav-link destination-button" 
                         href="destinations.php"> 
  
                         <i class="bi bi-geo-alt-fill"></i> 
  
                         Destinations 
  
-                    </a> 
+                    </a>
+
+
+                    <!-- DESTINATION DROPDOWN -->
+
+                    <div class="destination-menu">
+
+                        <a href="destinations.php">
+
+                            Destinations
+
+                        </a>
+
+
+                        <a href="transport.php">
+
+                            Transportation & Accommodation
+
+                        </a>
+
+                    </div>
  
                 </li> 
  
@@ -175,10 +204,42 @@
     </div> 
  
 </nav> 
- 
- 
+
+
 <style> 
- 
+
+
+/* ================================= */ 
+/* NAVBAR LOGO */
+/* SAME STYLE AS INDEX.PHP */
+/* ================================= */ 
+
+.navbar-brand {
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+
+}
+
+
+/* ================================= */
+/* LOGO LOCATION ICON */
+/* ================================= */
+
+.navbar-brand i {
+
+    color: #0057A8;
+
+    font-size: 1rem;
+
+}
+
+
 /* ================================= */ 
 /* DESTINATION DROPDOWN */ 
 /* ================================= */ 
