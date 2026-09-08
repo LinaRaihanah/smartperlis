@@ -1759,7 +1759,6 @@ function performSearch() {
 
             }
 
-
             else {
 
 
@@ -1787,7 +1786,6 @@ function performSearch() {
 
 
     }
-
 
     else {
 
