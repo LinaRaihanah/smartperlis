@@ -627,8 +627,7 @@ body {
 
         <p>
 
-            Find buses, trains, taxis and ferry services around Perlis
-
+            Explore transportation and accommodation options across Perlis, making it easier to travel, stay and enjoy your journey.
         </p>
 
     </div>

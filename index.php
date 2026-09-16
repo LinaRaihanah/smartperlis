@@ -174,6 +174,56 @@ body {
 }
 
 
+/* PROFILE DROPDOWN */
+
+.navbar .dropdown-menu {
+
+    background: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 8px;
+
+    margin-top: 8px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.15);
+
+    min-width: 210px;
+
+}
+
+.navbar .dropdown-item {
+
+    color: #1f2937;
+
+    font-weight: 500;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+}
+
+.navbar .dropdown-item i {
+
+    color: var(--perlis-blue);
+
+    margin-right: 8px;
+
+}
+
+.navbar .dropdown-item:hover {
+
+    background: var(--perlis-light-yellow);
+
+    color: var(--perlis-dark-blue);
+
+}
+
+
 /* =========================================
    HERO
 ========================================= */
@@ -929,6 +979,80 @@ Home
 </li>
 
 
+<!-- PROFILE -->
+
+<li class="nav-item dropdown">
+
+<a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="profileDropdown"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+>
+
+<i class="bi bi-person-fill"></i>
+
+Profile
+
+</a>
+
+<ul
+    class="dropdown-menu dropdown-menu-end"
+    aria-labelledby="profileDropdown"
+>
+
+<li>
+
+<a
+    class="dropdown-item"
+    href="negeri-perlis.php"
+>
+
+<i class="bi bi-geo-alt-fill"></i>
+
+Negeri Perlis
+
+</a>
+
+</li>
+
+<li>
+
+<a
+    class="dropdown-item"
+    href="visit-perlis.php"
+>
+
+<i class="bi bi-image-fill"></i>
+
+Logo Visit Perlis
+
+</a>
+
+</li>
+
+<li>
+
+<a
+    class="dropdown-item"
+    href="kluster-pelancongan.php"
+>
+
+<i class="bi bi-diagram-3-fill"></i>
+
+Kluster Pelancongan
+
+</a>
+
+</li>
+
+</ul>
+
+</li>
+
+
 <!-- DESTINATIONS -->
 
 <li class="nav-item">
@@ -965,6 +1089,60 @@ Events
 </li>
 
 
+<!-- ANALYTICS -->
+
+<li class="nav-item">
+
+<a
+    class="nav-link"
+    href="analytics.php"
+>
+
+<i class="bi bi-bar-chart-fill"></i>
+
+Analytics
+
+</a>
+
+</li>
+
+
+<!-- MAP -->
+
+<li class="nav-item">
+
+<a
+    class="nav-link"
+    href="map.php"
+>
+
+<i class="bi bi-map-fill"></i>
+
+Map
+
+</a>
+
+</li>
+
+
+<!-- CONTACT -->
+
+<li class="nav-item">
+
+<a
+    class="nav-link"
+    href="contact.php"
+>
+
+<i class="bi bi-envelope-fill"></i>
+
+Contact
+
+</a>
+
+</li>
+
+
 <!-- GALLERY -->
 
 <li class="nav-item">
@@ -986,6 +1164,7 @@ Gallery
 </ul>
 
 </div>
+
 
 </div>
 
@@ -1126,6 +1305,7 @@ Explore Destinations
     placeholder="Search destinations..."
 >
 
+
 </div>
 
 </div>
@@ -1224,9 +1404,9 @@ if (
 ) {
 
 
-    while (
-        $row = mysqli_fetch_assoc($result)
-    ) {
+while (
+    $row = mysqli_fetch_assoc($result)
+) {
 
 
 ?>
@@ -1390,7 +1570,7 @@ View Details
 
 <?php
 
-    }
+}
 
 }
 
