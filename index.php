@@ -172,56 +172,23 @@ body {
     margin-bottom: 3px;
 
 }
-
-
-/* PROFILE DROPDOWN */
-
-.navbar .dropdown-menu {
-
-    background: white;
-
-    border: none;
-
-    border-radius: 10px;
-
-    padding: 8px;
-
-    margin-top: 8px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.15);
-
-    min-width: 210px;
-
+/* PROFILE HOVER DROPDOWN */
+.profile-dropdown {
+    position: relative;
 }
 
-.navbar .dropdown-item {
-
-    color: #1f2937;
-
-    font-weight: 500;
-
-    padding: 10px 12px;
-
-    border-radius: 8px;
-
+.profile-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0;
 }
 
-.navbar .dropdown-item i {
-
-    color: var(--perlis-blue);
-
-    margin-right: 8px;
-
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
 }
 
-.navbar .dropdown-item:hover {
-
-    background: var(--perlis-light-yellow);
-
-    color: var(--perlis-dark-blue);
-
-}
 
 
 /* =========================================
@@ -978,74 +945,38 @@ Home
 
 </li>
 
-
 <!-- PROFILE -->
-
-<li class="nav-item dropdown">
+<li class="nav-item dropdown profile-dropdown">
 
 <a
-    class="nav-link dropdown-toggle"
+    class="nav-link"
     href="#"
     id="profileDropdown"
-    role="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
 >
 
 <i class="bi bi-person-fill"></i>
-
 Profile
 
 </a>
 
-<ul
-    class="dropdown-menu dropdown-menu-end"
-    aria-labelledby="profileDropdown"
->
+<ul class="dropdown-menu">
 
 <li>
-
-<a
-    class="dropdown-item"
-    href="negeri-perlis.php"
->
-
-<i class="bi bi-geo-alt-fill"></i>
-
+<a class="dropdown-item" href="negeri-perlis.php">
 Negeri Perlis
-
 </a>
-
 </li>
 
 <li>
-
-<a
-    class="dropdown-item"
-    href="visit-perlis.php"
->
-
-<i class="bi bi-image-fill"></i>
-
+<a class="dropdown-item" href="visit-perlis.php">
 Logo Visit Perlis
-
 </a>
-
 </li>
 
 <li>
-
-<a
-    class="dropdown-item"
-    href="kluster-pelancongan.php"
->
-
-<i class="bi bi-diagram-3-fill"></i>
-
+<a class="dropdown-item" href="kluster-pelancongan.php">
 Kluster Pelancongan
-
 </a>
-
 </li>
 
 </ul>
