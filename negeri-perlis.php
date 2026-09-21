@@ -23,7 +23,7 @@ trackVisitor(
       content="width=device-width, initial-scale=1.0">
 
 <title>
-PERLIS TOURISM SMART PORTAL
+Negeri Perlis | Smart Perlis Tourism Portal
 </title>
 
 
@@ -896,7 +896,7 @@ footer a:hover {
 
 <i class="bi bi-geo-alt-fill"></i>
 
-PERLIS TOURISM SMART PORTAL
+Smart Perlis Tourism Portal
 
 </a>
 
@@ -1106,493 +1106,194 @@ Gallery
      HERO
 ========================================= -->
 
-<section class="hero">
-
-
-<div
-    id="heroSlider"
-    class="carousel slide h-100"
-    data-bs-ride="carousel"
->
-
-
-<div class="carousel-inner h-100">
-
-
-<!-- SLIDE 1 -->
-
-<div class="carousel-item active h-100">
-
-<img
-    src="assets/images/perlis1.jpg"
-    alt="Beautiful Perlis"
->
-
-</div>
-
-
-<!-- SLIDE 2 -->
-
-<div class="carousel-item h-100">
-
-<img
-    src="assets/images/perlis2.jpg"
-    alt="Perlis Tourism"
->
-
-</div>
-
-
-<!-- SLIDE 3 -->
-
-<div class="carousel-item h-100">
-
-<img
-    src="assets/images/perlis3.jpg"
-    alt="Perlis Attraction"
->
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- HERO CONTENT -->
-
-<div class="hero-content">
-
-
-<div class="small-title">
-
-PERLIS TOURISM
-
-</div>
-
-
-<h1>
-
-Discover the Hidden Gem of Perlis
-
-</h1>
-
-
-<p>
-
-Explore breathtaking nature, unique culture,
-local food and unforgettable destinations
-across Perlis.
-
-</p>
-
-
-<a
-    href="destinations.php"
-    class="hero-btn"
->
-
-Explore Destinations
-
-<i class="bi bi-arrow-right"></i>
-
-</a>
-
-
-</div>
-
-</section>
-
 
 <!-- =========================================
-     SEARCH
+     NEGERI PERLIS CONTENT
 ========================================= -->
 
-<section class="container search-wrapper">
-
-
-<div class="search-card">
-
-
-<div class="row g-3 align-items-center">
-
-
-<!-- SEARCH INPUT -->
-
-<div class="col-lg-9">
-
-
-<div class="position-relative">
-
-
-<i class="bi bi-search search-icon"></i>
-
-
-<input
-    type="text"
-    id="search"
-    class="form-control search-input"
-    placeholder="Search destinations..."
->
-
-
-</div>
-
-</div>
-
-
-<!-- SEARCH BUTTON -->
-
-<div class="col-lg-3">
-
-
-<button
-    type="button"
-    id="searchBtn"
-    class="btn perlis-btn search-btn w-100"
->
-
-<i class="bi bi-search"></i>
-
-Search
-
-</button>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-     DESTINATIONS
-========================================= -->
-
-<section class="section">
-
+<section class="section" style="padding-top: 125px; padding-bottom: 80px;">
 
 <div class="container">
 
+    <div class="text-center mb-5">
+
+        <div class="perlis-yellow-text fw-bold">
+            PROFILE
+        </div>
 
-<!-- SECTION TITLE -->
+        <h1 class="section-title">
+            Negeri Perlis
+        </h1>
 
-<div class="text-center mb-5">
+        <p class="section-subtitle">
+            Kenali negeri Perlis, negeri yang indah di utara Semenanjung Malaysia.
+        </p>
 
+    </div>
 
-<div class="perlis-yellow-text fw-bold">
 
-EXPLORE PERLIS
-
-</div>
-
-
-<h2 class="section-title">
-
-Popular Destinations
-
-</h2>
-
-
-<p class="section-subtitle">
-
-Discover the most beautiful places,
-attractions and hidden gems in Perlis.
-
-</p>
-
-
-</div>
-
-
-<!-- DESTINATION LIST -->
-
-<div
-    class="row g-4"
-    id="destinationList"
->
-
-
-<?php
-
-$sql = "
-    SELECT *
-    FROM destinations
-    ORDER BY destination_id ASC
-";
-
-$result = mysqli_query($conn, $sql);
-
-
-if (
-    $result &&
-    mysqli_num_rows($result) > 0
-) {
-
-
-while (
-    $row = mysqli_fetch_assoc($result)
-) {
-
-
-?>
-
-
-<!-- DESTINATION CARD -->
-
-<div
-    class="col-lg-4 col-md-6 destination-card-wrapper"
->
-
-
-<div
-    class="destination-card"
-    data-name="<?php
-        echo htmlspecialchars(
-            $row['destination_name']
-        );
-    ?>"
->
-
-
-<!-- IMAGE -->
-
-<div class="destination-img-wrapper">
-
-
-<img
-    src="assets/images/<?php
-        echo htmlspecialchars(
-            $row['image']
-        );
-    ?>"
-    class="destination-img"
-    alt="<?php
-        echo htmlspecialchars(
-            $row['destination_name']
-        );
-    ?>"
->
-
-
-<!-- CATEGORY -->
-
-<span class="destination-category">
-
-<?php
-
-echo htmlspecialchars(
-    $row['category']
-);
-
-?>
-
-</span>
-
-
-</div>
-
-
-<!-- BODY -->
-
-<div class="destination-body">
-
-
-<!-- NAME -->
-
-<h3 class="destination-title">
-
-<?php
-
-echo htmlspecialchars(
-    $row['destination_name']
-);
-
-?>
-
-</h3>
-
-
-<!-- LOCATION -->
-
-<div class="destination-location">
-
-
-<i class="bi bi-geo-alt-fill"></i>
-
-
-<?php
-
-echo htmlspecialchars(
-    $row['location']
-);
-
-?>
-
-
-</div>
-
-
-<!-- DESCRIPTION -->
-
-<p class="destination-description">
-
-
-<?php
-
-
-$description =
-    $row['description'];
-
-
-if (
-    strlen($description) > 110
-) {
-
-    $description =
-        substr(
-            $description,
-            0,
-            110
-        ) . "...";
-
-}
-
-
-echo htmlspecialchars(
-    $description
-);
-
-
-?>
-
-
-</p>
-
-
-<!-- DETAILS -->
-
-<a
-    href="destination-details.php?id=<?php
-        echo (int)
-            $row['destination_id'];
-    ?>"
-    class="details-btn"
->
-
-View Details
-
-<i class="bi bi-arrow-right"></i>
-
-</a>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-<?php
-
-}
-
-}
-
-else {
-
-?>
-
-
-<!-- NO DESTINATIONS -->
-
-<div class="col-12">
-
-
-<div class="alert alert-warning text-center">
-
-No destinations available.
-
-</div>
-
-
-</div>
-
-
-<?php
-
-}
-
-?>
-
-
-<!-- =========================================
-     NO SEARCH RESULT
-========================================= -->
-
-<div
-    id="noResult"
-    class="col-12"
->
-
-
-<div class="no-result-box">
-
-
-<i
-    class="bi bi-search"
-    style="
-        font-size:40px;
-        color:#0057A8;
-    "
-></i>
-
-
-<h4 class="mt-3">
-
-Destination Not Found
-
-</h4>
-
-
-<p class="text-muted">
-
-Try searching for another destination.
-
-</p>
-
-
-<button
-    id="resetSearch"
-    class="btn perlis-btn"
->
-
-Reset Search
-
-</button>
-
-
-</div>
-
-</div>
-
-
-</div>
+    <!-- BENDERA DAN LAMBANG -->
+
+    <div class="row align-items-center justify-content-center g-5 mb-5">
+
+        <div class="col-lg-5 text-center">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Flag_of_Perlis.svg"
+                alt="Bendera Perlis"
+                style="
+                    width:100%;
+                    max-width:430px;
+                    height:auto;
+                "
+            >
+
+        </div>
+
+
+        <div class="col-lg-4 text-center">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Coat_of_arms_of_Perlis.svg"
+                alt="Lambang Negeri Perlis"
+                style="
+                    width:100%;
+                    max-width:300px;
+                    height:260px;
+                    object-fit:contain;
+                "
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- PENERANGAN -->
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-10">
+
+            <div
+                class="bg-white p-4 p-md-5"
+                style="
+                    border-radius:18px;
+                    box-shadow:0 8px 25px rgba(0,0,0,.07);
+                    border-top:4px solid var(--perlis-yellow);
+                "
+            >
+
+                <p style="
+                    font-size:17px;
+                    line-height:1.9;
+                    color:#6b7280;
+                    margin-bottom:22px;
+                ">
+                    Perlis (Jawi: ڨرليس, Bahasa Thai: ปะลิส Pālit, ปะลิส Palit
+                    atau เปอร์ลิส Perlis) merupakan sebuah negeri yang terletak
+                    di utara Semenanjung Malaysia dan bersempadan dengan
+                    Wilayah Satun dan Songkhla, Thailand di sebelah utara,
+                    dan Kedah di sebelah selatan. Perlis menjadi sebuah negeri
+                    yang berdaulat setelah kerajaan Siam melantik Raja Syed
+                    Hussain Jamalullail sebagai Raja Perlis.
+                </p>
+
+                <p style="
+                    font-size:17px;
+                    line-height:1.9;
+                    color:#6b7280;
+                    margin-bottom:0;
+                ">
+                    Perlis mempunyai keluasan sebanyak 821 kilometer persegi
+                    menjadikannya sebagai negeri terkecil di Malaysia. Pada
+                    tahun 2020, jumlah penduduknya dianggarkan seramai
+                    284,885 orang dengan majoritinya merupakan bumiputera
+                    iaitu 88.8 peratus dari jumlah penduduk.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SHARE -->
+
+    <div class="text-center mt-4">
+
+        <button
+            type="button"
+            onclick="sharePage()"
+            style="
+                border:0;
+                background:transparent;
+                color:#2478e5;
+                font-size:30px;
+                margin-right:12px;
+                cursor:pointer;
+            "
+            title="Kongsi"
+        >
+            <i class="bi bi-share-fill"></i>
+        </button>
+
+        <a
+            href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+                display:inline-flex;
+                width:38px;
+                height:38px;
+                align-items:center;
+                justify-content:center;
+                border-radius:50%;
+                background:#2478e5;
+                color:white;
+                text-decoration:none;
+                font-size:21px;
+            "
+            title="Kongsi ke Facebook"
+        >
+            <i class="bi bi-facebook"></i>
+        </a>
+
+    </div>
 
 </div>
 
 </section>
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+<script>
+
+function sharePage() {
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: 'Negeri Perlis',
+            text: 'Kenali Negeri Perlis',
+            url: window.location.href
+        });
+
+    } else if (navigator.clipboard) {
+
+        navigator.clipboard.writeText(window.location.href);
+
+        alert('Link halaman telah disalin.');
+
+    } else {
+
+        alert('Link halaman: ' + window.location.href);
+
+    }
+
+}
+
+</script>
 
 <footer class="pt-5 pb-4">
 
@@ -1617,7 +1318,7 @@ Reset Search
 ></i>
 
 
-PERLIS TOURISM SMART PORTAL
+Smart Perlis Tourism Portal
 
 
 </h5>
@@ -1625,7 +1326,7 @@ PERLIS TOURISM SMART PORTAL
 
 <p class="text-white-50">
 
-PERLIS TOURISM SMART PORTAL is an
+Smart Perlis Tourism Portal is an
 interactive platform to explore
 destinations, events and tourism
 information in Perlis.
@@ -1718,7 +1419,7 @@ Contact Us
 
 <div class="text-center text-white-50">
 
-© 2026 PERLIS TOURISM SMART PORTAL
+© 2026 Smart Perlis Tourism Portal
 
 </div>
 
@@ -1737,186 +1438,7 @@ Contact Us
 ></script>
 
 
-<!-- =========================================
-     SEARCH JAVASCRIPT
-========================================= -->
 
-<script>
-
-function performSearch() {
-
-
-    let searchInput =
-        document.getElementById("search");
-
-
-    let keyword =
-        searchInput.value
-        .toLowerCase()
-        .trim();
-
-
-    let cards =
-        document.querySelectorAll(
-            ".destination-card-wrapper"
-        );
-
-
-    let found = 0;
-
-
-    cards.forEach(
-        function(wrapper) {
-
-
-            let card =
-                wrapper.querySelector(
-                    ".destination-card"
-                );
-
-
-            if (!card) {
-
-                return;
-
-            }
-
-
-            let name =
-                card.getAttribute(
-                    "data-name"
-                );
-
-
-            if (!name) {
-
-                return;
-
-            }
-
-
-            name =
-                name.toLowerCase();
-
-
-            if (
-                keyword === "" ||
-                name.includes(keyword)
-            ) {
-
-
-                wrapper.style.display =
-                    "";
-
-
-                found++;
-
-
-            }
-
-            else {
-
-
-                wrapper.style.display =
-                    "none";
-
-
-            }
-
-        }
-    );
-
-
-    let noResult =
-        document.getElementById(
-            "noResult"
-        );
-
-
-    if (found === 0) {
-
-
-        noResult.style.display =
-            "block";
-
-
-    }
-
-    else {
-
-
-        noResult.style.display =
-            "none";
-
-
-    }
-
-}
-
-
-/* =========================================
-   SEARCH BUTTON
-========================================= */
-
-document
-    .getElementById("searchBtn")
-    .addEventListener(
-        "click",
-        performSearch
-    );
-
-
-/* =========================================
-   ENTER KEY
-========================================= */
-
-document
-    .getElementById("search")
-    .addEventListener(
-        "keypress",
-        function(event) {
-
-
-            if (
-                event.key === "Enter"
-            ) {
-
-
-                event.preventDefault();
-
-
-                performSearch();
-
-
-            }
-
-        }
-    );
-
-
-/* =========================================
-   RESET SEARCH
-========================================= */
-
-document
-    .getElementById("resetSearch")
-    .addEventListener(
-        "click",
-        function() {
-
-
-            document
-                .getElementById("search")
-                .value = "";
-
-
-            performSearch();
-
-
-        }
-    );
-
-</script>
 
 
 </body>
