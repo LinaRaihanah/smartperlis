@@ -18,7 +18,7 @@ include("config.php");
 
 
 <title>
-Gallery - Smart Perlis Tourism Portal
+Gallery - PERLIS TOURISM SMART PORTAL
 </title>
 
 
@@ -97,7 +97,7 @@ body {
     "
 >
 
-Smart Perlis Tourism PortalGallery
+PERLIS TOURISM SMART PORTAL Gallery
 
 </h1>
 

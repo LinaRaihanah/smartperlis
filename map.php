@@ -18,7 +18,7 @@ content="width=device-width, initial-scale=1.0"
 >
 
 <title>
-Interactive Map - Smart Perlis Tourism Portal
+Interactive Map - PERLIS TOURISM SMART PORTAL
 </title>
 
 

@@ -585,7 +585,7 @@ body {
 
         <i class="bi bi-geo-alt-fill me-2"></i>
 
-        Smart Perlis Tourism Portal - Officer
+        PERLIS TOURISM SMART PORTAL - Officer
 
     </span>
 
@@ -651,7 +651,7 @@ body {
 
         <p class="dashboard-subtitle">
 
-            Welcome to Smart Perlis Tourism Portal Management
+            Welcome to PERLIS TOURISM SMART PORTAL Management
 
         </p>
 

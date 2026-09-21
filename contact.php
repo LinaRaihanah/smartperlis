@@ -106,7 +106,7 @@ content="width=device-width, initial-scale=1.0"
 >
 
 <title>
-Contact - Smart Perlis Tourism Portal
+Contact - PERLIS TOURISM SMART PORTAL
 </title>
 
 
@@ -364,7 +364,7 @@ align-items: center;
 
 
     <p>
-        Get in touch with Smart Perlis Tourism Portal
+        Get in touch with PERLIS TOURISM SMART PORTAL
     </p>
 
 </section>
@@ -650,7 +650,7 @@ align-items: center;
                 >
 
                     <span>
-                        What is Smart Perlis Tourism Portal?
+                        What is PERLIS TOURISM SMART PORTAL?
                     </span>
 
                     <span class="faq-arrow">
@@ -662,7 +662,7 @@ align-items: center;
 
                 <div class="faq-answer">
 
-                    Smart Perlis Tourism Portal is a tourism website
+                    PERLIS TOURISM SMART PORTAL is a tourism website
                     that provides information about tourist attractions,
                     events and tourism activities in Perlis.
 
@@ -774,7 +774,7 @@ align-items: center;
                 >
 
                     <span>
-                        How can I contact Smart Perlis Tourism Portal?
+                        How can I contact PERLIS TOURISM SMART PORTAL?
                     </span>
 
                     <span class="faq-arrow">

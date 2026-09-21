@@ -254,7 +254,7 @@ Visitor Rating
 
 <span>
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </span>
 

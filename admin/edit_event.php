@@ -209,7 +209,7 @@ content="width=device-width, initial-scale=1.0">
 
 
 <title>
-Edit Event - Smart Perlis Tourism Portal
+Edit Event - PERLIS TOURISM SMART PORTAL
 </title>
 
 
@@ -260,7 +260,7 @@ body{
 
 <span class="navbar-brand">
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </span>
 

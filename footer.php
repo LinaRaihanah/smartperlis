@@ -4,7 +4,7 @@
 
         <h4>
 
-            Smart Perlis Tourism Portal
+            PERLIS TOURISM SMART PORTAL
 
         </h4>
 
@@ -51,7 +51,7 @@
 
             © <?php echo date("Y"); ?>
 
-            Smart Perlis Tourism Portal.
+            PERLIS TOURISM SMART PORTAL.
 
             All Rights Reserved.
 

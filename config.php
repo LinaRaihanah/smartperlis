@@ -51,7 +51,7 @@ if (!defined("MAIL_PASSWORD")) {
 }
 
 if (!defined("MAIL_FROM_NAME")) {
-    define("MAIL_FROM_NAME", "Smart Perlis Tourism Portal");
+    define("MAIL_FROM_NAME", "PERLIS TOURISM SMART PORTAL");
 }
 
 ?>

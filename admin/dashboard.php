@@ -241,7 +241,7 @@ body {
 
 <i class="bi bi-geo-alt-fill"></i>
 
-Smart Perlis Tourism Portal - Admin
+PERLIS TOURISM SMART PORTAL - Admin
 
 </span>
 

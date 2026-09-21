@@ -18,7 +18,7 @@ include("config.php");
 >
 
 <title>
-Transport - Smart Perlis Tourism Portal
+Transport - PERLIS TOURISM SMART PORTAL
 </title>
 
 

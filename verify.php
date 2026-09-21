@@ -407,7 +407,7 @@ if (isset($_POST['verify'])) {
 >
 
 <title>
-Verify Login - Smart Perlis Tourism Portal
+Verify Login - PERLIS TOURISM SMART PORTAL
 </title>
 
 

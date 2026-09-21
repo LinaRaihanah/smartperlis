@@ -4,7 +4,7 @@ include("config.php");
 
 
 // =====================================================
-// SMART PERLIS TOURISM PORTAL
+// PERLIS TOURISM SMART PORTAL
 // ANALYTICS DASHBOARD
 // PHP + MYSQL + CHART.JS
 // NO POWER BI
@@ -487,7 +487,7 @@ content="width=device-width, initial-scale=1.0"
 <title>
 
 Tourism Analytics Dashboard -
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </title>
 
@@ -862,7 +862,7 @@ Tourism Analytics Dashboard
 
 <p>
 
-Data-driven insights for Smart Perlis Tourism Portal
+Data-driven insights for PERLIS TOURISM SMART PORTAL
 
 </p>
 

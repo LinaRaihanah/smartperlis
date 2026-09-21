@@ -326,7 +326,7 @@ Gallery
 
 <span>
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </span>
 

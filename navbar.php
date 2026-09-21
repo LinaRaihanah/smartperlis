@@ -1,6 +1,6 @@
 <?php 
 // ================================ 
-// SMART PERLIS TOURISM PORTAL 
+// PERLIS TOURISM SMART PORTAL
 // navbar.php 
 // ================================ 
 ?> 
@@ -27,7 +27,7 @@
  
             <i class="bi bi-geo-alt-fill"></i> 
  
-            Smart Perlis Tourism Portal
+            PERLIS TOURISM SMART PORTAL
  
         </a> 
  

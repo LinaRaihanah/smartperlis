@@ -1,5 +1,5 @@
 // ===============================
-// SMART PERLIS TOURISM PORTAL
+// PERLIS TOURISM SMART PORTAL
 // script.js
 // ===============================
 
@@ -195,4 +195,4 @@ if(carousel){
 
 }
 
-console.log("Smart Perlis Tourism Portal Loaded Successfully");
+console.log("PERLIS TOURISM SMART PORTAL Loaded Successfully");

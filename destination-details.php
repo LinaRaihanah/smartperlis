@@ -88,7 +88,7 @@ if (!$destination) {
         );
         ?>
 
-        - Smart Perlis Tourism Portal
+        - PERLIS TOURISM SMART PORTAL
 
     </title>
 

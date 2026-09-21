@@ -29,7 +29,7 @@ require_once("../config.php");
 >
 
 <title>
-    Dashboard - Smart Perlis Tourism Portal
+    Dashboard - PERLIS TOURISM SMART PORTAL
 </title>
 
 
@@ -356,7 +356,7 @@ Officer
 
 <small>
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </small>
 

@@ -33,7 +33,7 @@ if (!isset($_SESSION['admin'])) {
     >
 
     <title>
-        Visitor Report - Smart Perlis Tourism Portal
+        Visitor Report - PERLIS TOURISM SMART PORTAL
     </title>
 
 

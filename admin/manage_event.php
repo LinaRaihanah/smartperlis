@@ -266,7 +266,7 @@ if (isset($_GET['delete'])) {
 
             <span>
 
-                Smart Perlis Tourism Portal
+                PERLIS TOURISM SMART PORTAL
 
             </span>
 

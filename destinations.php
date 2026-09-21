@@ -17,7 +17,7 @@ include("config.php");
         content="width=device-width, initial-scale=1.0">
 
     <title>
-        Destinations - Smart Perlis Tourism Portal
+        Destinations - PERLIS TOURISM SMART PORTAL
     </title>
 
 

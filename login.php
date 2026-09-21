@@ -359,7 +359,7 @@ if (isset($_POST['login'])) {
 
 
                                             $mail->Subject =
-                                                "Smart Perlis Tourism Portal - Login Verification Code";
+                                                "PERLIS TOURISM SMART PORTAL - Login Verification Code";
 
 
                                             // =================================
@@ -430,7 +430,7 @@ if (isset($_POST['login'])) {
                                                         color:#003B73;
                                                         margin-bottom:5px;
                                                     '>
-                                                        Smart Perlis Tourism Portal
+                                                        PERLIS TOURISM SMART PORTAL
                                                     </h2>
 
                                                     <p style='
@@ -534,7 +534,7 @@ if (isset($_POST['login'])) {
                                                     text-align:center;
                                                 '>
 
-                                                    Smart Perlis Tourism Portal
+                                                    PERLIS TOURISM SMART PORTAL
 
                                                 </p>
 
@@ -553,7 +553,7 @@ if (isset($_POST['login'])) {
                                             // =================================
 
                                             $mail->AltBody =
-                                                "Smart Perlis Tourism Portal\n\n" .
+                                                "PERLIS TOURISM SMART PORTAL\n\n" .
                                                 "Your login verification code is: " .
                                                 $otp .
                                                 "\n\n" .
@@ -699,7 +699,7 @@ if (isset($_POST['login'])) {
 >
 
 <title>
-Login - Smart Perlis Tourism Portal
+Login - PERLIS TOURISM SMART PORTAL
 </title>
 
 
@@ -951,7 +951,7 @@ body {
 
 <h2 class="fw-bold mt-2">
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </h2>
 

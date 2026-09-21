@@ -23,7 +23,7 @@ trackVisitor(
       content="width=device-width, initial-scale=1.0">
 
 <title>
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 </title>
 
 
@@ -879,7 +879,7 @@ footer a:hover {
 
 <i class="bi bi-geo-alt-fill"></i>
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </a>
 
@@ -1562,7 +1562,7 @@ Reset Search
 ></i>
 
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 
 </h5>
@@ -1570,7 +1570,7 @@ Smart Perlis Tourism Portal
 
 <p class="text-white-50">
 
-Smart Perlis Tourism Portal is an
+PERLIS TOURISM SMART PORTAL is an
 interactive platform to explore
 destinations, events and tourism
 information in Perlis.
@@ -1663,7 +1663,7 @@ Contact Us
 
 <div class="text-center text-white-50">
 
-© 2026 Smart Perlis Tourism Portal
+© 2026 PERLIS TOURISM SMART PORTAL
 
 </div>
 
