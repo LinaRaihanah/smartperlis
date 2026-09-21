@@ -257,6 +257,8 @@ include("config.php");
 | 1. Are still ongoing
 | OR
 | 2. Will happen in the future
+| OR
+| 3. Have NULL/open-ended dates from placeholder database entries
 |
 | event_end_date >= today's date
 |
@@ -276,6 +278,8 @@ $sql = "
     FROM events
 
     WHERE event_end_date >= CURDATE()
+       OR event_end_date IS NULL
+       OR event_end_date = '0000-00-00'
 
     ORDER BY event_date ASC
 
@@ -321,24 +325,39 @@ elseif (mysqli_num_rows($result) > 0) {
 
         /*
         |--------------------------------------------------------------------------
-        | START DATE
+        | START DATE (SAFELY PARSED)
         |--------------------------------------------------------------------------
         */
 
-        $startDate = new DateTime(
-            $row['event_date']
-        );
+        try {
+            $startDate = new DateTime(
+                $row['event_date']
+            );
+        } catch (Exception $e) {
+            $startDate = new DateTime();
+        }
 
 
         /*
         |--------------------------------------------------------------------------
-        | END DATE
+        | END DATE (SAFELY PARSED)
         |--------------------------------------------------------------------------
         */
 
-        $endDate = new DateTime(
-            $row['event_end_date']
-        );
+        $hasValidEndDate = !empty($row['event_end_date']) && $row['event_end_date'] !== '0000-00-00';
+
+        if ($hasValidEndDate) {
+            try {
+                $endDate = new DateTime(
+                    $row['event_end_date']
+                );
+            } catch (Exception $e) {
+                $endDate = clone $startDate;
+                $hasValidEndDate = false;
+            }
+        } else {
+            $endDate = clone $startDate;
+        }
 
 
         /*
@@ -347,8 +366,12 @@ elseif (mysqli_num_rows($result) > 0) {
         |--------------------------------------------------------------------------
         */
 
-        $duration =
-            $startDate->diff($endDate)->days + 1;
+        if ($hasValidEndDate) {
+            $duration =
+                $startDate->diff($endDate)->days + 1;
+        } else {
+            $duration = 1;
+        }
 
 
         /*
@@ -376,7 +399,7 @@ elseif (mysqli_num_rows($result) > 0) {
                     src="assets/images/<?php
 
                         echo htmlspecialchars(
-                            $row['image']
+                            !empty($row['image']) ? $row['image'] : 'default.jpg'
                         );
 
                     ?>"
@@ -449,9 +472,9 @@ elseif (mysqli_num_rows($result) > 0) {
 
                         <?php
 
-                        echo $endDate->format(
-                            "d M Y"
-                        );
+                        echo $hasValidEndDate 
+                            ? $endDate->format("d M Y") 
+                            : "TBA";
 
                         ?>
 
@@ -685,6 +708,8 @@ $calendarSQL = "
     FROM events
 
     WHERE event_end_date >= CURDATE()
+       OR event_end_date IS NULL
+       OR event_end_date = '0000-00-00'
 
     ORDER BY event_date ASC
 
@@ -711,32 +736,35 @@ if ($calendarResult) {
 
         /* START DATE */
 
-        $start =
-            new DateTime(
-                $event['event_date']
-            );
+        try {
+            $start =
+                new DateTime(
+                    $event['event_date']
+                );
+            $startFormatted = $start->format('Y-m-d');
+        } catch (Exception $e) {
+            continue;
+        }
 
 
         /* END DATE */
 
-        $end =
-            new DateTime(
-                $event['event_end_date']
-            );
+        $hasEnd = !empty($event['event_end_date']) && $event['event_end_date'] !== '0000-00-00';
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | FULLCALENDAR END DATE
-        |--------------------------------------------------------------------------
-        |
-        | FullCalendar uses an EXCLUSIVE end date.
-        |
-        */
-
-        $end->modify(
-            '+1 day'
-        );
+        if ($hasEnd) {
+            try {
+                $end =
+                    new DateTime(
+                        $event['event_end_date']
+                    );
+                $end->modify('+1 day');
+                $endFormatted = $end->format('Y-m-d');
+            } catch (Exception $e) {
+                $endFormatted = $startFormatted;
+            }
+        } else {
+            $endFormatted = $startFormatted;
+        }
 
 ?>
 
@@ -764,9 +792,7 @@ if ($calendarResult) {
                                 <?php
 
                                 echo json_encode(
-                                    $start->format(
-                                        'Y-m-d'
-                                    )
+                                    $startFormatted
                                 );
 
                                 ?>,
@@ -775,9 +801,7 @@ if ($calendarResult) {
                                 <?php
 
                                 echo json_encode(
-                                    $end->format(
-                                        'Y-m-d'
-                                    )
+                                    $endFormatted
                                 );
 
                                 ?>,
