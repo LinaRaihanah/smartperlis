@@ -1,1178 +1,1729 @@
 <?php
+
 include("config.php");
+
+
+/*
+|--------------------------------------------------------------------------
+| SELECTED AREA
+|--------------------------------------------------------------------------
+*/
 
 $selectedArea = $_GET['area'] ?? 'All';
 
-/* =========================================================
-   TRANSPORT OPTIONS
-   ========================================================= */
+
+
+/*
+|--------------------------------------------------------------------------
+| TRANSPORTATION DATA
+|--------------------------------------------------------------------------
+|
+| These are transport categories/types for each area.
+|
+*/
 
 $transportOptions = [
 
-    /* =========================
-       KANGAR
-       ========================= */
+    // =========================================================
+    // KANGAR
+    // =========================================================
 
     [
         "name" => "Taxi & E-Hailing",
         "area" => "Kangar",
-        "type" => "Land Transport",
+        "type" => "Taxi / E-Hailing",
         "icon" => "bi-taxi-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Taxi.jpeg",
-        "description" => "Convenient taxi and e-hailing services for travelling around Kangar and nearby areas.",
-        "search" => "Kangar, Perlis, Malaysia"
+        "description" => "Find taxi and e-hailing transportation options around Kangar.",
+        "search" => "Taxi and e-hailing in Kangar, Perlis"
     ],
 
     [
         "name" => "Bus Services",
         "area" => "Kangar",
-        "type" => "Public Transport",
+        "type" => "Bus",
         "icon" => "bi-bus-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Trip%20bus.jpg",
-        "description" => "Bus services connecting Kangar with other towns and destinations in Perlis.",
-        "search" => "Kangar Bus Station, Perlis, Malaysia"
+        "description" => "Explore bus transportation options available around Kangar.",
+        "search" => "Bus transportation in Kangar, Perlis"
     ],
 
     [
         "name" => "Car Rental",
         "area" => "Kangar",
-        "type" => "Private Transport",
+        "type" => "Car Rental",
         "icon" => "bi-car-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Buick%20Car.jpg",
-        "description" => "Flexible transport option for visitors who want to explore Perlis by car.",
-        "search" => "Kangar, Perlis, Malaysia"
+        "description" => "Find car rental services for travelling around Perlis.",
+        "search" => "Car rental in Kangar, Perlis"
     ],
 
 
-    /* =========================
-       ARAU
-       ========================= */
+
+    // =========================================================
+    // ARAU
+    // =========================================================
 
     [
         "name" => "Rail Transport",
         "area" => "Arau",
-        "type" => "Rail Transport",
+        "type" => "Rail",
         "icon" => "bi-train-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Train%20.jpg",
-        "description" => "Arau Railway Station provides KTM services connecting Perlis with other destinations.",
-        "search" => "Arau Railway Station, Perlis, Malaysia"
+        "description" => "Explore railway transportation options around Arau.",
+        "search" => "Railway station and train transportation in Arau, Perlis"
     ],
 
     [
         "name" => "Taxi & E-Hailing",
         "area" => "Arau",
-        "type" => "Land Transport",
+        "type" => "Taxi / E-Hailing",
         "icon" => "bi-taxi-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Taxi.jpeg",
-        "description" => "Taxi and e-hailing services are available for travelling around Arau and nearby destinations.",
-        "search" => "Arau, Perlis, Malaysia"
+        "description" => "Find taxi and e-hailing transportation options around Arau.",
+        "search" => "Taxi and e-hailing in Arau, Perlis"
     ],
 
     [
         "name" => "Car Rental",
         "area" => "Arau",
-        "type" => "Private Transport",
+        "type" => "Car Rental",
         "icon" => "bi-car-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Buick%20Car.jpg",
-        "description" => "A convenient option for tourists who want to explore Arau and other parts of Perlis.",
-        "search" => "Arau, Perlis, Malaysia"
+        "description" => "Discover car rental options for exploring Arau and nearby areas.",
+        "search" => "Car rental in Arau, Perlis"
     ],
 
 
-    /* =========================
-       PADANG BESAR
-       ========================= */
+
+    // =========================================================
+    // PADANG BESAR
+    // =========================================================
 
     [
         "name" => "Rail Transport",
         "area" => "Padang Besar",
-        "type" => "Rail Transport",
+        "type" => "Rail",
         "icon" => "bi-train-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Train%20.jpg",
-        "description" => "Padang Besar Railway Station connects Perlis with Malaysia and Thailand through the northern railway network.",
-        "search" => "Padang Besar Railway Station, Perlis, Malaysia"
+        "description" => "Explore railway transportation around Padang Besar.",
+        "search" => "Railway station and train transportation in Padang Besar, Perlis"
     ],
 
     [
         "name" => "Bus Services",
         "area" => "Padang Besar",
-        "type" => "Public Transport",
+        "type" => "Bus",
         "icon" => "bi-bus-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Trip%20bus.jpg",
-        "description" => "Bus services provide access between Padang Besar and other areas in Perlis.",
-        "search" => "Padang Besar Bus Station, Perlis, Malaysia"
+        "description" => "Find bus transportation options around Padang Besar.",
+        "search" => "Bus transportation in Padang Besar, Perlis"
     ],
 
     [
         "name" => "Taxi & E-Hailing",
         "area" => "Padang Besar",
-        "type" => "Land Transport",
+        "type" => "Taxi / E-Hailing",
         "icon" => "bi-taxi-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Taxi.jpeg",
-        "description" => "Taxi and e-hailing services provide convenient travel around Padang Besar.",
-        "search" => "Padang Besar, Perlis, Malaysia"
+        "description" => "Find taxi and e-hailing transportation options around Padang Besar.",
+        "search" => "Taxi and e-hailing in Padang Besar, Perlis"
     ],
 
 
-    /* =========================
-       KUALA PERLIS
-       ========================= */
+
+    // =========================================================
+    // KUALA PERLIS
+    // =========================================================
 
     [
         "name" => "Ferry Services",
         "area" => "Kuala Perlis",
-        "type" => "Sea Transport",
+        "type" => "Ferry",
         "icon" => "bi-water",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Kuala%20Perlis%20Ferry%20Terminal.jpg",
-        "description" => "Kuala Perlis is an important ferry gateway connecting Perlis with Langkawi.",
-        "search" => "Kuala Perlis Ferry Terminal, Perlis, Malaysia"
+        "description" => "Explore ferry transportation around the Kuala Perlis waterfront.",
+        "search" => "Ferry terminal and ferry transportation in Kuala Perlis, Perlis"
     ],
 
     [
         "name" => "Bus Services",
         "area" => "Kuala Perlis",
-        "type" => "Public Transport",
+        "type" => "Bus",
         "icon" => "bi-bus-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Trip%20bus.jpg",
-        "description" => "Bus services connect Kuala Perlis with Kangar and other nearby destinations.",
-        "search" => "Kuala Perlis Bus Station, Perlis, Malaysia"
+        "description" => "Find bus transportation options around Kuala Perlis.",
+        "search" => "Bus transportation in Kuala Perlis, Perlis"
     ],
 
     [
         "name" => "Taxi & E-Hailing",
         "area" => "Kuala Perlis",
-        "type" => "Land Transport",
+        "type" => "Taxi / E-Hailing",
         "icon" => "bi-taxi-front-fill",
-        "image" => "https://commons.wikimedia.org/wiki/Special:FilePath/Taxi.jpeg",
-        "description" => "Taxi and e-hailing services are useful for travelling between Kuala Perlis, Kangar and nearby attractions.",
-        "search" => "Kuala Perlis, Perlis, Malaysia"
+        "description" => "Find taxi and e-hailing transportation options around Kuala Perlis.",
+        "search" => "Taxi and e-hailing in Kuala Perlis, Perlis"
     ]
 
 ];
 
 
-/* =========================================================
-   FILTER TRANSPORT
-   ========================================================= */
+
+/*
+|--------------------------------------------------------------------------
+| FILTER TRANSPORTATION BY AREA
+|--------------------------------------------------------------------------
+*/
 
 $filteredTransport = [];
 
 foreach ($transportOptions as $transport) {
 
-    if ($selectedArea === "All" || $transport["area"] === $selectedArea) {
+    if (
+        $selectedArea == "All" ||
+        $transport["area"] == $selectedArea
+    ) {
+
         $filteredTransport[] = $transport;
+
     }
 
 }
 
 
-/* =========================================================
-   AREAS
-   ========================================================= */
+
+/*
+|--------------------------------------------------------------------------
+| AREA INFORMATION
+|--------------------------------------------------------------------------
+*/
 
 $areas = [
 
-    [
-        "name" => "Kangar",
-        "icon" => "bi-buildings-fill",
-        "description" => "The capital city of Perlis with various transportation options."
+    "Kangar" => [
+        "icon" => "bi-building",
+        "description" => "Explore different ways to move around Kangar and nearby attractions."
     ],
 
-    [
-        "name" => "Arau",
-        "icon" => "bi-train-front-fill",
-        "description" => "Royal town of Perlis and an important railway stop."
+    "Arau" => [
+        "icon" => "bi-train-front",
+        "description" => "Discover transportation options around Arau and its surrounding areas."
     ],
 
-    [
-        "name" => "Padang Besar",
-        "icon" => "bi-signpost-split-fill",
-        "description" => "Northern border town with railway and bus connections."
+    "Padang Besar" => [
+        "icon" => "bi-shop",
+        "description" => "Find transportation options around the northern area of Perlis."
     ],
 
-    [
-        "name" => "Kuala Perlis",
+    "Kuala Perlis" => [
         "icon" => "bi-water",
-        "description" => "Coastal town and major ferry gateway to Langkawi."
+        "description" => "Explore transport options around the coastal area of Kuala Perlis."
     ]
 
 ];
 
 ?>
 
+
+
 <!DOCTYPE html>
 
 <html lang="en">
 
+
 <head>
 
-    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>Transportation | PERLIS TOURISM SMART PORTAL</title>
 
-    <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <!-- Bootstrap Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
 
-    <!-- Main CSS -->
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css"
-    >
+<title>
+Transportation | PERLIS TOURISM SMART PORTAL
+</title>
 
-    <style>
 
-        body {
-            background: #fefbea;
-        }
 
+<!-- =========================================================
+     BOOTSTRAP
+========================================================= -->
 
-        /* =====================================================
-           HERO
-           ===================================================== */
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
 
-        .transport-hero {
 
-            position: relative;
 
-            min-height: 450px;
+<!-- =========================================================
+     BOOTSTRAP ICONS
+========================================================= -->
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 48, 135, 0.45),
-                    rgba(0, 87, 184, 0.45)
-                ),
-                url("assets/images/header.jpg");
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+>
 
-            background-size: cover;
 
-            background-position: center;
 
-            display: flex;
+<!-- =========================================================
+     EXISTING CSS
+========================================================= -->
 
-            align-items: center;
+<link
+    rel="stylesheet"
+    href="assets/css/style.css"
+>
 
-            overflow: hidden;
 
-        }
 
+<style>
 
-        .hero-content {
 
-            position: relative;
+/* =========================================================
+   GENERAL
+========================================================= */
 
-            z-index: 2;
+body {
 
-            color: white;
+    background: #fefbea;
 
-        }
+    color: #333;
 
+    font-family: Arial, sans-serif;
 
-        .hero-content h1 {
+}
 
-            font-size: 3.2rem;
 
-            font-weight: 800;
 
-            text-shadow: 2px 3px 5px rgba(0,0,0,0.35);
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-        }
+.navbar {
 
+    background:
 
-        .hero-content p {
+        linear-gradient(
+            90deg,
+            #FFD700 0%,
+            #F5C400 40%,
+            #0057B8 100%
+        ) !important;
 
-            font-size: 1.1rem;
+}
 
-            max-width: 650px;
 
-        }
 
+/* =========================================================
+   HEADER
+   KEEPING YOUR ORIGINAL HEADER DESIGN
+========================================================= */
 
-        .hero-car {
+.transport-header {
 
-            position: absolute;
+    position: relative;
 
-            right: 3%;
+    background-image:
 
-            bottom: 0;
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.98) 0%,
+            rgba(255,255,255,0.92) 40%,
+            rgba(255,255,255,0.25) 100%
+        ),
 
-            width: 480px;
+        url('assets/images/header.jpg');
 
-            z-index: 1;
+    background-size: cover;
 
-        }
+    background-position: center;
 
+    background-repeat: no-repeat;
 
-        /* =====================================================
-           AREA SECTION
-           ===================================================== */
+    min-height: 450px;
 
-        .area-section {
+    padding: 60px 20px;
 
-            padding: 50px 0 30px;
+    display: flex;
 
-        }
+    align-items: center;
 
+    overflow: hidden;
 
-        .section-title {
+}
 
-            font-weight: 800;
 
-            color: #0057B8;
 
-        }
+/* =========================================================
+   HEADER CONTAINER
+========================================================= */
 
+.transport-header .container {
 
-        .area-card {
+    position: relative;
 
-            background: white;
+    z-index: 2;
 
-            border-radius: 18px;
+}
 
-            padding: 20px;
 
-            text-align: center;
 
-            height: 100%;
+/* =========================================================
+   SMALL TITLE
+========================================================= */
 
-            border: 2px solid transparent;
+.transport-header .small-title {
 
-            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    color: #f5b400;
 
-            transition: 0.3s;
+    font-size: 16px;
 
-        }
+    font-weight: 700;
 
+    margin-bottom: 12px;
 
-        .area-card:hover {
+}
 
-            transform: translateY(-6px);
 
-            border-color: #FFD700;
 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+/* =========================================================
+   HEADER TITLE
+========================================================= */
 
-        }
+.transport-header h1 {
 
+    color: #10233f;
 
-        .area-icon {
+    font-size: 3.5rem;
 
-            width: 65px;
+    font-weight: 800;
 
-            height: 65px;
+    line-height: 1.1;
 
-            margin: auto;
+    margin-bottom: 18px;
 
-            border-radius: 50%;
+    text-align: left;
 
-            background: linear-gradient(
-                135deg,
-                #FFD700,
-                #0057B8
-            );
+}
 
-            color: white;
 
-            display: flex;
 
-            align-items: center;
+/* =========================================================
+   HEADER DESCRIPTION
+========================================================= */
 
-            justify-content: center;
+.transport-header p {
 
-            font-size: 28px;
+    color: #536174;
 
-        }
+    font-size: 1.15rem;
 
+    max-width: 520px;
 
-        .area-card h5 {
+    margin: 0;
 
-            margin-top: 15px;
+    text-align: left;
 
-            font-weight: 700;
+}
 
-            color: #0057B8;
 
-        }
 
+/* =========================================================
+   CAR IMAGE
+   KEEP THIS
+========================================================= */
 
-        .area-card p {
+.header-car {
 
-            color: #666;
+    position: absolute;
 
-            font-size: 14px;
+    right: 4%;
 
-            min-height: 45px;
+    bottom: 15px;
 
-        }
+    width: 480px;
 
+    height: auto;
 
-        /* =====================================================
-           AREA BUTTONS
-           ===================================================== */
+    object-fit: contain;
 
-        .area-buttons {
+    z-index: 1;
 
-            display: flex;
+    pointer-events: none;
 
-            justify-content: center;
+}
 
-            flex-wrap: wrap;
 
-            gap: 10px;
 
-            margin-top: 25px;
+/* =========================================================
+   MAIN SECTION
+========================================================= */
 
-        }
+.transport-section {
 
+    padding: 70px 0 80px;
 
-        .area-btn {
+}
 
-            border: none;
 
-            padding: 10px 22px;
 
-            border-radius: 30px;
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
-            background: white;
+.section-title {
 
-            color: #0057B8;
+    text-align: center;
 
-            font-weight: 600;
+    margin-bottom: 35px;
 
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
 
-            text-decoration: none;
 
-            transition: 0.3s;
 
-        }
+.section-title h2 {
 
+    color: #0057B8;
 
-        .area-btn:hover {
+    font-weight: 800;
 
-            background: #FFD700;
+    font-size: 2.2rem;
 
-            color: #003b80;
+    margin-bottom: 10px;
 
-        }
+}
 
 
-        .area-btn.active {
 
-            background: #0057B8;
+.section-title p {
 
-            color: white;
+    color: #777;
 
-        }
+    max-width: 650px;
 
+    margin: auto;
 
-        /* =====================================================
-           TRANSPORT CARDS
-           ===================================================== */
+}
 
-        .transport-section {
 
-            padding: 25px 0 60px;
 
-        }
+/* =========================================================
+   AREA FILTER
+========================================================= */
 
+.area-filter {
 
-        .transport-card {
+    display: flex;
 
-            background: white;
+    flex-wrap: wrap;
 
-            border-radius: 20px;
+    justify-content: center;
 
-            overflow: hidden;
+    gap: 12px;
 
-            height: 100%;
+    margin-bottom: 40px;
 
-            border: none;
+}
 
-            box-shadow: 0 6px 20px rgba(0,0,0,0.09);
 
-            transition: 0.3s;
 
-        }
+.area-btn {
 
+    text-decoration: none;
 
-        .transport-card:hover {
+    padding: 12px 22px;
 
-            transform: translateY(-8px);
+    border-radius: 30px;
 
-            box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+    background: white;
 
-        }
+    color: #0057B8;
 
+    font-weight: 700;
 
-        /* =====================================================
-           TRANSPORT IMAGE
-           ===================================================== */
+    border: 2px solid #0057B8;
 
-        .transport-card-image {
+    transition: 0.3s;
 
-            position: relative;
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.06);
 
-            height: 210px;
+}
 
-            overflow: hidden;
 
-            background: #0057B8;
 
-        }
+.area-btn:hover {
 
+    background: #0057B8;
 
-        .transport-card-image img {
+    color: white;
 
-            width: 100%;
+    transform: translateY(-3px);
 
-            height: 100%;
+}
 
-            object-fit: cover;
 
-            display: block;
 
-            transition: transform 0.5s ease;
+.area-btn.active {
 
-        }
+    background:
 
+        linear-gradient(
+            135deg,
+            #FFD700,
+            #0057B8
+        );
 
-        .transport-card:hover
-        .transport-card-image img {
+    color: white;
 
-            transform: scale(1.08);
+    border-color: transparent;
 
-        }
+}
 
 
-        .transport-card-image::after {
 
-            content: "";
+/* =========================================================
+   AREA INFORMATION
+========================================================= */
 
-            position: absolute;
+.area-info {
 
-            inset: 0;
+    background:
 
-            background: linear-gradient(
-                to top,
-                rgba(0, 45, 100, 0.65),
-                rgba(0, 0, 0, 0.05)
-            );
+        linear-gradient(
+            135deg,
+            #eef6ff,
+            #ffffff
+        );
 
-        }
+    border-radius: 25px;
 
+    padding: 28px;
 
-        /* =====================================================
-           TRANSPORT ICON
-           ===================================================== */
+    margin-bottom: 45px;
 
-        .transport-icon {
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
 
-            position: absolute;
+    border-left: 7px solid #0057B8;
 
-            z-index: 2;
+}
 
-            left: 50%;
 
-            top: 50%;
 
-            transform: translate(-50%, -50%);
+.area-info-icon {
 
-            width: 70px;
+    width: 60px;
 
-            height: 70px;
+    height: 60px;
 
-            border-radius: 50%;
+    min-width: 60px;
 
-            background: rgba(255,255,255,0.95);
+    border-radius: 50%;
 
-            color: #0057B8;
+    display: flex;
 
-            display: flex;
+    align-items: center;
 
-            align-items: center;
+    justify-content: center;
 
-            justify-content: center;
+    background: #0057B8;
 
-            font-size: 32px;
+    color: white;
 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-size: 1.5rem;
 
-        }
+}
 
 
-        .transport-card-body {
 
-            padding: 24px;
+.area-info h3 {
 
-        }
+    color: #0057B8;
 
+    font-weight: 800;
 
-        .transport-card-body h4 {
+    margin-bottom: 5px;
 
-            color: #0057B8;
+}
 
-            font-weight: 800;
 
-            margin-bottom: 8px;
 
-        }
+.area-info p {
 
+    margin: 0;
 
-        .transport-type {
+    color: #666;
 
-            display: inline-block;
+}
 
-            background: #fff3b0;
 
-            color: #735b00;
 
-            padding: 5px 12px;
+/* =========================================================
+   TRANSPORT CARD
+========================================================= */
 
-            border-radius: 20px;
+.transport-card {
 
-            font-size: 12px;
+    background: white;
 
-            font-weight: 700;
+    border-radius: 22px;
 
-            margin-bottom: 12px;
+    padding: 0;
 
-        }
+    height: 100%;
 
+    overflow: hidden;
 
-        .transport-description {
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
 
-            color: #666;
+    transition: all 0.3s ease;
 
-            line-height: 1.6;
+    border: none;
 
-            min-height: 75px;
+    position: relative;
 
-        }
+}
 
 
-        .map-btn {
 
-            display: inline-flex;
+.transport-card:hover {
 
-            align-items: center;
+    transform: translateY(-8px);
 
-            gap: 7px;
+    box-shadow:
+        0 16px 35px rgba(0,0,0,0.15);
 
-            width: 100%;
+}
 
-            justify-content: center;
 
-            background: #0057B8;
 
-            color: white;
+/* =========================================================
+   CARD TOP
+========================================================= */
 
-            border-radius: 10px;
+.transport-card-top {
 
-            padding: 11px;
+    min-height: 170px;
 
-            text-decoration: none;
+    background:
 
-            font-weight: 600;
+        linear-gradient(
+            135deg,
+            #0057B8,
+            #1687dc
+        );
 
-            transition: 0.3s;
+    display: flex;
 
-        }
+    align-items: center;
 
+    justify-content: center;
 
-        .map-btn:hover {
+    position: relative;
 
-            background: #003f86;
+    overflow: hidden;
 
-            color: white;
+}
 
-        }
 
 
-        /* =====================================================
-           PLAN JOURNEY
-           ===================================================== */
+.transport-card-top::before {
 
-        .journey-strip {
+    content: "";
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #FFD700,
-                    #0057B8
-                );
+    position: absolute;
 
-            border-radius: 22px;
+    width: 180px;
 
-            padding: 35px;
+    height: 180px;
 
-            color: white;
+    border-radius: 50%;
 
-            margin-bottom: 60px;
+    background: rgba(255,255,255,0.10);
 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    top: -70px;
 
-        }
+    right: -50px;
 
+}
 
-        .journey-strip h3 {
 
-            font-weight: 800;
 
-        }
+.transport-card-top::after {
 
+    content: "";
 
-        .journey-btn {
+    position: absolute;
 
-            background: white;
+    width: 100px;
 
-            color: #0057B8;
+    height: 100px;
 
-            padding: 12px 25px;
+    border-radius: 50%;
 
-            border-radius: 30px;
+    background: rgba(255,215,0,0.18);
 
-            font-weight: 700;
+    bottom: -45px;
 
-            text-decoration: none;
+    left: -25px;
 
-            display: inline-block;
+}
 
-            margin-top: 10px;
 
-        }
 
+/* =========================================================
+   TRANSPORT ICON
+========================================================= */
 
-        .journey-btn:hover {
+.transport-icon {
 
-            background: #f5f5f5;
+    width: 85px;
 
-            color: #003f86;
+    height: 85px;
 
-        }
+    border-radius: 25px;
 
+    background: rgba(255,255,255,0.95);
 
-        /* =====================================================
-           MOBILE
-           ===================================================== */
+    color: #0057B8;
 
-        @media (max-width: 991px) {
+    display: flex;
 
-            .hero-car {
+    align-items: center;
 
-                opacity: 0.35;
+    justify-content: center;
 
-                width: 400px;
+    font-size: 40px;
 
-            }
+    position: relative;
 
-            .hero-content h1 {
+    z-index: 2;
 
-                font-size: 2.5rem;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.15);
 
-            }
+}
 
-        }
 
 
-        @media (max-width: 576px) {
+/* =========================================================
+   CARD CONTENT
+========================================================= */
 
-            .transport-hero {
+.transport-content {
 
-                min-height: 400px;
+    padding: 25px;
 
-            }
+}
 
-            .hero-content h1 {
 
-                font-size: 2rem;
 
-            }
+/* =========================================================
+   TYPE BADGE
+========================================================= */
 
-            .hero-car {
+.transport-badge {
 
-                width: 300px;
+    display: inline-block;
 
-            }
+    background: #fff3cd;
 
-        }
+    color: #9a6b00;
 
-    </style>
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+}
+
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.transport-content h4 {
+
+    color: #0057B8;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+/* =========================================================
+   AREA
+========================================================= */
+
+.transport-location {
+
+    color: #666;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+
+}
+
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.transport-content p {
+
+    color: #777;
+
+    line-height: 1.6;
+
+    min-height: 75px;
+
+}
+
+
+
+/* =========================================================
+   MAP BUTTON
+========================================================= */
+
+.map-btn {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 12px 18px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #0057B8,
+            #007bff
+        );
+
+    color: white;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transition: 0.3s;
+
+}
+
+
+
+.map-btn:hover {
+
+    color: white;
+
+    transform: translateY(-2px);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #003f88,
+            #0057B8
+        );
+
+    box-shadow:
+        0 8px 18px rgba(0,87,184,0.25);
+
+}
+
+
+
+/* =========================================================
+   QUICK AREA STRIP
+========================================================= */
+
+.travel-strip {
+
+    margin-top: 55px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #10233f,
+            #0057B8
+        );
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    color: white;
+
+}
+
+
+
+.travel-strip h3 {
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.travel-strip p {
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.8);
+
+}
+
+
+
+/* =========================================================
+   EMPTY RESULT
+========================================================= */
+
+.empty-box {
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.empty-box i {
+
+    font-size: 4rem;
+
+    color: #FFD700;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.empty-box h3 {
+
+    color: #0057B8;
+
+    font-weight: 800;
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+
+    .transport-header {
+
+        min-height: 600px;
+
+        padding: 50px 20px;
+
+        align-items: flex-start;
+
+    }
+
+
+
+    .transport-header h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+
+
+    .transport-header p {
+
+        font-size: 1rem;
+
+    }
+
+
+
+    .header-car {
+
+        right: 50%;
+
+        transform: translateX(50%);
+
+        bottom: 20px;
+
+        width: 330px;
+
+    }
+
+
+
+    .transport-section {
+
+        padding: 50px 0 40px;
+
+    }
+
+
+
+    .area-btn {
+
+        padding: 10px 16px;
+
+        font-size: 14px;
+
+    }
+
+}
+
+</style>
+
 
 </head>
+
 
 
 <body>
 
 
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
 <?php include("navbar.php"); ?>
 
 
-<!-- =========================================================
-     HERO
-     ========================================================= -->
 
-<section class="transport-hero">
+<!-- =========================================================
+     HEADER
+     SAME HEADER + CAR
+========================================================= -->
+
+<section class="transport-header">
+
 
     <div class="container">
 
-        <div class="hero-content">
 
-            <span class="badge bg-warning text-dark mb-3 px-3 py-2">
-                <i class="bi bi-signpost-2-fill me-2"></i>
-                EXPLORE PERLIS
-            </span>
+        <div class="small-title">
 
-            <h1>
-                Transportation
-                <br>
-                Around Perlis
-            </h1>
-
-            <p>
-                Discover convenient transportation options
-                available across Kangar, Arau, Padang Besar
-                and Kuala Perlis.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <img
-        src="assets/images/car.png"
-        alt="Perlis Transportation"
-        class="hero-car"
-    >
-
-</section>
-
-
-<!-- =========================================================
-     AREA SECTION
-     ========================================================= -->
-
-<section class="area-section">
-
-    <div class="container">
-
-        <div class="text-center mb-4">
-
-            <h2 class="section-title">
-                Explore Transportation by Area
-            </h2>
-
-            <p class="text-muted">
-                Choose an area to discover available transportation options.
-            </p>
+            ✦ Easy Travel, Better Journey
 
         </div>
 
 
-        <!-- AREA FILTER -->
 
-        <div class="area-buttons">
+        <h1>
 
-            <a
-                href="transport.php"
-                class="area-btn <?= $selectedArea === 'All' ? 'active' : '' ?>"
-            >
-                <i class="bi bi-grid-fill me-2"></i>
-                All Areas
-            </a>
+            Explore<br>
 
+            Transportation<br>
 
-            <?php foreach ($areas as $area): ?>
+            in Perlis
 
-                <a
-                    href="transport.php?area=<?= urlencode($area["name"]) ?>"
-                    class="area-btn <?= $selectedArea === $area["name"] ? 'active' : '' ?>"
-                >
+        </h1>
 
-                    <i class="bi <?= $area["icon"] ?> me-2"></i>
 
-                    <?= htmlspecialchars($area["name"]) ?>
 
-                </a>
+        <p>
 
-            <?php endforeach; ?>
-
-        </div>
-
-
-        <!-- AREA INFORMATION -->
-
-        <?php if ($selectedArea !== "All"): ?>
-
-            <?php foreach ($areas as $area): ?>
-
-                <?php if ($area["name"] === $selectedArea): ?>
-
-                    <div class="row justify-content-center mt-4">
-
-                        <div class="col-lg-8">
-
-                            <div class="area-card">
-
-                                <div class="area-icon">
-
-                                    <i class="bi <?= $area["icon"] ?>"></i>
-
-                                </div>
-
-                                <h5>
-                                    <?= htmlspecialchars($area["name"]) ?>
-                                </h5>
-
-                                <p>
-                                    <?= htmlspecialchars($area["description"]) ?>
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                <?php endif; ?>
-
-            <?php endforeach; ?>
-
-        <?php endif; ?>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     TRANSPORT SECTION
-     ========================================================= -->
-
-<section class="transport-section">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h2 class="section-title">
-
-                <?php if ($selectedArea === "All"): ?>
-
-                    Transportation Options
-
-                <?php else: ?>
-
-                    Transportation in
-                    <?= htmlspecialchars($selectedArea) ?>
-
-                <?php endif; ?>
-
-            </h2>
-
-            <p class="text-muted">
-
-                Find the right transportation for your journey around Perlis.
-
-            </p>
-
-        </div>
-
-
-        <div class="row g-4">
-
-
-            <?php if (count($filteredTransport) > 0): ?>
-
-
-                <?php foreach ($filteredTransport as $transport): ?>
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="transport-card">
-
-
-                            <!-- IMAGE -->
-
-                            <div class="transport-card-image">
-
-                                <img
-                                    src="<?= htmlspecialchars($transport["image"]) ?>"
-                                    alt="<?= htmlspecialchars($transport["name"]) ?>"
-                                    loading="lazy"
-                                >
-
-                                <div class="transport-icon">
-
-                                    <i
-                                        class="bi <?= htmlspecialchars($transport["icon"]) ?>"
-                                    ></i>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- CARD CONTENT -->
-
-                            <div class="transport-card-body">
-
-                                <span class="transport-type">
-
-                                    <?= htmlspecialchars($transport["type"]) ?>
-
-                                </span>
-
-
-                                <h4>
-
-                                    <?= htmlspecialchars($transport["name"]) ?>
-
-                                </h4>
-
-
-                                <p class="transport-description">
-
-                                    <?= htmlspecialchars($transport["description"]) ?>
-
-                                </p>
-
-
-                                <?php
-
-                                $mapUrl =
-                                    "https://www.google.com/maps/search/?api=1&query="
-                                    . urlencode($transport["search"]);
-
-                                ?>
-
-
-                                <a
-                                    href="<?= htmlspecialchars($mapUrl) ?>"
-                                    target="_blank"
-                                    class="map-btn"
-                                >
-
-                                    <i class="bi bi-geo-alt-fill"></i>
-
-                                    View on Google Maps
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                <?php endforeach; ?>
-
-
-            <?php else: ?>
-
-
-                <!-- NO RESULTS -->
-
-                <div class="col-12">
-
-                    <div class="text-center py-5">
-
-                        <i
-                            class="bi bi-exclamation-circle"
-                            style="font-size: 60px; color: #0057B8;"
-                        ></i>
-
-                        <h3 class="mt-3">
-                            No transportation found
-                        </h3>
-
-                        <p class="text-muted">
-                            Please select another area.
-                        </p>
-
-
-                        <a
-                            href="transport.php"
-                            class="btn btn-primary rounded-pill px-4"
-                        >
-
-                            <i class="bi bi-arrow-left me-2"></i>
-
-                            View All Transportation
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-            <?php endif; ?>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     PLAN YOUR JOURNEY
-     ========================================================= -->
-
-<section class="container">
-
-    <div class="journey-strip text-center">
-
-        <h3>
-            <i class="bi bi-map-fill me-2"></i>
-            Plan Your Journey Around Perlis
-        </h3>
-
-        <p class="mb-2">
-
-            Discover destinations and plan your route
-            around the beautiful state of Perlis.
+            Discover different ways to travel around
+            Perlis and find transportation options
+            that suit your journey.
 
         </p>
 
 
-        <a
-            href="map.php"
-            class="journey-btn"
-        >
-
-            <i class="bi bi-map me-2"></i>
-
-            Explore Perlis Map
-
-        </a>
-
     </div>
+
+
+
+    <!-- =====================================================
+         CAR IMAGE
+    ====================================================== -->
+
+    <img
+        src="assets/images/car.png"
+        alt="Car"
+        class="header-car"
+    >
+
 
 </section>
 
 
+
+<!-- =========================================================
+     MAIN TRANSPORT SECTION
+========================================================= -->
+
+<section class="transport-section">
+
+
+<div class="container">
+
+
+
+    <!-- =====================================================
+         TITLE
+    ====================================================== -->
+
+    <div class="section-title">
+
+
+        <h2>
+
+            <i class="bi bi-signpost-split-fill me-2"></i>
+
+            Getting Around Perlis
+
+        </h2>
+
+
+        <p>
+
+            Choose an area to discover transportation
+            options available around Perlis.
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         AREA FILTER
+    ====================================================== -->
+
+    <div class="area-filter">
+
+
+        <!-- ALL -->
+
+        <a
+            href="transportation.php"
+            class="area-btn
+            <?= ($selectedArea == 'All') ? 'active' : '' ?>"
+        >
+
+            <i class="bi bi-grid-fill me-1"></i>
+
+            All Areas
+
+        </a>
+
+
+
+        <!-- AREAS -->
+
+        <?php foreach ($areas as $areaName => $areaData): ?>
+
+
+            <a
+                href="transportation.php?area=<?= urlencode($areaName) ?>"
+                class="area-btn
+                <?= ($selectedArea == $areaName) ? 'active' : '' ?>"
+            >
+
+                <i
+                    class="bi <?= $areaData['icon'] ?> me-1"
+                ></i>
+
+                <?= htmlspecialchars($areaName) ?>
+
+            </a>
+
+
+        <?php endforeach; ?>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         AREA INFORMATION
+    ====================================================== -->
+
+    <?php if (
+        $selectedArea != "All"
+        &&
+        isset($areas[$selectedArea])
+    ): ?>
+
+
+        <div class="area-info">
+
+
+            <div class="d-flex align-items-center gap-3">
+
+
+                <div class="area-info-icon">
+
+                    <i
+                        class="bi <?= $areas[$selectedArea]['icon'] ?>"
+                    ></i>
+
+                </div>
+
+
+
+                <div>
+
+
+                    <h3>
+
+                        Transportation in
+                        <?= htmlspecialchars($selectedArea) ?>
+
+                    </h3>
+
+
+                    <p>
+
+                        <?= htmlspecialchars(
+                            $areas[$selectedArea]['description']
+                        ) ?>
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    <?php endif; ?>
+
+
+
+    <!-- =====================================================
+         TRANSPORTATION CARDS
+    ====================================================== -->
+
+    <div class="row g-4">
+
+
+        <?php if (count($filteredTransport) > 0): ?>
+
+
+            <?php foreach ($filteredTransport as $transport): ?>
+
+
+                <?php
+
+
+                /*
+                |--------------------------------------------------------------------------
+                | GOOGLE MAPS URL
+                |--------------------------------------------------------------------------
+                */
+
+                $mapUrl =
+
+                    "https://www.google.com/maps/search/?api=1&query="
+
+                    .
+
+                    urlencode(
+                        $transport["search"]
+                    );
+
+
+                ?>
+
+
+                <!-- =================================================
+                     TRANSPORT CARD
+                ================================================== -->
+
+                <div class="col-lg-4 col-md-6">
+
+
+                    <div class="transport-card">
+
+
+                        <!-- =========================================
+                             ICON AREA
+                        ========================================== -->
+
+                        <div class="transport-card-top">
+
+
+                            <div class="transport-icon">
+
+
+                                <i
+                                    class="bi
+                                    <?= htmlspecialchars(
+                                        $transport["icon"]
+                                    ) ?>"
+                                ></i>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- =========================================
+                             CONTENT
+                        ========================================== -->
+
+                        <div class="transport-content">
+
+
+                            <!-- TYPE -->
+
+                            <span class="transport-badge">
+
+
+                                <?php if (
+                                    $transport["type"]
+                                    == "Rail"
+                                ): ?>
+
+
+                                    <i
+                                        class="bi
+                                        bi-train-front-fill
+                                        me-1"
+                                    ></i>
+
+
+                                <?php elseif (
+                                    $transport["type"]
+                                    == "Bus"
+                                ): ?>
+
+
+                                    <i
+                                        class="bi
+                                        bi-bus-front-fill
+                                        me-1"
+                                    ></i>
+
+
+                                <?php elseif (
+                                    $transport["type"]
+                                    == "Ferry"
+                                ): ?>
+
+
+                                    <i
+                                        class="bi
+                                        bi-water
+                                        me-1"
+                                    ></i>
+
+
+                                <?php elseif (
+                                    $transport["type"]
+                                    == "Car Rental"
+                                ): ?>
+
+
+                                    <i
+                                        class="bi
+                                        bi-car-front-fill
+                                        me-1"
+                                    ></i>
+
+
+                                <?php else: ?>
+
+
+                                    <i
+                                        class="bi
+                                        bi-taxi-front-fill
+                                        me-1"
+                                    ></i>
+
+
+                                <?php endif; ?>
+
+
+                                <?= htmlspecialchars(
+                                    $transport["type"]
+                                ) ?>
+
+
+                            </span>
+
+
+
+                            <!-- NAME -->
+
+                            <h4>
+
+                                <?= htmlspecialchars(
+                                    $transport["name"]
+                                ) ?>
+
+                            </h4>
+
+
+
+                            <!-- LOCATION -->
+
+                            <div class="transport-location">
+
+
+                                <i
+                                    class="bi
+                                    bi-geo-alt-fill
+                                    me-1"
+                                ></i>
+
+
+                                <?= htmlspecialchars(
+                                    $transport["area"]
+                                ) ?>, Perlis
+
+
+                            </div>
+
+
+
+                            <!-- DESCRIPTION -->
+
+                            <p>
+
+                                <?= htmlspecialchars(
+                                    $transport["description"]
+                                ) ?>
+
+                            </p>
+
+
+
+                            <!-- MAP BUTTON -->
+
+                            <a
+                                href="<?= htmlspecialchars(
+                                    $mapUrl
+                                ) ?>"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="map-btn"
+                            >
+
+
+                                <i
+                                    class="bi
+                                    bi-geo-alt-fill"
+                                ></i>
+
+
+                                Find on Google Maps
+
+
+                            </a>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            <?php endforeach; ?>
+
+
+        <?php else: ?>
+
+
+            <!-- =================================================
+                 EMPTY RESULT
+            ================================================== -->
+
+            <div class="col-12">
+
+
+                <div class="empty-box">
+
+
+                    <i
+                        class="bi
+                        bi-signpost-split-fill"
+                    ></i>
+
+
+                    <h3>
+
+                        No transportation found
+
+                    </h3>
+
+
+                    <p class="text-muted">
+
+                        Sorry, there are currently no
+                        transportation options available
+                        for this area.
+
+                    </p>
+
+
+                    <a
+                        href="transportation.php"
+                        class="btn btn-primary mt-3"
+                    >
+
+                        <i
+                            class="bi
+                            bi-arrow-left me-1"
+                        ></i>
+
+                        View All Areas
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        <?php endif; ?>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM TRAVEL STRIP
+    ====================================================== -->
+
+    <div class="travel-strip">
+
+
+        <div class="row align-items-center">
+
+
+            <div class="col-md-8">
+
+
+                <h3>
+
+                    <i
+                        class="bi
+                        bi-map-fill me-2"
+                    ></i>
+
+                    Plan Your Journey
+
+                </h3>
+
+
+                <p>
+
+                    Select an area above and explore
+                    transportation locations directly
+                    through Google Maps.
+
+                </p>
+
+
+            </div>
+
+
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+
+
+                <a
+                    href="map.php"
+                    class="btn btn-light rounded-pill px-4 fw-bold"
+                >
+
+                    <i
+                        class="bi
+                        bi-map me-1"
+                    ></i>
+
+                    Explore Map
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <?php include("footer.php"); ?>
 
 
-<!-- Bootstrap JS -->
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
 
 <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-></script>
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
 
 
 </body>
