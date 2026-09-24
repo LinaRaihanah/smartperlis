@@ -117,7 +117,9 @@
                     <div class="destination-menu">
 
 
+                        <!-- ================================= -->
                         <!-- DESTINATIONS -->
+                        <!-- ================================= -->
 
                         <a href="destinations.php">
 
@@ -129,19 +131,37 @@
 
 
 
-                        <!-- TRANSPORTATION & ACCOMMODATION -->
+                        <!-- ================================= -->
+                        <!-- TRANSPORTATION -->
+                        <!-- ================================= -->
 
-                        <a href="transport.php">
+                        <a href="transportation.php">
 
-                            <i class="bi bi-bus-front-fill me-2"></i>
+                            <i class="bi bi-car-front-fill me-2"></i>
 
-                            Transportation & Accommodation
+                            Transportation
 
                         </a>
 
 
 
+                        <!-- ================================= -->
+                        <!-- ACCOMMODATION -->
+                        <!-- ================================= -->
+
+                        <a href="accommodation.php">
+
+                            <i class="bi bi-building-fill me-2"></i>
+
+                            Accommodation
+
+                        </a>
+
+
+
+                        <!-- ================================= -->
                         <!-- RESTAURANT -->
+                        <!-- ================================= -->
 
                         <a href="restaurant.php">
 
