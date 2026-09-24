@@ -1136,7 +1136,7 @@ Gallery
 
 <a
     class="nav-link"
-    href="perlis_geopark.php"
+    href="geopark/perlis_geopark.php" 
 >
 
 <i class="bi bi-globe-asia-australia"></i>
