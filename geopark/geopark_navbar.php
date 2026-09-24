@@ -1,38 +1,8 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| PERLIS GEOPARK NAVBAR
-|--------------------------------------------------------------------------
-|
-| $geoparkBase tells the navbar where the geopark folder is located
-| relative to the CURRENT PAGE.
-|
-| Examples:
-|
-| geopark/perlis_geopark.php
-|       $geoparkBase = "";
-|
-| geopark/info_umum/pengenalan.php
-|       $geoparkBase = "../";
-|
-| geopark/tapak_warisan/geologi.php
-|       $geoparkBase = "../";
-|
-| geopark/tapak_warisan/budaya/ketara.php
-|       $geoparkBase = "../../";
-|
-|--------------------------------------------------------------------------
-*/
-
 $geoparkBase = $geoparkBase ?? "";
 
 ?>
-
-
-<!-- =========================================================
-     GOOGLE FONT
-========================================================= -->
 
 <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -67,7 +37,7 @@ $geoparkBase = $geoparkBase ?? "";
 
 
         <!-- =================================================
-             MOBILE BUTTON
+             MOBILE TOGGLE
         ================================================== -->
 
         <button
@@ -87,7 +57,7 @@ $geoparkBase = $geoparkBase ?? "";
 
 
         <!-- =================================================
-             MENU
+             NAVIGATION
         ================================================== -->
 
         <div
@@ -143,8 +113,6 @@ $geoparkBase = $geoparkBase ?? "";
                     <ul class="dropdown-menu">
 
 
-                        <!-- PENGENALAN -->
-
                         <li>
 
                             <a
@@ -160,8 +128,6 @@ $geoparkBase = $geoparkBase ?? "";
 
                         </li>
 
-
-                        <!-- TADBIR URUS -->
 
                         <li>
 
@@ -179,8 +145,6 @@ $geoparkBase = $geoparkBase ?? "";
                         </li>
 
 
-                        <!-- LOGO -->
-
                         <li>
 
                             <a
@@ -196,8 +160,6 @@ $geoparkBase = $geoparkBase ?? "";
 
                         </li>
 
-
-                        <!-- RAKAN STRATEGIK -->
 
                         <li>
 
@@ -245,10 +207,6 @@ $geoparkBase = $geoparkBase ?? "";
                     <ul class="dropdown-menu">
 
 
-                        <!-- =================================================
-                             GEOLOGI
-                        ================================================== -->
-
                         <li>
 
                             <a
@@ -264,10 +222,6 @@ $geoparkBase = $geoparkBase ?? "";
 
                         </li>
 
-
-                        <!-- =================================================
-                             BIOLOGI
-                        ================================================== -->
 
                         <li>
 
@@ -286,7 +240,7 @@ $geoparkBase = $geoparkBase ?? "";
 
 
                         <!-- =================================================
-                             BUDAYA
+                             BUDAYA SUBMENU
                         ================================================== -->
 
                         <li class="dropdown-submenu">
@@ -294,7 +248,6 @@ $geoparkBase = $geoparkBase ?? "";
                             <a
                                 class="dropdown-item dropdown-toggle"
                                 href="#"
-                                role="button"
                             >
 
                                 <i class="bi bi-bank2 me-2"></i>
@@ -307,16 +260,12 @@ $geoparkBase = $geoparkBase ?? "";
                             <ul class="dropdown-menu">
 
 
-                                <!-- BUDAYA KETARA -->
-
                                 <li>
 
                                     <a
                                         class="dropdown-item"
                                         href="<?php echo $geoparkBase; ?>tapak_warisan/budaya/ketara.php"
                                     >
-
-                                        <i class="bi bi-building me-2"></i>
 
                                         Budaya Ketara
 
@@ -325,16 +274,12 @@ $geoparkBase = $geoparkBase ?? "";
                                 </li>
 
 
-                                <!-- BUDAYA TIDAK KETARA -->
-
                                 <li>
 
                                     <a
                                         class="dropdown-item"
                                         href="<?php echo $geoparkBase; ?>tapak_warisan/budaya/tidak_ketara.php"
                                     >
-
-                                        <i class="bi bi-music-note-beamed me-2"></i>
 
                                         Budaya Tidak Ketara
 
@@ -399,8 +344,6 @@ $geoparkBase = $geoparkBase ?? "";
                     <ul class="dropdown-menu">
 
 
-                        <!-- PENERBITAN -->
-
                         <li>
 
                             <a
@@ -454,14 +397,14 @@ $geoparkBase = $geoparkBase ?? "";
 
 
 <!-- =========================================================
-     NAVBAR CSS
+     PERLIS BLUE + YELLOW THEME
 ========================================================= -->
 
 <style>
 
 
 /* =========================================================
-   GEOPARK NAVBAR
+   MAIN NAVBAR
 ========================================================= */
 
 .geopark-navbar {
@@ -469,9 +412,9 @@ $geoparkBase = $geoparkBase ?? "";
     background:
         linear-gradient(
             90deg,
-            #14532d 0%,
-            #198754 50%,
-            #0f766e 100%
+            #003B73 0%,
+            #0057B8 55%,
+            #0066CC 100%
         ) !important;
 
     position: relative;
@@ -481,23 +424,24 @@ $geoparkBase = $geoparkBase ?? "";
 }
 
 
+
 /* =========================================================
-   LOGO
+   BRAND
 ========================================================= */
 
 .geopark-navbar .navbar-brand {
 
     font-family: 'Inter', sans-serif;
 
-    color: white;
+    color: #FFFFFF;
 
     font-size: 1.25rem;
 
-    font-weight: 700;
+    font-weight: 800;
 
     letter-spacing: .5px;
 
-    white-space: nowrap;
+    transition: .3s;
 
 }
 
@@ -511,19 +455,38 @@ $geoparkBase = $geoparkBase ?? "";
 }
 
 
+.geopark-navbar .navbar-brand:hover {
+
+    color: #FFD700;
+
+}
+
+
+
 /* =========================================================
-   NAVBAR LINKS
+   NAVIGATION LINKS
 ========================================================= */
 
 .geopark-navbar .nav-link {
 
-    color: white !important;
+    color: #FFFFFF !important;
 
-    font-weight: 500;
+    font-weight: 600;
+
+    padding-left: 12px !important;
+
+    padding-right: 12px !important;
 
     transition: .3s;
 
-    padding: 12px 10px;
+}
+
+
+.geopark-navbar .nav-link i {
+
+    color: #FFD700;
+
+    margin-right: 3px;
 
 }
 
@@ -535,27 +498,23 @@ $geoparkBase = $geoparkBase ?? "";
 }
 
 
-.geopark-navbar .nav-link i {
-
-    margin-right: 4px;
-
-}
-
 
 /* =========================================================
-   DROPDOWN MENU
+   DROPDOWN
 ========================================================= */
 
 .geopark-navbar .dropdown-menu {
 
     border: none;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
     padding: 8px 0;
 
+    background: #FFFFFF;
+
     box-shadow:
-        0 8px 25px rgba(0,0,0,.15);
+        0 10px 30px rgba(0,0,0,.15);
 
     z-index: 10000;
 
@@ -568,24 +527,34 @@ $geoparkBase = $geoparkBase ?? "";
 
     font-size: 14px;
 
-    color: #333;
+    font-weight: 500;
 
-    transition: .2s;
+    color: #003B73;
+
+    transition: .25s;
+
+}
+
+
+.geopark-navbar .dropdown-item i {
+
+    color: #0057B8;
 
 }
 
 
 .geopark-navbar .dropdown-item:hover {
 
-    background: #e8f5e9;
+    background: #FFF8CC;
 
-    color: #198754;
+    color: #0057B8;
 
 }
 
 
+
 /* =========================================================
-   BUDAYA SUBMENU
+   SUBMENU
 ========================================================= */
 
 .dropdown-submenu {
@@ -615,20 +584,22 @@ $geoparkBase = $geoparkBase ?? "";
 }
 
 
+
 /* =========================================================
-   MOBILE NAVBAR
+   MOBILE TOGGLE
 ========================================================= */
 
 .geopark-navbar .navbar-toggler {
 
-    border: 1px solid rgba(255,255,255,.5);
+    border: 1px solid rgba(255,255,255,.6);
 
 }
 
 
 .geopark-navbar .navbar-toggler:focus {
 
-    box-shadow: none;
+    box-shadow:
+        0 0 0 3px rgba(255,215,0,.25);
 
 }
 
@@ -640,91 +611,24 @@ $geoparkBase = $geoparkBase ?? "";
 }
 
 
+
 /* =========================================================
-   MOBILE DROPDOWN
+   MOBILE
 ========================================================= */
 
 @media (max-width: 991px) {
 
-
-    .geopark-navbar .navbar-collapse {
-
-        padding: 15px 0;
-
-    }
-
-
-    .geopark-navbar .nav-link {
-
-        padding: 10px 5px;
-
-    }
-
-
-    .geopark-navbar .dropdown-menu {
-
-        position: static !important;
-
-        margin-left: 10px;
-
-        width: calc(100% - 20px);
-
-        box-shadow: none;
-
-        border-radius: 6px;
-
-    }
-
-
     .dropdown-submenu > .dropdown-menu {
 
-        position: static !important;
-
-        display: block;
+        position: static;
 
         margin-left: 15px;
 
-        width: calc(100% - 15px);
-
         box-shadow: none;
 
-        border-left: 3px solid #198754;
-
-        border-radius: 0;
+        border-left: 3px solid #FFD700;
 
     }
-
-
-    .dropdown-submenu > .dropdown-toggle {
-
-        color: #333 !important;
-
-    }
-
-
-}
-
-
-/* =========================================================
-   SMALL SCREEN
-========================================================= */
-
-@media (max-width: 575px) {
-
-
-    .geopark-navbar .navbar-brand {
-
-        font-size: 1rem;
-
-    }
-
-
-    .geopark-navbar .navbar-brand i {
-
-        font-size: 18px;
-
-    }
-
 
 }
 

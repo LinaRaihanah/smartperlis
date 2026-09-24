@@ -56,7 +56,11 @@ include("../geopark_navbar.php");
 
             font-family: 'Inter', sans-serif;
 
-            background: #f4f8f4;
+            background: linear-gradient(
+                135deg,
+                #f5f8fc,
+                #eef5ff
+            );
 
             color: #263238;
 
@@ -72,8 +76,10 @@ include("../geopark_navbar.php");
 
             background:
                 linear-gradient(
-                    rgba(20, 83, 45, .78),
-                    rgba(15, 118, 110, .78)
+                    135deg,
+                    rgba(0,59,122,.94),
+                    rgba(0,87,184,.86),
+                    rgba(0,114,206,.78)
                 ),
                 url("../assets/images/perlis-geopark.jpg")
                 center/cover no-repeat;
@@ -90,11 +96,59 @@ include("../geopark_navbar.php");
 
             padding: 70px 20px;
 
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        .page-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            border-radius: 50%;
+
+            background: rgba(255,215,0,.12);
+
+            top: -180px;
+
+            right: -80px;
+
+        }
+
+        .page-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+
+            height: 280px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.08);
+
+            bottom: -150px;
+
+            left: -70px;
+
         }
 
         .page-hero-content {
 
             max-width: 850px;
+
+            position: relative;
+
+            z-index: 2;
 
         }
 
@@ -106,9 +160,13 @@ include("../geopark_navbar.php");
 
             border-radius: 50%;
 
-            background: rgba(255,255,255,.15);
+            background: linear-gradient(
+                135deg,
+                rgba(255,215,0,.30),
+                rgba(255,255,255,.15)
+            );
 
-            border: 2px solid rgba(255,255,255,.6);
+            border: 2px solid rgba(255,255,255,.7);
 
             display: flex;
 
@@ -122,6 +180,9 @@ include("../geopark_navbar.php");
 
             color: #FFD700;
 
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.20);
+
         }
 
         .page-hero h1 {
@@ -133,6 +194,9 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
             letter-spacing: .5px;
+
+            text-shadow:
+                0 4px 15px rgba(0,0,0,.20);
 
         }
 
@@ -172,22 +236,28 @@ include("../geopark_navbar.php");
 
         .intro-card {
 
-            background: white;
+            background: linear-gradient(
+                145deg,
+                #ffffff,
+                #f8fbff
+            );
 
             border-radius: 20px;
 
             padding: 40px;
 
             box-shadow:
-                0 10px 35px rgba(0,0,0,.08);
+                0 10px 35px rgba(0,59,122,.08);
 
             margin-bottom: 35px;
+
+            border: 1px solid rgba(0,87,184,.08);
 
         }
 
         .section-title {
 
-            color: #14532d;
+            color: #0057B8;
 
             font-weight: 800;
 
@@ -197,7 +267,7 @@ include("../geopark_navbar.php");
 
         .section-title i {
 
-            color: #198754;
+            color: #0057B8;
 
             margin-right: 8px;
 
@@ -224,11 +294,12 @@ include("../geopark_navbar.php");
             background:
                 linear-gradient(
                     135deg,
-                    #e8f5e9,
-                    #effaf7
+                    #EAF3FF 0%,
+                    #F5F9FF 60%,
+                    #FFF9D6 100%
                 );
 
-            border-left: 5px solid #198754;
+            border-left: 5px solid #0057B8;
 
             border-radius: 14px;
 
@@ -236,15 +307,24 @@ include("../geopark_navbar.php");
 
             margin-top: 25px;
 
+            box-shadow:
+                0 6px 20px rgba(0,87,184,.06);
+
         }
 
         .highlight-box h5 {
 
-            color: #14532d;
+            color: #003B7A;
 
             font-weight: 700;
 
             margin-bottom: 10px;
+
+        }
+
+        .highlight-box h5 i {
+
+            color: #FFD700;
 
         }
 
@@ -266,7 +346,11 @@ include("../geopark_navbar.php");
 
             height: 100%;
 
-            background: white;
+            background: linear-gradient(
+                145deg,
+                #ffffff,
+                #f7fbff
+            );
 
             border-radius: 18px;
 
@@ -275,9 +359,38 @@ include("../geopark_navbar.php");
             text-align: center;
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,.07);
+                0 8px 25px rgba(0,59,122,.07);
 
             transition: .3s;
+
+            border: 1px solid rgba(0,87,184,.08);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        .element-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 4px;
+
+            background: linear-gradient(
+                90deg,
+                #0057B8,
+                #0072CE,
+                #FFD700
+            );
 
         }
 
@@ -286,7 +399,7 @@ include("../geopark_navbar.php");
             transform: translateY(-6px);
 
             box-shadow:
-                0 15px 35px rgba(0,0,0,.12);
+                0 15px 35px rgba(0,87,184,.15);
 
         }
 
@@ -300,9 +413,13 @@ include("../geopark_navbar.php");
 
             border-radius: 50%;
 
-            background: #e8f5e9;
+            background: linear-gradient(
+                135deg,
+                #EAF3FF,
+                #D9EBFF
+            );
 
-            color: #198754;
+            color: #0057B8;
 
             display: flex;
 
@@ -312,11 +429,14 @@ include("../geopark_navbar.php");
 
             font-size: 30px;
 
+            box-shadow:
+                0 5px 15px rgba(0,87,184,.08);
+
         }
 
         .element-card h5 {
 
-            color: #14532d;
+            color: #0057B8;
 
             font-weight: 700;
 
@@ -345,9 +465,9 @@ include("../geopark_navbar.php");
             background:
                 linear-gradient(
                     135deg,
-                    #14532d,
-                    #198754,
-                    #0f766e
+                    #003B7A 0%,
+                    #0057B8 50%,
+                    #0072CE 100%
                 );
 
             color: white;
@@ -359,7 +479,31 @@ include("../geopark_navbar.php");
             margin-top: 35px;
 
             box-shadow:
-                0 12px 35px rgba(20,83,45,.20);
+                0 15px 40px rgba(0,59,122,.22);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        .importance-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+
+            height: 280px;
+
+            border-radius: 50%;
+
+            background: rgba(255,215,0,.10);
+
+            right: -100px;
+
+            top: -100px;
 
         }
 
@@ -369,6 +513,10 @@ include("../geopark_navbar.php");
 
             margin-bottom: 20px;
 
+            position: relative;
+
+            z-index: 2;
+
         }
 
         .importance-card p {
@@ -377,11 +525,19 @@ include("../geopark_navbar.php");
 
             opacity: .95;
 
+            position: relative;
+
+            z-index: 2;
+
         }
 
         .importance-list {
 
             margin-top: 25px;
+
+            position: relative;
+
+            z-index: 2;
 
         }
 
@@ -425,7 +581,12 @@ include("../geopark_navbar.php");
 
             gap: 8px;
 
-            background: #198754;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0057B8,
+                    #0072CE
+                );
 
             color: white;
 
@@ -439,15 +600,26 @@ include("../geopark_navbar.php");
 
             transition: .3s;
 
+            box-shadow:
+                0 6px 18px rgba(0,87,184,.18);
+
         }
 
         .back-button:hover {
 
-            background: #14532d;
+            background:
+                linear-gradient(
+                    135deg,
+                    #FFD700,
+                    #FFC107
+                );
 
-            color: white;
+            color: #003B7A;
 
             transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(255,193,7,.25);
 
         }
 

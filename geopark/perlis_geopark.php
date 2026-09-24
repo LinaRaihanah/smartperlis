@@ -21,25 +21,25 @@ include("../config.php");
 $heroSlides = [
 
     [
-        "image" => "../assets/images/perlis-geopark.jpg",
+        "image" => "https://www.kosmo.com.my/wp-content/uploads/2023/11/WhatsApp-Image-2023-11-09-at-19.40.55_44878786.jpg",
         "title" => "PERLIS GEOPARK",
         "subtitle" => "Explore the Geological, Biological and Cultural Heritage of Perlis"
     ],
 
     [
-        "image" => "../assets/images/timah-tasoh.jpg",
+        "image" => "https://storage.googleapis.com/origin-awsassets.nst.com.my/images/articles/1570fa2ea_1710574465.jpg",
         "title" => "TASIK TIMAH TASOH",
         "subtitle" => "Discover the beautiful landscape and natural heritage of Perlis"
     ],
 
     [
-        "image" => "../assets/images/bukit-chabang.jpg",
+        "image" => "https://www.maisinggah.com/wp-content/uploads/2022/03/Bukit-Chabang-Perlis-Gambar-Tapak-Perkemahan.jpg.webp",
         "title" => "BUKIT CHABANG",
         "subtitle" => "A remarkable geological landscape in Perlis"
     ],
 
     [
-        "image" => "../assets/images/bukit-ayer.jpg",
+        "image" => "https://fiksyenshasha.com/wp-content/uploads/2017/05/13_l.jpg",
         "title" => "BUKIT AYER",
         "subtitle" => "Experience the natural beauty of Perlis Geopark"
     ]
@@ -107,7 +107,6 @@ $heritage = [
 */
 
 $months = [
-
     "Januari",
     "Februari",
     "Mac",
@@ -120,7 +119,6 @@ $months = [
     "Oktober",
     "November",
     "Disember"
-
 ];
 
 $currentMonth = date("n");
@@ -198,7 +196,7 @@ body {
 ========================================================= */
 
 .top-bar {
-    background: #0d4533;
+    background: #003B7A;
     color: white;
     font-size: 13px;
     padding: 8px 0;
@@ -218,7 +216,7 @@ body {
 }
 
 .top-bar i {
-    color: #d8a52b;
+    color: #FFD700;
 }
 
 
@@ -247,11 +245,11 @@ body {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: #176b4d;
+    background: #0057B8;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #FFD700;
     font-size: 25px;
 }
 
@@ -261,7 +259,7 @@ body {
 
 .brand-text strong {
     display: block;
-    color: #176b4d;
+    color: #0057B8;
     font-size: 18px;
     font-weight: 800;
     letter-spacing: 1px;
@@ -289,7 +287,7 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #176b4d !important;
+    color: #0057B8 !important;
 }
 
 .navbar-nav .nav-link::after {
@@ -299,7 +297,7 @@ body {
     right: 13px;
     bottom: 18px;
     height: 2px;
-    background: #d8a52b;
+    background: #FFD700;
     transform: scaleX(0);
     transition: 0.3s;
 }
@@ -323,8 +321,8 @@ body {
 }
 
 .dropdown-item:hover {
-    background: #eaf5ef;
-    color: #176b4d;
+    background: #EAF3FF;
+    color: #0057B8;
 }
 
 
@@ -333,7 +331,7 @@ body {
 ========================================================= */
 
 .smart-perlis-btn {
-    background: #176b4d;
+    background: #0057B8;
     color: white !important;
     border: none;
     padding: 10px 17px !important;
@@ -345,8 +343,8 @@ body {
 }
 
 .smart-perlis-btn:hover {
-    background: #d8a52b;
-    color: white !important;
+    background: #FFD700;
+    color: #003B7A !important;
 }
 
 .smart-perlis-btn::after {
@@ -381,8 +379,8 @@ body {
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,0.70),
-            rgba(0,0,0,0.30),
+            rgba(0,59,122,0.78),
+            rgba(0,87,184,0.35),
             rgba(0,0,0,0.10)
         );
 }
@@ -399,8 +397,8 @@ body {
 
 .hero-small {
     display: inline-block;
-    background: #d8a52b;
-    color: white;
+    background: #FFD700;
+    color: #003B7A;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -434,7 +432,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: #176b4d;
+    background: #0057B8;
     color: white;
     text-decoration: none;
     padding: 14px 25px;
@@ -444,16 +442,18 @@ body {
 }
 
 .hero-btn:hover {
-    background: #d8a52b;
-    color: white;
+    background: #FFD700;
+    color: #003B7A;
 }
 
 .hero-btn.gold-btn {
-    background: #d8a52b;
+    background: #FFD700;
+    color: #003B7A;
 }
 
 .hero-btn.gold-btn:hover {
-    background: #176b4d;
+    background: #0057B8;
+    color: white;
 }
 
 .carousel-control-prev,
@@ -468,11 +468,17 @@ body {
 
 .intro-section {
     padding: 90px 0;
-    background: #fff;
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #F5F8FC 55%,
+            #EAF3FF 100%
+        );
 }
 
 .section-label {
-    color: #d8a52b;
+    color: #0057B8;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -481,7 +487,7 @@ body {
 }
 
 .section-title {
-    color: #176b4d;
+    color: #0057B8;
     font-size: 38px;
     font-weight: 800;
     margin-bottom: 20px;
@@ -495,8 +501,15 @@ body {
 }
 
 .intro-box {
-    background: #f3f8f5;
-    border-left: 5px solid #176b4d;
+    background:
+        linear-gradient(
+            135deg,
+            #EAF3FF,
+            #F5F9FF,
+            #FFF9D6
+        );
+
+    border-left: 5px solid #FFD700;
     padding: 28px;
     margin-top: 35px;
 }
@@ -514,22 +527,39 @@ body {
 ========================================================= */
 
 .heritage-section {
-    background: #f7f7f5;
+    background:
+        linear-gradient(
+            135deg,
+            #F5F8FC,
+            #EAF3FF
+        );
+
     padding: 90px 0;
 }
 
 .heritage-card {
-    background: white;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #F7FAFF
+        );
+
     border: none;
     height: 100%;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.06);
+
     transition: 0.35s;
 }
 
 .heritage-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.13);
+
+    box-shadow:
+        0 15px 35px rgba(0,87,184,0.16);
 }
 
 .heritage-image {
@@ -552,7 +582,14 @@ body {
     position: absolute;
     bottom: 15px;
     left: 15px;
-    background: #176b4d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0057B8,
+            #0072CE
+        );
+
     color: white;
     padding: 7px 12px;
     font-size: 10px;
@@ -565,7 +602,7 @@ body {
 }
 
 .heritage-body h5 {
-    color: #176b4d;
+    color: #0057B8;
     font-size: 17px;
     font-weight: 700;
     line-height: 1.4;
@@ -580,14 +617,14 @@ body {
 }
 
 .read-more {
-    color: #176b4d;
+    color: #0057B8;
     text-decoration: none;
     font-size: 12px;
     font-weight: 700;
 }
 
 .read-more:hover {
-    color: #d8a52b;
+    color: #D4A900;
 }
 
 
@@ -597,38 +634,64 @@ body {
 
 .category-section {
     padding: 90px 0;
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #F5F8FC
+        );
 }
 
 .category-box {
     text-align: center;
     padding: 40px 25px;
-    border: 1px solid #e8e8e8;
-    background: white;
+
+    border: 1px solid #dce8f7;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #F5F9FF
+        );
+
     height: 100%;
     transition: 0.3s;
 }
 
 .category-box:hover {
-    border-color: #176b4d;
+    border-color: #0057B8;
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+
+    box-shadow:
+        0 10px 25px rgba(0,87,184,0.12);
 }
 
 .category-icon {
     width: 75px;
     height: 75px;
-    background: #eaf5ef;
-    color: #176b4d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #EAF3FF,
+            #FFF5B8
+        );
+
+    color: #0057B8;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     margin: 0 auto 22px;
+
     font-size: 30px;
     border-radius: 50%;
 }
 
 .category-box h4 {
-    color: #176b4d;
+    color: #0057B8;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 12px;
@@ -647,13 +710,20 @@ body {
 ========================================================= */
 
 .calendar-section {
-    background: #176b4d;
+    background:
+        linear-gradient(
+            135deg,
+            #003B7A 0%,
+            #0057B8 55%,
+            #0072CE 100%
+        );
+
     padding: 90px 0;
     color: white;
 }
 
 .calendar-section .section-label {
-    color: #d8a52b;
+    color: #FFD700;
 }
 
 .calendar-section .section-title {
@@ -672,20 +742,25 @@ body {
 }
 
 .month-box {
-    border: 1px solid rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.30);
+
     padding: 20px;
+
     text-align: center;
+
     color: white;
     text-decoration: none;
+
     transition: 0.3s;
-    background: rgba(255,255,255,0.05);
+
+    background: rgba(255,255,255,0.06);
 }
 
 .month-box:hover,
 .month-box.active {
-    background: #d8a52b;
-    border-color: #d8a52b;
-    color: white;
+    background: #FFD700;
+    border-color: #FFD700;
+    color: #003B7A;
 }
 
 .month-box i {
@@ -706,7 +781,13 @@ body {
 
 .media-section {
     padding: 90px 0;
-    background: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #F5F8FC
+        );
 }
 
 .media-card {
@@ -729,15 +810,19 @@ body {
 .media-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        transparent 35%,
-        rgba(0,0,0,0.75)
-    );
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0,59,122,0.82)
+        );
 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
     padding: 25px;
+
     color: white;
 }
 
@@ -759,15 +844,29 @@ body {
 ========================================================= */
 
 .contact-section {
-    background: #f7f7f5;
+    background:
+        linear-gradient(
+            135deg,
+            #EAF3FF,
+            #F5F8FC
+        );
+
     padding: 90px 0;
 }
 
 .contact-card {
-    background: white;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #F5F9FF
+        );
+
     padding: 35px;
     height: 100%;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.05);
 }
 
 .contact-item {
@@ -780,17 +879,26 @@ body {
     width: 45px;
     height: 45px;
     min-width: 45px;
-    background: #eaf5ef;
-    color: #176b4d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #EAF3FF,
+            #FFF5B8
+        );
+
+    color: #0057B8;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 19px;
 }
 
 .contact-item h6 {
     margin: 0 0 5px;
-    color: #176b4d;
+    color: #0057B8;
     font-weight: 700;
 }
 
@@ -807,7 +915,13 @@ body {
 ========================================================= */
 
 .footer {
-    background: #0d4533;
+    background:
+        linear-gradient(
+            135deg,
+            #003B7A,
+            #0057B8
+        );
+
     color: white;
     padding: 60px 0 0;
 }
@@ -828,7 +942,7 @@ body {
     font-size: 13px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #d8a52b;
+    color: #FFD700;
     margin-bottom: 20px;
 }
 
@@ -850,7 +964,7 @@ body {
 }
 
 .footer-links a:hover {
-    color: white;
+    color: #FFD700;
     padding-left: 5px;
 }
 
@@ -872,23 +986,35 @@ body {
     position: fixed;
     right: 25px;
     bottom: 25px;
+
     width: 45px;
     height: 45px;
-    background: #d8a52b;
-    color: white;
+
+    background: #FFD700;
+    color: #003B7A;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-decoration: none;
+
     z-index: 999;
+
     opacity: 0;
     visibility: hidden;
+
     transition: 0.3s;
 }
 
 .back-top.show {
     opacity: 1;
     visibility: visible;
+}
+
+.back-top:hover {
+    background: #0057B8;
+    color: white;
 }
 
 
@@ -1041,7 +1167,6 @@ body {
 </div>
 
 
-
 <!-- =========================================================
      NAVBAR
 ========================================================= -->
@@ -1132,39 +1257,47 @@ body {
                     <ul class="dropdown-menu">
 
                         <li>
+
                             <a
                                 class="dropdown-item"
                                 href="info_umum/pengenalan.php"
                             >
                                 Pengenalan
                             </a>
+
                         </li>
 
                         <li>
+
                             <a
                                 class="dropdown-item"
                                 href="info_umum/tadbir_urus.php"
                             >
                                 Tadbir Urus
                             </a>
+
                         </li>
 
                         <li>
+
                             <a
                                 class="dropdown-item"
                                 href="info_umum/logo.php"
                             >
                                 Logo Perlis Geopark
                             </a>
+
                         </li>
 
                         <li>
+
                             <a
                                 class="dropdown-item"
                                 href="info_umum/rakan_strategik.php"
                             >
                                 Rakan Strategik
                             </a>
+
                         </li>
 
                     </ul>
@@ -1188,39 +1321,47 @@ body {
                     <ul class="dropdown-menu">
 
                         <li>
+
                             <a
                                 class="dropdown-item"
                                 href="tapak_warisan/geologi.php"
                             >
                                 Geologi
                             </a>
+
                         </li>
 
                         <li>
+
                             <a
                                 class="dropdown-item"
                                 href="tapak_warisan/biologi.php"
                             >
                                 Biologi
                             </a>
+
                         </li>
 
                         <li>
+
                             <a
                                 class="dropdown-item"
                                 href="tapak_warisan/budaya/ketara.php"
                             >
                                 Budaya - Ketara
                             </a>
+
                         </li>
 
                         <li>
+
                             <a
                                 class="dropdown-item"
                                 href="tapak_warisan/budaya/tidak_ketara.php"
                             >
                                 Budaya - Tidak Ketara
                             </a>
+
                         </li>
 
                     </ul>
@@ -1297,7 +1438,6 @@ body {
                     >
 
                         <i class="bi bi-house-fill"></i>
-
                         Smart Perlis
 
                     </a>
@@ -1313,7 +1453,6 @@ body {
 </nav>
 
 
-
 <!-- =========================================================
      HERO
 ========================================================= -->
@@ -1325,6 +1464,7 @@ body {
         class="carousel slide hero-carousel"
         data-bs-ride="carousel"
     >
+
 
         <!-- INDICATORS -->
 
@@ -1378,7 +1518,6 @@ body {
                             >
 
                                 <i class="bi bi-house-fill"></i>
-
                                 Smart Perlis Tourism Portal
 
                             </a>
@@ -1438,7 +1577,6 @@ body {
 </section>
 
 
-
 <!-- =========================================================
      INTRODUCTION
 ========================================================= -->
@@ -1493,7 +1631,6 @@ body {
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1556,11 +1693,15 @@ body {
                         <div class="heritage-body">
 
                             <h5>
+
                                 <?= htmlspecialchars($site["title"]) ?>
+
                             </h5>
 
                             <p>
+
                                 <?= htmlspecialchars($site["description"]) ?>
+
                             </p>
 
                             <a
@@ -1587,7 +1728,6 @@ body {
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1727,7 +1867,6 @@ body {
 </section>
 
 
-
 <!-- =========================================================
      CALENDAR PREVIEW
 ========================================================= -->
@@ -1764,7 +1903,6 @@ body {
                 >
 
                     <i class="bi bi-calendar-event"></i>
-
                     View Full Calendar
 
                 </a>
@@ -1798,7 +1936,6 @@ body {
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1946,7 +2083,6 @@ body {
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -2103,7 +2239,6 @@ body {
 </section>
 
 
-
 <!-- =========================================================
      FOOTER
 ========================================================= -->
@@ -2194,7 +2329,6 @@ body {
                         <a href="../index.php">
 
                             <i class="bi bi-house"></i>
-
                             Smart Perlis Tourism Portal
 
                         </a>
@@ -2207,7 +2341,6 @@ body {
                         <a href="../destinations.php">
 
                             <i class="bi bi-geo-alt"></i>
-
                             Destinations
 
                         </a>
@@ -2220,7 +2353,6 @@ body {
                         <a href="../events.php">
 
                             <i class="bi bi-calendar-event"></i>
-
                             Events
 
                         </a>
@@ -2233,7 +2365,6 @@ body {
                         <a href="../gallery.php">
 
                             <i class="bi bi-images"></i>
-
                             Gallery
 
                         </a>
@@ -2262,7 +2393,6 @@ body {
 </footer>
 
 
-
 <!-- =========================================================
      BACK TO TOP
 ========================================================= -->
@@ -2278,7 +2408,6 @@ body {
 </a>
 
 
-
 <!-- =========================================================
      BOOTSTRAP JS
 ========================================================= -->
@@ -2286,7 +2415,6 @@ body {
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 ></script>
-
 
 
 <script>
