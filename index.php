@@ -995,7 +995,7 @@ Kluster Pelancongan
 
 <i class="bi bi-geo-alt-fill"></i>
 
-Destinations
+Explore
 
 </a>
 
