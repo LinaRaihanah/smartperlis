@@ -172,23 +172,37 @@ body {
     margin-bottom: 3px;
 
 }
+
+
 /* PROFILE HOVER DROPDOWN */
+
 .profile-dropdown {
+
     position: relative;
+
 }
+
 
 .profile-dropdown .dropdown-menu {
+
     display: none;
+
     position: absolute;
+
     top: 100%;
+
     left: 0;
+
     margin-top: 0;
+
 }
+
 
 .profile-dropdown:hover .dropdown-menu {
-    display: block;
-}
 
+    display: block;
+
+}
 
 
 /* =========================================
@@ -945,7 +959,9 @@ Home
 
 </li>
 
+
 <!-- PROFILE -->
+
 <li class="nav-item dropdown profile-dropdown">
 
 <a
@@ -955,6 +971,7 @@ Home
 >
 
 <i class="bi bi-person-fill"></i>
+
 Profile
 
 </a>
@@ -962,21 +979,42 @@ Profile
 <ul class="dropdown-menu">
 
 <li>
-<a class="dropdown-item" href="negeri-perlis.php">
+
+<a
+    class="dropdown-item"
+    href="negeri-perlis.php"
+>
+
 Negeri Perlis
+
 </a>
+
 </li>
 
 <li>
-<a class="dropdown-item" href="visit-perlis.php">
+
+<a
+    class="dropdown-item"
+    href="visit-perlis.php"
+>
+
 Logo Visit Perlis
+
 </a>
+
 </li>
 
 <li>
-<a class="dropdown-item" href="kluster-pelancongan.php">
+
+<a
+    class="dropdown-item"
+    href="kluster-pelancongan.php"
+>
+
 Kluster Pelancongan
+
 </a>
+
 </li>
 
 </ul>
@@ -1086,6 +1124,24 @@ Contact
 <i class="bi bi-images"></i>
 
 Gallery
+
+</a>
+
+</li>
+
+
+<!-- PERLIS GEOPARK -->
+
+<li class="nav-item">
+
+<a
+    class="nav-link"
+    href="perlis_geopark.php"
+>
+
+<i class="bi bi-globe-asia-australia"></i>
+
+Perlis Geopark
 
 </a>
 
