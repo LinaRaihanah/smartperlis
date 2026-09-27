@@ -11,179 +11,179 @@ $selectedArea = $_GET['area'] ?? 'All';
 
 
 /* =========================================================
-   TRANSPORTATION DATA
+   ACCOMMODATION DATA
 ========================================================= */
 
-$transportOptions = [
+$accommodations = [
 
-    /* =========================
+    /* =====================================================
        KANGAR
-    ========================= */
+    ====================================================== */
 
     [
-        "name" => "Taxi & E-Hailing",
+        "name" => "Hotels in Kangar",
         "area" => "Kangar",
-        "type" => "Taxi / E-Hailing",
-        "icon" => "bi-taxi-front-fill",
+        "type" => "Hotel",
+        "icon" => "bi-building",
         "description" =>
-            "Find convenient taxi and e-hailing services for travelling around Kangar.",
+            "Discover comfortable hotels located around Kangar, the capital city of Perlis.",
         "search" =>
-            "Taxi and e-hailing in Kangar, Perlis"
+            "Hotels in Kangar, Perlis"
     ],
 
     [
-        "name" => "Bus Services",
+        "name" => "Homestays in Kangar",
         "area" => "Kangar",
-        "type" => "Bus",
-        "icon" => "bi-bus-front-fill",
+        "type" => "Homestay",
+        "icon" => "bi-house-heart-fill",
         "description" =>
-            "Explore bus transportation options available around Kangar and nearby areas.",
+            "Find homestays and guesthouses for a comfortable local stay around Kangar.",
         "search" =>
-            "Bus transportation in Kangar, Perlis"
+            "Homestays in Kangar, Perlis"
     ],
 
     [
-        "name" => "Car Rental",
+        "name" => "Resorts in Kangar",
         "area" => "Kangar",
-        "type" => "Car Rental",
-        "icon" => "bi-car-front-fill",
+        "type" => "Resort",
+        "icon" => "bi-sun-fill",
         "description" =>
-            "Find car rental services for a flexible journey around Kangar and Perlis.",
+            "Explore relaxing resort accommodation options around Kangar and nearby areas.",
         "search" =>
-            "Car rental in Kangar, Perlis"
+            "Resorts near Kangar, Perlis"
     ],
 
 
-    /* =========================
+    /* =====================================================
        ARAU
-    ========================= */
+    ====================================================== */
 
     [
-        "name" => "Rail Transport",
+        "name" => "Hotels in Arau",
         "area" => "Arau",
-        "type" => "Rail",
-        "icon" => "bi-train-front-fill",
+        "type" => "Hotel",
+        "icon" => "bi-building",
         "description" =>
-            "Explore railway transportation options around Arau for convenient travel.",
+            "Find convenient hotel accommodation around the royal town of Arau.",
         "search" =>
-            "Railway station and train transportation in Arau, Perlis"
+            "Hotels in Arau, Perlis"
     ],
 
     [
-        "name" => "Taxi & E-Hailing",
+        "name" => "Homestays in Arau",
         "area" => "Arau",
-        "type" => "Taxi / E-Hailing",
-        "icon" => "bi-taxi-front-fill",
+        "type" => "Homestay",
+        "icon" => "bi-house-heart-fill",
         "description" =>
-            "Find taxi and e-hailing transportation services available around Arau.",
+            "Experience a comfortable local stay at homestays and guesthouses around Arau.",
         "search" =>
-            "Taxi and e-hailing in Arau, Perlis"
+            "Homestays in Arau, Perlis"
     ],
 
     [
-        "name" => "Car Rental",
+        "name" => "Resorts near Arau",
         "area" => "Arau",
-        "type" => "Car Rental",
-        "icon" => "bi-car-front-fill",
+        "type" => "Resort",
+        "icon" => "bi-sun-fill",
         "description" =>
-            "Discover car rental options for exploring Arau and surrounding attractions.",
+            "Discover peaceful resort accommodation around Arau and its surrounding areas.",
         "search" =>
-            "Car rental in Arau, Perlis"
+            "Resorts near Arau, Perlis"
     ],
 
 
-    /* =========================
+    /* =====================================================
        PADANG BESAR
-    ========================= */
+    ====================================================== */
 
     [
-        "name" => "Rail Transport",
+        "name" => "Hotels in Padang Besar",
         "area" => "Padang Besar",
-        "type" => "Rail",
-        "icon" => "bi-train-front-fill",
+        "type" => "Hotel",
+        "icon" => "bi-building",
         "description" =>
-            "Explore railway transportation for travelling to and around Padang Besar.",
+            "Find convenient hotels near Padang Besar for travellers visiting the northern gateway of Perlis.",
         "search" =>
-            "Railway station and train transportation in Padang Besar, Perlis"
+            "Hotels in Padang Besar, Perlis"
     ],
 
     [
-        "name" => "Bus Services",
+        "name" => "Homestays in Padang Besar",
         "area" => "Padang Besar",
-        "type" => "Bus",
-        "icon" => "bi-bus-front-fill",
+        "type" => "Homestay",
+        "icon" => "bi-house-heart-fill",
         "description" =>
-            "Find bus transportation options around Padang Besar and nearby locations.",
+            "Discover homestays and guesthouses around Padang Besar for a relaxing local stay.",
         "search" =>
-            "Bus transportation in Padang Besar, Perlis"
+            "Homestays in Padang Besar, Perlis"
     ],
 
     [
-        "name" => "Taxi & E-Hailing",
+        "name" => "Resorts near Padang Besar",
         "area" => "Padang Besar",
-        "type" => "Taxi / E-Hailing",
-        "icon" => "bi-taxi-front-fill",
+        "type" => "Resort",
+        "icon" => "bi-sun-fill",
         "description" =>
-            "Find taxi and e-hailing services for convenient travel around Padang Besar.",
+            "Explore resort accommodation around Padang Besar and nearby natural attractions.",
         "search" =>
-            "Taxi and e-hailing in Padang Besar, Perlis"
+            "Resorts near Padang Besar, Perlis"
     ],
 
 
-    /* =========================
+    /* =====================================================
        KUALA PERLIS
-    ========================= */
+    ====================================================== */
 
     [
-        "name" => "Ferry Services",
+        "name" => "Hotels in Kuala Perlis",
         "area" => "Kuala Perlis",
-        "type" => "Ferry",
-        "icon" => "bi-water",
+        "type" => "Hotel",
+        "icon" => "bi-building",
         "description" =>
-            "Explore ferry transportation services around the Kuala Perlis waterfront.",
+            "Discover convenient hotels around Kuala Perlis and the coastal waterfront area.",
         "search" =>
-            "Ferry terminal and ferry transportation in Kuala Perlis, Perlis"
+            "Hotels in Kuala Perlis, Perlis"
     ],
 
     [
-        "name" => "Bus Services",
+        "name" => "Homestays in Kuala Perlis",
         "area" => "Kuala Perlis",
-        "type" => "Bus",
-        "icon" => "bi-bus-front-fill",
+        "type" => "Homestay",
+        "icon" => "bi-house-heart-fill",
         "description" =>
-            "Find bus transportation options for travelling around Kuala Perlis.",
+            "Find welcoming homestays and guesthouses around the coastal town of Kuala Perlis.",
         "search" =>
-            "Bus transportation in Kuala Perlis, Perlis"
+            "Homestays in Kuala Perlis, Perlis"
     ],
 
     [
-        "name" => "Taxi & E-Hailing",
+        "name" => "Resorts in Kuala Perlis",
         "area" => "Kuala Perlis",
-        "type" => "Taxi / E-Hailing",
-        "icon" => "bi-taxi-front-fill",
+        "type" => "Resort",
+        "icon" => "bi-sun-fill",
         "description" =>
-            "Find taxi and e-hailing services around Kuala Perlis for an easier journey.",
+            "Explore relaxing accommodation options around Kuala Perlis and nearby coastal areas.",
         "search" =>
-            "Taxi and e-hailing in Kuala Perlis, Perlis"
+            "Resorts in Kuala Perlis, Perlis"
     ]
 
 ];
 
 
 /* =========================================================
-   FILTER BY AREA
+   FILTER ACCOMMODATION BY AREA
 ========================================================= */
 
-$filteredTransport = [];
+$filteredAccommodations = [];
 
-foreach ($transportOptions as $transport) {
+foreach ($accommodations as $accommodation) {
 
     if (
         $selectedArea == "All" ||
-        $transport["area"] == $selectedArea
+        $accommodation["area"] == $selectedArea
     ) {
 
-        $filteredTransport[] = $transport;
+        $filteredAccommodations[] = $accommodation;
 
     }
 
@@ -197,31 +197,47 @@ foreach ($transportOptions as $transport) {
 $areas = [
 
     "Kuala Perlis" => [
+
         "icon" => "bi-water",
-        "subtitle" => "Coastal Connections",
+
+        "subtitle" => "Coastal Stay",
+
         "description" =>
-            "Explore ferry, bus, taxi and local transportation options around the coastal gateway of Kuala Perlis."
+            "Discover accommodation around Kuala Perlis, ideal for visitors exploring the waterfront and nearby attractions."
+
     ],
 
     "Padang Besar" => [
+
         "icon" => "bi-signpost-split-fill",
-        "subtitle" => "Northern Gateway",
+
+        "subtitle" => "Northern Stay",
+
         "description" =>
-            "Discover rail, bus and local transportation options for travelling around Padang Besar."
+            "Find convenient accommodation around Padang Besar for your visit to the northern gateway of Perlis."
+
     ],
 
     "Kangar" => [
+
         "icon" => "bi-building",
-        "subtitle" => "City Connections",
+
+        "subtitle" => "City Stay",
+
         "description" =>
-            "Find convenient transportation options for exploring Kangar and nearby attractions."
+            "Stay close to the heart of Perlis with hotels, homestays and accommodation options around Kangar."
+
     ],
 
     "Arau" => [
-        "icon" => "bi-train-front-fill",
-        "subtitle" => "Royal Town Journey",
+
+        "icon" => "bi-house-heart-fill",
+
+        "subtitle" => "Royal Town Stay",
+
         "description" =>
-            "Discover rail, taxi and car rental options for travelling around Arau and surrounding areas."
+            "Discover comfortable accommodation around Arau and enjoy convenient access to the royal town and surrounding areas."
+
     ]
 
 ];
@@ -242,7 +258,7 @@ $areas = [
     >
 
     <title>
-        Transportation | Perlis Tourism
+        Accommodation | Perlis Tourism
     </title>
 
 
@@ -291,7 +307,7 @@ body {
    HEADER
 ========================================================= */
 
-.transport-header {
+.accommodation-header {
 
     position: relative;
 
@@ -300,7 +316,7 @@ body {
         linear-gradient(
             90deg,
             rgba(255,255,255,0.98) 0%,
-            rgba(255,255,255,0.92) 40%,
+            rgba(255,255,255,0.88) 45%,
             rgba(255,255,255,0.25) 100%
         ),
 
@@ -323,7 +339,7 @@ body {
 }
 
 
-.transport-header-content {
+.accommodation-header-content {
 
     max-width: 650px;
 
@@ -336,9 +352,11 @@ body {
 }
 
 
-/* BADGE */
+/* =========================================================
+   HEADER BADGE
+========================================================= */
 
-.travel-badge {
+.stay-badge {
 
     display: inline-block;
 
@@ -364,9 +382,11 @@ body {
 }
 
 
-/* HEADER TITLE */
+/* =========================================================
+   HEADER TITLE
+========================================================= */
 
-.transport-header h1 {
+.accommodation-header h1 {
 
     font-size: 3.2rem;
 
@@ -379,16 +399,18 @@ body {
 }
 
 
-.transport-header h1 span {
+.accommodation-header h1 span {
 
     color: #E0A800;
 
 }
 
 
-/* HEADER DESCRIPTION */
+/* =========================================================
+   HEADER DESCRIPTION
+========================================================= */
 
-.transport-header p {
+.accommodation-header p {
 
     font-size: 1.1rem;
 
@@ -396,41 +418,16 @@ body {
 
     color: #444;
 
-    max-width: 550px;
+    max-width: 560px;
 
 }
 
 
 /* =========================================================
-   CAR IMAGE
+   MAIN ACCOMMODATION SECTION
 ========================================================= */
 
-.header-car {
-
-    position: absolute;
-
-    right: 4%;
-
-    bottom: 15px;
-
-    width: 480px;
-
-    height: auto;
-
-    object-fit: contain;
-
-    z-index: 1;
-
-    pointer-events: none;
-
-}
-
-
-/* =========================================================
-   MAIN SECTION
-========================================================= */
-
-.transport-section {
+.accommodation-section {
 
     padding: 70px 0 80px;
 
@@ -678,10 +675,10 @@ body {
 
 
 /* =========================================================
-   TRANSPORT CARD
+   ACCOMMODATION CARD
 ========================================================= */
 
-.transport-card {
+.stay-card {
 
     background: white;
 
@@ -704,7 +701,7 @@ body {
 }
 
 
-.transport-card:hover {
+.stay-card:hover {
 
     transform:
         translateY(-8px);
@@ -719,9 +716,9 @@ body {
    CARD TOP
 ========================================================= */
 
-.transport-card-top {
+.stay-card-top {
 
-    min-height: 170px;
+    min-height: 180px;
 
     background: linear-gradient(
         135deg,
@@ -742,61 +739,61 @@ body {
 }
 
 
-.transport-card-top::before {
+.stay-card-top::before {
 
     content: "";
 
     position: absolute;
 
-    width: 180px;
+    width: 190px;
 
-    height: 180px;
+    height: 190px;
 
     border-radius: 50%;
 
     background:
         rgba(255,255,255,0.10);
 
-    top: -70px;
+    top: -75px;
 
-    right: -50px;
+    right: -55px;
 
 }
 
 
-.transport-card-top::after {
+.stay-card-top::after {
 
     content: "";
 
     position: absolute;
 
-    width: 110px;
+    width: 120px;
 
-    height: 110px;
+    height: 120px;
 
     border-radius: 50%;
 
     background:
         rgba(255,215,0,0.25);
 
-    bottom: -45px;
+    bottom: -50px;
 
-    left: -25px;
+    left: -30px;
 
 }
 
 
 /* =========================================================
-   TRANSPORT ICON
+   ACCOMMODATION ICON
 ========================================================= */
 
-.transport-icon {
+.stay-icon {
 
-    width: 90px;
+    width: 95px;
 
-    height: 90px;
+    height: 95px;
 
-    border-radius: 25px;
+    border-radius: 28px;
 
     background: white;
 
@@ -808,7 +805,7 @@ body {
 
     justify-content: center;
 
-    font-size: 42px;
+    font-size: 43px;
 
     position: relative;
 
@@ -822,8 +819,7 @@ body {
 }
 
 
-.transport-card:hover
-.transport-icon {
+.stay-card:hover .stay-icon {
 
     transform:
         scale(1.08);
@@ -835,7 +831,7 @@ body {
    CARD CONTENT
 ========================================================= */
 
-.transport-content {
+.stay-content {
 
     padding: 25px;
 
@@ -843,12 +839,13 @@ body {
 
     flex-direction: column;
 
-    height: calc(100% - 170px);
+    height:
+        calc(100% - 180px);
 
 }
 
 
-.transport-badge {
+.stay-type {
 
     display: inline-block;
 
@@ -871,7 +868,7 @@ body {
 }
 
 
-.transport-content h4 {
+.stay-content h4 {
 
     color: #0057B8;
 
@@ -882,7 +879,7 @@ body {
 }
 
 
-.transport-location {
+.stay-location {
 
     color: #666;
 
@@ -893,14 +890,14 @@ body {
 }
 
 
-.transport-location i {
+.stay-location i {
 
     color: #E0A800;
 
 }
 
 
-.transport-description {
+.stay-description {
 
     color: #777;
 
@@ -912,7 +909,7 @@ body {
 
 
 /* =========================================================
-   GOOGLE MAP BUTTON
+   MAP BUTTON
 ========================================================= */
 
 .map-btn {
@@ -956,10 +953,10 @@ body {
 
     color: #0057B8;
 
+    background: #FFD700;
+
     transform:
         translateY(-2px);
-
-    background: #FFD700;
 
     box-shadow:
         0 8px 18px rgba(0,87,184,0.20);
@@ -968,118 +965,76 @@ body {
 
 
 /* =========================================================
-   EMPTY RESULT
+   TABLET
 ========================================================= */
 
-.empty-box {
+@media (max-width: 992px) {
 
-    text-align: center;
+    .accommodation-header {
 
-    padding: 70px 20px;
+        background-position: center;
 
-    background: white;
-
-    border-radius: 25px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.08);
-
-}
-
-
-.empty-box i {
-
-    font-size: 4rem;
-
-    color: #FFD700;
-
-    margin-bottom: 20px;
-
-}
-
-
-.empty-box h3 {
-
-    color: #0057B8;
-
-    font-weight: 800;
+    }
 
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
-
-@media (max-width: 992px) {
-
-    .header-car {
-
-        width: 400px;
-
-        opacity: 0.85;
-
-    }
-
-}
-
 
 @media (max-width: 768px) {
 
-    .transport-header {
+    .accommodation-header {
 
-        min-height: 600px;
+        min-height: 380px;
 
         padding:
-            45px 20px 300px;
+            50px 20px;
 
-        align-items:
-            flex-start;
+        align-items: center;
+
+        background-position: center;
 
     }
 
 
-    .transport-header-content {
+    .accommodation-header-content {
 
         margin-left: 0;
 
+        max-width: 100%;
+
     }
 
 
-    .transport-header h1 {
+    .accommodation-header h1 {
 
         font-size: 2.3rem;
 
     }
 
 
-    .transport-header p {
+    .accommodation-header p {
 
         font-size: 1rem;
 
     }
 
 
-    .header-car {
+    .accommodation-section {
 
-        right: 50%;
-
-        transform:
-            translateX(50%);
-
-        bottom: 20px;
-
-        width: 330px;
-
-        opacity: 1;
+        padding:
+            50px 0 40px;
 
     }
 
 
-    .transport-section {
+    .area-filter {
 
-        padding:
-            50px 0 40px;
+        gap: 9px;
+
+        margin-bottom: 35px;
 
     }
 
@@ -1108,14 +1063,58 @@ body {
 
     }
 
+
+    .area-info-icon {
+
+        width: 55px;
+
+        height: 55px;
+
+        min-width: 55px;
+
+        font-size: 1.4rem;
+
+    }
+
 }
 
 
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
 @media (max-width: 576px) {
 
-    .transport-header h1 {
+    .accommodation-header {
+
+        min-height: 350px;
+
+        padding:
+            40px 18px;
+
+    }
+
+
+    .stay-badge {
+
+        font-size: 14px;
+
+        padding:
+            8px 14px;
+
+    }
+
+
+    .accommodation-header h1 {
 
         font-size: 2rem;
+
+    }
+
+
+    .accommodation-header p {
+
+        font-size: 0.95rem;
 
     }
 
@@ -1127,9 +1126,48 @@ body {
     }
 
 
-    .header-car {
+    .section-title p {
 
-        width: 300px;
+        padding:
+            0 10px;
+
+    }
+
+
+    .area-btn {
+
+        padding:
+            9px 13px;
+
+        font-size: 13px;
+
+    }
+
+
+    .stay-card-top {
+
+        min-height: 160px;
+
+    }
+
+
+    .stay-content {
+
+        height:
+            calc(100% - 160px);
+
+        padding: 22px;
+
+    }
+
+
+    .stay-icon {
+
+        width: 82px;
+
+        height: 82px;
+
+        font-size: 37px;
 
     }
 
@@ -1155,27 +1193,27 @@ body {
      HEADER
 ========================================================= -->
 
-<section class="transport-header">
+<section class="accommodation-header">
 
 
-    <div class="transport-header-content">
+    <div class="accommodation-header-content">
 
 
-        <div class="travel-badge">
+        <div class="stay-badge">
 
-            <i class="bi bi-car-front-fill me-2"></i>
+            <i class="bi bi-house-heart-fill me-2"></i>
 
-            Travel Perlis
+            Stay in Perlis
 
         </div>
 
 
         <h1>
 
-            Explore
+            Find Your
 
             <span>
-                Transportation
+                Perfect Stay
             </span>
 
             in Perlis
@@ -1185,9 +1223,9 @@ body {
 
         <p>
 
-            Find convenient ways to travel across Perlis,
-            from local buses and taxis to rail, ferry
-            and car rental services.
+            Discover comfortable places to stay while
+            exploring Perlis, from convenient hotels
+            to welcoming homestays and relaxing resorts.
 
         </p>
 
@@ -1195,24 +1233,15 @@ body {
     </div>
 
 
-    <!-- CAR IMAGE -->
-
-    <img
-        src="assets/images/car.png"
-        alt="Car"
-        class="header-car"
-    >
-
-
 </section>
 
 
 
 <!-- =========================================================
-     TRANSPORT SECTION
+     ACCOMMODATION SECTION
 ========================================================= -->
 
-<section class="transport-section">
+<section class="accommodation-section">
 
 
 <div class="container">
@@ -1224,25 +1253,26 @@ body {
 
     <div class="section-title">
 
+
         <h2>
 
-            <i class="bi bi-signpost-split-fill me-2"></i>
+            <i class="bi bi-house-door-fill me-2"></i>
 
-            Getting Around Perlis
+            Where to Stay
 
         </h2>
 
 
         <p>
 
-            Choose an area to discover convenient
-            transportation options for your journey
-            around Perlis.
+            Choose an area to discover accommodation
+            options for your stay in Perlis.
 
         </p>
 
 
         <div class="title-line"></div>
+
 
     </div>
 
@@ -1255,10 +1285,10 @@ body {
     <div class="area-filter">
 
 
-        <!-- ALL -->
+        <!-- ALL AREAS -->
 
         <a
-            href="transportation.php"
+            href="accommodation.php"
             class="area-btn
             <?= ($selectedArea == 'All') ? 'active' : '' ?>"
         >
@@ -1274,7 +1304,7 @@ body {
         <!-- KUALA PERLIS -->
 
         <a
-            href="transportation.php?area=Kuala%20Perlis"
+            href="accommodation.php?area=Kuala%20Perlis"
             class="area-btn
             <?= ($selectedArea == 'Kuala Perlis') ? 'active' : '' ?>"
         >
@@ -1290,7 +1320,7 @@ body {
         <!-- PADANG BESAR -->
 
         <a
-            href="transportation.php?area=Padang%20Besar"
+            href="accommodation.php?area=Padang%20Besar"
             class="area-btn
             <?= ($selectedArea == 'Padang Besar') ? 'active' : '' ?>"
         >
@@ -1306,7 +1336,7 @@ body {
         <!-- KANGAR -->
 
         <a
-            href="transportation.php?area=Kangar"
+            href="accommodation.php?area=Kangar"
             class="area-btn
             <?= ($selectedArea == 'Kangar') ? 'active' : '' ?>"
         >
@@ -1322,12 +1352,12 @@ body {
         <!-- ARAU -->
 
         <a
-            href="transportation.php?area=Arau"
+            href="accommodation.php?area=Arau"
             class="area-btn
             <?= ($selectedArea == 'Arau') ? 'active' : '' ?>"
         >
 
-            <i class="bi bi-train-front-fill me-1"></i>
+            <i class="bi bi-house-heart-fill me-1"></i>
 
             Arau
 
@@ -1358,7 +1388,8 @@ body {
                 <div class="area-info-icon">
 
                     <i
-                        class="bi <?= htmlspecialchars(
+                        class="bi
+                        <?= htmlspecialchars(
                             $areas[$selectedArea]['icon']
                         ) ?>"
                     ></i>
@@ -1380,8 +1411,11 @@ body {
 
                     <h3>
 
-                        Transportation in
-                        <?= htmlspecialchars($selectedArea) ?>
+                        Accommodation in
+
+                        <?= htmlspecialchars(
+                            $selectedArea
+                        ) ?>
 
                     </h3>
 
@@ -1409,146 +1443,59 @@ body {
 
 
     <!-- =====================================================
-         TRANSPORT CARDS
+         ACCOMMODATION CARDS
     ====================================================== -->
 
     <div class="row g-4">
 
 
-        <?php if (count($filteredTransport) > 0): ?>
+        <?php foreach (
+            $filteredAccommodations
+            as $accommodation
+        ): ?>
 
 
-            <?php foreach ($filteredTransport as $transport): ?>
+            <?php
+
+            /* =================================================
+               CREATE GOOGLE MAPS SEARCH URL
+            ================================================= */
+
+            $mapUrl =
+
+                "https://www.google.com/maps/search/?api=1&query="
+
+                .
+
+                urlencode(
+                    $accommodation["search"]
+                );
+
+            ?>
 
 
-                <?php
-
-                /* ============================================
-                   GOOGLE MAPS SEARCH
-                ============================================ */
-
-                $mapUrl =
-
-                    "https://www.google.com/maps/search/?api=1&query="
-
-                    .
-
-                    urlencode(
-                        $transport["search"]
-                    );
-
-                ?>
+            <div class="col-lg-4 col-md-6">
 
 
-                <div class="col-lg-4 col-md-6">
+                <div class="stay-card">
 
 
-                    <div class="transport-card">
+                    <!-- =========================================
+                         CARD TOP
+                    ========================================== -->
+
+                    <div class="stay-card-top">
 
 
-                        <!-- ICON TOP -->
-
-                        <div class="transport-card-top">
+                        <div class="stay-icon">
 
 
-                            <div class="transport-icon">
-
-
-                                <i
-                                    class="bi
-                                    <?= htmlspecialchars(
-                                        $transport["icon"]
-                                    ) ?>"
-                                ></i>
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <!-- CONTENT -->
-
-                        <div class="transport-content">
-
-
-                            <!-- TYPE -->
-
-                            <span class="transport-badge">
-
-
-                                <i
-                                    class="bi
-                                    <?= htmlspecialchars(
-                                        $transport["icon"]
-                                    ) ?>
-                                    me-1"
-                                ></i>
-
-
+                            <i
+                                class="bi
                                 <?= htmlspecialchars(
-                                    $transport["type"]
-                                ) ?>
-
-
-                            </span>
-
-
-
-                            <!-- NAME -->
-
-                            <h4>
-
-                                <?= htmlspecialchars(
-                                    $transport["name"]
-                                ) ?>
-
-                            </h4>
-
-
-
-                            <!-- LOCATION -->
-
-                            <div class="transport-location">
-
-                                <i class="bi bi-geo-alt-fill me-1"></i>
-
-                                <?= htmlspecialchars(
-                                    $transport["area"]
-                                ) ?>, Perlis
-
-                            </div>
-
-
-
-                            <!-- DESCRIPTION -->
-
-                            <p class="transport-description">
-
-                                <?= htmlspecialchars(
-                                    $transport["description"]
-                                ) ?>
-
-                            </p>
-
-
-
-                            <!-- GOOGLE MAP BUTTON -->
-
-                            <a
-                                href="<?= htmlspecialchars($mapUrl) ?>"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="map-btn"
-                            >
-
-                                <i class="bi bi-geo-alt-fill"></i>
-
-                                Find on Google Maps
-
-                            </a>
+                                    $accommodation["icon"]
+                                ) ?>"
+                            ></i>
 
 
                         </div>
@@ -1557,50 +1504,114 @@ body {
                     </div>
 
 
-                </div>
+
+                    <!-- =========================================
+                         CARD CONTENT
+                    ========================================== -->
+
+                    <div class="stay-content">
 
 
-            <?php endforeach; ?>
+                        <!-- ACCOMMODATION TYPE -->
+
+                        <span class="stay-type">
 
 
-        <?php else: ?>
+                            <i
+                                class="bi
+                                <?= htmlspecialchars(
+                                    $accommodation["icon"]
+                                ) ?>
+                                me-1"
+                            ></i>
 
 
-            <div class="col-12">
+                            <?= htmlspecialchars(
+                                $accommodation["type"]
+                            ) ?>
 
 
-                <div class="empty-box">
+                        </span>
 
 
-                    <i class="bi bi-car-front-fill"></i>
+
+                        <!-- NAME -->
+
+                        <h4>
+
+                            <?= htmlspecialchars(
+                                $accommodation["name"]
+                            ) ?>
+
+                        </h4>
 
 
-                    <h3>
 
-                        No transportation found
+                        <!-- LOCATION -->
 
-                    </h3>
-
-
-                    <p class="text-muted">
-
-                        Sorry, there are currently no
-                        transportation options available
-                        for this area.
-
-                    </p>
+                        <div class="stay-location">
 
 
-                    <a
-                        href="transportation.php"
-                        class="btn btn-primary mt-3"
-                    >
+                            <i class="bi bi-geo-alt-fill me-1"></i>
 
-                        <i class="bi bi-arrow-left me-1"></i>
 
-                        View All Areas
+                            <?= htmlspecialchars(
+                                $accommodation["area"]
+                            ) ?>, Perlis
 
-                    </a>
+
+                        </div>
+
+
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="stay-description">
+
+
+                            <?= htmlspecialchars(
+                                $accommodation["description"]
+                            ) ?>
+
+
+                        </p>
+
+
+
+                        <!-- =====================================
+                             MAP BUTTON
+
+                             Button wording changes automatically:
+
+                             Hotel:
+                             View Hotel on Map
+
+                             Homestay:
+                             View Homestay on Map
+
+                             Resort:
+                             View Resort on Map
+                        ====================================== -->
+
+                        <a
+                            href="<?= htmlspecialchars(
+                                $mapUrl
+                            ) ?>"
+                            class="map-btn"
+                        >
+
+                            <i class="bi bi-geo-alt-fill"></i>
+
+                            View
+                            <?= htmlspecialchars(
+                                $accommodation["type"]
+                            ) ?>
+                            on Map
+
+                        </a>
+
+
+                    </div>
 
 
                 </div>
@@ -1609,7 +1620,7 @@ body {
             </div>
 
 
-        <?php endif; ?>
+        <?php endforeach; ?>
 
 
     </div>
@@ -1630,7 +1641,9 @@ body {
 
 
 
-<!-- BOOTSTRAP JS -->
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
