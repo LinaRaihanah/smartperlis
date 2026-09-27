@@ -914,7 +914,7 @@ Quick Links
 
 <a href="destinations.php">
 
-Destinations
+Explore
 
 </a>
 
