@@ -451,7 +451,7 @@ footer a:hover {
 
 <i class="bi bi-geo-alt-fill"></i>
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </a>
 
@@ -846,14 +846,14 @@ kepelbagaian serta keunikan produk-produk pelancongan negeri Perlis.
     style="color:#FFD700;"
 ></i>
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </h5>
 
 
 <p class="text-white-50">
 
-Smart Perlis Tourism Portal is an
+PERLIS TOURISM SMART PORTAL is an
 interactive platform to explore
 destinations, events and tourism
 information in Perlis.
@@ -944,7 +944,7 @@ Contact Us
 
 <div class="text-center text-white-50">
 
-© 2026 Smart Perlis Tourism Portal
+© 2026 PERLIS TOURISM SMART PORTAL
 
 </div>
 
