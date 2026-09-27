@@ -157,7 +157,7 @@ if (!$destination) {
 
 <!-- HEADER -->
 
-<section class="bg-primary text-white text-center py-5">
+<section class="destination-header text-white text-center py-5">
 
     <div class="container">
 

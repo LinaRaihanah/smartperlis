@@ -188,6 +188,19 @@ footer h5 {
     font-weight: bold;
 }
 
+/* =========================
+   DESTINATION HEADER
+========================= */
+
+.destination-header {
+    background: linear-gradient(
+        135deg,
+        #FFD700 0%,
+        #F5C400 30%,
+        #4A90D9 70%,
+        #0057B8 100%
+    );
+}
 
 /* =========================
    RESPONSIVE
