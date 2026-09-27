@@ -4,8 +4,7 @@ include("config.php");
 
 
 /* =========================================================
-   PERLIS DESTINATIONS
-   Source: Tourism Perlis
+   PERLIS DESTINATION DATA
 ========================================================= */
 
 $destinations = [
@@ -14,129 +13,193 @@ $destinations = [
         "name" => "Arked Niaga Padang Besar",
         "location" => "Padang Besar, Perlis",
         "category" => "Shopping",
-        "image" => "assets/images/destinations/arked-niaga-padang-besar.jpg",
+
+        "image" =>
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Arked_Niaga_Padang_Besar%2C_Padang_Besar_20231224_111439.jpg/1280px-Arked_Niaga_Padang_Besar%2C_Padang_Besar_20231224_111439.jpg",
+
         "description" =>
-            "A popular shopping destination near the Malaysia-Thailand border offering food, clothing, accessories and household products.",
+        "A popular shopping destination located near the Malaysia-Thailand border. Visitors can shop for food, clothing, accessories, household products and various imported goods.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Bukit Tok Dun",
         "location" => "Felda Laka Selatan, Perlis",
         "category" => "Adventure",
-        "image" => "assets/images/destinations/bukit-tok-dun.jpg",
+
+        "image" =>
+        "https://1.bp.blogspot.com/-2J4Cqsu62_Q/W0RxuwiByRI/AAAAAAAAPhM/0yNAGzJouC4LsXOpJ9OVCuAB5wn6HW2HACKgBGAs/s1600/IMG_20180707_072647.jpg",
+
         "description" =>
-            "A 325-metre hill near the Perlis-Kedah border, popular for hiking, sunrise views and its beautiful sea of clouds.",
+        "A 325-metre hill located near the Perlis-Kedah border. It is popular among hikers for sunrise views, beautiful scenery and the famous sea of clouds.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Galeri 3D Gua Kelam",
         "location" => "Kaki Bukit, Perlis",
         "category" => "Culture",
-        "image" => "assets/images/destinations/galeri-3d-gua-kelam.jpg",
+
+        "image" =>
+        "https://www.malaysia.travel/mt-flmngr/files/Gua-Kelam-Recreational-Park/gua-kelam-2.jpg",
+
         "description" =>
-            "An interactive cave gallery combining 3D graphics, natural sounds, specimens, artefacts, cave replicas and tourism information.",
+        "An interactive gallery that presents the experience of exploring a cave through 3D graphics, natural sounds, specimens, artefacts, cave replicas and tourism information.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Kampung Wai",
         "location" => "Kuala Perlis, Perlis",
         "category" => "Nature",
-        "image" => "assets/images/destinations/kampung-wai.jpg",
+
+        "image" =>
+        "https://www.sinarharian.com.my/uploads/images/2025/06/03/3151424.webp",
+
         "description" =>
-            "A scenic eco-tourism destination featuring a canal surrounded by ancient limestone hills, paddy fields and beautiful natural scenery.",
+        "A scenic eco-tourism attraction featuring a canal surrounded by ancient limestone hills. Visitors can enjoy kayaking while experiencing the beautiful natural environment.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Kampung Warisan Tradisi Nelayan",
         "location" => "Seberang Ramai, Kuala Perlis",
         "category" => "Culture",
-        "image" => "assets/images/destinations/kampung-warisan-nelayan.jpg",
+
+        "image" =>
+        "https://myhalalxplorer.com/wp-content/uploads/2024/10/image-423-1024x485.png",
+
         "description" =>
-            "A traditional fishing village transformed into a colourful tourism attraction while preserving the identity of the local fishing community.",
+        "A traditional fishing village transformed into a colourful tourism attraction while preserving the lifestyle and identity of the local fishing community.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Kangar Street Art",
         "location" => "Kangar, Perlis",
         "category" => "Art",
-        "image" => "assets/images/destinations/kangar-street-art.jpg",
+
+        "image" =>
+        "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1200&q=80",
+
         "description" =>
-            "Colourful murals in central Kangar showcasing local attractions, culture, history and the unique identity of Perlis.",
+        "Colourful murals located around the centre of Kangar. The artwork highlights local attractions, culture and the unique identity of Perlis.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Muzium Kota Kayang",
         "location" => "Kuala Perlis, Perlis",
         "category" => "History",
-        "image" => "assets/images/destinations/muzium-kota-kayang.jpg",
+
+        "image" =>
+        "https://assets.nst.com.my/images/articles/museum.JPG_1511421289.jpg",
+
         "description" =>
-            "A museum preserving and displaying the historical heritage of Perlis with galleries covering history, archaeology, weapons, culture and royal heritage.",
-        "fee" => ""
+        "A museum dedicated to preserving and displaying the historical heritage of Perlis including archaeology, culture, traditional weapons and royal history.",
+
+        "fee" => "Free admission"
     ],
+
 
     [
         "name" => "Superfruits Valley",
-        "location" => "Perlis",
+        "location" => "Chuping, Perlis",
         "category" => "Agrotourism",
-        "image" => "assets/images/destinations/superfruits-valley.jpg",
+
+        "image" =>
+        "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1200&q=80",
+
         "description" =>
-            "A large agricultural attraction growing superfruits including figs, gac fruit, citrus fruits, passion fruit and other crops.",
+        "An agricultural tourism attraction featuring various superfruits and crops including figs, gac fruit, citrus fruits and passion fruit.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Taman Eko-Rimba Bukit Ayer",
         "location" => "Sungai Batu Pahat, Perlis",
         "category" => "Nature",
-        "image" => "assets/images/destinations/bukit-ayer.jpg",
+
+        "image" =>
+        "https://cdn.libur.com.my/2024/01/Eqslq3DVEAMY3Cq.jpg",
+
         "description" =>
-            "A family eco-tourism destination surrounded by forest, streams and recreational facilities approximately 12 kilometres from Kangar.",
+        "A popular family eco-tourism destination surrounded by natural forest, streams and recreational facilities. Visitors can enjoy picnics, nature and outdoor activities.",
+
         "fee" => "Entrance fee applies"
     ],
+
 
     [
         "name" => "Taman Eksotik Buah-Buahan (Taman Anggur)",
         "location" => "Sungai Batu Pahat, Perlis",
         "category" => "Agrotourism",
-        "image" => "assets/images/destinations/taman-eksotik-buah.jpg",
+
+        "image" =>
+        "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=1200&q=80",
+
         "description" =>
-            "An agricultural tourism attraction at Sungai Batu Pahat featuring exotic fruit cultivation and the agricultural landscape of Perlis.",
+        "An agricultural tourism attraction in Sungai Batu Pahat featuring exotic fruits and the agricultural landscape of Perlis.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Tasik Melati",
         "location" => "Kangar, Perlis",
         "category" => "Lake",
-        "image" => "assets/images/destinations/tasik-melati.jpg",
+
+        "image" =>
+        "https://static.travelated.com/storage/articles-images/134/13401417/39420931144.jpg?format=webp&mode=crop&scale=down&w=1200",
+
         "description" =>
-            "A peaceful shallow lake featuring more than 150 small sandbar islands and walkways that allow visitors to enjoy the surrounding scenery.",
+        "A peaceful shallow lake featuring more than 150 small sandbar islands. Walkways across the lake allow visitors to enjoy the scenery and relax.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Tasik Timah Tasoh",
         "location" => "Beseri, Perlis",
         "category" => "Lake",
-        "image" => "assets/images/destinations/tasik-timah-tasoh.jpg",
+
+        "image" =>
+        "https://www.malaysia.travel/mt-flmngr/files/Timah%20Tasoh/timah-tasoh-4.jpg",
+
         "description" =>
-            "A scenic lake surrounded by countryside and fruit orchards, popular for photography, relaxation and freshwater fishing.",
+        "A scenic lake surrounded by beautiful countryside and fruit orchards. It is popular for photography, relaxation and freshwater fishing.",
+
         "fee" => ""
     ],
+
 
     [
         "name" => "Wang Kelian View Point",
         "location" => "Wang Kelian, Perlis",
         "category" => "Nature",
-        "image" => "assets/images/destinations/wang-kelian-view-point.jpg",
+
+        "image" =>
+        "https://cdn.libur.com.my/2024/01/392805141_6798195176882441_4710368985839737367_n.jpg",
+
         "description" =>
-            "A popular viewpoint approximately 304 metres above sea level along the route towards the Malaysia-Thailand border.",
+        "A popular viewpoint located approximately 304 metres above sea level along the route towards the Malaysia-Thailand border.",
+
         "fee" => ""
     ]
 
@@ -161,15 +224,21 @@ $destinations = [
 </title>
 
 
+<!-- BOOTSTRAP -->
+
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet">
 
 
+<!-- BOOTSTRAP ICONS -->
+
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
     rel="stylesheet">
 
+
+<!-- YOUR CSS -->
 
 <link
     rel="stylesheet"
@@ -213,6 +282,10 @@ body {
 .hero-destination {
 
     background-image:
+        linear-gradient(
+            rgba(0, 40, 90, 0.35),
+            rgba(0, 40, 90, 0.35)
+        ),
         url('assets/images/header.jpg');
 
     background-size: cover;
@@ -236,17 +309,26 @@ body {
 }
 
 
-.hero-destination h1,
+.hero-destination h1 {
+
+    font-weight: 800;
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,0.60);
+
+}
+
+
 .hero-destination p {
 
     text-shadow:
-        0 3px 10px rgba(0,0,0,0.65);
+        0 2px 8px rgba(0,0,0,0.60);
 
 }
 
 
 /* =========================================================
-   SEARCH
+   SEARCH BOX
 ========================================================= */
 
 .search-card {
@@ -254,6 +336,8 @@ body {
     border: none;
 
     border-radius: 20px;
+
+    background: white;
 
 }
 
@@ -301,7 +385,7 @@ body {
     transform: translateY(-8px);
 
     box-shadow:
-        0 15px 30px rgba(0,0,0,0.15) !important;
+        0 15px 35px rgba(0,0,0,0.16) !important;
 
 }
 
@@ -310,17 +394,17 @@ body {
    IMAGE
 ========================================================= */
 
-.image-wrapper {
-
-    position: relative;
+.destination-image-wrapper {
 
     width: 100%;
 
     height: 240px;
 
+    position: relative;
+
     overflow: hidden;
 
-    background: #e9ecef;
+    background: #eee;
 
 }
 
@@ -338,15 +422,16 @@ body {
 }
 
 
-.destination-card:hover .destination-image {
+.destination-card .card:hover
+.destination-image {
 
-    transform: scale(1.05);
+    transform: scale(1.06);
 
 }
 
 
 /* =========================================================
-   CATEGORY
+   CATEGORY BADGE
 ========================================================= */
 
 .category-badge {
@@ -357,22 +442,22 @@ body {
 
     left: 15px;
 
-    z-index: 5;
-
-    padding: 7px 14px;
-
-    border-radius: 30px;
+    z-index: 2;
 
     background: #FFD700;
 
-    color: #0057B8;
+    color: #004b9b;
+
+    padding: 7px 15px;
+
+    border-radius: 30px;
 
     font-size: 13px;
 
     font-weight: 800;
 
     box-shadow:
-        0 4px 12px rgba(0,0,0,0.20);
+        0 4px 12px rgba(0,0,0,0.18);
 
 }
 
@@ -394,6 +479,8 @@ body {
 
     font-weight: 800;
 
+    margin-bottom: 12px;
+
 }
 
 
@@ -401,7 +488,9 @@ body {
 
     color: #666;
 
-    margin-top: 10px;
+    font-size: 15px;
+
+    margin-bottom: 13px;
 
 }
 
@@ -419,13 +508,11 @@ body {
 
     line-height: 1.7;
 
-    margin-top: 10px;
-
 }
 
 
 /* =========================================================
-   FEE
+   ENTRANCE FEE
 ========================================================= */
 
 .fee-box {
@@ -434,7 +521,7 @@ body {
         linear-gradient(
             135deg,
             #fff4b8,
-            #fffdf0
+            #fffdf1
         );
 
     border-left:
@@ -444,7 +531,7 @@ body {
 
     padding: 13px 15px;
 
-    margin-top: 15px;
+    margin-top: 12px;
 
 }
 
@@ -459,16 +546,18 @@ body {
 
     text-transform: uppercase;
 
+    letter-spacing: 0.4px;
+
 }
 
 
 .fee-price {
 
-    margin-top: 4px;
-
     color: #333;
 
     font-weight: 700;
+
+    margin-top: 4px;
 
 }
 
@@ -477,7 +566,9 @@ body {
    MAP BUTTON
 ========================================================= */
 
-.destination-btn {
+.map-button {
+
+    width: 100%;
 
     display: flex;
 
@@ -487,17 +578,17 @@ body {
 
     gap: 8px;
 
-    width: 100%;
-
-    padding: 12px 20px;
+    padding: 12px 18px;
 
     border-radius: 12px;
+
+    border: none;
 
     background:
         linear-gradient(
             135deg,
             #0057B8,
-            #0d7ff2
+            #087cf0
         );
 
     color: white;
@@ -511,11 +602,72 @@ body {
 }
 
 
-.destination-btn:hover {
+.map-button:hover {
 
     background: #FFD700;
 
     color: #0057B8;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================================
+   RESULT COUNT
+========================================================= */
+
+.result-count {
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   NO RESULT
+========================================================= */
+
+.no-result {
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+}
+
+
+.no-result i {
+
+    font-size: 50px;
+
+    color: #FFD700;
+
+}
+
+
+.no-result h4 {
+
+    color: #0057B8;
+
+    margin-top: 15px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:992px) {
+
+    .hero-destination {
+
+        min-height: 350px;
+
+    }
 
 }
 
@@ -542,7 +694,14 @@ body {
     }
 
 
-    .image-wrapper {
+    .hero-destination p {
+
+        font-size: 1rem;
+
+    }
+
+
+    .destination-image-wrapper {
 
         height: 220px;
 
@@ -550,6 +709,10 @@ body {
 
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:576px) {
 
@@ -576,9 +739,16 @@ body {
     }
 
 
-    .image-wrapper {
+    .destination-image-wrapper {
 
         height: 210px;
+
+    }
+
+
+    .search-card {
+
+        padding: 20px !important;
 
     }
 
@@ -604,19 +774,21 @@ body {
 
 <div class="container">
 
-    <h1 class="display-4 fw-bold">
 
-        Explore Perlis Destinations
+<h1 class="display-4 fw-bold">
 
-    </h1>
+    Explore Perlis Destinations
+
+</h1>
 
 
-    <p class="lead mb-0">
+<p class="lead mb-0">
 
-        Discover nature, culture,
-        heritage and beautiful places across Perlis
+    Discover beautiful places, nature,
+    culture and heritage across Perlis
 
-    </p>
+</p>
+
 
 </div>
 
@@ -630,108 +802,148 @@ body {
 
 <div class="container mt-5">
 
+
 <div class="card shadow-sm p-4 search-card">
+
 
 <div class="row g-3">
 
 
+<!-- SEARCH -->
+
 <div class="col-md-7">
 
-    <label class="form-label fw-bold">
 
-        Search Destination
+<label class="form-label fw-bold">
 
-    </label>
+    Search Destination
 
-
-    <div class="input-group">
-
-        <span class="input-group-text">
-
-            <i class="bi bi-search"></i>
-
-        </span>
+</label>
 
 
-        <input
-            type="text"
-            id="keyword"
-            class="form-control"
-            placeholder="Search destination, location...">
+<div class="input-group">
 
-    </div>
+
+<span class="input-group-text">
+
+    <i class="bi bi-search"></i>
+
+</span>
+
+
+<input
+    type="text"
+    id="keyword"
+    class="form-control"
+    placeholder="Search destination or location...">
+
 
 </div>
 
 
+</div>
+
+
+
+<!-- CATEGORY -->
 
 <div class="col-md-5">
 
-    <label class="form-label fw-bold">
 
-        Category
+<label class="form-label fw-bold">
 
-    </label>
+    Category
+
+</label>
 
 
-    <select
-        id="category"
-        class="form-select">
+<select
+    id="category"
+    class="form-select">
 
-        <option value="All">
-            All Categories
-        </option>
 
-        <option value="Nature">
-            Nature
-        </option>
+<option value="All">
+    All Categories
+</option>
 
-        <option value="Adventure">
-            Adventure
-        </option>
+<option value="Nature">
+    Nature
+</option>
 
-        <option value="Lake">
-            Lake
-        </option>
+<option value="Adventure">
+    Adventure
+</option>
 
-        <option value="Culture">
-            Culture
-        </option>
+<option value="Lake">
+    Lake
+</option>
 
-        <option value="Art">
-            Art
-        </option>
+<option value="Culture">
+    Culture
+</option>
 
-        <option value="History">
-            History
-        </option>
+<option value="Art">
+    Art
+</option>
 
-        <option value="Shopping">
-            Shopping
-        </option>
+<option value="History">
+    History
+</option>
 
-        <option value="Agrotourism">
-            Agrotourism
-        </option>
+<option value="Shopping">
+    Shopping
+</option>
 
-    </select>
+<option value="Agrotourism">
+    Agrotourism
+</option>
+
+
+</select>
+
 
 </div>
 
 
 </div>
 
+
 </div>
+
 
 </div>
 
 
 
 <!-- =========================================================
-     DESTINATIONS
+     DESTINATION SECTION
 ========================================================= -->
 
 <div class="container mt-5 mb-5">
+
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+
+<h2
+    class="fw-bold mb-0"
+    style="color:#0057B8;">
+
+    Places to Explore
+
+</h2>
+
+
+<span
+    id="resultCount"
+    class="result-count">
+
+</span>
+
+
+</div>
+
+
 
 <div
     class="row g-4"
@@ -740,13 +952,14 @@ body {
 
 <?php
 
+
 foreach (
     $destinations
     as $destination
 ) {
 
 
-    $mapUrl =
+    $mapURL =
 
         "https://www.google.com/maps/search/?api=1&query="
 
@@ -761,6 +974,7 @@ foreach (
             . $destination["location"]
 
         );
+
 
 ?>
 
@@ -795,101 +1009,100 @@ foreach (
 <div class="card shadow-sm h-100">
 
 
-<!-- =====================================================
-     DESTINATION IMAGE
-===================================================== -->
+<!-- IMAGE -->
 
-<div class="image-wrapper">
+<div class="destination-image-wrapper">
 
 
-    <img
-        src="<?=
-            htmlspecialchars(
-                $destination["image"]
-            )
-        ?>"
+<img
+    src="<?=
+        htmlspecialchars(
+            $destination["image"]
+        )
+    ?>"
 
-        class="destination-image"
+    class="destination-image"
 
-        alt="<?=
-            htmlspecialchars(
-                $destination["name"]
-            )
-        ?>"
-    >
+    alt="<?=
+        htmlspecialchars(
+            $destination["name"]
+        )
+    ?>"
+>
 
 
-    <span class="category-badge">
+<span class="category-badge">
 
-        <?=
-            htmlspecialchars(
-                $destination["category"]
-            )
-        ?>
+    <?=
+        htmlspecialchars(
+            $destination["category"]
+        )
+    ?>
 
-    </span>
+</span>
 
 
 </div>
 
 
 
-<!-- =====================================================
-     CONTENT
-===================================================== -->
+<!-- CARD CONTENT -->
 
 <div class="card-body d-flex flex-column">
 
 
 <h4>
 
-    <?=
-        htmlspecialchars(
-            $destination["name"]
-        )
-    ?>
+<?=
+    htmlspecialchars(
+        $destination["name"]
+    )
+?>
 
 </h4>
 
 
-
 <div class="destination-location">
 
-    <i class="bi bi-geo-alt-fill me-1"></i>
 
-    <?=
-        htmlspecialchars(
-            $destination["location"]
-        )
-    ?>
+<i class="bi bi-geo-alt-fill me-1"></i>
+
+
+<?=
+    htmlspecialchars(
+        $destination["location"]
+    )
+?>
+
 
 </div>
 
 
-
 <p class="destination-description">
 
-    <?=
-        htmlspecialchars(
-            $destination["description"]
-        )
-    ?>
+
+<?=
+    htmlspecialchars(
+        $destination["description"]
+    )
+?>
+
 
 </p>
 
 
 
-<!-- =====================================================
-     ENTRANCE FEE
-===================================================== -->
+<!-- ENTRANCE FEE -->
 
 <?php
+
 
 if (
     !empty(
         $destination["fee"]
     )
 ):
+
 
 ?>
 
@@ -899,20 +1112,25 @@ if (
 
 <div class="fee-title">
 
-    <i class="bi bi-ticket-perforated-fill me-1"></i>
 
-    Entrance Fee
+<i class="bi bi-ticket-perforated-fill me-1"></i>
+
+
+Entrance Information
+
 
 </div>
 
 
 <div class="fee-price">
 
-    <?=
-        htmlspecialchars(
-            $destination["fee"]
-        )
-    ?>
+
+<?=
+    htmlspecialchars(
+        $destination["fee"]
+    )
+?>
+
 
 </div>
 
@@ -924,9 +1142,7 @@ if (
 
 
 
-<!-- =====================================================
-     GOOGLE MAP
-===================================================== -->
+<!-- MAP BUTTON -->
 
 <div class="mt-auto pt-4">
 
@@ -934,17 +1150,22 @@ if (
 <a
     href="<?=
         htmlspecialchars(
-            $mapUrl
+            $mapURL
         )
     ?>"
 
-    class="destination-btn"
+    target="_blank"
+
+    rel="noopener noreferrer"
+
+    class="map-button"
 >
 
 
-<i class="bi bi-geo-alt-fill"></i>
+<i class="bi bi-map-fill"></i>
 
-View Destination on Map
+
+View on Google Maps
 
 
 </a>
@@ -964,36 +1185,26 @@ View Destination on Map
 
 <?php
 
+
 }
+
 
 ?>
 
 
 
-<!-- =========================================================
-     NO RESULT
-========================================================= -->
+<!-- NO RESULT -->
 
 <div
     id="noResult"
-    class="col-12 text-center py-5"
-    style="display:none;"
->
+    class="col-12 no-result"
+    style="display:none;">
 
 
-<i
-    class="bi bi-search"
-    style="
-        font-size:3rem;
-        color:#FFD700;
-    ">
-</i>
+<i class="bi bi-search"></i>
 
 
-<h4
-    class="fw-bold mt-3"
-    style="color:#0057B8;"
->
+<h4 class="fw-bold">
 
     No Destination Found
 
@@ -1013,13 +1224,18 @@ View Destination on Map
 
 </div>
 
+
 </div>
 
 
 
+<!-- FOOTER -->
+
 <?php include("footer.php"); ?>
 
 
+
+<!-- BOOTSTRAP JS -->
 
 <script
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
@@ -1027,34 +1243,43 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
 
 
 
-<!-- =========================================================
-     SEARCH FILTER
-========================================================= -->
+<!-- SEARCH + FILTER -->
 
 <script>
 
 
 const keywordInput =
+
     document.getElementById(
         "keyword"
     );
 
 
 const categorySelect =
+
     document.getElementById(
         "category"
     );
 
 
 const destinationCards =
+
     document.querySelectorAll(
         ".destination-card"
     );
 
 
 const noResult =
+
     document.getElementById(
         "noResult"
+    );
+
+
+const resultCount =
+
+    document.getElementById(
+        "resultCount"
     );
 
 
@@ -1078,7 +1303,6 @@ function filterDestinations() {
     let visible = 0;
 
 
-
     destinationCards.forEach(
 
         function(card) {
@@ -1096,7 +1320,6 @@ function filterDestinations() {
                 card.dataset.category;
 
 
-
             const matchesKeyword =
 
                 name.includes(keyword)
@@ -1106,7 +1329,6 @@ function filterDestinations() {
                 location.includes(keyword);
 
 
-
             const matchesCategory =
 
                 selectedCategory === "All"
@@ -1114,7 +1336,6 @@ function filterDestinations() {
                 ||
 
                 category === selectedCategory;
-
 
 
             if (
@@ -1145,20 +1366,38 @@ function filterDestinations() {
     );
 
 
+    resultCount.textContent =
+
+        visible
+
+        +
+
+        (
+            visible === 1
+
+            ? " destination"
+
+            : " destinations"
+        );
+
 
     if (
         visible === 0
     ) {
 
+
         noResult.style.display =
             "block";
+
 
     }
 
     else {
 
+
         noResult.style.display =
             "none";
+
 
     }
 
@@ -1176,7 +1415,6 @@ keywordInput.addEventListener(
 );
 
 
-
 categorySelect.addEventListener(
 
     "change",
@@ -1184,6 +1422,9 @@ categorySelect.addEventListener(
     filterDestinations
 
 );
+
+
+filterDestinations();
 
 
 </script>
