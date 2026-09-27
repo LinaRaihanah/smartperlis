@@ -213,7 +213,7 @@ include("../geopark_navbar.php");
 
         .intro-card h2 i {
 
-            color: #198754;
+            color: #0057B8;
 
         }
 
@@ -252,7 +252,7 @@ include("../geopark_navbar.php");
 
             text-align: center;
 
-            border-top: 5px solid #198754;
+            border-top: 5px solid #0057B8;
 
         }
 
@@ -277,7 +277,7 @@ include("../geopark_navbar.php");
 
             background: #e8f5e9;
 
-            color: #198754;
+            color: #0057B8;
 
             display: flex;
 
@@ -318,7 +318,7 @@ include("../geopark_navbar.php");
 
         .contact-card a {
 
-            color: #198754;
+            color: #0057B8;
 
             text-decoration: none;
 
@@ -353,7 +353,7 @@ include("../geopark_navbar.php");
                 linear-gradient(
                     135deg,
                     #14532d,
-                    #198754,
+                    #0057B8,
                     #0f766e
                 );
 
@@ -529,7 +529,7 @@ include("../geopark_navbar.php");
 
         .form-control:focus {
 
-            border-color: #198754;
+            border-color: #0057B8;
 
             box-shadow:
                 0 0 0 3px rgba(25,135,84,.12);
@@ -556,7 +556,7 @@ include("../geopark_navbar.php");
                 linear-gradient(
                     135deg,
                     #14532d,
-                    #198754
+                    #0057B8
                 );
 
             color: white;
@@ -656,7 +656,7 @@ include("../geopark_navbar.php");
 
             font-size: 45px;
 
-            color: #198754;
+            color: #0057B8;
 
             margin-bottom: 12px;
 
@@ -702,7 +702,7 @@ include("../geopark_navbar.php");
 
             gap: 8px;
 
-            background: #198754;
+            background: #0057B8;
 
             color: white;
 

@@ -15,7 +15,7 @@
 >
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
 
     <div class="container">
 
@@ -466,11 +466,8 @@
 /* ================================= */
 
 .destination-menu a:hover {
-
-    background: #e7ba75;
-
-    color: #198754;
-
+    background: #FFD700;
+    color: #0057B8;
 }
 
 
@@ -480,9 +477,7 @@
 /* ================================= */
 
 .destination-menu a:hover i {
-
-    color: #198754;
-
+    color: #0057B8;
 }
 
 

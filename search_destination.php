@@ -156,7 +156,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <p class="text-muted">
 
                 <i
-                    class="bi bi-geo-alt-fill text-success">
+                    class="bi bi-geo-alt-fill text-primary">
                 </i>
 
                 <?php
@@ -181,7 +181,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
             <div>
 
-                <span class="badge bg-success">
+                <span class="badge bg-primary">
 
                     <?php
                     echo htmlspecialchars(

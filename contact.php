@@ -451,7 +451,7 @@ align-items: center;
 
                 ?>
 
-                    <div class="alert alert-success">
+                    <div class="alert alert-primary">
 
                         <?php echo $message; ?>
 

@@ -893,7 +893,7 @@ class="kpi-card text-center"
 
 
 <i
-class="bi bi-map kpi-icon text-success">
+class="bi bi-map kpi-icon text-primary">
 </i>
 
 

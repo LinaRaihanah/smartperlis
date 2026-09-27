@@ -109,7 +109,7 @@ Add Destination
 
 
 
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar navbar-dark bg-primary">
 
 
 <div class="container">
@@ -318,7 +318,7 @@ required>
 
 <button type="submit"
 name="add"
-class="btn btn-success">
+class="btn btn-primary">
 
 
 <i class="bi bi-save"></i>

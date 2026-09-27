@@ -368,7 +368,7 @@ else {
                     <p class="text-muted">
 
                         <i
-                            class="bi bi-geo-alt-fill text-success">
+                            class="bi bi-geo-alt-fill text-primary">
                         </i>
 
                         <?php
@@ -393,7 +393,7 @@ else {
 
                     <div>
 
-                        <span class="badge bg-success">
+                        <span class="badge bg-primary">
 
                             <?php
                             echo htmlspecialchars(

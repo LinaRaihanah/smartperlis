@@ -254,7 +254,7 @@ body{
      NAVBAR
 ================================ -->
 
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar navbar-dark bg-primary">
 
 <div class="container">
 
@@ -533,7 +533,7 @@ accept="image/*">
 <button
 type="submit"
 name="update"
-class="btn btn-success">
+class="btn btn-primary">
 
 Update Event
 

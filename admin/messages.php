@@ -722,7 +722,7 @@ body {
 
     <?php if ($replyMessage != "") { ?>
 
-        <div class="alert alert-success">
+        <div class="alert alert-primary">
 
             <i class="bi bi-check-circle-fill"></i>
 
@@ -1198,7 +1198,7 @@ if (
                             ?>
 
                                 <span
-                                    class="badge bg-success"
+                                    class="badge bg-primary"
                                 >
 
                                     <i

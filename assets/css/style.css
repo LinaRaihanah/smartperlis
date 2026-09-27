@@ -3,198 +3,254 @@
    style.css
 ========================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+
+/* =========================
+   PERLIS THEME COLOURS
+========================= */
+
+:root {
+    --perlis-yellow: #FFD700;
+    --perlis-dark-yellow: #F5C400;
+    --perlis-blue: #0057B8;
+    --perlis-dark-blue: #004A99;
+    --perlis-light: #FEFBEA;
 }
 
-body{
-    background:#f5f7fa;
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* NAVBAR */
-
-.navbar{
-    padding:15px 0;
+body {
+    background: #f5f7fa;
 }
 
-.navbar-brand{
-    font-size:28px;
-    font-weight:bold;
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    padding: 15px 0;
 }
 
-.nav-link{
-    color:white !important;
-    margin-left:15px;
-    transition:0.3s;
+.navbar-brand {
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.nav-link:hover{
-    color:#ffd54f !important;
+.nav-link {
+    color: white !important;
+    margin-left: 15px;
+    transition: 0.3s;
 }
 
-/* SLIDER */
-
-.slider-image{
-    height:650px;
-    object-fit:cover;
+.nav-link:hover {
+    color: var(--perlis-yellow) !important;
 }
 
-.carousel-caption{
-    background:rgba(0,0,0,0.45);
-    padding:25px;
-    border-radius:10px;
-    bottom:120px;
+
+/* =========================
+   SLIDER
+========================= */
+
+.slider-image {
+    height: 650px;
+    object-fit: cover;
 }
 
-.carousel-caption h1{
-    font-size:50px;
-    font-weight:bold;
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 25px;
+    border-radius: 10px;
+    bottom: 120px;
 }
 
-.carousel-caption p{
-    font-size:20px;
+.carousel-caption h1 {
+    font-size: 50px;
+    font-weight: bold;
 }
 
-/* SEARCH */
-
-#search{
-    border-radius:40px;
-    padding:18px;
-    border:2px solid #198754;
+.carousel-caption p {
+    font-size: 20px;
 }
 
-#search:focus{
-    outline:none;
-    box-shadow:0 0 10px rgba(25,135,84,.3);
+
+/* =========================
+   SEARCH
+========================= */
+
+#search {
+    border-radius: 40px;
+    padding: 18px;
+    border: 2px solid var(--perlis-blue);
 }
 
-/* CARD */
+#search:focus {
+    outline: none;
 
-.card{
-    border:none;
-    border-radius:15px;
-    overflow:hidden;
-    transition:.4s;
-    margin-bottom:30px;
+    /* Changed from green to blue */
+    box-shadow: 0 0 10px rgba(0, 87, 184, 0.3);
 }
 
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 30px rgba(0,0,0,.25);
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+    margin-bottom: 30px;
 }
 
-.card img{
-    height:250px;
-    object-fit:cover;
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
-.card-body{
-    padding:20px;
+.card img {
+    height: 250px;
+    object-fit: cover;
 }
 
-.card h4{
-    font-weight:bold;
+.card-body {
+    padding: 20px;
 }
 
-.card p{
-    color:#666;
+.card h4 {
+    font-weight: bold;
 }
 
-.btn-success{
-    border-radius:30px;
-    padding:10px 25px;
+.card p {
+    color: #666;
 }
 
-/* FEATURES */
 
-section i{
-    margin-bottom:15px;
+/* =========================
+   BUTTON
+========================= */
+
+/* Changed from .btn-success because
+   the website now uses blue buttons */
+
+.btn-primary {
+    border-radius: 30px;
+    padding: 10px 25px;
+    background-color: var(--perlis-blue);
+    border-color: var(--perlis-blue);
 }
 
-section h5{
-    font-weight:bold;
+.btn-primary:hover {
+    background-color: var(--perlis-dark-blue);
+    border-color: var(--perlis-dark-blue);
 }
 
-section .col-md-3{
-    padding:25px;
-    transition:.3s;
+
+/* =========================
+   FEATURES
+========================= */
+
+section i {
+    margin-bottom: 15px;
 }
 
-section .col-md-3:hover{
-    transform:scale(1.05);
+section h5 {
+    font-weight: bold;
 }
 
-/* FOOTER */
-
-footer{
-    margin-top:60px;
+section .col-md-3 {
+    padding: 25px;
+    transition: 0.3s;
 }
 
-footer h5{
-    font-weight:bold;
+section .col-md-3:hover {
+    transform: scale(1.05);
 }
 
-/* RESPONSIVE */
 
-@media(max-width:992px){
+/* =========================
+   FOOTER
+========================= */
 
-.slider-image{
-    height:450px;
+footer {
+    margin-top: 60px;
 }
 
-.carousel-caption h1{
-    font-size:35px;
+footer h5 {
+    font-weight: bold;
 }
 
-}
 
-@media(max-width:768px){
+/* =========================
+   RESPONSIVE
+========================= */
 
-.slider-image{
-    height:300px;
-}
+@media (max-width: 992px) {
 
-.carousel-caption{
-    bottom:30px;
-}
+    .slider-image {
+        height: 450px;
+    }
 
-.carousel-caption h1{
-    font-size:24px;
-}
-
-.carousel-caption p{
-    font-size:15px;
-}
-
-.navbar-brand{
-    font-size:22px;
-}
-
-.card img{
-    height:200px;
-}
+    .carousel-caption h1 {
+        font-size: 35px;
+    }
 
 }
 
-@media(max-width:576px){
 
-#search{
-    padding:15px;
+@media (max-width: 768px) {
+
+    .slider-image {
+        height: 300px;
+    }
+
+    .carousel-caption {
+        bottom: 30px;
+    }
+
+    .carousel-caption h1 {
+        font-size: 24px;
+    }
+
+    .carousel-caption p {
+        font-size: 15px;
+    }
+
+    .navbar-brand {
+        font-size: 22px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
 }
 
-.carousel-caption{
-    padding:15px;
-}
 
-.carousel-caption h1{
-    font-size:20px;
-}
+@media (max-width: 576px) {
 
-.carousel-caption p{
-    font-size:13px;
-}
+    #search {
+        padding: 15px;
+    }
+
+    .carousel-caption {
+        padding: 15px;
+    }
+
+    .carousel-caption h1 {
+        font-size: 20px;
+    }
+
+    .carousel-caption p {
+        font-size: 13px;
+    }
 
 }

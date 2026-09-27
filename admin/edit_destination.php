@@ -169,7 +169,7 @@ if(isset($_POST['update'])){
 
 
 
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar navbar-dark bg-primary">
 
 
 <div class="container">
@@ -405,7 +405,7 @@ class="form-control">
 
 <button type="submit"
 name="update"
-class="btn btn-success">
+class="btn btn-primary">
 
 
 Update Destination

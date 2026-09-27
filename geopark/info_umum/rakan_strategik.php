@@ -195,7 +195,7 @@ include("../geopark_navbar.php");
 
         .intro-card h2 i {
 
-            color: #198754;
+            color: #0057B8;
 
         }
 
@@ -217,7 +217,7 @@ include("../geopark_navbar.php");
 
             padding: 20px 25px;
 
-            border-left: 5px solid #198754;
+            border-left: 5px solid #0057B8;
 
             background: #e8f5e9;
 
@@ -304,7 +304,7 @@ include("../geopark_navbar.php");
                 linear-gradient(
                     90deg,
                     #14532d,
-                    #198754,
+                    #0057B8,
                     #0f766e
                 );
 
@@ -342,7 +342,7 @@ include("../geopark_navbar.php");
 
             justify-content: center;
 
-            color: #198754;
+            color: #0057B8;
 
             font-size: 34px;
 
@@ -390,7 +390,7 @@ include("../geopark_navbar.php");
                 linear-gradient(
                     135deg,
                     #14532d,
-                    #198754,
+                    #0057B8,
                     #0f766e
                 );
 
@@ -468,7 +468,7 @@ include("../geopark_navbar.php");
 
             background: #e8f5e9;
 
-            color: #198754;
+            color: #0057B8;
 
             display: flex;
 
@@ -524,7 +524,7 @@ include("../geopark_navbar.php");
 
             gap: 8px;
 
-            background: #198754;
+            background: #0057B8;
 
             color: white;
 

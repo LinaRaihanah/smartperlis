@@ -157,7 +157,7 @@ if (!$destination) {
 
 <!-- HEADER -->
 
-<section class="bg-success text-white text-center py-5">
+<section class="bg-primary text-white text-center py-5">
 
     <div class="container">
 
@@ -236,7 +236,7 @@ if (!$destination) {
                 <p>
 
                     <i
-                        class="bi bi-geo-alt-fill text-success">
+                        class="bi bi-geo-alt-fill text-primary">
                     </i>
 
                     <strong>Location:</strong>
@@ -253,12 +253,12 @@ if (!$destination) {
                 <p>
 
                     <i
-                        class="bi bi-tag-fill text-success">
+                        class="bi bi-tag-fill text-primary">
                     </i>
 
                     <strong>Category:</strong>
 
-                    <span class="badge bg-success">
+                    <span class="badge bg-primary">
 
                         <?php
                         echo htmlspecialchars(
@@ -309,7 +309,7 @@ if (!$destination) {
 
                     <a
                         href="#map"
-                        class="btn btn-success">
+                        class="btn btn-primary">
 
                         <i
                             class="bi bi-map">
