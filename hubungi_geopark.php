@@ -1315,7 +1315,7 @@ include("config.php");
 
             Hakcipta Terpelihara ©
             <?= date("Y") ?>,
-            Smart Perlis Tourism Portal.
+            PERLIS TOURISM SMART PORTAL
 
         </div>
 

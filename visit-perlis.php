@@ -46,35 +46,19 @@ Logo Visit Perlis 2024 - 2026
 
 <style>
 
-/* =========================================
-   PERLIS COLOUR
-========================================= */
-
 :root {
 
     --perlis-blue: #0057A8;
-
     --perlis-dark-blue: #003F7D;
-
     --perlis-yellow: #FFD700;
-
     --perlis-light-yellow: #FFF8CC;
-
     --light-bg: #f7faf8;
 
 }
 
-
-/* =========================================
-   GLOBAL
-========================================= */
-
 * {
-
     box-sizing: border-box;
-
 }
-
 
 body {
 
@@ -87,9 +71,7 @@ body {
 }
 
 
-/* =========================================
-   NAVBAR
-========================================= */
+/* NAVBAR */
 
 .navbar {
 
@@ -198,9 +180,7 @@ body {
 }
 
 
-/* =========================================
-   PAGE CONTENT
-========================================= */
+/* PAGE CONTENT */
 
 .page-content {
 
@@ -383,9 +363,7 @@ body {
 }
 
 
-/* =========================================
-   FOOTER
-========================================= */
+/* FOOTER */
 
 footer {
 
@@ -416,9 +394,7 @@ footer a:hover {
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
+/* MOBILE */
 
 @media(max-width:768px) {
 
@@ -459,9 +435,7 @@ footer a:hover {
 <body>
 
 
-<!-- =========================================
-     PUBLIC NAVBAR
-========================================= -->
+<!-- PUBLIC NAVBAR -->
 
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
 
@@ -477,7 +451,7 @@ footer a:hover {
 
 <i class="bi bi-geo-alt-fill"></i>
 
-Smart Perlis Tourism Portal
+PERLIS TOURISM SMART PORTAL
 
 </a>
 
@@ -592,7 +566,7 @@ Kluster Pelancongan
 </li>
 
 
-<!-- DESTINATIONS -->
+<!-- EXPLORE -->
 
 <li class="nav-item">
 
@@ -603,7 +577,7 @@ Kluster Pelancongan
 
 <i class="bi bi-geo-alt-fill"></i>
 
-Destinations
+Explore
 
 </a>
 
@@ -704,15 +678,12 @@ Gallery
 
 </div>
 
-
 </div>
 
 </nav>
 
 
-<!-- =========================================
-     VISIT PERLIS CONTENT
-========================================= -->
+<!-- VISIT PERLIS CONTENT -->
 
 <main class="page-content">
 
@@ -852,9 +823,7 @@ kepelbagaian serta keunikan produk-produk pelancongan negeri Perlis.
 </main>
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+<!-- FOOTER -->
 
 <footer class="pt-5 pb-4">
 
@@ -872,22 +841,19 @@ kepelbagaian serta keunikan produk-produk pelancongan negeri Perlis.
 
 <h5 class="fw-bold">
 
-
 <i
     class="bi bi-geo-alt-fill"
     style="color:#FFD700;"
 ></i>
 
-
-Smart Perlis Tourism Portal
-
+PERLIS TOURISM SMART PORTAL
 
 </h5>
 
 
 <p class="text-white-50">
 
-Smart Perlis Tourism Portal is an
+PERLIS TOURISM SMART PORTAL is an
 interactive platform to explore
 destinations, events and tourism
 information in Perlis.
@@ -901,7 +867,6 @@ information in Perlis.
 <!-- QUICK LINKS -->
 
 <div class="col-md-3">
-
 
 <h6 class="fw-bold">
 
@@ -950,7 +915,6 @@ Gallery
 
 <div class="col-md-3">
 
-
 <h6 class="fw-bold">
 
 Information
@@ -980,7 +944,7 @@ Contact Us
 
 <div class="text-center text-white-50">
 
-© 2026 Smart Perlis Tourism Portal
+© 2026 PERLIS TOURISM SMART PORTAL
 
 </div>
 
@@ -990,9 +954,7 @@ Contact Us
 </footer>
 
 
-<!-- =========================================
-     BOOTSTRAP JS
-========================================= -->
+<!-- BOOTSTRAP JS -->
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

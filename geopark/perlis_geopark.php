@@ -140,7 +140,7 @@ $currentYear = date("Y");
     >
 
     <title>
-        Perlis Geopark | Smart Perlis Tourism Portal
+        Perlis Geopark | PERLIS TOURISM SMART PORTAL
     </title>
 
 
@@ -1197,7 +1197,7 @@ body {
                 </strong>
 
                 <span>
-                    SMART PERLIS TOURISM PORTAL
+                    PERLIS TOURISM SMART PORTAL
                 </span>
 
             </div>
@@ -1518,7 +1518,7 @@ body {
                             >
 
                                 <i class="bi bi-house-fill"></i>
-                                Smart Perlis Tourism Portal
+                                PERLIS TOURISM SMART PORTAL
 
                             </a>
 
@@ -2258,7 +2258,7 @@ body {
 
                 <p>
 
-                    Smart Perlis Tourism Portal menyediakan maklumat
+                    PERLIS TOURISM SMART PORTAL menyediakan maklumat
                     berkaitan destinasi, warisan, acara dan pengalaman
                     pelancongan di negeri Perlis.
 
@@ -2329,7 +2329,7 @@ body {
                         <a href="../index.php">
 
                             <i class="bi bi-house"></i>
-                            Smart Perlis Tourism Portal
+                            PERLIS TOURISM SMART PORTAL
 
                         </a>
 
@@ -2382,7 +2382,7 @@ body {
 
             © <?= date("Y") ?>
 
-            Smart Perlis Tourism Portal.
+            PERLIS TOURISM SMART PORTAL.
 
             All Rights Reserved.
 
