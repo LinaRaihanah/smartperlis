@@ -6,7 +6,6 @@
 
 ?>
 
-
 <!-- GOOGLE FONT - SAME AS INDEX.PHP -->
 
 <link
@@ -103,7 +102,7 @@
                         id="exploreButton"
                     >
 
-                    <i class="bi bi-geo-alt-fill"></i>
+                        <i class="bi bi-geo-alt-fill"></i>
 
                         Explore
 
@@ -118,9 +117,7 @@
                     <div class="destination-menu">
 
 
-                        <!-- ================================= -->
                         <!-- DESTINATIONS -->
-                        <!-- ================================= -->
 
                         <a href="destinations.php">
 
@@ -132,9 +129,7 @@
 
 
 
-                        <!-- ================================= -->
                         <!-- TRANSPORTATION -->
-                        <!-- ================================= -->
 
                         <a href="transportation.php">
 
@@ -146,9 +141,7 @@
 
 
 
-                        <!-- ================================= -->
                         <!-- ACCOMMODATION -->
-                        <!-- ================================= -->
 
                         <a href="accommodation.php">
 
@@ -160,9 +153,7 @@
 
 
 
-                        <!-- ================================= -->
                         <!-- RESTAURANT -->
-                        <!-- ================================= -->
 
                         <a href="restaurant.php">
 
@@ -283,6 +274,27 @@
                 </li>
 
 
+
+                <!-- ================================= -->
+                <!-- LOGIN BUTTON -->
+                <!-- ================================= -->
+
+                <li class="nav-item login-item">
+
+                    <a
+                        class="nav-link login-button"
+                        href="login.php"
+                    >
+
+                        <i class="bi bi-box-arrow-in-right"></i>
+
+                        Login
+
+                    </a>
+
+                </li>
+
+
             </ul>
 
         </div>
@@ -298,7 +310,6 @@
 
 /* ================================= */
 /* NAVBAR LOGO */
-/* SAME STYLE AS INDEX.PHP */
 /* ================================= */
 
 .navbar-brand {
@@ -363,6 +374,44 @@
 .navbar .nav-link:hover {
 
     color: #fff;
+
+}
+
+
+
+/* ================================= */
+/* LOGIN BUTTON */
+/* ================================= */
+
+.login-item {
+
+    margin-left: 10px;
+
+}
+
+
+.login-button {
+
+    background: #0057B8;
+
+    color: white !important;
+
+    padding: 7px 16px !important;
+
+    border-radius: 6px;
+
+    font-weight: 600 !important;
+
+    transition: 0.3s;
+
+}
+
+
+.login-button:hover {
+
+    background: #003F82;
+
+    color: white !important;
 
 }
 
@@ -466,8 +515,11 @@
 /* ================================= */
 
 .destination-menu a:hover {
+
     background: #FFD700;
+
     color: #0057B8;
+
 }
 
 
@@ -477,7 +529,9 @@
 /* ================================= */
 
 .destination-menu a:hover i {
+
     color: #0057B8;
+
 }
 
 
@@ -488,54 +542,103 @@
 
 @media (max-width: 991px) {
 
+
     .destination-menu {
+
         display: none;
+
         position: static;
+
         box-shadow: none;
+
         border-radius: 0;
+
         background: transparent;
+
         padding-left: 15px;
+
         min-width: auto;
+
     }
+
 
     .destination-menu a {
+
         color: #fff;
+
         padding: 8px 10px;
+
     }
+
 
     .destination-menu a i {
+
         color: #FFD700;
+
     }
+
 
     .destination-menu a:hover {
+
         background: rgba(255,255,255,0.15);
+
         color: white;
+
     }
 
+
     .destination-menu a:hover i {
+
         color: #FFD700;
+
+    }
+
+
+    /* LOGIN ON MOBILE */
+
+    .login-item {
+
+        margin-left: 0;
+
+        margin-top: 8px;
+
+    }
+
+
+    .login-button {
+
+        display: inline-block;
+
     }
 
 }
 
+
 </style>
+
 
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const exploreButton = document.getElementById("exploreButton");
-    const destinationMenu = document.querySelector(".destination-menu");
+    const exploreButton =
+        document.getElementById("exploreButton");
+
+    const destinationMenu =
+        document.querySelector(".destination-menu");
+
 
     if (exploreButton && destinationMenu) {
 
         exploreButton.addEventListener("click", function (event) {
 
             // Only control Explore dropdown on mobile
+
             if (window.innerWidth <= 991) {
 
                 event.preventDefault();
+
 
                 if (destinationMenu.style.display === "block") {
 
