@@ -121,6 +121,10 @@ body {
 
     border-bottom: 3px solid var(--perlis-yellow);
 
+    /* Space for Admin Area */
+
+    padding-top: 28px;
+
 }
 
 
@@ -201,6 +205,52 @@ body {
 .profile-dropdown:hover .dropdown-menu {
 
     display: block;
+
+}
+
+
+/* =========================================
+   ADMIN AREA
+========================================= */
+
+.admin-area {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 30px;
+
+    z-index: 1100;
+
+}
+
+
+.admin-area a {
+
+    color: rgba(255,255,255,.90);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: .25s;
+
+}
+
+
+.admin-area a:hover {
+
+    color: var(--perlis-yellow);
+
+}
+
+
+.admin-area i {
+
+    margin-right: 5px;
 
 }
 
@@ -882,6 +932,29 @@ footer a:hover {
 
     }
 
+
+    .admin-area {
+
+        top: 9px;
+
+        right: 15px;
+
+    }
+
+
+    .admin-area a {
+
+        font-size: 12px;
+
+    }
+
+
+    .navbar {
+
+        padding-top: 32px;
+
+    }
+
 }
 
 </style>
@@ -890,6 +963,23 @@ footer a:hover {
 
 
 <body>
+
+
+<!-- =========================================
+     ADMIN AREA
+========================================= -->
+
+<div class="admin-area">
+
+<a href="login.php">
+
+<i class="bi bi-person-lock"></i>
+
+Admin Area
+
+</a>
+
+</div>
 
 
 <!-- =========================================
@@ -1136,7 +1226,7 @@ Gallery
 
 <a
     class="nav-link"
-    href="geopark/perlis_geopark.php" 
+    href="geopark/perlis_geopark.php"
 >
 
 <i class="bi bi-globe-asia-australia"></i>
