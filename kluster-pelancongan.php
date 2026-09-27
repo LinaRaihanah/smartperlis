@@ -441,7 +441,7 @@ footer a:hover {
 <li class="nav-item">
 <a class="nav-link" href="destinations.php">
     <i class="bi bi-geo-alt-fill"></i>
-    Destinations
+    Explore
 </a>
 </li>
 
