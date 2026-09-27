@@ -110,41 +110,72 @@ if (!$destination) {
 
     <style>
 
-        .detail-image {
+    /* =========================
+       DESTINATION HEADER
+    ========================= */
 
-            width: 100%;
+    .destination-header {
 
-            height: 450px;
+        background: linear-gradient(
+            135deg,
+            #FFD700 0%,
+            #F5C400 30%,
+            #4A90D9 70%,
+            #0057B8 100%
+        );
 
-            object-fit: cover;
+        color: white;
 
-            border-radius: 15px;
-
-        }
-
-
-        .info-card {
-
-            border: none;
-
-            border-radius: 15px;
-
-        }
+    }
 
 
-        .map-container iframe {
+    /* =========================
+       DESTINATION IMAGE
+    ========================= */
 
-            width: 100%;
+    .detail-image {
 
-            height: 450px;
+        width: 100%;
 
-            border: 0;
+        height: 450px;
 
-            border-radius: 15px;
+        object-fit: cover;
 
-        }
+        border-radius: 15px;
 
-    </style>
+    }
+
+
+    /* =========================
+       INFORMATION CARD
+    ========================= */
+
+    .info-card {
+
+        border: none;
+
+        border-radius: 15px;
+
+    }
+
+
+    /* =========================
+       MAP
+    ========================= */
+
+    .map-container iframe {
+
+        width: 100%;
+
+        height: 450px;
+
+        border: 0;
+
+        border-radius: 15px;
+
+    }
+
+</style>
 
 </head>
 
