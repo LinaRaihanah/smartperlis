@@ -100,9 +100,10 @@
                     <a
                         class="nav-link destination-button"
                         href="destinations.php"
+                        id="exploreButton"
                     >
 
-                        <i class="bi bi-geo-alt-fill"></i>
+                    <i class="bi bi-geo-alt-fill"></i>
 
                         Explore
 
@@ -492,68 +493,71 @@
 
 @media (max-width: 991px) {
 
-
     .destination-menu {
-
+        display: none;
         position: static;
-
         box-shadow: none;
-
         border-radius: 0;
-
         background: transparent;
-
         padding-left: 15px;
-
         min-width: auto;
-
     }
-
-
-
-    .destination-dropdown:hover .destination-menu {
-
-        display: block;
-
-    }
-
-
 
     .destination-menu a {
-
         color: #fff;
-
         padding: 8px 10px;
-
     }
-
-
 
     .destination-menu a i {
-
         color: #FFD700;
-
     }
-
-
 
     .destination-menu a:hover {
-
         background: rgba(255,255,255,0.15);
-
         color: white;
-
     }
 
-
-
     .destination-menu a:hover i {
-
         color: #FFD700;
-
     }
 
 }
 
-
 </style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const exploreButton = document.getElementById("exploreButton");
+    const destinationMenu = document.querySelector(".destination-menu");
+
+    if (exploreButton && destinationMenu) {
+
+        exploreButton.addEventListener("click", function (event) {
+
+            // Only control Explore dropdown on mobile
+            if (window.innerWidth <= 991) {
+
+                event.preventDefault();
+
+                if (destinationMenu.style.display === "block") {
+
+                    destinationMenu.style.display = "none";
+
+                } else {
+
+                    destinationMenu.style.display = "block";
+
+                }
+
+            }
+
+        });
+
+    }
+
+});
+
+</script>
