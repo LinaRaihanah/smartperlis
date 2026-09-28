@@ -824,224 +824,20 @@ include("config.php");
 
                             <div class="event-image-wrapper">
 
-                                <img src="assets/images/<?php
-
-                                echo htmlspecialchars(
-
-                                    !empty($row['image'])
-                                    ? $row['image']
-                                    : 'default.jpg'
-
-                                );
-
-                                ?>" class="event-image" alt="<?php
-
-                                echo htmlspecialchars(
-                                    $row['event_name']
-                                );
-
-                                ?>">
-
+                                <img src="<?php echo htmlspecialchars($row['image']); ?>" class="event-image"
+                                    alt="<?php echo htmlspecialchars($row['event_name']); ?>">
 
                                 <!-- DATE BADGE -->
 
                                 <div class="event-date-badge">
 
                                     <span class="day">
-
-                                        <?php
-
-                                        echo $startDate->format(
-                                            'd'
-                                        );
-
-                                        ?>
-
+                                        <?php echo $startDate->format('d'); ?>
                                     </span>
-
 
                                     <span class="month">
-
-                                        <?php
-
-                                        echo strtoupper(
-                                            $startDate->format(
-                                                'M'
-                                            )
-                                        );
-
-                                        ?>
-
+                                        <?php echo strtoupper($startDate->format('M')); ?>
                                     </span>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <!-- EVENT INFORMATION -->
-
-                            <div class="card-body d-flex flex-column">
-
-
-                                <h4 class="card-title fw-bold">
-
-                                    <?php
-
-                                    echo htmlspecialchars(
-                                        $row['event_name']
-                                    );
-
-                                    ?>
-
-                                </h4>
-
-
-
-                                <!-- START DATE -->
-
-                                <p>
-
-                                    <i class="bi bi-calendar-event event-icon me-1">
-                                    </i>
-
-                                    <strong>
-                                        Start Date:
-                                    </strong>
-
-                                    <?php
-
-                                    echo $startDate->format(
-                                        "d M Y"
-                                    );
-
-                                    ?>
-
-                                </p>
-
-
-
-                                <!-- END DATE -->
-
-                                <p>
-
-                                    <i class="bi bi-calendar-check event-icon me-1">
-                                    </i>
-
-                                    <strong>
-                                        End Date:
-                                    </strong>
-
-                                    <?php
-
-                                    echo $hasValidEndDate
-                                        ? $endDate->format("d M Y")
-                                        : "TBA";
-
-                                    ?>
-
-                                </p>
-
-
-
-                                <!-- START DAY -->
-
-                                <p>
-
-                                    <i class="bi bi-calendar-day event-icon me-1">
-                                    </i>
-
-                                    <strong>
-                                        Start Day:
-                                    </strong>
-
-                                    <?php
-
-                                    echo $day;
-
-                                    ?>
-
-                                </p>
-
-
-
-                                <!-- DURATION -->
-
-                                <p>
-
-                                    <i class="bi bi-clock event-icon me-1">
-                                    </i>
-
-                                    <strong>
-                                        Duration:
-                                    </strong>
-
-                                    <?php
-
-                                    echo $duration;
-
-                                    echo
-                                        ($duration == 1)
-                                        ? " day"
-                                        : " days";
-
-                                    ?>
-
-                                </p>
-
-
-
-                                <!-- LOCATION -->
-
-                                <p>
-
-                                    <i class="bi bi-geo-alt event-icon me-1">
-                                    </i>
-
-                                    <strong>
-                                        Location:
-                                    </strong>
-
-                                    <?php
-
-                                    echo htmlspecialchars(
-                                        $row['location']
-                                    );
-
-                                    ?>
-
-                                </p>
-
-
-
-                                <!-- DESCRIPTION -->
-
-                                <p class="event-description">
-
-                                    <?php
-
-                                    echo htmlspecialchars(
-                                        $row['description']
-                                    );
-
-                                    ?>
-
-                                </p>
-
-
-
-                                <!-- BUTTON -->
-
-                                <div class="mt-auto">
-
-                                    <a href="contact.php" class="btn join-btn">
-
-                                        <i class="bi bi-calendar-check me-1"></i>
-
-                                        Join Event
-
-                                    </a>
 
                                 </div>
 
@@ -1049,10 +845,181 @@ include("config.php");
 
                         </div>
 
+
+
+                        <!-- EVENT INFORMATION -->
+
+                        <div class="card-body d-flex flex-column">
+
+
+                            <h4 class="card-title fw-bold">
+
+                                <?php
+
+                                echo htmlspecialchars(
+                                    $row['event_name']
+                                );
+
+                                ?>
+
+                            </h4>
+
+
+
+                            <!-- START DATE -->
+
+                            <p>
+
+                                <i class="bi bi-calendar-event event-icon me-1">
+                                </i>
+
+                                <strong>
+                                    Start Date:
+                                </strong>
+
+                                <?php
+
+                                echo $startDate->format(
+                                    "d M Y"
+                                );
+
+                                ?>
+
+                            </p>
+
+
+
+                            <!-- END DATE -->
+
+                            <p>
+
+                                <i class="bi bi-calendar-check event-icon me-1">
+                                </i>
+
+                                <strong>
+                                    End Date:
+                                </strong>
+
+                                <?php
+
+                                echo $hasValidEndDate
+                                    ? $endDate->format("d M Y")
+                                    : "TBA";
+
+                                ?>
+
+                            </p>
+
+
+
+                            <!-- START DAY -->
+
+                            <p>
+
+                                <i class="bi bi-calendar-day event-icon me-1">
+                                </i>
+
+                                <strong>
+                                    Start Day:
+                                </strong>
+
+                                <?php
+
+                                echo $day;
+
+                                ?>
+
+                            </p>
+
+
+
+                            <!-- DURATION -->
+
+                            <p>
+
+                                <i class="bi bi-clock event-icon me-1">
+                                </i>
+
+                                <strong>
+                                    Duration:
+                                </strong>
+
+                                <?php
+
+                                echo $duration;
+
+                                echo
+                                    ($duration == 1)
+                                    ? " day"
+                                    : " days";
+
+                                ?>
+
+                            </p>
+
+
+
+                            <!-- LOCATION -->
+
+                            <p>
+
+                                <i class="bi bi-geo-alt event-icon me-1">
+                                </i>
+
+                                <strong>
+                                    Location:
+                                </strong>
+
+                                <?php
+
+                                echo htmlspecialchars(
+                                    $row['location']
+                                );
+
+                                ?>
+
+                            </p>
+
+
+
+                            <!-- DESCRIPTION -->
+
+                            <p class="event-description">
+
+                                <?php
+
+                                echo htmlspecialchars(
+                                    $row['description']
+                                );
+
+                                ?>
+
+                            </p>
+
+
+
+                            <!-- BUTTON -->
+
+                            <div class="mt-auto">
+
+                                <a href="contact.php" class="btn join-btn">
+
+                                    <i class="bi bi-calendar-check me-1"></i>
+
+                                    Join Event
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
+                </div>
 
-                    <?php
+
+                <?php
 
                 }
 
@@ -1060,26 +1027,26 @@ include("config.php");
 
                 ?>
 
-                <div class="col-12">
+            <div class="col-12">
 
-                    <div class="alert alert-info text-center">
+                <div class="alert alert-info text-center">
 
-                        <i class="bi bi-calendar-x me-1"></i>
+                    <i class="bi bi-calendar-x me-1"></i>
 
-                        No upcoming events available at the moment.
-
-                    </div>
+                    No upcoming events available at the moment.
 
                 </div>
 
-                <?php
+            </div>
+
+            <?php
 
             }
 
             ?>
 
 
-        </div>
+    </div>
 
     </div>
 
@@ -1381,7 +1348,7 @@ include("config.php");
 
                                         ?>
 
-                                {
+                                                {
 
                                             id:
                                                 <?php
