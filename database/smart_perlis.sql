@@ -87,10 +87,44 @@ CREATE TABLE `destinations` (
 --
 
 INSERT INTO `destinations` (`destination_id`, `destination_name`, `category`, `location`, `description`, `image`, `created_at`) VALUES
-(1, 'Gua Kelam', 'Nature', 'Kaki Bukit, Perlis', 'One of the most famous limestone caves in Perlis.', 'gua_kelam.jpg', '2026-08-13 02:10:47'),
-(2, 'Wang Kelian', 'Nature', 'Wang Kelian, Perlis', 'Beautiful mountain scenery and weekend market.', 'wangkelian.jpg', '2026-08-13 02:10:47'),
-(3, 'Timah Tasoh Lake', 'Lake', 'Beseri, Perlis', 'A peaceful lake surrounded by hills.', 'timahtasoh.jpg', '2026-08-13 02:10:48'),
-(4, 'Kuala Perlis', 'Culture', 'Kuala Perlis', 'Popular seafood destination and jetty area.', 'kualaperlis.jpg', '2026-08-13 02:10:48');
+(1, 'Gua Kelam', 'Pelancongan Eko', 'Kaki Bukit, Perlis', 'Tourist attraction located in Kaki Bukit, Perlis.', 'gua_kelam.jpg', '2026-09-28 00:00:00'),
+(2, 'Wang Kelian Viewpoint', 'Pelancongan Eko', 'Wang Kelian, Perlis', 'Tourist attraction located in Wang Kelian, Perlis.', 'wangkelian.jpg', '2026-09-28 00:00:00'),
+(3, 'Tasik Timah Tasoh', 'Pelancongan Eko', 'Beseri, Perlis', 'Tourist attraction located in Beseri, Perlis.', 'timahtasoh.jpg', '2026-09-28 00:00:00'),
+(4, 'Padang Besar (Arked Niaga)', 'Pelancongan Membeli Belah / Makanan', 'Padang Besar, Perlis', 'Tourist attraction located in Padang Besar, Perlis.', 'padang_besar.jpg', '2026-09-28 00:00:00'),
+(5, 'Kuala Perlis Seafood & Jetty', 'Pelancongan Membeli Belah / Makanan', 'Kuala Perlis, Perlis', 'Tourist attraction located in Kuala Perlis, Perlis.', 'kualaperlis.jpg', '2026-09-28 00:00:00'),
+(6, 'Masjid Al-Hussain (Floating Mosque)', 'Pelancongan Sejarah, Warisan & Budaya', 'Kuala Perlis, Perlis', 'Tourist attraction located in Kuala Perlis, Perlis.', 'masjid_al_hussain.jpg', '2026-09-28 00:00:00'),
+(7, 'Muzium Kota Kayang', 'Pelancongan Sejarah, Warisan & Budaya', 'Kuala Perlis, Perlis', 'Tourist attraction located in Kuala Perlis, Perlis.', 'muzium_kota_kayang.jpg', '2026-09-28 00:00:00'),
+(8, 'Taman Ular dan Reptilia', 'Pelancongan Eko', 'Sg. Batu Pahat, Perlis', 'Tourist attraction located in Sg. Batu Pahat, Perlis.', 'taman_ular_dan_reptilia.jpg', '2026-09-28 00:00:00'),
+(9, 'Rimba Herba Perlis', 'Pelancongan Agro', 'Sg. Batu Pahat, Perlis', 'Tourist attraction located in Sg. Batu Pahat, Perlis.', 'rimba_herba_perlis.jpg', '2026-09-28 00:00:00'),
+(10, 'Taman Eko Rimba Bukit Ayer', 'Pelancongan Eko', 'Sg. Batu Pahat, Perlis', 'Tourist attraction located in Sg. Batu Pahat, Perlis.', 'bukit_ayer.jpg', '2026-09-28 00:00:00'),
+(11, 'Arau Royal Town & Galeri DiRaja', 'Pelancongan Sejarah, Warisan & Budaya', 'Arau, Perlis', 'Tourist attraction located in Arau, Perlis.', 'arau_royal_town_and_galeri_diraja.jpg', '2026-09-28 00:00:00'),
+(12, 'Kangar Art Street & City Center', 'Pelancongan Sejarah, Warisan & Budaya', 'Kangar, Perlis', 'Tourist attraction located in Kangar, Perlis.', 'kangar_art_street_and_city_center.jpg', '2026-09-28 00:00:00'),
+(13, 'Ladang Nipah Kipli', 'Pelancongan Agro', 'Kuala Sanglang, Perlis', 'Tourist attraction located in Kuala Sanglang, Perlis.', 'ladang_nipah_kipli.jpg', '2026-09-28 00:00:00'),
+(14, 'Delapan Tumpat Sungai Berembang', 'Pelancongan Agro', 'Kuala Perlis, Perlis', 'Tourist attraction located in Kuala Perlis, Perlis.', 'delapan_tumpat_sungai_berembang.jpg', '2026-09-28 00:00:00'),
+(15, 'Taman Anggur Perlis', 'Pelancongan Agro', 'Sg. Batu Pahat, Perlis', 'Tourist attraction located in Sg. Batu Pahat, Perlis.', 'taman_anggur_perlis.jpg', '2026-09-28 00:00:00'),
+(16, 'Pusat Kecemerlangan Pengeluaran Harumanis', 'Pelancongan Agro', 'Beseri, Perlis', 'Tourist attraction located in Beseri, Perlis.', 'pusat_kecemerlangan_pengeluaran_harumanis.jpg', '2026-09-28 00:00:00'),
+(17, 'Taman Agrovet', 'Pelancongan Agro', 'Sg. Batu Pahat, Perlis', 'Tourist attraction located in Sg. Batu Pahat, Perlis.', 'taman_agrovet.jpg', '2026-09-28 00:00:00'),
+(18, 'Santuari Ikan Air Tawar', 'Pelancongan Agro', 'Beseri, Perlis', 'Tourist attraction located in Beseri, Perlis.', 'santuari_ikan_air_tawar.jpg', '2026-09-28 00:00:00'),
+(19, 'Ladang Buah Tin', 'Pelancongan Agro', 'Chuping, Perlis', 'Tourist attraction located in Chuping, Perlis.', 'ladang_buah_tin.jpg', '2026-09-28 00:00:00'),
+(20, 'Taman Negara Perlis', 'Pelancongan Eko', 'Wang Kelian, Perlis', 'Tourist attraction located in Wang Kelian, Perlis.', 'taman_negara_perlis.jpg', '2026-09-28 00:00:00'),
+(21, 'Bukit Chabang', 'Pelancongan Eko', 'Chuping, Perlis', 'Tourist attraction located in Chuping, Perlis.', 'bukit_chabang.jpg', '2026-09-28 00:00:00'),
+(22, 'Hutan Rekreasi Bukit Jernih', 'Pelancongan Eko', 'Beseri, Perlis', 'Tourist attraction located in Beseri, Perlis.', 'hutan_rekreasi_bukit_jernih.jpg', '2026-09-28 00:00:00'),
+(23, 'Bukit Keteri', 'Pelancongan Eko', 'Chuping, Perlis', 'Tourist attraction located in Chuping, Perlis.', 'bukit_keteri.jpg', '2026-09-28 00:00:00'),
+(24, 'Bukit Tok Dun', 'Pelancongan Eko', 'Kaki Bukit, Perlis', 'Tourist attraction located in Kaki Bukit, Perlis.', 'bukit_tok_dun.jpg', '2026-09-28 00:00:00'),
+(25, 'Trail Litar Wang Gunung', 'Pelancongan Eko', 'Bintong, Perlis', 'Tourist attraction located in Bintong, Perlis.', 'trail_litar_wang_gunung.jpg', '2026-09-28 00:00:00'),
+(26, 'Pasar Neko / Kompleks LKM', 'Pelancongan Sejarah, Warisan & Budaya', 'Kuala Perlis, Perlis', 'Tourist attraction located in Kuala Perlis, Perlis.', 'pasar_neko_kompleks_lkm.jpg', '2026-09-28 00:00:00'),
+(27, 'Jambatan Tuanku Syed Putra', 'Pelancongan Sejarah, Warisan & Budaya', 'Kuala Perlis, Perlis', 'Tourist attraction located in Kuala Perlis, Perlis.', 'jambatan_tuanku_syed_putra.jpg', '2026-09-28 00:00:00'),
+(28, 'Laman Seni Negeri Perlis', 'Pelancongan Sejarah, Warisan & Budaya', 'Kangar, Perlis', 'Tourist attraction located in Kangar, Perlis.', 'laman_seni_negeri_perlis.jpg', '2026-09-28 00:00:00'),
+(29, 'Kompleks Jabatan Kebudayaan & Kesenian', 'Pelancongan Sejarah, Warisan & Budaya', 'Kangar, Perlis', 'Tourist attraction located in Kangar, Perlis.', 'kompleks_jabatan_kebudayaan_and_kesenian.jpg', '2026-09-28 00:00:00'),
+(30, 'Homestay FELDA Mata Ayer', 'Pelancongan Sejarah, Warisan & Budaya', 'Padang Besar, Perlis', 'Tourist attraction located in Padang Besar, Perlis.', 'homestay_felda_mata_ayer.jpg', '2026-09-28 00:00:00'),
+(31, 'Nat Pokok Sena', 'Pelancongan Membeli Belah / Makanan', 'Pokok Sena, Perlis', 'Tourist attraction located in Pokok Sena, Perlis.', 'nat_pokok_sena.jpg', '2026-09-28 00:00:00'),
+(32, 'Pasar Terapung JPS', 'Pelancongan Membeli Belah / Makanan', 'Pengkalan Asam, Perlis', 'Tourist attraction located in Pengkalan Asam, Perlis.', 'pasar_terapung_jps.jpg', '2026-09-28 00:00:00'),
+(33, 'Trik Kurong Tegar', 'Pelancongan Sukan & Rekreasi', 'Kangar, Perlis', 'Tourist attraction located in Kangar, Perlis.', 'trik_kurong_tegar.jpg', '2026-09-28 00:00:00'),
+(34, 'Kelab Golf Putra', 'Pelancongan Sukan & Rekreasi', 'Sg. Batu Pahat, Perlis', 'Tourist attraction located in Sg. Batu Pahat, Perlis.', 'kelab_golf_putra.jpg', '2026-09-28 00:00:00'),
+(35, 'Denai Larian Pengkalan Asam', 'Pelancongan Sukan & Rekreasi', 'Kangar, Perlis', 'Tourist attraction located in Kangar, Perlis.', 'denai_larian_pengkalan_asam.jpg', '2026-09-28 00:00:00'),
+(36, 'Taman Awam Bukit Lagi', 'Pelancongan Sukan & Rekreasi', 'Kangar, Perlis', 'Tourist attraction located in Kangar, Perlis.', 'taman_awam_bukit_lagi.jpg', '2026-09-28 00:00:00'),
+(37, 'Dataran Dato\' Sheikh Ahmad', 'Pelancongan Sukan & Rekreasi', 'Kangar, Perlis', 'Tourist attraction located in Kangar, Perlis.', 'dataran_dato_sheikh_ahmad.jpg', '2026-09-28 00:00:00'),
+(38, 'Litar Go-Kart UniMAP', 'Pelancongan Sukan & Rekreasi', 'Arau, Perlis', 'Tourist attraction located in Arau, Perlis.', 'litar_go_kart_unimap.jpg', '2026-09-28 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -420,7 +454,7 @@ ALTER TABLE `contact_messages`
 -- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `destination_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `destination_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `destination_ratings`
