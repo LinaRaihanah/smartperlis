@@ -2,105 +2,132 @@
 
 include("config.php");
 
-
 // =====================================================
+
 // PERLIS TOURISM SMART PORTAL
+
 // ANALYTICS DASHBOARD
-// PHP + MYSQL + CHART.JS
-// NO POWER BI
-// =====================================================
 
-
+// PHP + MYSQL + CHART.JS + POWER BI
 
 // =====================================================
+
+// =====================================================
+
 // KPI 1
+
 // TOTAL DESTINATIONS
+
 // =====================================================
 
 $query = mysqli_query(
+
     $conn,
+
     "SELECT COUNT(*) AS total FROM destinations"
+
 );
 
 $row = mysqli_fetch_assoc($query);
 
 $totalDestination = $row['total'];
 
-
-
 // =====================================================
+
 // KPI 2
+
 // TOTAL EVENTS
+
 // =====================================================
 
 $query = mysqli_query(
+
     $conn,
+
     "SELECT COUNT(*) AS total FROM events"
+
 );
 
 $row = mysqli_fetch_assoc($query);
 
 $totalEvent = $row['total'];
 
-
-
 // =====================================================
+
 // KPI 3
+
 // TOTAL TOURISM VISITORS
+
 // =====================================================
 
 $query = mysqli_query(
+
     $conn,
+
     "SELECT COUNT(*) AS total FROM visitors"
+
 );
 
 $row = mysqli_fetch_assoc($query);
 
 $totalVisitor = $row['total'];
 
-
-
 // =====================================================
+
 // KPI 4
+
 // TOTAL WEBSITE VISITS
+
 // =====================================================
 
 $query = mysqli_query(
+
     $conn,
+
     "SELECT COUNT(*) AS total FROM visitor_logs"
+
 );
 
 $row = mysqli_fetch_assoc($query);
 
 $totalWebsiteVisit = $row['total'];
 
-
-
 // =====================================================
+
 // KPI 5
+
 // TOTAL REVIEWS
+
 // =====================================================
 
 $query = mysqli_query(
+
     $conn,
+
     "SELECT COUNT(*) AS total FROM destination_ratings"
+
 );
 
 $row = mysqli_fetch_assoc($query);
 
 $totalReviews = $row['total'];
 
-
-
 // =====================================================
+
 // KPI 6
+
 // AVERAGE RATING
+
 // =====================================================
 
 $query = mysqli_query(
+
     $conn,
+
     "SELECT AVG(rating) AS average_rating
+
      FROM destination_ratings"
+
 );
 
 $row = mysqli_fetch_assoc($query);
@@ -113,44 +140,52 @@ if ($averageRating == null) {
 
 }
 
-
-
 // =====================================================
+
 // POPULAR DESTINATION
+
 // Based on total visitors
+
 // =====================================================
 
 $query = mysqli_query(
+
     $conn,
 
     "SELECT
+
         d.destination_name,
+
         COUNT(v.visitor_id) AS total_visitors
 
      FROM destinations d
 
      LEFT JOIN visitors v
+
      ON d.destination_id = v.destination_id
 
      GROUP BY
+
         d.destination_id,
+
         d.destination_name
 
      ORDER BY total_visitors DESC
 
      LIMIT 1"
+
 );
 
-
 $popularDestination = mysqli_fetch_assoc($query);
-
 
 if ($popularDestination) {
 
     $popularDestinationName =
+
         $popularDestination['destination_name'];
 
     $popularDestinationVisitors =
+
         $popularDestination['total_visitors'];
 
 } else {
@@ -161,110 +196,130 @@ if ($popularDestination) {
 
 }
 
-
-
 // =====================================================
+
 // CHART 1
+
 // VISITORS BY COUNTRY
+
 // =====================================================
 
 $countryLabels = [];
 
 $countryValues = [];
 
-
 $query = mysqli_query(
+
     $conn,
 
     "SELECT
+
         country,
+
         COUNT(visitor_id) AS total_visitors
 
      FROM visitors
 
      WHERE country IS NOT NULL
+
      AND country != ''
 
      GROUP BY country
 
      ORDER BY total_visitors DESC"
-);
 
+);
 
 while ($row = mysqli_fetch_assoc($query)) {
 
     $countryLabels[] = $row['country'];
 
     $countryValues[] =
+
         (int) $row['total_visitors'];
 
 }
 
-
-
 // =====================================================
+
 // CHART 2
+
 // VISITOR PERCENTAGE BY COUNTRY
+
 // =====================================================
 
 $percentageLabels = [];
 
 $percentageValues = [];
 
-
 $query = mysqli_query(
+
     $conn,
 
     "SELECT
+
         country,
 
         ROUND(
+
             COUNT(visitor_id) * 100.0 /
+
             NULLIF(
+
                 (SELECT COUNT(*) FROM visitors),
+
                 0
+
             ),
+
             2
+
         ) AS percentage
 
      FROM visitors
 
      WHERE country IS NOT NULL
+
      AND country != ''
 
      GROUP BY country
 
      ORDER BY percentage DESC"
-);
 
+);
 
 while ($row = mysqli_fetch_assoc($query)) {
 
     $percentageLabels[] = $row['country'];
 
     $percentageValues[] =
+
         (float) $row['percentage'];
 
 }
 
-
-
 // =====================================================
+
 // CHART 3
+
 // MONTHLY VISITOR TREND
+
 // =====================================================
 
 $monthLabels = [];
 
 $monthValues = [];
 
-
 $query = mysqli_query(
+
     $conn,
 
     "SELECT
+
         MONTH(visit_date) AS month_number,
+
         MONTHNAME(visit_date) AS month_name,
+
         COUNT(visitor_id) AS total_visitors
 
      FROM visitors
@@ -272,106 +327,126 @@ $query = mysqli_query(
      WHERE visit_date IS NOT NULL
 
      GROUP BY
+
         MONTH(visit_date),
+
         MONTHNAME(visit_date)
 
      ORDER BY month_number"
-);
 
+);
 
 while ($row = mysqli_fetch_assoc($query)) {
 
     $monthLabels[] =
+
         $row['month_name'];
 
     $monthValues[] =
+
         (int) $row['total_visitors'];
 
 }
 
-
-
 // =====================================================
+
 // CHART 4
+
 // VISITORS BY DESTINATION
+
 // =====================================================
 
 $destinationLabels = [];
 
 $destinationValues = [];
 
-
 $query = mysqli_query(
+
     $conn,
 
     "SELECT
+
         d.destination_name,
+
         COUNT(v.visitor_id) AS total_visitors
 
      FROM destinations d
 
      LEFT JOIN visitors v
+
      ON d.destination_id = v.destination_id
 
      GROUP BY
+
         d.destination_id,
+
         d.destination_name
 
      ORDER BY total_visitors DESC"
-);
 
+);
 
 while ($row = mysqli_fetch_assoc($query)) {
 
     $destinationLabels[] =
+
         $row['destination_name'];
 
     $destinationValues[] =
+
         (int) $row['total_visitors'];
 
 }
 
-
-
 // =====================================================
+
 // CHART 5
+
 // AVERAGE RATING BY DESTINATION
+
 // =====================================================
 
 $ratingLabels = [];
 
 $ratingValues = [];
 
-
 $query = mysqli_query(
+
     $conn,
 
     "SELECT
+
         d.destination_name,
 
         ROUND(
+
             AVG(dr.rating),
+
             2
+
         ) AS average_rating
 
      FROM destinations d
 
      LEFT JOIN destination_ratings dr
+
      ON d.destination_id = dr.destination_id
 
      GROUP BY
+
         d.destination_id,
+
         d.destination_name
 
      ORDER BY average_rating DESC"
-);
 
+);
 
 while ($row = mysqli_fetch_assoc($query)) {
 
     $ratingLabels[] =
-        $row['destination_name'];
 
+        $row['destination_name'];
 
     if ($row['average_rating'] == null) {
 
@@ -380,69 +455,79 @@ while ($row = mysqli_fetch_assoc($query)) {
     } else {
 
         $ratingValues[] =
+
             (float) $row['average_rating'];
 
     }
 
 }
 
-
-
 // =====================================================
+
 // CHART 6
+
 // DESTINATIONS BY CATEGORY
+
 // =====================================================
 
 $categoryLabels = [];
 
 $categoryValues = [];
 
-
 $query = mysqli_query(
+
     $conn,
 
     "SELECT
+
         category,
+
         COUNT(destination_id) AS total
 
      FROM destinations
 
      WHERE category IS NOT NULL
+
      AND category != ''
 
      GROUP BY category
 
      ORDER BY total DESC"
-);
 
+);
 
 while ($row = mysqli_fetch_assoc($query)) {
 
     $categoryLabels[] =
+
         $row['category'];
 
     $categoryValues[] =
+
         (int) $row['total'];
 
 }
 
-
-
 // =====================================================
+
 // CHART 7
+
 // WEBSITE VISITS BY PAGE
+
 // =====================================================
 
 $pageLabels = [];
 
 $pageValues = [];
 
-
 $query = mysqli_query(
+
     $conn,
 
     "SELECT
+
         page,
+
         COUNT(log_id) AS total_visits
 
      FROM visitor_logs
@@ -450,75 +535,66 @@ $query = mysqli_query(
      GROUP BY page
 
      ORDER BY total_visits DESC"
-);
 
+);
 
 while ($row = mysqli_fetch_assoc($query)) {
 
     $pageLabels[] =
+
         $row['page'];
 
     $pageValues[] =
+
         (int) $row['total_visits'];
 
 }
 
 ?>
 
-
-
 <!DOCTYPE html>
 
 <html lang="en">
 
-
 <head>
-
 
     <meta charset="UTF-8">
 
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 
     <title>
 
         Tourism Analytics Dashboard -
+
         PERLIS TOURISM SMART PORTAL
 
     </title>
-
-
 
     <!-- Bootstrap -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-
     <!-- Bootstrap Icons -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-
-
     <!-- Chart.js -->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js">
+
     </script>
-
-
 
     <!-- Website CSS -->
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-
-
     <style>
-        /* =====================================================
+
+        /\\* =====================================================
+
    BODY
-   ===================================================== */
+
+   ===================================================== \*/
 
         body {
 
@@ -526,30 +602,35 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
+        /\\* =====================================================
 
-
-        /* =====================================================
    NAVBAR
-   ===================================================== */
+
+   ===================================================== \*/
 
         .navbar {
 
             background:
 
                 linear-gradient(90deg,
+
                     #FFD700 0%,
+
                     #F5C400 40%,
+
                     #0057B8 100%) !important;
 
         }
 
+        /\\* =====================================================
 
-
-        /* =====================================================
    HEADER
+
    ORIGINAL HEADER
+
    NO DARK OVERLAY
-   ===================================================== */
+
+   ===================================================== \*/
 
         .analytics-header {
 
@@ -577,8 +658,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
-
-
         .analytics-header h1 {
 
             font-size: 3.5rem;
@@ -589,8 +668,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
-
-
         .analytics-header p {
 
             margin: 0;
@@ -599,11 +676,11 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
+        /\\* =====================================================
 
-
-        /* =====================================================
    KPI CARD
-   ===================================================== */
+
+   ===================================================== \*/
 
         .kpi-card {
 
@@ -625,8 +702,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
-
-
         .kpi-card:hover {
 
             transform: translateY(-5px);
@@ -637,8 +712,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
-
-
         .kpi-icon {
 
             font-size: 42px;
@@ -646,8 +719,6 @@ while ($row = mysqli_fetch_assoc($query)) {
             margin-bottom: 10px;
 
         }
-
-
 
         .kpi-number {
 
@@ -659,8 +730,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
-
-
         .kpi-title {
 
             color: #666;
@@ -671,18 +740,20 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
+        /\\* =====================================================
 
-
-        /* =====================================================
    POPULAR DESTINATION
-   ===================================================== */
+
+   ===================================================== \*/
 
         .popular-card {
 
             background:
 
                 linear-gradient(135deg,
+
                     #FFD700,
+
                     #0057B8);
 
             color: white;
@@ -697,8 +768,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
-
-
         .popular-card h2 {
 
             font-size: 32px;
@@ -707,11 +776,11 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
+        /\\* =====================================================
 
-
-        /* =====================================================
    ANALYTICS CARD
-   ===================================================== */
+
+   ===================================================== \*/
 
         .analytics-card {
 
@@ -731,8 +800,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
-
-
         .analytics-card h4 {
 
             font-weight: 700;
@@ -741,11 +808,11 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
+        /\\* =====================================================
 
-
-        /* =====================================================
    CHART
-   ===================================================== */
+
+   ===================================================== \*/
 
         .chart-container {
 
@@ -755,11 +822,11 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
+        /\\* =====================================================
 
-
-        /* =====================================================
    SECTION TITLE
-   ===================================================== */
+
+   ===================================================== \*/
 
         .section-title {
 
@@ -769,11 +836,11 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
+        /\\* =====================================================
 
-
-        /* =====================================================
    INSIGHT CARD
-   ===================================================== */
+
+   ===================================================== \*/
 
         .insight-card {
 
@@ -791,38 +858,75 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         }
 
-
-
         .insight-card i {
 
             font-size: 30px;
 
         }
-    </style>
 
+        /* =====================================================
+
+           POWER BI DASHBOARD
+
+           ===================================================== */
+
+        .powerbi-container {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 750px;
+
+            overflow: hidden;
+
+            border-radius: 15px;
+
+            background: white;
+
+        }
+
+        .powerbi-container iframe {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: none;
+
+        }
+
+        @media (max-width: 768px) {
+
+            .powerbi-container {
+
+                height: 550px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
-
-
 <body>
 
-
-
     <!-- =====================================================
+
      NAVBAR
+
      ===================================================== -->
 
     <?php include("navbar.php"); ?>
 
-
-
     <!-- =====================================================
+
      HEADER
+
      ===================================================== -->
 
     <section class="analytics-header">
-
 
         <h1>
 
@@ -830,40 +934,33 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         </h1>
 
-
         <p>
 
             Data-driven insights for PERLIS TOURISM SMART PORTAL
 
         </p>
 
-
     </section>
 
-
-
     <!-- =====================================================
+
      KPI CARDS
+
      ===================================================== -->
 
     <div class="container mt-5">
 
-
         <div class="row g-4">
-
-
 
             <!-- TOTAL DESTINATIONS -->
 
             <div class="col-lg-3 col-md-6">
 
-
                 <div class="kpi-card text-center">
 
-
                     <i class="bi bi-map kpi-icon text-primary">
-                    </i>
 
+                    </i>
 
                     <h2 class="kpi-number">
 
@@ -875,32 +972,25 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h2>
 
-
                     <p class="kpi-title">
 
                         Total Destinations
 
                     </p>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- TOTAL EVENTS -->
 
             <div class="col-lg-3 col-md-6">
 
-
                 <div class="kpi-card text-center">
 
-
                     <i class="bi bi-calendar-event kpi-icon text-primary">
-                    </i>
 
+                    </i>
 
                     <h2 class="kpi-number">
 
@@ -912,32 +1002,25 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h2>
 
-
                     <p class="kpi-title">
 
                         Total Events
 
                     </p>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- TOTAL VISITORS -->
 
             <div class="col-lg-3 col-md-6">
 
-
                 <div class="kpi-card text-center">
 
-
                     <i class="bi bi-people kpi-icon text-warning">
-                    </i>
 
+                    </i>
 
                     <h2 class="kpi-number">
 
@@ -949,32 +1032,25 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h2>
 
-
                     <p class="kpi-title">
 
                         Tourism Visitors
 
                     </p>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- WEBSITE VISITS -->
 
             <div class="col-lg-3 col-md-6">
 
-
                 <div class="kpi-card text-center">
 
-
                     <i class="bi bi-bar-chart-line kpi-icon text-danger">
-                    </i>
 
+                    </i>
 
                     <h2 class="kpi-number">
 
@@ -986,67 +1062,57 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h2>
 
-
                     <p class="kpi-title">
 
                         Website Visits
 
                     </p>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
-
-
     <!-- =====================================================
+
      SECOND KPI ROW
+
      ===================================================== -->
 
     <div class="container mt-4">
 
-
         <div class="row g-4">
-
-
 
             <!-- AVERAGE RATING -->
 
             <div class="col-md-6">
 
-
                 <div class="kpi-card text-center">
 
-
                     <i class="bi bi-star-fill kpi-icon text-warning">
+
                     </i>
 
-
                     <h2 class="kpi-number">
-
 
                         <?php
 
                         echo number_format(
+
                             $averageRating,
+
                             2
+
                         );
 
                         ?>
 
                         / 5
 
-
                     </h2>
-
 
                     <p class="kpi-title">
 
@@ -1054,28 +1120,21 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </p>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- TOTAL REVIEWS -->
 
             <div class="col-md-6">
 
-
                 <div class="kpi-card text-center">
 
-
                     <i class="bi bi-chat-square-text kpi-icon text-info">
+
                     </i>
 
-
                     <h2 class="kpi-number">
-
 
                         <?php
 
@@ -1083,9 +1142,7 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                         ?>
 
-
                     </h2>
-
 
                     <p class="kpi-title">
 
@@ -1093,33 +1150,27 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </p>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
-
-
     <!-- =====================================================
+
      POPULAR DESTINATION
+
      ===================================================== -->
 
     <div class="container mt-5">
 
-
         <div class="popular-card text-center">
 
-
             <i class="bi bi-trophy-fill" style="font-size:45px;">
-            </i>
 
+            </i>
 
             <h5 class="mt-3">
 
@@ -1127,19 +1178,19 @@ while ($row = mysqli_fetch_assoc($query)) {
 
             </h5>
 
-
             <h2>
 
                 <?php
 
                 echo htmlspecialchars(
+
                     $popularDestinationName
+
                 );
 
                 ?>
 
             </h2>
-
 
             <p>
 
@@ -1153,20 +1204,17 @@ while ($row = mysqli_fetch_assoc($query)) {
 
             </p>
 
-
         </div>
-
 
     </div>
 
-
-
     <!-- =====================================================
+
      VISITOR ANALYTICS
+
      ===================================================== -->
 
     <div class="container mt-5">
-
 
         <h2 class="text-center section-title">
 
@@ -1174,19 +1222,13 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         </h2>
 
-
-
         <div class="row g-4">
-
-
 
             <!-- VISITORS BY COUNTRY -->
 
             <div class="col-md-6">
 
-
                 <div class="analytics-card">
-
 
                     <h4>
 
@@ -1196,31 +1238,23 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h4>
 
-
                     <div class="chart-container">
 
-
                         <canvas id="countryChart">
-                        </canvas>
 
+                        </canvas>
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- VISITOR PERCENTAGE -->
 
             <div class="col-md-6">
 
-
                 <div class="analytics-card">
-
 
                     <h4>
 
@@ -1230,40 +1264,29 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h4>
 
-
                     <div class="chart-container">
 
-
                         <canvas id="percentageChart">
-                        </canvas>
 
+                        </canvas>
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
-
 
         <!-- MONTHLY + DESTINATION -->
 
         <div class="row g-4 mt-1">
 
-
-
             <!-- MONTHLY TREND -->
 
             <div class="col-md-6">
 
-
                 <div class="analytics-card">
-
 
                     <h4>
 
@@ -1273,31 +1296,23 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h4>
 
-
                     <div class="chart-container">
 
-
                         <canvas id="monthChart">
-                        </canvas>
 
+                        </canvas>
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- DESTINATION VISITORS -->
 
             <div class="col-md-6">
 
-
                 <div class="analytics-card">
-
 
                     <h4>
 
@@ -1307,36 +1322,29 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h4>
 
-
                     <div class="chart-container">
 
-
                         <canvas id="destinationChart">
-                        </canvas>
 
+                        </canvas>
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
-
-
     <!-- =====================================================
+
      DESTINATION ANALYTICS
+
      ===================================================== -->
 
     <div class="container mt-5">
-
 
         <h2 class="text-center section-title">
 
@@ -1344,19 +1352,13 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         </h2>
 
-
-
         <div class="row g-4">
-
-
 
             <!-- AVERAGE RATING -->
 
             <div class="col-md-6">
 
-
                 <div class="analytics-card">
-
 
                     <h4>
 
@@ -1366,31 +1368,23 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h4>
 
-
                     <div class="chart-container">
 
-
                         <canvas id="ratingChart">
-                        </canvas>
 
+                        </canvas>
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- CATEGORY -->
 
             <div class="col-md-6">
 
-
                 <div class="analytics-card">
-
 
                     <h4>
 
@@ -1400,36 +1394,29 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h4>
 
-
                     <div class="chart-container">
 
-
                         <canvas id="categoryChart">
-                        </canvas>
 
+                        </canvas>
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
-
-
     <!-- =====================================================
+
      WEBSITE ANALYTICS
+
      ===================================================== -->
 
     <div class="container mt-5 mb-5">
-
 
         <h2 class="text-center section-title">
 
@@ -1437,16 +1424,11 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         </h2>
 
-
-
         <div class="row g-4">
-
 
             <div class="col-md-12">
 
-
                 <div class="analytics-card">
-
 
                     <h4>
 
@@ -1456,85 +1438,89 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h4>
 
-
                     <div class="chart-container">
 
-
                         <canvas id="pageChart">
-                        </canvas>
 
+                        </canvas>
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
-
     <!-- =====================================================
+
      POWER BI INTERACTIVE ANALYTICS
+
      ===================================================== -->
 
     <div class="container mt-5 mb-5">
 
         <h2 class="text-center section-title">
+
             Interactive Power BI Analytics
+
         </h2>
 
-        <div class="analytics-card text-center">
+        <div class="analytics-card">
 
-            <i class="bi bi-bar-chart-fill text-warning" style="font-size: 55px;">
-            </i>
+            <div class="text-center mb-4">
 
-            <h3 class="mt-3">
-                PERLIS TOURISM SMART PORTAL
-            </h3>
+                <i class="bi bi-bar-chart-fill text-warning"
 
-            <h5 class="text-muted mt-2">
-                Interactive Analytics Dashboard
-            </h5>
+                   style="font-size: 45px;">
 
-            <p class="mt-3">
-                Explore interactive tourism data,
-                visitor trends, destination analysis,
-                events, tourism trends, prediction forecasts
-                and tourism insights using Microsoft Power BI.
-            </p>
+                </i>
 
-            <a href="https://app.powerbi.com/groups/me/reports/2694ffe5-063c-4998-9adb-57f516af8449/36a346a3e6d3e246e68c?experience=power-bi"
-                target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg mt-3 px-5">
+                <h3 class="mt-2">
 
-                <i class="bi bi-box-arrow-up-right me-2"></i>
+                    PERLIS TOURISM SMART PORTAL
 
-                View Power BI Dashboard
+                </h3>
 
-            </a>
+                <p class="text-muted">
 
-            <p class="text-muted mt-3 mb-0">
-                Opens the interactive Microsoft Power BI dashboard
-                in a new tab.
-            </p>
+                    Interactive Analytics Dashboard powered by Microsoft Power BI
+
+                </p>
+
+            </div>
+
+            <!-- POWER BI SECURE EMBED -->
+
+            <div class="powerbi-container">
+
+                <iframe
+
+                    title="PERLIS_TOURISM_SMART_PORTAL_WITH_INTERACTIVE_ANALYTICS_DASHBOARD (3)"
+
+                    src="https://app.powerbi.com/reportEmbed?reportId=7e003dc9-46d8-49ea-bfe7-cdac0f0e8888&autoAuth=true&ctid=221e8880-f1b1-41cd-8221-56d4277e4ffc"
+
+                    frameborder="0"
+
+                    allowFullScreen="true">
+
+                </iframe>
+
+            </div>
 
         </div>
 
     </div>
 
-
-
     <!-- =====================================================
+
      TOURISM INSIGHTS
+
      ===================================================== -->
 
     <div class="container mb-5">
-
 
         <h2 class="text-center section-title">
 
@@ -1542,30 +1528,23 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         </h2>
 
-
-
         <div class="row g-4">
-
-
 
             <!-- INSIGHT 1 -->
 
             <div class="col-md-4">
 
-
                 <div class="insight-card text-center">
 
-
                     <i class="bi bi-trophy-fill text-warning">
-                    </i>
 
+                    </i>
 
                     <h5 class="mt-3">
 
                         Popular Destination
 
                     </h5>
-
 
                     <p>
 
@@ -1574,7 +1553,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                             <?php
 
                             echo htmlspecialchars(
+
                                 $popularDestinationName
+
                             );
 
                             ?>
@@ -1582,29 +1563,24 @@ while ($row = mysqli_fetch_assoc($query)) {
                         </strong>
 
                         currently has the highest
+
                         number of recorded visitors.
 
                     </p>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- INSIGHT 2 -->
 
             <div class="col-md-4">
 
-
                 <div class="insight-card text-center">
 
-
                     <i class="bi bi-star-fill text-warning">
-                    </i>
 
+                    </i>
 
                     <h5 class="mt-3">
 
@@ -1612,10 +1588,10 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </h5>
 
-
                     <p>
 
                         The overall destination
+
                         rating is
 
                         <strong>
@@ -1623,8 +1599,11 @@ while ($row = mysqli_fetch_assoc($query)) {
                             <?php
 
                             echo number_format(
+
                                 $averageRating,
+
                                 2
+
                             );
 
                             ?>
@@ -1635,32 +1614,25 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </p>
 
-
                 </div>
 
-
             </div>
-
-
 
             <!-- INSIGHT 3 -->
 
             <div class="col-md-4">
 
-
                 <div class="insight-card text-center">
 
-
                     <i class="bi bi-people-fill text-primary">
-                    </i>
 
+                    </i>
 
                     <h5 class="mt-3">
 
                         Tourism Visitors
 
                     </h5>
-
 
                     <p>
 
@@ -1680,35 +1652,34 @@ while ($row = mysqli_fetch_assoc($query)) {
 
                     </p>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
-
-
     <!-- =====================================================
+
      CHART.JS
+
      ===================================================== -->
 
     <script>
 
-
         // =====================================================
+
         // VISITORS BY COUNTRY
+
         // =====================================================
 
         new Chart(
 
             document.getElementById(
+
                 "countryChart"
+
             ),
 
             {
@@ -1722,7 +1693,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                         <?php
 
                         echo json_encode(
+
                             $countryLabels
+
                         );
 
                         ?>,
@@ -1738,7 +1711,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                                 <?php
 
                                 echo json_encode(
+
                                     $countryValues
+
                                 );
 
                                 ?>
@@ -1777,16 +1752,18 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         );
 
-
-
         // =====================================================
+
         // VISITOR PERCENTAGE
+
         // =====================================================
 
         new Chart(
 
             document.getElementById(
+
                 "percentageChart"
+
             ),
 
             {
@@ -1800,7 +1777,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                         <?php
 
                         echo json_encode(
+
                             $percentageLabels
+
                         );
 
                         ?>,
@@ -1816,7 +1795,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                                 <?php
 
                                 echo json_encode(
+
                                     $percentageValues
+
                                 );
 
                                 ?>
@@ -1839,16 +1820,18 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         );
 
-
-
         // =====================================================
+
         // MONTHLY VISITOR TREND
+
         // =====================================================
 
         new Chart(
 
             document.getElementById(
+
                 "monthChart"
+
             ),
 
             {
@@ -1862,7 +1845,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                         <?php
 
                         echo json_encode(
+
                             $monthLabels
+
                         );
 
                         ?>,
@@ -1878,7 +1863,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                                 <?php
 
                                 echo json_encode(
+
                                     $monthValues
+
                                 );
 
                                 ?>,
@@ -1921,16 +1908,18 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         );
 
-
-
         // =====================================================
+
         // VISITORS BY DESTINATION
+
         // =====================================================
 
         new Chart(
 
             document.getElementById(
+
                 "destinationChart"
+
             ),
 
             {
@@ -1944,7 +1933,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                         <?php
 
                         echo json_encode(
+
                             $destinationLabels
+
                         );
 
                         ?>,
@@ -1960,7 +1951,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                                 <?php
 
                                 echo json_encode(
+
                                     $destinationValues
+
                                 );
 
                                 ?>
@@ -2001,16 +1994,18 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         );
 
-
-
         // =====================================================
+
         // AVERAGE RATING
+
         // =====================================================
 
         new Chart(
 
             document.getElementById(
+
                 "ratingChart"
+
             ),
 
             {
@@ -2024,7 +2019,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                         <?php
 
                         echo json_encode(
+
                             $ratingLabels
+
                         );
 
                         ?>,
@@ -2040,7 +2037,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                                 <?php
 
                                 echo json_encode(
+
                                     $ratingValues
+
                                 );
 
                                 ?>
@@ -2075,16 +2074,18 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         );
 
-
-
         // =====================================================
+
         // DESTINATION CATEGORY
+
         // =====================================================
 
         new Chart(
 
             document.getElementById(
+
                 "categoryChart"
+
             ),
 
             {
@@ -2098,7 +2099,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                         <?php
 
                         echo json_encode(
+
                             $categoryLabels
+
                         );
 
                         ?>,
@@ -2114,7 +2117,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                                 <?php
 
                                 echo json_encode(
+
                                     $categoryValues
+
                                 );
 
                                 ?>
@@ -2137,16 +2142,18 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         );
 
-
-
         // =====================================================
+
         // WEBSITE VISITS BY PAGE
+
         // =====================================================
 
         new Chart(
 
             document.getElementById(
+
                 "pageChart"
+
             ),
 
             {
@@ -2160,7 +2167,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                         <?php
 
                         echo json_encode(
+
                             $pageLabels
+
                         );
 
                         ?>,
@@ -2176,7 +2185,9 @@ while ($row = mysqli_fetch_assoc($query)) {
                                 <?php
 
                                 echo json_encode(
+
                                     $pageValues
+
                                 );
 
                                 ?>
@@ -2215,15 +2226,11 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         );
 
-
     </script>
-
-
 
     <!-- FOOTER -->
 
     <?php include("footer.php"); ?>
-
 
 </body>
 
