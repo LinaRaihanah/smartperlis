@@ -56,42 +56,42 @@ $heroSlides = [
 $heritage = [
 
     [
-        "image" => "../assets/images/bukit-ayer.jpg",
+        "image" => "../assets/images/bukit_ayer.jpg",
         "title" => "Kolam Travertin Bukit Ayer",
         "category" => "GEOLOGI",
         "description" => "Keindahan landskap semula jadi yang menjadi sebahagian daripada warisan geologi Perlis."
     ],
 
     [
-        "image" => "../assets/images/timah-tasoh.jpg",
+        "image" => "../assets/images/timahtasoh.jpg",
         "title" => "Pemandangan Indah Landskap Tasik Timah Tasoh",
         "category" => "LANDSKAP",
         "description" => "Nikmati panorama Tasik Timah Tasoh dan kawasan sekitarnya yang menarik."
     ],
 
     [
-        "image" => "../assets/images/kuala-perlis.jpg",
+        "image" => "../assets/images/kualaperlis.jpg",
         "title" => "Perkampungan Warisan Nelayan Kuala Perlis",
         "category" => "BUDAYA",
         "description" => "Kawasan warisan yang memperlihatkan kehidupan dan budaya masyarakat nelayan Perlis."
     ],
 
     [
-        "image" => "../assets/images/bukit-jernih.jpg",
+        "image" => "../assets/images/hutan_rekreasi_bukit_jernih.jpg",
         "title" => "Saliran Kars Bukit Jernih",
         "category" => "GEOLOGI",
         "description" => "Salah satu bentuk muka bumi karst yang menarik dalam kawasan Perlis Geopark."
     ],
 
     [
-        "image" => "../assets/images/bukit-chabang.jpg",
+        "image" => "../assets/images/bukit_chabang.jpg",
         "title" => "Sesar Bukit Chabang",
         "category" => "GEOLOGI",
         "description" => "Tapak warisan geologi yang memperlihatkan ciri struktur batuan di Perlis."
     ],
 
     [
-        "image" => "../assets/images/gua-kelam.jpg",
+        "image" => "../assets/images/gua_kelam.jpg",
         "title" => "Gua Kelam",
         "category" => "GEOLOGI",
         "description" => "Kawasan gua dan landskap batu kapur yang menjadi antara tarikan semula jadi Perlis."
@@ -1982,7 +1982,7 @@ body {
                 <div class="media-card">
 
                     <img
-                        src="../assets/images/bukit-chabang.jpg"
+                        src="../assets/images/bukit_chabang.jpg"
                         alt="Bukit Chabang"
                         onerror="this.src='https://placehold.co/800x600?text=Bukit+Chabang';"
                     >
@@ -2011,7 +2011,7 @@ body {
                 <div class="media-card">
 
                     <img
-                        src="../assets/images/timah-tasoh.jpg"
+                        src="../assets/images/timahtasoh.jpg"
                         alt="Tasik Timah Tasoh"
                         onerror="this.src='https://placehold.co/800x600?text=Timah+Tasoh';"
                     >
@@ -2040,7 +2040,7 @@ body {
                 <div class="media-card">
 
                     <img
-                        src="../assets/images/bukit-ayer.jpg"
+                        src="../assets/images/bukit_ayer.jpg"
                         alt="Bukit Ayer"
                         onerror="this.src='https://placehold.co/800x600?text=Bukit+Ayer';"
                     >

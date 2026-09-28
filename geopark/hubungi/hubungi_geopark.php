@@ -13,6 +13,7 @@ include("../geopark_navbar.php");
 ?>
 
 <!DOCTYPE html>
+
 <html lang="ms">
 
 <head>
@@ -84,7 +85,7 @@ include("../geopark_navbar.php");
                     rgba(20, 83, 45, .78),
                     rgba(15, 118, 110, .84)
                 ),
-                url("../assets/images/perlis-geopark.jpg")
+                url("../assets/images/perlis_geopark.jpg")
                 center/cover no-repeat;
 
             display: flex;
@@ -583,7 +584,7 @@ include("../geopark_navbar.php");
 
 
         /* =====================================================
-           MAP / LOCATION BOX
+           MAP / LOCATION
         ===================================================== */
 
         .location-box {
@@ -624,59 +625,35 @@ include("../geopark_navbar.php");
         }
 
 
-        .map-placeholder {
+        /* GOOGLE MAP */
 
-            min-height: 250px;
+        .map-container {
+
+            width: 100%;
+
+            height: 400px;
 
             border-radius: 18px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #e8f5e9,
-                    #d9f0eb
-                );
+            overflow: hidden;
 
-            display: flex;
+            border: 1px solid #dce8df;
 
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            padding: 30px;
-
-            color: #14532d;
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
 
         }
 
 
-        .map-placeholder i {
+        .map-container iframe {
 
-            font-size: 45px;
+            width: 100%;
 
-            color: #0057B8;
+            height: 100%;
 
-            margin-bottom: 12px;
+            border: 0;
 
-        }
-
-
-        .map-placeholder h4 {
-
-            font-weight: 700;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .map-placeholder p {
-
-            margin: 0;
-
-            color: #52705d;
+            display: block;
 
         }
 
@@ -779,6 +756,13 @@ include("../geopark_navbar.php");
 
             }
 
+
+            .map-container {
+
+                height: 320px;
+
+            }
+
         }
 
     </style>
@@ -806,7 +790,9 @@ include("../geopark_navbar.php");
 
 
         <h1>
+
             Hubungi Kami
+
         </h1>
 
 
@@ -881,7 +867,9 @@ include("../geopark_navbar.php");
 
 
                     <h4>
+
                         Emel
+
                     </h4>
 
 
@@ -915,7 +903,9 @@ include("../geopark_navbar.php");
 
 
                     <h4>
+
                         Telefon
+
                     </h4>
 
 
@@ -949,7 +939,9 @@ include("../geopark_navbar.php");
 
 
                     <h4>
+
                         Bahagian
+
                     </h4>
 
 
@@ -985,7 +977,9 @@ include("../geopark_navbar.php");
 
 
                         <h2>
+
                             Maklumat Hubungan
+
                         </h2>
 
 
@@ -999,7 +993,7 @@ include("../geopark_navbar.php");
 
 
 
-                        <!-- ADDRESS -->
+                        <!-- ORGANISATION -->
 
                         <div class="contact-detail">
 
@@ -1013,7 +1007,9 @@ include("../geopark_navbar.php");
                             <div>
 
                                 <strong>
+
                                     Organisasi
+
                                 </strong>
 
 
@@ -1043,7 +1039,9 @@ include("../geopark_navbar.php");
                             <div>
 
                                 <strong>
+
                                     Emel
+
                                 </strong>
 
 
@@ -1079,7 +1077,9 @@ include("../geopark_navbar.php");
                             <div>
 
                                 <strong>
+
                                     Telefon
+
                                 </strong>
 
 
@@ -1113,7 +1113,9 @@ include("../geopark_navbar.php");
                             <div>
 
                                 <strong>
+
                                     Perlis Geopark
+
                                 </strong>
 
 
@@ -1142,7 +1144,9 @@ include("../geopark_navbar.php");
 
 
                         <h2>
+
                             Hantar Pertanyaan
+
                         </h2>
 
 
@@ -1168,7 +1172,9 @@ include("../geopark_navbar.php");
                                     class="form-label"
                                     for="name"
                                 >
+
                                     Nama
+
                                 </label>
 
 
@@ -1193,7 +1199,9 @@ include("../geopark_navbar.php");
                                     class="form-label"
                                     for="email"
                                 >
+
                                     Emel
+
                                 </label>
 
 
@@ -1218,7 +1226,9 @@ include("../geopark_navbar.php");
                                     class="form-label"
                                     for="subject"
                                 >
+
                                     Subjek
+
                                 </label>
 
 
@@ -1243,7 +1253,9 @@ include("../geopark_navbar.php");
                                     class="form-label"
                                     for="message"
                                 >
+
                                     Mesej
+
                                 </label>
 
 
@@ -1304,37 +1316,26 @@ include("../geopark_navbar.php");
 
             <p>
 
-                Perlis Geopark merupakan sebahagian daripada
-                warisan semula jadi dan budaya negeri Perlis.
-                Maklumat lokasi khusus boleh dirujuk melalui
-                pihak pengurusan dan agensi berkaitan.
+                Perlis Geopark terletak di Negeri Perlis, Malaysia.
+                Gunakan peta di bawah untuk melihat lokasi dan kawasan
+                sekitar Perlis Geopark.
 
             </p>
 
 
-            <div class="map-placeholder">
+            <!-- GOOGLE MAP -->
 
+            <div class="map-container">
 
-                <div>
-
-                    <i class="bi bi-map-fill"></i>
-
-
-                    <h4>
-                        Perlis Geopark
-                    </h4>
-
-
-                    <p>
-
-                        Negeri Perlis, Malaysia
-
-                    </p>
-
-                </div>
-
+                <iframe
+                    src="https://www.google.com/maps?q=Perlis%20Geopark%2C%20Perlis%2C%20Malaysia&output=embed"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
 
             </div>
+
 
         </div>
 

@@ -5,6 +5,7 @@
 | PERLIS GEOPARK - LOGO
 |--------------------------------------------------------------------------
 */
+
 $geoparkBase = "../";
 
 include("../geopark_navbar.php");
@@ -12,6 +13,7 @@ include("../geopark_navbar.php");
 ?>
 
 <!DOCTYPE html>
+
 <html lang="ms">
 
 <head>
@@ -25,29 +27,37 @@ include("../geopark_navbar.php");
 
     <title>Logo Perlis Geopark | Perlis Geopark</title>
 
+
     <!-- Bootstrap -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
+
     <!-- Bootstrap Icons -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
         rel="stylesheet"
     >
 
+
     <!-- Google Font -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
+
 
     <style>
 
         * {
             box-sizing: border-box;
         }
+
 
         body {
 
@@ -60,6 +70,7 @@ include("../geopark_navbar.php");
             color: #263238;
 
         }
+
 
         /* =====================================================
            HERO
@@ -74,7 +85,7 @@ include("../geopark_navbar.php");
                     rgba(20, 83, 45, .82),
                     rgba(15, 118, 110, .82)
                 ),
-                url("../assets/images/perlis-geopark.jpg")
+                url("../assets/images/perlis_geopark.jpg")
                 center/cover no-repeat;
 
             display: flex;
@@ -91,11 +102,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .page-hero-content {
 
             max-width: 850px;
 
         }
+
 
         .page-hero-icon {
 
@@ -123,6 +136,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .page-hero h1 {
 
             font-size: clamp(2rem, 5vw, 3.4rem);
@@ -132,6 +146,7 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
         }
+
 
         .page-hero p {
 
@@ -145,6 +160,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         /* =====================================================
            CONTENT
         ===================================================== */
@@ -155,6 +171,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .content-container {
 
             max-width: 1100px;
@@ -162,6 +179,7 @@ include("../geopark_navbar.php");
             margin: auto;
 
         }
+
 
         /* =====================================================
            LOGO SHOWCASE
@@ -181,6 +199,7 @@ include("../geopark_navbar.php");
             margin-bottom: 45px;
 
         }
+
 
         .logo-display {
 
@@ -209,6 +228,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .logo-display::before {
 
             content: "";
@@ -228,6 +248,7 @@ include("../geopark_navbar.php");
             right: -70px;
 
         }
+
 
         .logo-display::after {
 
@@ -249,6 +270,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .logo-placeholder {
 
             position: relative;
@@ -258,6 +280,11 @@ include("../geopark_navbar.php");
             text-align: center;
 
         }
+
+
+        /* =====================================================
+           PERLIS GEOPARK LOGO
+        ===================================================== */
 
         .logo-placeholder-icon {
 
@@ -269,13 +296,7 @@ include("../geopark_navbar.php");
 
             margin: auto;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #14532d,
-                    #0057B8,
-                    #0f766e
-                );
+            background: white;
 
             display: flex;
 
@@ -288,15 +309,25 @@ include("../geopark_navbar.php");
 
             border: 8px solid white;
 
-        }
-
-        .logo-placeholder-icon i {
-
-            font-size: 90px;
-
-            color: #FFD700;
+            overflow: hidden;
 
         }
+
+
+        .perlis-geopark-logo {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+            display: block;
+
+            border-radius: 50%;
+
+        }
+
 
         .logo-placeholder h2 {
 
@@ -310,6 +341,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .logo-placeholder p {
 
             color: #6c757d;
@@ -317,6 +349,7 @@ include("../geopark_navbar.php");
             margin: 5px 0 0;
 
         }
+
 
         /* =====================================================
            DESCRIPTION
@@ -328,6 +361,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .logo-description h2 {
 
             color: #14532d;
@@ -338,11 +372,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .logo-description h2 i {
 
             color: #0057B8;
 
         }
+
 
         .logo-description p {
 
@@ -353,6 +389,7 @@ include("../geopark_navbar.php");
             text-align: justify;
 
         }
+
 
         /* =====================================================
            ELEMENT CARDS
@@ -366,6 +403,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .section-heading h2 {
 
             color: #14532d;
@@ -376,6 +414,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .section-heading p {
 
             color: #6c757d;
@@ -383,6 +422,7 @@ include("../geopark_navbar.php");
             margin: 0;
 
         }
+
 
         .element-card {
 
@@ -403,6 +443,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .element-card:hover {
 
             transform: translateY(-6px);
@@ -411,6 +452,7 @@ include("../geopark_navbar.php");
                 0 15px 35px rgba(0,0,0,.12);
 
         }
+
 
         .element-icon {
 
@@ -436,6 +478,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .element-card h4 {
 
             color: #14532d;
@@ -445,6 +488,7 @@ include("../geopark_navbar.php");
             margin-bottom: 12px;
 
         }
+
 
         .element-card p {
 
@@ -457,6 +501,7 @@ include("../geopark_navbar.php");
             font-size: .94rem;
 
         }
+
 
         /* =====================================================
            COLOUR SECTION
@@ -477,6 +522,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .colour-section h2 {
 
             color: #14532d;
@@ -488,6 +534,7 @@ include("../geopark_navbar.php");
             margin-bottom: 30px;
 
         }
+
 
         .colour-card {
 
@@ -501,11 +548,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .colour-preview {
 
             height: 90px;
 
         }
+
 
         .green-preview {
 
@@ -513,11 +562,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .dark-green-preview {
 
             background: #14532d;
 
         }
+
 
         .teal-preview {
 
@@ -525,17 +576,20 @@ include("../geopark_navbar.php");
 
         }
 
+
         .gold-preview {
 
             background: #FFD700;
 
         }
 
+
         .colour-info {
 
             padding: 18px;
 
         }
+
 
         .colour-info h5 {
 
@@ -547,6 +601,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .colour-info p {
 
             margin: 0;
@@ -556,6 +611,7 @@ include("../geopark_navbar.php");
             font-size: .9rem;
 
         }
+
 
         /* =====================================================
            MESSAGE
@@ -586,6 +642,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .message-box i {
 
             font-size: 40px;
@@ -596,6 +653,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .message-box h2 {
 
             font-weight: 800;
@@ -603,6 +661,7 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
         }
+
 
         .message-box p {
 
@@ -616,6 +675,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         /* =====================================================
            BUTTON
         ===================================================== */
@@ -627,6 +687,7 @@ include("../geopark_navbar.php");
             margin-top: 45px;
 
         }
+
 
         .back-button {
 
@@ -652,6 +713,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .back-button:hover {
 
             background: #14532d;
@@ -661,6 +723,7 @@ include("../geopark_navbar.php");
             transform: translateY(-2px);
 
         }
+
 
         /* =====================================================
            RESPONSIVE
@@ -676,11 +739,13 @@ include("../geopark_navbar.php");
 
             }
 
+
             .logo-showcase {
 
                 padding: 25px;
 
             }
+
 
             .logo-display {
 
@@ -690,6 +755,7 @@ include("../geopark_navbar.php");
 
             }
 
+
             .logo-placeholder-icon {
 
                 width: 150px;
@@ -698,11 +764,6 @@ include("../geopark_navbar.php");
 
             }
 
-            .logo-placeholder-icon i {
-
-                font-size: 70px;
-
-            }
 
             .colour-section {
 
@@ -710,11 +771,13 @@ include("../geopark_navbar.php");
 
             }
 
+
             .message-box {
 
                 padding: 30px 22px;
 
             }
+
 
             .content-section {
 
@@ -786,11 +849,19 @@ include("../geopark_navbar.php");
 
                         <div class="logo-placeholder">
 
+
+                            <!-- PERLIS GEOPARK LOGO -->
+
                             <div class="logo-placeholder-icon">
 
-                                <i class="bi bi-globe-asia-australia-fill"></i>
+                                <img
+                                    src="../assets/images/logo-perlis-geopark.jpg"
+                                    alt="Logo Perlis Geopark"
+                                    class="perlis-geopark-logo"
+                                >
 
                             </div>
+
 
                             <h2>
                                 PERLIS GEOPARK
@@ -885,7 +956,7 @@ include("../geopark_navbar.php");
 
                     <div class="element-icon">
 
-                        <i class="bi bi-mountains"></i>
+                        <i class="bi bi-gem"></i>
 
                     </div>
 
@@ -975,9 +1046,7 @@ include("../geopark_navbar.php");
         <div class="colour-section">
 
             <h2>
-
                 Warna Identiti
-
             </h2>
 
 

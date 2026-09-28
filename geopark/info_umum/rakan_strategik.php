@@ -75,7 +75,7 @@ include("../geopark_navbar.php");
                     rgba(20, 83, 45, .82),
                     rgba(15, 118, 110, .82)
                 ),
-                url("../assets/images/perlis-geopark.jpg")
+                url("../assets/images/perlis_geopark.jpg")
                 center/cover no-repeat;
 
             display: flex;

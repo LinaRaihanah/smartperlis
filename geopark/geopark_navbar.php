@@ -4,6 +4,7 @@ $geoparkBase = $geoparkBase ?? "";
 
 ?>
 
+
 <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
@@ -35,7 +36,6 @@ $geoparkBase = $geoparkBase ?? "";
         </a>
 
 
-
         <!-- =================================================
              MOBILE TOGGLE
         ================================================== -->
@@ -53,7 +53,6 @@ $geoparkBase = $geoparkBase ?? "";
             <span class="navbar-toggler-icon"></span>
 
         </button>
-
 
 
         <!-- =================================================
@@ -86,7 +85,6 @@ $geoparkBase = $geoparkBase ?? "";
                     </a>
 
                 </li>
-
 
 
                 <!-- =================================================
@@ -176,11 +174,9 @@ $geoparkBase = $geoparkBase ?? "";
 
                         </li>
 
-
                     </ul>
 
                 </li>
-
 
 
                 <!-- =================================================
@@ -207,6 +203,8 @@ $geoparkBase = $geoparkBase ?? "";
                     <ul class="dropdown-menu">
 
 
+                        <!-- GEOLOGI -->
+
                         <li>
 
                             <a
@@ -214,7 +212,7 @@ $geoparkBase = $geoparkBase ?? "";
                                 href="<?php echo $geoparkBase; ?>tapak_warisan/geologi.php"
                             >
 
-                                <i class="bi bi-mountains me-2"></i>
+                                <i class="bi bi-gem me-2"></i>
 
                                 Geologi
 
@@ -222,6 +220,8 @@ $geoparkBase = $geoparkBase ?? "";
 
                         </li>
 
+
+                        <!-- BIOLOGI -->
 
                         <li>
 
@@ -298,7 +298,6 @@ $geoparkBase = $geoparkBase ?? "";
                 </li>
 
 
-
                 <!-- =================================================
                      KALENDAR
                 ================================================== -->
@@ -317,7 +316,6 @@ $geoparkBase = $geoparkBase ?? "";
                     </a>
 
                 </li>
-
 
 
                 <!-- =================================================
@@ -365,7 +363,6 @@ $geoparkBase = $geoparkBase ?? "";
                 </li>
 
 
-
                 <!-- =================================================
                      HUBUNGI KAMI
                 ================================================== -->
@@ -395,7 +392,6 @@ $geoparkBase = $geoparkBase ?? "";
 </nav>
 
 
-
 <!-- =========================================================
      PERLIS BLUE + YELLOW THEME
 ========================================================= -->
@@ -422,7 +418,6 @@ $geoparkBase = $geoparkBase ?? "";
     z-index: 9999;
 
 }
-
 
 
 /* =========================================================
@@ -462,7 +457,6 @@ $geoparkBase = $geoparkBase ?? "";
 }
 
 
-
 /* =========================================================
    NAVIGATION LINKS
 ========================================================= */
@@ -496,7 +490,6 @@ $geoparkBase = $geoparkBase ?? "";
     color: #FFD700 !important;
 
 }
-
 
 
 /* =========================================================
@@ -552,7 +545,6 @@ $geoparkBase = $geoparkBase ?? "";
 }
 
 
-
 /* =========================================================
    SUBMENU
 ========================================================= */
@@ -584,7 +576,6 @@ $geoparkBase = $geoparkBase ?? "";
 }
 
 
-
 /* =========================================================
    MOBILE TOGGLE
 ========================================================= */
@@ -609,7 +600,6 @@ $geoparkBase = $geoparkBase ?? "";
     filter: brightness(0) invert(1);
 
 }
-
 
 
 /* =========================================================
