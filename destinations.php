@@ -4,220 +4,239 @@ include("config.php");
 
 
 /* =========================================================
-   PERLIS DESTINATION DATA
+   ENTRANCE / FEE INFORMATION
+
+   IMPORTANT:
+   Nama destination mesti sama dengan nama dalam database.
 ========================================================= */
 
-$destinations = [
+$destinationFees = [
 
-    [
-        "name" => "Arked Niaga Padang Besar",
-        "location" => "Padang Besar, Perlis",
-        "category" => "Shopping",
+    "Gua Kelam" =>
+        "Malaysian: Adult RM2, Child RM1. Non-Malaysian: Adult RM5, Child RM3. Children under 6 and OKU: Free. Additional activities may have separate charges.",
 
-        "image" =>
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Arked_Niaga_Padang_Besar%2C_Padang_Besar_20231224_111439.jpg/1280px-Arked_Niaga_Padang_Besar%2C_Padang_Besar_20231224_111439.jpg",
+    "Wang Kelian Viewpoint" =>
+        "Malaysian: Adult RM2, Child RM1. Non-Malaysian: Adult RM5, Child RM2. Malaysian children under 6: Free.",
 
-        "description" =>
-        "A popular shopping destination located near the Malaysia-Thailand border. Visitors can shop for food, clothing, accessories, household products and various imported goods.",
+    "Tasik Timah Tasoh" =>
+        "Free public access. Charges may apply for certain activities or services.",
 
-        "fee" => ""
-    ],
+    "Padang Besar (Arked Niaga)" =>
+        "Free public access. Shopping purchases are separate.",
 
+    "Kuala Perlis Seafood & Jetty" =>
+        "Free public access. Food, ferry and other services have separate charges.",
 
-    [
-        "name" => "Bukit Tok Dun",
-        "location" => "Felda Laka Selatan, Perlis",
-        "category" => "Adventure",
+    "Masjid Al-Hussain (Floating Mosque)" =>
+        "Free admission.",
 
-        "image" =>
-        "https://1.bp.blogspot.com/-2J4Cqsu62_Q/W0RxuwiByRI/AAAAAAAAPhM/0yNAGzJouC4LsXOpJ9OVCuAB5wn6HW2HACKgBGAs/s1600/IMG_20180707_072647.jpg",
+    "Muzium Kota Kayang" =>
+        "Free admission.",
 
-        "description" =>
-        "A 325-metre hill located near the Perlis-Kedah border. It is popular among hikers for sunrise views, beautiful scenery and the famous sea of clouds.",
+    "Taman Ular dan Reptilia" =>
+        "Paid admission. Current ticket price not specified.",
 
-        "fee" => ""
-    ],
+    "Rimba Herba Perlis" =>
+        "Malaysian: Adult RM2, Child RM1, OKU Free. Non-Malaysian: Adult RM5, Child RM3. Optional activities may have separate charges.",
 
+    "Taman Eko Rimba Bukit Ayer" =>
+        "Malaysian: Adult RM2, Child RM1, OKU Free. Non-Malaysian: Adult RM5, Child RM2. Swimming pool and camping have separate charges.",
 
-    [
-        "name" => "Galeri 3D Gua Kelam",
-        "location" => "Kaki Bukit, Perlis",
-        "category" => "Culture",
+    "Arau Royal Town & Galeri DiRaja" =>
+        "Fee not specified. Access to some areas may require prior permission.",
 
-        "image" =>
-        "https://www.malaysia.travel/mt-flmngr/files/Gua-Kelam-Recreational-Park/gua-kelam-2.jpg",
+    "Kangar Art Street & City Center" =>
+        "Free public access.",
 
-        "description" =>
-        "An interactive gallery that presents the experience of exploring a cave through 3D graphics, natural sounds, specimens, artefacts, cave replicas and tourism information.",
+    "Ladang Nipah Kipli" =>
+        "Fee not specified.",
 
-        "fee" => ""
-    ],
+    "Delapan Tumpat Sungai Berembang" =>
+        "Fee not specified.",
 
+    "Taman Anggur Perlis" =>
+        "Fee not specified.",
 
-    [
-        "name" => "Kampung Wai",
-        "location" => "Kuala Perlis, Perlis",
-        "category" => "Nature",
+    "Pusat Kecemerlangan Pengeluaran Harumanis" =>
+        "Fee not specified.",
 
-        "image" =>
-        "https://www.sinarharian.com.my/uploads/images/2025/06/03/3151424.webp",
+    "Taman Agrovet" =>
+        "Fee not specified.",
 
-        "description" =>
-        "A scenic eco-tourism attraction featuring a canal surrounded by ancient limestone hills. Visitors can enjoy kayaking while experiencing the beautiful natural environment.",
+    "Santuari Ikan Air Tawar" =>
+        "Fee not specified.",
 
-        "fee" => ""
-    ],
+    "Ladang Buah Tin" =>
+        "Fee not specified.",
 
+    "Taman Negara Perlis" =>
+        "Malaysian: Adult RM2, Child RM1. Non-Malaysian: Adult RM5, Child RM3. Children under 6 and OKU: Free.",
 
-    [
-        "name" => "Kampung Warisan Tradisi Nelayan",
-        "location" => "Seberang Ramai, Kuala Perlis",
-        "category" => "Culture",
+    "Bukit Chabang" =>
+        "Fee not specified.",
 
-        "image" =>
-        "https://myhalalxplorer.com/wp-content/uploads/2024/10/image-423-1024x485.png",
+    "Hutan Rekreasi Bukit Jernih" =>
+        "Fee not specified.",
 
-        "description" =>
-        "A traditional fishing village transformed into a colourful tourism attraction while preserving the lifestyle and identity of the local fishing community.",
+    "Bukit Keteri" =>
+        "Fee not specified.",
 
-        "fee" => ""
-    ],
+    "Bukit Tok Dun" =>
+        "Fee not specified.",
 
+    "Trail Litar Wang Gunung" =>
+        "Fee not specified.",
 
-    [
-        "name" => "Kangar Street Art",
-        "location" => "Kangar, Perlis",
-        "category" => "Art",
+    "Pasar Neko / Kompleks LKM" =>
+        "Free public access. Purchases are separate.",
 
-        "image" =>
-        "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1200&q=80",
+    "Jambatan Tuanku Syed Putra" =>
+        "Free public access.",
 
-        "description" =>
-        "Colourful murals located around the centre of Kangar. The artwork highlights local attractions, culture and the unique identity of Perlis.",
+    "Laman Seni Negeri Perlis" =>
+        "Free public access.",
 
-        "fee" => ""
-    ],
+    "Kompleks Jabatan Kebudayaan & Kesenian" =>
+        "Fee not specified.",
 
+    "Homestay FELDA Mata Ayer" =>
+        "Accommodation and activity charges vary. Fee not fixed.",
 
-    [
-        "name" => "Muzium Kota Kayang",
-        "location" => "Kuala Perlis, Perlis",
-        "category" => "History",
+    "Nat Pokok Sena" =>
+        "Free public access. Purchases are separate.",
 
-        "image" =>
-        "https://assets.nst.com.my/images/articles/museum.JPG_1511421289.jpg",
+    "Pasar Terapung JPS" =>
+        "Free public access. Food and purchases are separate.",
 
-        "description" =>
-        "A museum dedicated to preserving and displaying the historical heritage of Perlis including archaeology, culture, traditional weapons and royal history.",
+    "Trik Kurong Tegar" =>
+        "Fee not specified.",
 
-        "fee" => "Free admission"
-    ],
+    "Kelab Golf Putra" =>
+        "Charges vary depending on golf facilities and services. Fee not fixed.",
 
+    "Denai Larian Pengkalan Asam" =>
+        "Free public access.",
 
-    [
-        "name" => "Superfruits Valley",
-        "location" => "Chuping, Perlis",
-        "category" => "Agrotourism",
+    "Taman Awam Bukit Lagi" =>
+        "Free public access.",
 
-        "image" =>
-        "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1200&q=80",
+    "Dataran Dato' Sheikh Ahmad" =>
+        "Free public access.",
 
-        "description" =>
-        "An agricultural tourism attraction featuring various superfruits and crops including figs, gac fruit, citrus fruits and passion fruit.",
-
-        "fee" => ""
-    ],
-
-
-    [
-        "name" => "Taman Eko-Rimba Bukit Ayer",
-        "location" => "Sungai Batu Pahat, Perlis",
-        "category" => "Nature",
-
-        "image" =>
-        "https://cdn.libur.com.my/2024/01/Eqslq3DVEAMY3Cq.jpg",
-
-        "description" =>
-        "A popular family eco-tourism destination surrounded by natural forest, streams and recreational facilities. Visitors can enjoy picnics, nature and outdoor activities.",
-
-        "fee" => "Entrance fee applies"
-    ],
-
-
-    [
-        "name" => "Taman Eksotik Buah-Buahan (Taman Anggur)",
-        "location" => "Sungai Batu Pahat, Perlis",
-        "category" => "Agrotourism",
-
-        "image" =>
-        "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=1200&q=80",
-
-        "description" =>
-        "An agricultural tourism attraction in Sungai Batu Pahat featuring exotic fruits and the agricultural landscape of Perlis.",
-
-        "fee" => ""
-    ],
-
-
-    [
-        "name" => "Tasik Melati",
-        "location" => "Kangar, Perlis",
-        "category" => "Lake",
-
-        "image" =>
-        "https://static.travelated.com/storage/articles-images/134/13401417/39420931144.jpg?format=webp&mode=crop&scale=down&w=1200",
-
-        "description" =>
-        "A peaceful shallow lake featuring more than 150 small sandbar islands. Walkways across the lake allow visitors to enjoy the scenery and relax.",
-
-        "fee" => ""
-    ],
-
-
-    [
-        "name" => "Tasik Timah Tasoh",
-        "location" => "Beseri, Perlis",
-        "category" => "Lake",
-
-        "image" =>
-        "https://www.malaysia.travel/mt-flmngr/files/Timah%20Tasoh/timah-tasoh-4.jpg",
-
-        "description" =>
-        "A scenic lake surrounded by beautiful countryside and fruit orchards. It is popular for photography, relaxation and freshwater fishing.",
-
-        "fee" => ""
-    ],
-
-
-    [
-        "name" => "Wang Kelian View Point",
-        "location" => "Wang Kelian, Perlis",
-        "category" => "Nature",
-
-        "image" =>
-        "https://cdn.libur.com.my/2024/01/392805141_6798195176882441_4710368985839737367_n.jpg",
-
-        "description" =>
-        "A popular viewpoint located approximately 304 metres above sea level along the route towards the Malaysia-Thailand border.",
-
-        "fee" => ""
-    ]
+    "Litar Go-Kart UniMAP" =>
+        "Activity charges may apply. Fee not specified."
 
 ];
 
+
+/* =========================================================
+   GET ALL 38 DESTINATIONS FROM DATABASE
+========================================================= */
+
+$destinations = [];
+
+
+$sql = "
+    SELECT
+        destination_id,
+        destination_name,
+        category,
+        location,
+        description,
+        image
+    FROM destinations
+    ORDER BY destination_id ASC
+";
+
+
+$result = mysqli_query($conn, $sql);
+
+
+if ($result) {
+
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        $destinationName =
+            $row["destination_name"];
+
+
+        $destinations[] = [
+
+            "id" =>
+                $row["destination_id"],
+
+            "name" =>
+                $destinationName,
+
+            "location" =>
+                $row["location"],
+
+            "category" =>
+                $row["category"],
+
+            "image" =>
+                "assets/images/" . $row["image"],
+
+            "description" =>
+                $row["description"],
+
+            "fee" =>
+                $destinationFees[$destinationName]
+                ?? "Fee not specified."
+
+        ];
+
+    }
+
+}
+
+
+/* =========================================================
+   CATEGORY LIST
+========================================================= */
+
+$categories = [];
+
+
+foreach ($destinations as $destination) {
+
+    if (
+        !in_array(
+            $destination["category"],
+            $categories,
+            true
+        )
+    ) {
+
+        $categories[] =
+            $destination["category"];
+
+    }
+
+}
+
+
+sort($categories);
+
 ?>
+
 
 <!DOCTYPE html>
 
 <html lang="en">
 
+
 <head>
+
 
 <meta charset="UTF-8">
 
+
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    content="width=device-width, initial-scale=1.0"
+>
+
 
 <title>
     Destination - PERLIS TOURISM SMART PORTAL
@@ -228,24 +247,28 @@ $destinations = [
 
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+    rel="stylesheet"
+>
 
 
 <!-- BOOTSTRAP ICONS -->
 
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet">
+    rel="stylesheet"
+>
 
 
 <!-- YOUR CSS -->
 
 <link
     rel="stylesheet"
-    href="assets/css/style.css">
+    href="assets/css/style.css"
+>
 
 
 <style>
+
 
 /* =========================================================
    BODY
@@ -431,6 +454,56 @@ body {
 
 
 /* =========================================================
+   IMAGE PLACEHOLDER
+========================================================= */
+
+.image-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf3fb,
+            #fff8cc
+        );
+
+    color: #0057B8;
+
+    text-align: center;
+
+}
+
+
+.image-placeholder i {
+
+    font-size: 45px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.image-placeholder span {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
    CATEGORY BADGE
 ========================================================= */
 
@@ -558,6 +631,8 @@ body {
     font-weight: 700;
 
     margin-top: 4px;
+
+    line-height: 1.6;
 
 }
 
@@ -754,7 +829,9 @@ body {
 
 }
 
+
 </style>
+
 
 </head>
 
@@ -765,12 +842,12 @@ body {
 <?php include("navbar.php"); ?>
 
 
-
 <!-- =========================================================
      HERO
 ========================================================= -->
 
 <section class="hero-destination text-center">
+
 
 <div class="container">
 
@@ -792,8 +869,8 @@ body {
 
 </div>
 
-</section>
 
+</section>
 
 
 <!-- =========================================================
@@ -835,14 +912,14 @@ body {
     type="text"
     id="keyword"
     class="form-control"
-    placeholder="Search destination or location...">
+    placeholder="Search destination or location..."
+>
 
 
 </div>
 
 
 </div>
-
 
 
 <!-- CATEGORY -->
@@ -859,44 +936,30 @@ body {
 
 <select
     id="category"
-    class="form-select">
+    class="form-select"
+>
 
 
 <option value="All">
+
     All Categories
+
 </option>
 
-<option value="Nature">
-    Nature
+
+<?php foreach ($categories as $category): ?>
+
+
+<option
+    value="<?= htmlspecialchars($category) ?>"
+>
+
+    <?= htmlspecialchars($category) ?>
+
 </option>
 
-<option value="Adventure">
-    Adventure
-</option>
 
-<option value="Lake">
-    Lake
-</option>
-
-<option value="Culture">
-    Culture
-</option>
-
-<option value="Art">
-    Art
-</option>
-
-<option value="History">
-    History
-</option>
-
-<option value="Shopping">
-    Shopping
-</option>
-
-<option value="Agrotourism">
-    Agrotourism
-</option>
+<?php endforeach; ?>
 
 
 </select>
@@ -914,7 +977,6 @@ body {
 </div>
 
 
-
 <!-- =========================================================
      DESTINATION SECTION
 ========================================================= -->
@@ -922,12 +984,15 @@ body {
 <div class="container mt-5 mb-5">
 
 
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div
+    class="d-flex justify-content-between align-items-center mb-4"
+>
 
 
 <h2
     class="fw-bold mb-0"
-    style="color:#0057B8;">
+    style="color:#0057B8;"
+>
 
     Places to Explore
 
@@ -936,7 +1001,8 @@ body {
 
 <span
     id="resultCount"
-    class="result-count">
+    class="result-count"
+>
 
 </span>
 
@@ -944,10 +1010,10 @@ body {
 </div>
 
 
-
 <div
     class="row g-4"
-    id="destinationList">
+    id="destinationList"
+>
 
 
 <?php
@@ -983,25 +1049,41 @@ foreach (
     class="col-lg-4 col-md-6 destination-card"
 
     data-name="<?=
+
         htmlspecialchars(
+
             strtolower(
+
                 $destination["name"]
+
             )
+
         )
+
     ?>"
 
     data-location="<?=
+
         htmlspecialchars(
+
             strtolower(
+
                 $destination["location"]
+
             )
+
         )
+
     ?>"
 
     data-category="<?=
+
         htmlspecialchars(
+
             $destination["category"]
+
         )
+
     ?>"
 >
 
@@ -1016,34 +1098,63 @@ foreach (
 
 <img
     src="<?=
+
         htmlspecialchars(
+
             $destination["image"]
+
         )
+
     ?>"
 
     class="destination-image"
 
     alt="<?=
+
         htmlspecialchars(
+
             $destination["name"]
+
         )
+
     ?>"
+
+    onerror="
+        this.style.display='none';
+        this.nextElementSibling.style.display='flex';
+    "
 >
+
+
+<!-- IMAGE PLACEHOLDER -->
+
+<div class="image-placeholder">
+
+    <i class="bi bi-image"></i>
+
+    <span>
+        Image Coming Soon
+    </span>
+
+</div>
 
 
 <span class="category-badge">
 
     <?=
+
         htmlspecialchars(
+
             $destination["category"]
+
         )
+
     ?>
 
 </span>
 
 
 </div>
-
 
 
 <!-- CARD CONTENT -->
@@ -1053,11 +1164,17 @@ foreach (
 
 <h4>
 
+
 <?=
+
     htmlspecialchars(
+
         $destination["name"]
+
     )
+
 ?>
+
 
 </h4>
 
@@ -1069,9 +1186,13 @@ foreach (
 
 
 <?=
+
     htmlspecialchars(
+
         $destination["location"]
+
     )
+
 ?>
 
 
@@ -1082,30 +1203,22 @@ foreach (
 
 
 <?=
+
     htmlspecialchars(
+
         $destination["description"]
+
     )
+
 ?>
 
 
 </p>
 
 
-
-<!-- ENTRANCE FEE -->
-
-<?php
-
-
-if (
-    !empty(
-        $destination["fee"]
-    )
-):
-
-
-?>
-
+<!-- =========================================================
+     ENTRANCE INFORMATION
+========================================================= -->
 
 <div class="fee-box">
 
@@ -1126,9 +1239,13 @@ Entrance Information
 
 
 <?=
+
     htmlspecialchars(
+
         $destination["fee"]
+
     )
+
 ?>
 
 
@@ -1138,10 +1255,6 @@ Entrance Information
 </div>
 
 
-<?php endif; ?>
-
-
-
 <!-- MAP BUTTON -->
 
 <div class="mt-auto pt-4">
@@ -1149,9 +1262,13 @@ Entrance Information
 
 <a
     href="<?=
+
         htmlspecialchars(
+
             $mapURL
+
         )
+
     ?>"
 
     target="_blank"
@@ -1192,13 +1309,13 @@ View on Google Maps
 ?>
 
 
-
 <!-- NO RESULT -->
 
 <div
     id="noResult"
     class="col-12 no-result"
-    style="display:none;">
+    style="display:none;"
+>
 
 
 <i class="bi bi-search"></i>
@@ -1228,11 +1345,9 @@ View on Google Maps
 </div>
 
 
-
 <!-- FOOTER -->
 
 <?php include("footer.php"); ?>
-
 
 
 <!-- BOOTSTRAP JS -->
@@ -1242,8 +1357,9 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
 </script>
 
 
-
-<!-- SEARCH + FILTER -->
+<!-- =========================================================
+     SEARCH + FILTER
+========================================================= -->
 
 <script>
 
@@ -1251,37 +1367,46 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
 const keywordInput =
 
     document.getElementById(
+
         "keyword"
+
     );
 
 
 const categorySelect =
 
     document.getElementById(
+
         "category"
+
     );
 
 
 const destinationCards =
 
     document.querySelectorAll(
+
         ".destination-card"
+
     );
 
 
 const noResult =
 
     document.getElementById(
+
         "noResult"
+
     );
 
 
 const resultCount =
 
     document.getElementById(
-        "resultCount"
-    );
 
+        "resultCount"
+
+    );
 
 
 function filterDestinations() {
@@ -1290,8 +1415,11 @@ function filterDestinations() {
     const keyword =
 
         keywordInput
+
         .value
+
         .toLowerCase()
+
         .trim();
 
 
@@ -1309,14 +1437,17 @@ function filterDestinations() {
 
 
             const name =
+
                 card.dataset.name;
 
 
             const location =
+
                 card.dataset.location;
 
 
             const category =
+
                 card.dataset.category;
 
 
@@ -1339,18 +1470,24 @@ function filterDestinations() {
 
 
             if (
+
                 matchesKeyword
+
                 &&
+
                 matchesCategory
+
             ) {
 
 
                 card.style.display = "";
 
+
                 visible++;
 
 
             }
+
 
             else {
 
@@ -1373,29 +1510,36 @@ function filterDestinations() {
         +
 
         (
+
             visible === 1
 
             ? " destination"
 
             : " destinations"
+
         );
 
 
     if (
+
         visible === 0
+
     ) {
 
 
         noResult.style.display =
+
             "block";
 
 
     }
 
+
     else {
 
 
         noResult.style.display =
+
             "none";
 
 
@@ -1403,7 +1547,6 @@ function filterDestinations() {
 
 
 }
-
 
 
 keywordInput.addEventListener(
@@ -1431,5 +1574,6 @@ filterDestinations();
 
 
 </body>
+
 
 </html>
