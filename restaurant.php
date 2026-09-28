@@ -1,5 +1,7 @@
 <?php
+
 include("config.php");
+
 
 $selectedArea = $_GET['area'] ?? 'All';
 
@@ -138,14 +140,18 @@ $restaurants = [
 
 $filteredRestaurants = [];
 
+
 foreach ($restaurants as $restaurant) {
 
     if (
         $selectedArea == "All" ||
         $restaurant["area"] == $selectedArea
     ) {
+
         $filteredRestaurants[] = $restaurant;
+
     }
+
 }
 
 
@@ -181,541 +187,645 @@ $areas = [
 
 ?>
 
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Restaurants | Perlis Tourism</title>
+<title>Restaurants | Perlis Tourism</title>
 
-    <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
 
-    <!-- Bootstrap Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+<!-- Bootstrap -->
 
-    <!-- Existing CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
 
 
-    <style>
+<!-- Bootstrap Icons -->
 
-        /* =========================================================
-           GENERAL
-        ========================================================= */
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+>
 
-        body {
-            background: #fefbea;
-            color: #333;
-            font-family: Arial, sans-serif;
-        }
 
+<!-- Existing CSS -->
 
-        /* =========================================================
-           HERO HEADER
-        ========================================================= */
+<link
+    rel="stylesheet"
+    href="assets/css/style.css"
+>
 
-        .restaurant-header {
 
-            position: relative;
+<style>
 
-            background-image:
 
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.98) 0%,
-                    rgba(255,255,255,0.92) 40%,
-                    rgba(255,255,255,0.25) 100%
-                ),
+/* =========================================================
+   GENERAL
+========================================================= */
 
-                url('assets/images/header.jpg');
+body {
 
-            background-size: cover;
+    background: #fefbea;
 
-            background-position: center;
+    color: #333;
 
-            min-height: 450px;
+    font-family: Arial, sans-serif;
 
-            padding: 60px 20px;
+}
 
-            display: flex;
 
-            align-items: center;
+/* =========================================================
+   HERO HEADER
+========================================================= */
 
-            overflow: hidden;
-        }
+.restaurant-header {
 
+    position: relative;
 
-        .restaurant-header-content {
+    background-image:
 
-            max-width: 650px;
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.98) 0%,
+            rgba(255,255,255,0.92) 40%,
+            rgba(255,255,255,0.25) 100%
+        ),
 
-            margin-left: 5%;
+        url('assets/images/header.jpg');
 
-            position: relative;
+    background-size: cover;
 
-            z-index: 2;
-        }
+    background-position: center;
 
+    min-height: 450px;
 
-        .restaurant-header h1 {
+    padding: 60px 20px;
 
-            font-size: 3.2rem;
+    display: flex;
 
-            font-weight: 800;
+    align-items: center;
 
-            color: #0057B8;
+    overflow: hidden;
 
-            margin-bottom: 15px;
-        }
+}
 
 
-        .restaurant-header h1 span {
+.restaurant-header-content {
 
-            color: #E0A800;
-        }
+    max-width: 650px;
 
+    margin-left: 5%;
 
-        .restaurant-header p {
+    position: relative;
 
-            font-size: 1.1rem;
+    z-index: 2;
 
-            line-height: 1.7;
+}
 
-            color: #444;
 
-            max-width: 600px;
-        }
+.restaurant-header h1 {
 
+    font-size: 3.2rem;
 
-        .food-badge {
+    font-weight: 800;
 
-            display: inline-block;
+    color: #0057B8;
 
-            background: linear-gradient(
-                135deg,
-                #FFD700,
-                #ffb300
-            );
+    margin-bottom: 15px;
 
-            color: #333;
+}
 
-            font-weight: 700;
 
-            padding: 9px 18px;
+.restaurant-header h1 span {
 
-            border-radius: 30px;
+    color: #E0A800;
 
-            margin-bottom: 18px;
+}
 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-        }
 
+.restaurant-header p {
 
-        /* =========================================================
-           SECTION TITLE
-        ========================================================= */
+    font-size: 1.1rem;
 
-        .section-title {
+    line-height: 1.7;
 
-            text-align: center;
+    color: #444;
 
-            margin-bottom: 35px;
-        }
+    max-width: 600px;
 
+}
 
-        .section-title h2 {
 
-            font-weight: 800;
+.food-badge {
 
-            color: #0057B8;
+    display: inline-block;
 
-            font-size: 2.2rem;
-        }
+    background: linear-gradient(
+        135deg,
+        #FFD700,
+        #ffb300
+    );
 
+    color: #333;
 
-        .section-title p {
+    font-weight: 700;
 
-            color: #777;
+    padding: 9px 18px;
 
-            max-width: 650px;
+    border-radius: 30px;
 
-            margin: auto;
-        }
+    margin-bottom: 18px;
 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
 
-        /* =========================================================
-           AREA FILTER
-        ========================================================= */
+}
 
-        .area-filter {
 
-            display: flex;
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
-            flex-wrap: wrap;
+.section-title {
 
-            justify-content: center;
+    text-align: center;
 
-            gap: 12px;
+    margin-bottom: 35px;
 
-            margin-bottom: 45px;
-        }
+}
 
 
-        .area-btn {
+.section-title h2 {
 
-            text-decoration: none;
+    font-weight: 800;
 
-            padding: 12px 22px;
+    color: #0057B8;
 
-            border-radius: 30px;
+    font-size: 2.2rem;
 
-            background: white;
+}
 
-            color: #0057B8;
 
-            font-weight: 700;
+.section-title p {
 
-            border: 2px solid #0057B8;
+    color: #777;
 
-            transition: 0.3s;
+    max-width: 650px;
 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-        }
+    margin: auto;
 
+}
 
-        .area-btn:hover {
 
-            background: #0057B8;
+/* =========================================================
+   AREA FILTER
+========================================================= */
 
-            color: white;
+.area-filter {
 
-            transform: translateY(-3px);
-        }
+    display: flex;
 
+    flex-wrap: wrap;
 
-        .area-btn.active {
+    justify-content: center;
 
-            background: linear-gradient(
-                135deg,
-                #FFD700,
-                #0057B8
-            );
+    gap: 12px;
 
-            color: white;
+    margin-bottom: 45px;
 
-            border-color: transparent;
-        }
+}
 
 
-        /* =========================================================
-           AREA INFORMATION BOX
-        ========================================================= */
+.area-btn {
 
-        .area-info {
+    text-decoration: none;
 
-            background: linear-gradient(
-                135deg,
-                #fff8c7,
-                #ffffff
-            );
+    padding: 12px 22px;
 
-            border-radius: 25px;
+    border-radius: 30px;
 
-            padding: 28px;
+    background: white;
 
-            margin-bottom: 45px;
+    color: #0057B8;
 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    font-weight: 700;
 
-            border-left: 7px solid #FFD700;
-        }
+    border: 2px solid #0057B8;
 
+    transition: 0.3s;
 
-        .area-info-icon {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
 
-            width: 60px;
+}
 
-            height: 60px;
 
-            border-radius: 50%;
+.area-btn:hover {
 
-            display: flex;
+    background: #0057B8;
 
-            align-items: center;
+    color: white;
 
-            justify-content: center;
+    transform: translateY(-3px);
 
-            background: #0057B8;
+}
 
-            color: white;
 
-            font-size: 1.5rem;
-        }
+.area-btn.active {
 
+    background: linear-gradient(
+        135deg,
+        #FFD700,
+        #0057B8
+    );
 
-        .area-info h3 {
+    color: white;
 
-            color: #0057B8;
+    border-color: transparent;
 
-            font-weight: 800;
+}
 
-            margin-bottom: 5px;
-        }
 
+/* =========================================================
+   AREA INFORMATION BOX
+========================================================= */
 
-        .area-info p {
+.area-info {
 
-            margin: 0;
+    background: linear-gradient(
+        135deg,
+        #fff8c7,
+        #ffffff
+    );
 
-            color: #666;
-        }
+    border-radius: 25px;
 
+    padding: 28px;
 
-        /* =========================================================
-           RESTAURANT CARD
-        ========================================================= */
+    margin-bottom: 45px;
 
-        .restaurant-card {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 
-            background: white;
+    border-left: 7px solid #FFD700;
 
-            border-radius: 22px;
+}
 
-            overflow: hidden;
 
-            height: 100%;
+.area-info-icon {
 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    width: 60px;
 
-            transition: all 0.3s ease;
+    height: 60px;
 
-            border: none;
-        }
+    border-radius: 50%;
 
+    display: flex;
 
-        .restaurant-card:hover {
+    align-items: center;
 
-            transform: translateY(-8px);
+    justify-content: center;
 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
+    background: #0057B8;
 
+    color: white;
 
-        .restaurant-image {
+    font-size: 1.5rem;
 
-            width: 100%;
+}
 
-            height: 230px;
 
-            object-fit: cover;
-        }
+.area-info h3 {
 
+    color: #0057B8;
 
-        .restaurant-image-placeholder {
+    font-weight: 800;
 
-            height: 230px;
+    margin-bottom: 5px;
 
-            background: linear-gradient(
-                135deg,
-                #FFD700,
-                #0057B8
-            );
+}
 
-            display: flex;
 
-            align-items: center;
+.area-info p {
 
-            justify-content: center;
+    margin: 0;
 
-            color: white;
+    color: #666;
 
-            font-size: 4rem;
-        }
+}
 
 
-        .restaurant-content {
+/* =========================================================
+   RESTAURANT CARD
+========================================================= */
 
-            padding: 25px;
-        }
+.restaurant-card {
 
+    background: white;
 
-        .category-badge {
+    border-radius: 22px;
 
-            display: inline-block;
+    overflow: hidden;
 
-            background: #fff3cd;
+    height: 100%;
 
-            color: #9a6b00;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 
-            padding: 7px 13px;
+    transition: all 0.3s ease;
 
-            border-radius: 20px;
+    border: none;
 
-            font-size: 0.8rem;
+}
 
-            font-weight: 700;
 
-            margin-bottom: 12px;
-        }
+.restaurant-card:hover {
 
+    transform: translateY(-8px);
 
-        .restaurant-content h4 {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 
-            color: #0057B8;
+}
 
-            font-weight: 800;
 
-            margin-bottom: 10px;
-        }
+.restaurant-image {
 
+    width: 100%;
 
-        .restaurant-content p {
+    height: 230px;
 
-            color: #777;
+    object-fit: cover;
 
-            line-height: 1.6;
+}
 
-            min-height: 75px;
-        }
 
+/* =========================================================
+   NEW FOOD EMOJI PLACEHOLDER
+========================================================= */
 
-        /* =========================================================
-           LOCATION BUTTON
-        ========================================================= */
+.restaurant-image-placeholder {
 
-        .map-btn {
+    height: 230px;
 
-            width: 100%;
+    background: linear-gradient(
+        135deg,
+        #FFD700,
+        #0057B8
+    );
 
-            border: none;
+    display: flex;
 
-            border-radius: 12px;
+    align-items: center;
 
-            padding: 12px 18px;
+    justify-content: center;
 
-            background: linear-gradient(
-                135deg,
-                #0057B8,
-                #007bff
-            );
+}
 
-            color: white;
 
-            font-weight: 700;
+.food-emoji {
 
-            text-decoration: none;
+    width: 115px;
 
-            display: inline-flex;
+    height: 115px;
 
-            justify-content: center;
+    background: rgba(255,255,255,0.96);
 
-            align-items: center;
+    border-radius: 50%;
 
-            gap: 8px;
+    display: flex;
 
-            transition: 0.3s;
-        }
+    align-items: center;
 
+    justify-content: center;
 
-        .map-btn:hover {
+    font-size: 4.5rem;
 
-            color: white;
+    line-height: 1;
 
-            transform: translateY(-2px);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.20);
 
-            background: linear-gradient(
-                135deg,
-                #003f88,
-                #0057B8
-            );
+    transition: all 0.3s ease;
 
-            box-shadow: 0 8px 18px rgba(0,87,184,0.25);
-        }
+}
 
 
-        /* =========================================================
-           EMPTY RESULT
-        ========================================================= */
+.restaurant-card:hover .food-emoji {
 
-        .empty-box {
+    transform:
+        translateY(-5px)
+        scale(1.08);
 
-            text-align: center;
+}
 
-            padding: 70px 20px;
 
-            background: white;
+/* =========================================================
+   RESTAURANT CONTENT
+========================================================= */
 
-            border-radius: 25px;
+.restaurant-content {
 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
+    padding: 25px;
 
+}
 
-        .empty-box i {
 
-            font-size: 4rem;
+.category-badge {
 
-            color: #FFD700;
+    display: inline-block;
 
-            margin-bottom: 20px;
-        }
+    background: #fff3cd;
 
+    color: #9a6b00;
 
-        .empty-box h3 {
+    padding: 7px 13px;
 
-            color: #0057B8;
+    border-radius: 20px;
 
-            font-weight: 800;
-        }
+    font-size: 0.8rem;
 
+    font-weight: 700;
 
-        /* =========================================================
-           MOBILE
-        ========================================================= */
+    margin-bottom: 12px;
 
-        @media (max-width: 768px) {
+}
 
-            .restaurant-header {
 
-                min-height: 400px;
+.restaurant-content h4 {
 
-                padding: 40px 20px;
-            }
+    color: #0057B8;
 
+    font-weight: 800;
 
-            .restaurant-header-content {
+    margin-bottom: 10px;
 
-                margin-left: 0;
-            }
+}
 
 
-            .restaurant-header h1 {
+.restaurant-content p {
 
-                font-size: 2.3rem;
-            }
+    color: #777;
 
+    line-height: 1.6;
 
-            .restaurant-header p {
+    min-height: 75px;
 
-                font-size: 1rem;
-            }
+}
 
-        }
 
-    </style>
+/* =========================================================
+   LOCATION BUTTON
+========================================================= */
+
+.map-btn {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 12px 18px;
+
+    background: linear-gradient(
+        135deg,
+        #0057B8,
+        #007bff
+    );
+
+    color: white;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transition: 0.3s;
+
+}
+
+
+.map-btn:hover {
+
+    color: white;
+
+    transform: translateY(-2px);
+
+    background: linear-gradient(
+        135deg,
+        #003f88,
+        #0057B8
+    );
+
+    box-shadow: 0 8px 18px rgba(0,87,184,0.25);
+
+}
+
+
+/* =========================================================
+   EMPTY RESULT
+========================================================= */
+
+.empty-box {
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+.empty-box i {
+
+    font-size: 4rem;
+
+    color: #FFD700;
+
+    margin-bottom: 20px;
+
+}
+
+
+.empty-box h3 {
+
+    color: #0057B8;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .restaurant-header {
+
+        min-height: 400px;
+
+        padding: 40px 20px;
+
+    }
+
+
+    .restaurant-header-content {
+
+        margin-left: 0;
+
+    }
+
+
+    .restaurant-header h1 {
+
+        font-size: 2.3rem;
+
+    }
+
+
+    .restaurant-header p {
+
+        font-size: 1rem;
+
+    }
+
+
+    .food-emoji {
+
+        width: 100px;
+
+        height: 100px;
+
+        font-size: 4rem;
+
+    }
+
+}
+
+
+</style>
 
 </head>
+
 
 
 <body>
@@ -728,13 +838,16 @@ $areas = [
 <?php include("navbar.php"); ?>
 
 
+
 <!-- =========================================================
      HERO
 ========================================================= -->
 
 <section class="restaurant-header">
 
+
     <div class="restaurant-header-content">
+
 
         <div class="food-badge">
 
@@ -761,7 +874,9 @@ $areas = [
 
         </p>
 
+
     </div>
+
 
 </section>
 
@@ -776,6 +891,7 @@ $areas = [
 
     <div class="section-title">
 
+
         <h2>
 
             <i class="bi bi-shop me-2"></i>
@@ -784,12 +900,14 @@ $areas = [
 
         </h2>
 
+
         <p>
 
             Choose an area to discover food and dining
             experiences around Perlis.
 
         </p>
+
 
     </div>
 
@@ -800,6 +918,7 @@ $areas = [
     ====================================================== -->
 
     <div class="area-filter">
+
 
         <a
             href="restaurant.php"
@@ -815,6 +934,7 @@ $areas = [
 
         <?php foreach ($areas as $areaName => $areaData): ?>
 
+
             <a
                 href="restaurant.php?area=<?= urlencode($areaName) ?>"
                 class="area-btn <?= ($selectedArea == $areaName) ? 'active' : '' ?>"
@@ -826,7 +946,9 @@ $areas = [
 
             </a>
 
+
         <?php endforeach; ?>
+
 
     </div>
 
@@ -838,9 +960,12 @@ $areas = [
 
     <?php if ($selectedArea != "All" && isset($areas[$selectedArea])): ?>
 
+
         <div class="area-info">
 
+
             <div class="d-flex align-items-center gap-3">
+
 
                 <div class="area-info-icon">
 
@@ -851,11 +976,13 @@ $areas = [
 
                 <div>
 
+
                     <h3>
 
                         Dining in <?= htmlspecialchars($selectedArea) ?>
 
                     </h3>
+
 
                     <p>
 
@@ -863,11 +990,15 @@ $areas = [
 
                     </p>
 
+
                 </div>
+
 
             </div>
 
+
         </div>
+
 
     <?php endif; ?>
 
@@ -888,11 +1019,10 @@ $areas = [
 
                 <?php
 
+
                 /*
                 |--------------------------------------------------------------------------
-                | MAP SEARCH
-                |--------------------------------------------------------------------------
-                | CATEGORY + AREA
+                | RESTAURANT CATEGORY
                 |--------------------------------------------------------------------------
                 */
 
@@ -900,6 +1030,12 @@ $areas = [
 
                 $area = $restaurant["area"];
 
+
+                /*
+                |--------------------------------------------------------------------------
+                | MAP SEARCH
+                |--------------------------------------------------------------------------
+                */
 
                 if ($category == "Seafood") {
 
@@ -929,6 +1065,7 @@ $areas = [
                         . " restaurants in "
                         . $area
                         . ", Perlis";
+
                 }
 
 
@@ -943,7 +1080,15 @@ $areas = [
                     . urlencode($mapSearch);
 
 
-                $imageExists = file_exists($restaurant["image"]);
+                /*
+                |--------------------------------------------------------------------------
+                | CHECK IMAGE
+                |--------------------------------------------------------------------------
+                */
+
+                $imageExists =
+                    file_exists($restaurant["image"]);
+
 
                 ?>
 
@@ -954,12 +1099,16 @@ $areas = [
 
                 <div class="col-lg-4 col-md-6">
 
+
                     <div class="restaurant-card">
 
 
-                        <!-- IMAGE -->
+                        <!-- =========================================
+                             IMAGE OR EMOJI
+                        ========================================== -->
 
                         <?php if ($imageExists): ?>
+
 
                             <img
                                 src="<?= htmlspecialchars($restaurant["image"]) ?>"
@@ -967,42 +1116,86 @@ $areas = [
                                 class="restaurant-image"
                             >
 
+
                         <?php else: ?>
+
 
                             <div class="restaurant-image-placeholder">
 
-                                <i class="bi bi-cup-hot-fill"></i>
+
+                                <div class="food-emoji">
+
+
+                                    <?php if ($category == "Seafood"): ?>
+
+                                        🦐
+
+
+                                    <?php elseif ($category == "Local Food"): ?>
+
+                                        🍜
+
+
+                                    <?php elseif ($category == "Cafe"): ?>
+
+                                        ☕
+
+
+                                    <?php else: ?>
+
+                                        🍽️
+
+
+                                    <?php endif; ?>
+
+
+                                </div>
+
 
                             </div>
+
 
                         <?php endif; ?>
 
 
-                        <!-- CONTENT -->
+
+                        <!-- =========================================
+                             CONTENT
+                        ========================================== -->
 
                         <div class="restaurant-content">
 
 
-                            <!-- CATEGORY -->
+                            <!-- CATEGORY BADGE -->
 
                             <span class="category-badge">
 
+
                                 <?php if ($category == "Seafood"): ?>
 
-                                    <i class="bi bi-egg-fried me-1"></i>
+                                    🦐
+
+
+                                <?php elseif ($category == "Local Food"): ?>
+
+                                    🍜
+
 
                                 <?php elseif ($category == "Cafe"): ?>
 
-                                    <i class="bi bi-cup-hot-fill me-1"></i>
+                                    ☕
+
 
                                 <?php else: ?>
 
-                                    <i class="bi bi-shop me-1"></i>
+                                    🍽️
+
 
                                 <?php endif; ?>
 
 
                                 <?= htmlspecialchars($category) ?>
+
 
                             </span>
 
@@ -1061,6 +1254,7 @@ $areas = [
 
                     </div>
 
+
                 </div>
 
 
@@ -1072,15 +1266,19 @@ $areas = [
 
             <div class="col-12">
 
+
                 <div class="empty-box">
 
+
                     <i class="bi bi-emoji-frown"></i>
+
 
                     <h3>
 
                         No restaurants found
 
                     </h3>
+
 
                     <p class="text-muted">
 
@@ -1101,7 +1299,9 @@ $areas = [
 
                     </a>
 
+
                 </div>
+
 
             </div>
 

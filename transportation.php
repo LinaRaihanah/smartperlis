@@ -25,6 +25,7 @@ $transportOptions = [
         "area" => "Kangar",
         "type" => "Taxi / E-Hailing",
         "icon" => "bi-taxi-front-fill",
+        "emoji" => "🚕",
         "description" =>
             "Find convenient taxi and e-hailing services for travelling around Kangar.",
         "search" =>
@@ -36,6 +37,7 @@ $transportOptions = [
         "area" => "Kangar",
         "type" => "Bus",
         "icon" => "bi-bus-front-fill",
+        "emoji" => "🚌",
         "description" =>
             "Explore bus transportation options available around Kangar and nearby areas.",
         "search" =>
@@ -47,6 +49,7 @@ $transportOptions = [
         "area" => "Kangar",
         "type" => "Car Rental",
         "icon" => "bi-car-front-fill",
+        "emoji" => "🚗",
         "description" =>
             "Find car rental services for a flexible journey around Kangar and Perlis.",
         "search" =>
@@ -63,6 +66,7 @@ $transportOptions = [
         "area" => "Arau",
         "type" => "Rail",
         "icon" => "bi-train-front-fill",
+        "emoji" => "🚆",
         "description" =>
             "Explore railway transportation options around Arau for convenient travel.",
         "search" =>
@@ -74,6 +78,7 @@ $transportOptions = [
         "area" => "Arau",
         "type" => "Taxi / E-Hailing",
         "icon" => "bi-taxi-front-fill",
+        "emoji" => "🚕",
         "description" =>
             "Find taxi and e-hailing transportation services available around Arau.",
         "search" =>
@@ -85,6 +90,7 @@ $transportOptions = [
         "area" => "Arau",
         "type" => "Car Rental",
         "icon" => "bi-car-front-fill",
+        "emoji" => "🚗",
         "description" =>
             "Discover car rental options for exploring Arau and surrounding attractions.",
         "search" =>
@@ -101,6 +107,7 @@ $transportOptions = [
         "area" => "Padang Besar",
         "type" => "Rail",
         "icon" => "bi-train-front-fill",
+        "emoji" => "🚆",
         "description" =>
             "Explore railway transportation for travelling to and around Padang Besar.",
         "search" =>
@@ -112,6 +119,7 @@ $transportOptions = [
         "area" => "Padang Besar",
         "type" => "Bus",
         "icon" => "bi-bus-front-fill",
+        "emoji" => "🚌",
         "description" =>
             "Find bus transportation options around Padang Besar and nearby locations.",
         "search" =>
@@ -123,6 +131,7 @@ $transportOptions = [
         "area" => "Padang Besar",
         "type" => "Taxi / E-Hailing",
         "icon" => "bi-taxi-front-fill",
+        "emoji" => "🚕",
         "description" =>
             "Find taxi and e-hailing services for convenient travel around Padang Besar.",
         "search" =>
@@ -139,6 +148,7 @@ $transportOptions = [
         "area" => "Kuala Perlis",
         "type" => "Ferry",
         "icon" => "bi-water",
+        "emoji" => "⛴️",
         "description" =>
             "Explore ferry transportation services around the Kuala Perlis waterfront.",
         "search" =>
@@ -150,6 +160,7 @@ $transportOptions = [
         "area" => "Kuala Perlis",
         "type" => "Bus",
         "icon" => "bi-bus-front-fill",
+        "emoji" => "🚌",
         "description" =>
             "Find bus transportation options for travelling around Kuala Perlis.",
         "search" =>
@@ -161,6 +172,7 @@ $transportOptions = [
         "area" => "Kuala Perlis",
         "type" => "Taxi / E-Hailing",
         "icon" => "bi-taxi-front-fill",
+        "emoji" => "🚕",
         "description" =>
             "Find taxi and e-hailing services around Kuala Perlis for an easier journey.",
         "search" =>
@@ -234,43 +246,44 @@ $areas = [
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>
-        Transportation | Perlis Tourism
-    </title>
-
-
-    <!-- BOOTSTRAP -->
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+<title>
+    Transportation | Perlis Tourism
+</title>
 
 
-    <!-- BOOTSTRAP ICONS -->
+<!-- BOOTSTRAP -->
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        rel="stylesheet"
-    >
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
 
 
-    <!-- MAIN CSS -->
+<!-- BOOTSTRAP ICONS -->
 
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css"
-    >
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+>
+
+
+<!-- MAIN CSS -->
+
+<link
+    rel="stylesheet"
+    href="assets/css/style.css"
+>
 
 
 <style>
+
 
 /* =========================================================
    GENERAL
@@ -787,20 +800,18 @@ body {
 
 
 /* =========================================================
-   TRANSPORT ICON
+   NEW TRANSPORT EMOJI
 ========================================================= */
 
-.transport-icon {
+.transport-emoji {
 
-    width: 90px;
+    width: 105px;
 
-    height: 90px;
+    height: 105px;
 
-    border-radius: 25px;
+    border-radius: 50%;
 
-    background: white;
-
-    color: #0057B8;
+    background: rgba(255,255,255,0.96);
 
     display: flex;
 
@@ -808,24 +819,26 @@ body {
 
     justify-content: center;
 
-    font-size: 42px;
+    font-size: 4.3rem;
+
+    line-height: 1;
 
     position: relative;
 
     z-index: 2;
 
     box-shadow:
-        0 8px 20px rgba(0,0,0,0.18);
+        0 9px 22px rgba(0,0,0,0.20);
 
-    transition: 0.3s;
+    transition: all 0.3s ease;
 
 }
 
 
-.transport-card:hover
-.transport-icon {
+.transport-card:hover .transport-emoji {
 
     transform:
+        translateY(-4px)
         scale(1.08);
 
 }
@@ -1108,6 +1121,17 @@ body {
 
     }
 
+
+    .transport-emoji {
+
+        width: 95px;
+
+        height: 95px;
+
+        font-size: 3.8rem;
+
+    }
+
 }
 
 
@@ -1224,6 +1248,7 @@ body {
 
     <div class="section-title">
 
+
         <h2>
 
             <i class="bi bi-signpost-split-fill me-2"></i>
@@ -1244,6 +1269,7 @@ body {
 
         <div class="title-line"></div>
 
+
     </div>
 
 
@@ -1259,8 +1285,7 @@ body {
 
         <a
             href="transportation.php"
-            class="area-btn
-            <?= ($selectedArea == 'All') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'All') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-grid-fill me-1"></i>
@@ -1270,13 +1295,11 @@ body {
         </a>
 
 
-
         <!-- KUALA PERLIS -->
 
         <a
             href="transportation.php?area=Kuala%20Perlis"
-            class="area-btn
-            <?= ($selectedArea == 'Kuala Perlis') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'Kuala Perlis') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-water me-1"></i>
@@ -1286,13 +1309,11 @@ body {
         </a>
 
 
-
         <!-- PADANG BESAR -->
 
         <a
             href="transportation.php?area=Padang%20Besar"
-            class="area-btn
-            <?= ($selectedArea == 'Padang Besar') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'Padang Besar') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-signpost-split-fill me-1"></i>
@@ -1302,13 +1323,11 @@ body {
         </a>
 
 
-
         <!-- KANGAR -->
 
         <a
             href="transportation.php?area=Kangar"
-            class="area-btn
-            <?= ($selectedArea == 'Kangar') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'Kangar') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-building me-1"></i>
@@ -1318,13 +1337,11 @@ body {
         </a>
 
 
-
         <!-- ARAU -->
 
         <a
             href="transportation.php?area=Arau"
-            class="area-btn
-            <?= ($selectedArea == 'Arau') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'Arau') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-train-front-fill me-1"></i>
@@ -1428,11 +1445,8 @@ body {
                 ============================================ */
 
                 $mapUrl =
-
                     "https://www.google.com/maps/search/?api=1&query="
-
                     .
-
                     urlencode(
                         $transport["search"]
                     );
@@ -1446,21 +1460,16 @@ body {
                     <div class="transport-card">
 
 
-                        <!-- ICON TOP -->
+                        <!-- ==================================
+                             EMOJI TOP
+                        =================================== -->
 
                         <div class="transport-card-top">
 
 
-                            <div class="transport-icon">
+                            <div class="transport-emoji">
 
-
-                                <i
-                                    class="bi
-                                    <?= htmlspecialchars(
-                                        $transport["icon"]
-                                    ) ?>"
-                                ></i>
-
+                                <?= $transport["emoji"] ?>
 
                             </div>
 
@@ -1469,7 +1478,9 @@ body {
 
 
 
-                        <!-- CONTENT -->
+                        <!-- ==================================
+                             CONTENT
+                        =================================== -->
 
                         <div class="transport-content">
 
@@ -1478,20 +1489,11 @@ body {
 
                             <span class="transport-badge">
 
-
-                                <i
-                                    class="bi
-                                    <?= htmlspecialchars(
-                                        $transport["icon"]
-                                    ) ?>
-                                    me-1"
-                                ></i>
-
+                                <?= $transport["emoji"] ?>
 
                                 <?= htmlspecialchars(
                                     $transport["type"]
                                 ) ?>
-
 
                             </span>
 
