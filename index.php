@@ -1,12 +1,17 @@
 <?php
 
 include("config.php");
+
 include("visitor_tracking.php");
 
 trackVisitor(
+
     $conn,
+
     null,
+
     "Home"
+
 );
 
 ?>
@@ -20,42 +25,52 @@ trackVisitor(
 <meta charset="UTF-8">
 
 <meta name="viewport"
+
       content="width=device-width, initial-scale=1.0">
 
 <title>
-PERLIS TOURISM SMART PORTAL
-</title>
 
+PERLIS TOURISM SMART PORTAL
+
+</title>
 
 <!-- Bootstrap -->
 
 <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
->
 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+
+    rel="stylesheet"
+
+>
 
 <!-- Bootstrap Icons -->
 
 <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet"
->
 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+
+    rel="stylesheet"
+
+>
 
 <!-- Google Font -->
 
 <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
->
 
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+
+    rel="stylesheet"
+
+>
 
 <style>
 
 /* =========================================
+
    PERLIS COLOUR
-========================================= */
+
+\========================================= */
 
 :root {
 
@@ -71,17 +86,17 @@ PERLIS TOURISM SMART PORTAL
 
 }
 
-
 /* =========================================
+
    GLOBAL
-========================================= */
+
+\========================================= */
 
 * {
 
     box-sizing: border-box;
 
 }
-
 
 body {
 
@@ -93,10 +108,11 @@ body {
 
 }
 
-
 /* =========================================
+
    NAVBAR
-========================================= */
+
+\========================================= */
 
 .navbar {
 
@@ -113,6 +129,7 @@ body {
     z-index: 1000;
 
     box-shadow:
+
         0 8px 30px rgba(0, 0, 0, 0.40);
 
     backdrop-filter: blur(8px);
@@ -127,7 +144,6 @@ body {
 
 }
 
-
 .navbar-brand {
 
     font-size: 1.25rem;
@@ -136,13 +152,11 @@ body {
 
 }
 
-
 .navbar-brand i {
 
     color: var(--perlis-yellow);
 
 }
-
 
 .navbar-nav .nav-link {
 
@@ -158,14 +172,13 @@ body {
 
 }
 
-
 .navbar-nav .nav-link:hover,
+
 .navbar-nav .nav-link.active {
 
     color: var(--perlis-yellow);
 
 }
-
 
 /* ICON ATAS TEXT */
 
@@ -177,7 +190,6 @@ body {
 
 }
 
-
 /* PROFILE HOVER DROPDOWN */
 
 .profile-dropdown {
@@ -185,7 +197,6 @@ body {
     position: relative;
 
 }
-
 
 .profile-dropdown .dropdown-menu {
 
@@ -201,17 +212,17 @@ body {
 
 }
 
-
 .profile-dropdown:hover .dropdown-menu {
 
     display: block;
 
 }
 
-
 /* =========================================
+
    ADMIN AREA
-========================================= */
+
+\========================================= */
 
 .admin-area {
 
@@ -224,7 +235,6 @@ body {
     z-index: 1100;
 
 }
-
 
 .admin-area a {
 
@@ -240,13 +250,11 @@ body {
 
 }
 
-
 .admin-area a:hover {
 
     color: var(--perlis-yellow);
 
 }
-
 
 .admin-area i {
 
@@ -254,10 +262,11 @@ body {
 
 }
 
-
 /* =========================================
+
    HERO
-========================================= */
+
+\========================================= */
 
 .hero {
 
@@ -269,7 +278,6 @@ body {
 
 }
 
-
 .hero img {
 
     width: 100%;
@@ -280,7 +288,6 @@ body {
 
 }
 
-
 .hero::after {
 
     content: "";
@@ -290,15 +297,20 @@ body {
     inset: 0;
 
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(0,0,0,.65),
+
             rgba(0,0,0,.20),
+
             rgba(0,0,0,.15)
+
         );
 
 }
-
 
 .hero-content {
 
@@ -318,7 +330,6 @@ body {
 
 }
 
-
 .hero-content .small-title {
 
     text-transform: uppercase;
@@ -335,7 +346,6 @@ body {
 
 }
 
-
 .hero-content h1 {
 
     font-size: clamp(2.5rem, 6vw, 5rem);
@@ -348,7 +358,6 @@ body {
 
 }
 
-
 .hero-content p {
 
     font-size: 1.15rem;
@@ -359,10 +368,11 @@ body {
 
 }
 
-
 /* =========================================
+
    HERO BUTTON
-========================================= */
+
+\========================================= */
 
 .hero-btn {
 
@@ -387,10 +397,10 @@ body {
     transition: .3s;
 
     box-shadow:
+
         0 5px 15px rgba(0,0,0,.20);
 
 }
-
 
 .hero-btn:hover {
 
@@ -402,10 +412,11 @@ body {
 
 }
 
-
 /* =========================================
+
    SEARCH BOX
-========================================= */
+
+\========================================= */
 
 .search-wrapper {
 
@@ -417,7 +428,6 @@ body {
 
 }
 
-
 .search-card {
 
     background: white;
@@ -427,12 +437,12 @@ body {
     padding: 22px;
 
     box-shadow:
+
         0 15px 40px rgba(0,0,0,.12);
 
     border-top: 4px solid var(--perlis-yellow);
 
 }
-
 
 .search-input {
 
@@ -448,16 +458,15 @@ body {
 
 }
 
-
 .search-input:focus {
 
     border-color: var(--perlis-blue);
 
     box-shadow:
+
         0 0 0 3px rgba(0,87,168,.12);
 
 }
-
 
 .search-icon {
 
@@ -475,7 +484,6 @@ body {
 
 }
 
-
 .search-btn {
 
     height: 58px;
@@ -488,10 +496,11 @@ body {
 
 }
 
-
 /* =========================================
+
    PERLIS BUTTON
-========================================= */
+
+\========================================= */
 
 .perlis-btn {
 
@@ -507,7 +516,6 @@ body {
 
 }
 
-
 .perlis-btn:hover {
 
     background: var(--perlis-yellow);
@@ -518,17 +526,17 @@ body {
 
 }
 
-
 /* =========================================
+
    SECTION
-========================================= */
+
+\========================================= */
 
 .section {
 
     padding: 90px 0;
 
 }
-
 
 .section-title {
 
@@ -540,7 +548,6 @@ body {
 
 }
 
-
 .section-subtitle {
 
     color: #6b7280;
@@ -551,17 +558,17 @@ body {
 
 }
 
-
 .perlis-yellow-text {
 
     color: var(--perlis-blue);
 
 }
 
-
 /* =========================================
+
    DESTINATION CARD
-========================================= */
+
+\========================================= */
 
 .destination-card {
 
@@ -574,6 +581,7 @@ body {
     background: white;
 
     box-shadow:
+
         0 8px 25px rgba(0,0,0,.07);
 
     transition: .3s;
@@ -582,16 +590,15 @@ body {
 
 }
 
-
 .destination-card:hover {
 
     transform: translateY(-8px);
 
     box-shadow:
+
         0 18px 40px rgba(0,0,0,.13);
 
 }
-
 
 .destination-img-wrapper {
 
@@ -602,7 +609,6 @@ body {
     overflow: hidden;
 
 }
-
 
 .destination-img {
 
@@ -616,13 +622,11 @@ body {
 
 }
 
-
 .destination-card:hover .destination-img {
 
     transform: scale(1.07);
 
 }
-
 
 .destination-category {
 
@@ -646,13 +650,11 @@ body {
 
 }
 
-
 .destination-body {
 
     padding: 22px;
 
 }
-
 
 .destination-title {
 
@@ -664,7 +666,6 @@ body {
 
 }
 
-
 .destination-location {
 
     color: var(--perlis-blue);
@@ -675,13 +676,11 @@ body {
 
 }
 
-
 .destination-location i {
 
     color: var(--perlis-yellow);
 
 }
-
 
 .destination-description {
 
@@ -692,7 +691,6 @@ body {
     line-height: 1.7;
 
 }
-
 
 .details-btn {
 
@@ -714,24 +712,23 @@ body {
 
 }
 
-
 .details-btn:hover {
 
     color: var(--perlis-dark-blue);
 
 }
 
-
 /* =========================================
+
    NO RESULT
-========================================= */
+
+\========================================= */
 
 #noResult {
 
     display: none;
 
 }
-
 
 .no-result-box {
 
@@ -744,16 +741,18 @@ body {
     text-align: center;
 
     box-shadow:
+
         0 8px 25px rgba(0,0,0,.06);
 
     border-top: 4px solid var(--perlis-yellow);
 
 }
 
-
 /* =========================================
+
    FEATURES
-========================================= */
+
+\========================================= */
 
 .feature-box {
 
@@ -768,19 +767,18 @@ body {
     text-align: center;
 
     box-shadow:
+
         0 8px 25px rgba(0,0,0,.06);
 
     transition: .3s;
 
 }
 
-
 .feature-box:hover {
 
     transform: translateY(-5px);
 
 }
-
 
 .feature-icon {
 
@@ -806,13 +804,11 @@ body {
 
 }
 
-
 .feature-box h5 {
 
     font-weight: 700;
 
 }
-
 
 .feature-box p {
 
@@ -822,18 +818,24 @@ body {
 
 }
 
-
 /* =========================================
+
    CTA
-========================================= */
+
+\========================================= */
 
 .cta {
 
     background:
+
         linear-gradient(
+
             135deg,
+
             var(--perlis-dark-blue),
+
             var(--perlis-blue)
+
         );
 
     border-radius: 25px;
@@ -846,7 +848,6 @@ body {
 
 }
 
-
 .cta h2 {
 
     font-weight: 800;
@@ -855,17 +856,17 @@ body {
 
 }
 
-
 .cta p {
 
     color: rgba(255,255,255,.85);
 
 }
 
-
 /* =========================================
+
    FOOTER
-========================================= */
+
+\========================================= */
 
 footer {
 
@@ -877,7 +878,6 @@ footer {
 
 }
 
-
 footer a {
 
     color: rgba(255,255,255,.7);
@@ -888,27 +888,27 @@ footer a {
 
 }
 
-
 footer a:hover {
 
     color: var(--perlis-yellow);
 
 }
 
-
 /* =========================================
+
    MOBILE
-========================================= */
+
+\========================================= */
 
 @media(max-width:768px) {
 
     .hero,
+
     .hero img {
 
         height: 500px;
 
     }
-
 
     .hero-content {
 
@@ -918,20 +918,17 @@ footer a:hover {
 
     }
 
-
     .hero-content h1 {
 
         font-size: 2.8rem;
 
     }
 
-
     .section {
 
         padding: 60px 0;
 
     }
-
 
     .admin-area {
 
@@ -941,13 +938,11 @@ footer a:hover {
 
     }
 
-
     .admin-area a {
 
         font-size: 12px;
 
     }
-
 
     .navbar {
 
@@ -961,13 +956,13 @@ footer a:hover {
 
 </head>
 
-
 <body>
 
-
 <!-- =========================================
+
      ADMIN AREA
-========================================= -->
+
+\========================================= -->
 
 <div class="admin-area">
 
@@ -981,21 +976,24 @@ Admin Area
 
 </div>
 
-
 <!-- =========================================
+
      PUBLIC NAVBAR
-========================================= -->
+
+\========================================= -->
 
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
 
 <div class="container">
 
-
 <!-- LOGO -->
 
 <a
+
     href="index.php"
+
     class="navbar-brand fw-bold"
+
 >
 
 <i class="bi bi-geo-alt-fill"></i>
@@ -1004,41 +1002,52 @@ PERLIS TOURISM SMART PORTAL
 
 </a>
 
-
 <!-- MOBILE BUTTON -->
 
 <button
+
     class="navbar-toggler"
+
     type="button"
+
     data-bs-toggle="collapse"
+
     data-bs-target="#mainMenu"
+
     aria-controls="mainMenu"
+
     aria-expanded="false"
+
     aria-label="Toggle navigation"
+
 >
 
 <span class="navbar-toggler-icon"></span>
 
 </button>
 
-
 <!-- PUBLIC MENU -->
 
 <div
+
     class="collapse navbar-collapse"
+
     id="mainMenu"
+
 >
 
 <ul class="navbar-nav ms-auto">
-
 
 <!-- HOME -->
 
 <li class="nav-item">
 
 <a
+
     class="nav-link active"
+
     href="index.php"
+
 >
 
 <i class="bi bi-house-fill"></i>
@@ -1049,15 +1058,18 @@ Home
 
 </li>
 
-
 <!-- PROFILE -->
 
 <li class="nav-item dropdown profile-dropdown">
 
 <a
+
     class="nav-link"
+
     href="#"
+
     id="profileDropdown"
+
 >
 
 <i class="bi bi-person-fill"></i>
@@ -1071,8 +1083,11 @@ Profile
 <li>
 
 <a
+
     class="dropdown-item"
+
     href="negeri-perlis.php"
+
 >
 
 Negeri Perlis
@@ -1084,8 +1099,11 @@ Negeri Perlis
 <li>
 
 <a
+
     class="dropdown-item"
+
     href="visit-perlis.php"
+
 >
 
 Logo Visit Perlis
@@ -1097,8 +1115,11 @@ Logo Visit Perlis
 <li>
 
 <a
+
     class="dropdown-item"
+
     href="kluster-pelancongan.php"
+
 >
 
 Kluster Pelancongan
@@ -1111,14 +1132,16 @@ Kluster Pelancongan
 
 </li>
 
-
 <!-- DESTINATIONS -->
 
 <li class="nav-item">
 
 <a
+
     class="nav-link"
+
     href="destinations.php"
+
 >
 
 <i class="bi bi-geo-alt-fill"></i>
@@ -1129,14 +1152,16 @@ Explore
 
 </li>
 
-
 <!-- EVENTS -->
 
 <li class="nav-item">
 
 <a
+
     class="nav-link"
+
     href="events.php"
+
 >
 
 <i class="bi bi-calendar-event-fill"></i>
@@ -1147,14 +1172,16 @@ Events
 
 </li>
 
-
 <!-- ANALYTICS -->
 
 <li class="nav-item">
 
 <a
+
     class="nav-link"
+
     href="analytics.php"
+
 >
 
 <i class="bi bi-bar-chart-fill"></i>
@@ -1165,14 +1192,16 @@ Analytics
 
 </li>
 
-
 <!-- MAP -->
 
 <li class="nav-item">
 
 <a
+
     class="nav-link"
+
     href="map.php"
+
 >
 
 <i class="bi bi-map-fill"></i>
@@ -1183,14 +1212,16 @@ Map
 
 </li>
 
-
 <!-- CONTACT -->
 
 <li class="nav-item">
 
 <a
+
     class="nav-link"
+
     href="contact.php"
+
 >
 
 <i class="bi bi-envelope-fill"></i>
@@ -1201,14 +1232,16 @@ Contact
 
 </li>
 
-
 <!-- GALLERY -->
 
 <li class="nav-item">
 
 <a
+
     class="nav-link"
+
     href="gallery.php"
+
 >
 
 <i class="bi bi-images"></i>
@@ -1219,14 +1252,16 @@ Gallery
 
 </li>
 
-
 <!-- PERLIS GEOPARK -->
 
 <li class="nav-item">
 
 <a
+
     class="nav-link"
+
     href="geopark/perlis_geopark.php"
+
 >
 
 <i class="bi bi-globe-asia-australia"></i>
@@ -1237,79 +1272,83 @@ Perlis Geopark
 
 </li>
 
-
 </ul>
 
 </div>
-
 
 </div>
 
 </nav>
 
-
 <!-- =========================================
+
      HERO
-========================================= -->
+
+\========================================= -->
 
 <section class="hero">
 
-
 <div
+
     id="heroSlider"
+
     class="carousel slide h-100"
+
     data-bs-ride="carousel"
+
 >
 
-
 <div class="carousel-inner h-100">
-
 
 <!-- SLIDE 1 -->
 
 <div class="carousel-item active h-100">
 
 <img
+
     src="assets/images/perlis1.jpg"
+
     alt="Beautiful Perlis"
+
 >
 
 </div>
-
 
 <!-- SLIDE 2 -->
 
 <div class="carousel-item h-100">
 
 <img
+
     src="assets/images/perlis2.jpg"
+
     alt="Perlis Tourism"
+
 >
 
 </div>
-
 
 <!-- SLIDE 3 -->
 
 <div class="carousel-item h-100">
 
 <img
+
     src="assets/images/perlis3.jpg"
+
     alt="Perlis Attraction"
+
 >
 
 </div>
 
-
 </div>
 
 </div>
-
 
 <!-- HERO CONTENT -->
 
 <div class="hero-content">
-
 
 <div class="small-title">
 
@@ -1317,26 +1356,28 @@ PERLIS TOURISM
 
 </div>
 
-
 <h1>
 
 Discover the Hidden Gem of Perlis
 
 </h1>
 
-
 <p>
 
 Explore breathtaking nature, unique culture,
+
 local food and unforgettable destinations
+
 across Perlis.
 
 </p>
 
-
 <a
+
     href="destinations.php"
+
     class="hero-btn"
+
 >
 
 Explore Destinations
@@ -1345,58 +1386,58 @@ Explore Destinations
 
 </a>
 
-
 </div>
 
 </section>
 
-
 <!-- =========================================
+
      SEARCH
-========================================= -->
+
+\========================================= -->
 
 <section class="container search-wrapper">
 
-
 <div class="search-card">
 
-
 <div class="row g-3 align-items-center">
-
 
 <!-- SEARCH INPUT -->
 
 <div class="col-lg-9">
 
-
 <div class="position-relative">
-
 
 <i class="bi bi-search search-icon"></i>
 
-
 <input
+
     type="text"
+
     id="search"
+
     class="form-control search-input"
+
     placeholder="Search destinations..."
+
 >
 
-
 </div>
 
 </div>
-
 
 <!-- SEARCH BUTTON -->
 
 <div class="col-lg-3">
 
-
 <button
+
     type="button"
+
     id="searchBtn"
+
     class="btn perlis-btn search-btn w-100"
+
 >
 
 <i class="bi bi-search"></i>
@@ -1405,9 +1446,7 @@ Search
 
 </button>
 
-
 </div>
-
 
 </div>
 
@@ -1415,21 +1454,19 @@ Search
 
 </section>
 
-
 <!-- =========================================
+
      DESTINATIONS
-========================================= -->
+
+\========================================= -->
 
 <section class="section">
 
-
 <div class="container">
-
 
 <!-- SECTION TITLE -->
 
 <div class="text-center mb-5">
-
 
 <div class="perlis-yellow-text fw-bold">
 
@@ -1437,94 +1474,144 @@ EXPLORE PERLIS
 
 </div>
 
-
 <h2 class="section-title">
 
 Popular Destinations
 
 </h2>
 
-
 <p class="section-subtitle">
 
 Discover the most beautiful places,
+
 attractions and hidden gems in Perlis.
 
 </p>
 
-
 </div>
-
 
 <!-- DESTINATION LIST -->
 
 <div
-    class="row g-4"
-    id="destinationList"
->
 
+    class="row g-4"
+
+    id="destinationList"
+
+>
 
 <?php
 
 $sql = "
+
     SELECT *
+
     FROM destinations
+
     ORDER BY destination_id ASC
+
 ";
 
 $result = mysqli_query($conn, $sql);
 
-
 if (
-    $result &&
-    mysqli_num_rows($result) > 0
-) {
 
+    $result &&
+
+    mysqli_num_rows($result) > 0
+
+) {
 
 while (
+
     $row = mysqli_fetch_assoc($result)
+
 ) {
 
 
-?>
+    /*
+    =========================================
+    HOMEPAGE DESTINATION IMAGE OVERRIDES
+    ONLY image filenames are changed.
+    Existing database data stays untouched.
+    =========================================
+    */
 
+    $destinationImages = [
+        "Gua Kelam" => "gua_kelam.jpg",
+        "Wang Kelian" => "wangkelian.jpg",
+        "Wang Kelian Viewpoint" => "wangkelian.jpg",
+        "Tasik Timah Tasoh" => "timahtasoh.jpg",
+        "Timah Tasoh Lake" => "timahtasoh.jpg",
+        "Taman Eko Rimba Bukit Ayer" => "bukit_ayer.jpg",
+        "Masjid Al-Hussain" => "masjid_al_hussain.jpg",
+        "Masjid Al Hussain" => "masjid_al_hussain.jpg",
+        "Bukit Tok Dun" => "bukit_tok_dun.jpg"
+    ];
+
+    $destinationName = $row['destination_name'];
+
+    if (isset($destinationImages[$destinationName])) {
+        $displayImage = $destinationImages[$destinationName];
+    } else {
+        $displayImage = $row['image'];
+    }
+
+?>
 
 <!-- DESTINATION CARD -->
 
 <div
-    class="col-lg-4 col-md-6 destination-card-wrapper"
->
 
+    class="col-lg-4 col-md-6 destination-card-wrapper"
+
+>
 
 <div
-    class="destination-card"
-    data-name="<?php
-        echo htmlspecialchars(
-            $row['destination_name']
-        );
-    ?>"
->
 
+    class="destination-card"
+
+    data-name="<?php
+
+        echo htmlspecialchars(
+
+            $row['destination_name']
+
+        );
+
+    ?>"
+
+>
 
 <!-- IMAGE -->
 
 <div class="destination-img-wrapper">
 
-
 <img
-    src="assets/images/<?php
-        echo htmlspecialchars(
-            $row['image']
-        );
-    ?>"
-    class="destination-img"
-    alt="<?php
-        echo htmlspecialchars(
-            $row['destination_name']
-        );
-    ?>"
->
 
+    src="assets/images/<?php
+
+        echo htmlspecialchars(
+
+            $displayImage
+
+        );
+
+    ?>"
+
+    class="destination-img"
+
+    alt="<?php
+
+        echo htmlspecialchars(
+
+            $row['destination_name']
+
+        );
+
+    ?>"
+
+>
 
 <!-- CATEGORY -->
 
@@ -1533,21 +1620,20 @@ while (
 <?php
 
 echo htmlspecialchars(
+
     $row['category']
+
 );
 
 ?>
 
 </span>
 
-
 </div>
-
 
 <!-- BODY -->
 
 <div class="destination-body">
-
 
 <!-- NAME -->
 
@@ -1556,79 +1642,87 @@ echo htmlspecialchars(
 <?php
 
 echo htmlspecialchars(
+
     $row['destination_name']
+
 );
 
 ?>
 
 </h3>
 
-
 <!-- LOCATION -->
 
 <div class="destination-location">
 
-
 <i class="bi bi-geo-alt-fill"></i>
-
 
 <?php
 
 echo htmlspecialchars(
+
     $row['location']
+
 );
 
 ?>
 
-
 </div>
-
 
 <!-- DESCRIPTION -->
 
 <p class="destination-description">
 
-
 <?php
 
-
 $description =
+
     $row['description'];
 
-
 if (
+
     strlen($description) > 110
+
 ) {
 
     $description =
+
         substr(
+
             $description,
+
             0,
+
             110
+
         ) . "...";
 
 }
 
-
 echo htmlspecialchars(
-    $description
-);
 
+    $description
+
+);
 
 ?>
 
-
 </p>
-
 
 <!-- DETAILS -->
 
 <a
+
     href="destination-details.php?id=<?php
+
         echo (int)
+
             $row['destination_id'];
+
     ?>"
+
     class="details-btn"
+
 >
 
 View Details
@@ -1637,13 +1731,11 @@ View Details
 
 </a>
 
-
 </div>
 
 </div>
 
 </div>
-
 
 <?php
 
@@ -1655,11 +1747,9 @@ else {
 
 ?>
 
-
 <!-- NO DESTINATIONS -->
 
 <div class="col-12">
-
 
 <div class="alert alert-warning text-center">
 
@@ -1667,9 +1757,7 @@ No destinations available.
 
 </div>
 
-
 </div>
-
 
 <?php
 
@@ -1677,28 +1765,35 @@ No destinations available.
 
 ?>
 
-
 <!-- =========================================
+
      NO SEARCH RESULT
-========================================= -->
+
+\========================================= -->
 
 <div
-    id="noResult"
-    class="col-12"
->
 
+    id="noResult"
+
+    class="col-12"
+
+>
 
 <div class="no-result-box">
 
-
 <i
-    class="bi bi-search"
-    style="
-        font-size:40px;
-        color:#0057A8;
-    "
-></i>
 
+    class="bi bi-search"
+
+    style="
+
+        font-size:40px;
+
+        color:#0057A8;
+
+    "
+
+></i>
 
 <h4 class="mt-3">
 
@@ -1706,28 +1801,27 @@ Destination Not Found
 
 </h4>
 
-
 <p class="text-muted">
 
 Try searching for another destination.
 
 </p>
 
-
 <button
+
     id="resetSearch"
+
     class="btn perlis-btn"
+
 >
 
 Reset Search
 
 </button>
 
-
 </div>
 
 </div>
-
 
 </div>
 
@@ -1735,64 +1829,59 @@ Reset Search
 
 </section>
 
-
 <!-- =========================================
+
      FOOTER
-========================================= -->
+
+\========================================= -->
 
 <footer class="pt-5 pb-4">
 
-
 <div class="container">
 
-
 <div class="row g-4">
-
 
 <!-- ABOUT -->
 
 <div class="col-md-6">
 
-
 <h5 class="fw-bold">
 
-
 <i
-    class="bi bi-geo-alt-fill"
-    style="color:#FFD700;"
-></i>
 
+    class="bi bi-geo-alt-fill"
+
+    style="color:#FFD700;"
+
+></i>
 
 PERLIS TOURISM SMART PORTAL
 
-
 </h5>
-
 
 <p class="text-white-50">
 
 PERLIS TOURISM SMART PORTAL is an
+
 interactive platform to explore
+
 destinations, events and tourism
+
 information in Perlis.
 
 </p>
 
-
 </div>
-
 
 <!-- QUICK LINKS -->
 
 <div class="col-md-3">
-
 
 <h6 class="fw-bold">
 
 Quick Links
 
 </h6>
-
 
 <p>
 
@@ -1804,7 +1893,6 @@ Destinations
 
 </p>
 
-
 <p>
 
 <a href="events.php">
@@ -1814,7 +1902,6 @@ Events
 </a>
 
 </p>
-
 
 <p>
 
@@ -1826,21 +1913,17 @@ Gallery
 
 </p>
 
-
 </div>
-
 
 <!-- INFORMATION -->
 
 <div class="col-md-3">
-
 
 <h6 class="fw-bold">
 
 Information
 
 </h6>
-
 
 <p>
 
@@ -1852,15 +1935,11 @@ Contact Us
 
 </p>
 
-
 </div>
 
-
 </div>
-
 
 <hr class="border-secondary">
-
 
 <div class="text-center text-white-50">
 
@@ -1868,58 +1947,65 @@ Contact Us
 
 </div>
 
-
 </div>
 
 </footer>
 
-
 <!-- =========================================
+
      BOOTSTRAP JS
-========================================= -->
+
+\========================================= -->
 
 <script
+
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+
 ></script>
 
-
 <!-- =========================================
+
      SEARCH JAVASCRIPT
-========================================= -->
+
+\========================================= -->
 
 <script>
 
 function performSearch() {
 
-
     let searchInput =
+
         document.getElementById("search");
 
-
     let keyword =
+
         searchInput.value
+
         .toLowerCase()
+
         .trim();
 
-
     let cards =
-        document.querySelectorAll(
-            ".destination-card-wrapper"
-        );
 
+        document.querySelectorAll(
+
+            ".destination-card-wrapper"
+
+        );
 
     let found = 0;
 
-
     cards.forEach(
+
         function(wrapper) {
 
-
             let card =
-                wrapper.querySelector(
-                    ".destination-card"
-                );
 
+                wrapper.querySelector(
+
+                    ".destination-card"
+
+                );
 
             if (!card) {
 
@@ -1927,12 +2013,13 @@ function performSearch() {
 
             }
 
-
             let name =
-                card.getAttribute(
-                    "data-name"
-                );
 
+                card.getAttribute(
+
+                    "data-name"
+
+                );
 
             if (!name) {
 
@@ -1940,130 +2027,143 @@ function performSearch() {
 
             }
 
-
             name =
+
                 name.toLowerCase();
 
-
             if (
+
                 keyword === "" ||
+
                 name.includes(keyword)
+
             ) {
 
-
                 wrapper.style.display =
+
                     "";
 
-
                 found++;
-
 
             }
 
             else {
 
-
                 wrapper.style.display =
-                    "none";
 
+                    "none";
 
             }
 
         }
+
     );
 
-
     let noResult =
-        document.getElementById(
-            "noResult"
-        );
 
+        document.getElementById(
+
+            "noResult"
+
+        );
 
     if (found === 0) {
 
-
         noResult.style.display =
-            "block";
 
+            "block";
 
     }
 
     else {
 
-
         noResult.style.display =
-            "none";
 
+            "none";
 
     }
 
 }
 
-
 /* =========================================
+
    SEARCH BUTTON
-========================================= */
+
+\========================================= */
 
 document
+
     .getElementById("searchBtn")
+
     .addEventListener(
+
         "click",
+
         performSearch
+
     );
 
-
 /* =========================================
+
    ENTER KEY
-========================================= */
+
+\========================================= */
 
 document
+
     .getElementById("search")
+
     .addEventListener(
+
         "keypress",
+
         function(event) {
 
-
             if (
-                event.key === "Enter"
-            ) {
 
+                event.key === "Enter"
+
+            ) {
 
                 event.preventDefault();
 
-
                 performSearch();
-
 
             }
 
         }
+
     );
 
-
 /* =========================================
+
    RESET SEARCH
-========================================= */
+
+\========================================= */
 
 document
+
     .getElementById("resetSearch")
+
     .addEventListener(
+
         "click",
+
         function() {
 
-
             document
-                .getElementById("search")
-                .value = "";
 
+                .getElementById("search")
+
+                .value = "";
 
             performSearch();
 
-
         }
+
     );
 
 </script>
-
 
 </body>
 
