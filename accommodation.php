@@ -16,15 +16,15 @@ $selectedArea = $_GET['area'] ?? 'All';
 
 $accommodations = [
 
-    /* =====================================================
+    /* =========================
        KANGAR
-    ====================================================== */
+    ========================= */
 
     [
         "name" => "Hotels in Kangar",
         "area" => "Kangar",
         "type" => "Hotel",
-        "icon" => "bi-building",
+        "emoji" => "🏨",
         "description" =>
             "Discover comfortable hotels located around Kangar, the capital city of Perlis.",
         "search" =>
@@ -35,7 +35,7 @@ $accommodations = [
         "name" => "Homestays in Kangar",
         "area" => "Kangar",
         "type" => "Homestay",
-        "icon" => "bi-house-heart-fill",
+        "emoji" => "🏡",
         "description" =>
             "Find homestays and guesthouses for a comfortable local stay around Kangar.",
         "search" =>
@@ -46,7 +46,7 @@ $accommodations = [
         "name" => "Resorts in Kangar",
         "area" => "Kangar",
         "type" => "Resort",
-        "icon" => "bi-sun-fill",
+        "emoji" => "🌴",
         "description" =>
             "Explore relaxing resort accommodation options around Kangar and nearby areas.",
         "search" =>
@@ -54,15 +54,15 @@ $accommodations = [
     ],
 
 
-    /* =====================================================
+    /* =========================
        ARAU
-    ====================================================== */
+    ========================= */
 
     [
         "name" => "Hotels in Arau",
         "area" => "Arau",
         "type" => "Hotel",
-        "icon" => "bi-building",
+        "emoji" => "🏨",
         "description" =>
             "Find convenient hotel accommodation around the royal town of Arau.",
         "search" =>
@@ -73,7 +73,7 @@ $accommodations = [
         "name" => "Homestays in Arau",
         "area" => "Arau",
         "type" => "Homestay",
-        "icon" => "bi-house-heart-fill",
+        "emoji" => "🏡",
         "description" =>
             "Experience a comfortable local stay at homestays and guesthouses around Arau.",
         "search" =>
@@ -84,7 +84,7 @@ $accommodations = [
         "name" => "Resorts near Arau",
         "area" => "Arau",
         "type" => "Resort",
-        "icon" => "bi-sun-fill",
+        "emoji" => "🌴",
         "description" =>
             "Discover peaceful resort accommodation around Arau and its surrounding areas.",
         "search" =>
@@ -92,15 +92,15 @@ $accommodations = [
     ],
 
 
-    /* =====================================================
+    /* =========================
        PADANG BESAR
-    ====================================================== */
+    ========================= */
 
     [
         "name" => "Hotels in Padang Besar",
         "area" => "Padang Besar",
         "type" => "Hotel",
-        "icon" => "bi-building",
+        "emoji" => "🏨",
         "description" =>
             "Find convenient hotels near Padang Besar for travellers visiting the northern gateway of Perlis.",
         "search" =>
@@ -111,7 +111,7 @@ $accommodations = [
         "name" => "Homestays in Padang Besar",
         "area" => "Padang Besar",
         "type" => "Homestay",
-        "icon" => "bi-house-heart-fill",
+        "emoji" => "🏡",
         "description" =>
             "Discover homestays and guesthouses around Padang Besar for a relaxing local stay.",
         "search" =>
@@ -122,7 +122,7 @@ $accommodations = [
         "name" => "Resorts near Padang Besar",
         "area" => "Padang Besar",
         "type" => "Resort",
-        "icon" => "bi-sun-fill",
+        "emoji" => "🌴",
         "description" =>
             "Explore resort accommodation around Padang Besar and nearby natural attractions.",
         "search" =>
@@ -130,15 +130,15 @@ $accommodations = [
     ],
 
 
-    /* =====================================================
+    /* =========================
        KUALA PERLIS
-    ====================================================== */
+    ========================= */
 
     [
         "name" => "Hotels in Kuala Perlis",
         "area" => "Kuala Perlis",
         "type" => "Hotel",
-        "icon" => "bi-building",
+        "emoji" => "🏨",
         "description" =>
             "Discover convenient hotels around Kuala Perlis and the coastal waterfront area.",
         "search" =>
@@ -149,7 +149,7 @@ $accommodations = [
         "name" => "Homestays in Kuala Perlis",
         "area" => "Kuala Perlis",
         "type" => "Homestay",
-        "icon" => "bi-house-heart-fill",
+        "emoji" => "🏡",
         "description" =>
             "Find welcoming homestays and guesthouses around the coastal town of Kuala Perlis.",
         "search" =>
@@ -160,7 +160,7 @@ $accommodations = [
         "name" => "Resorts in Kuala Perlis",
         "area" => "Kuala Perlis",
         "type" => "Resort",
-        "icon" => "bi-sun-fill",
+        "emoji" => "🌴",
         "description" =>
             "Explore relaxing accommodation options around Kuala Perlis and nearby coastal areas.",
         "search" =>
@@ -175,6 +175,7 @@ $accommodations = [
 ========================================================= */
 
 $filteredAccommodations = [];
+
 
 foreach ($accommodations as $accommodation) {
 
@@ -244,49 +245,52 @@ $areas = [
 
 ?>
 
+
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Accommodation | Perlis Tourism
-    </title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 
-    <!-- BOOTSTRAP -->
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+<title>
+Accommodation | Perlis Tourism
+</title>
 
 
-    <!-- BOOTSTRAP ICONS -->
+<!-- BOOTSTRAP -->
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        rel="stylesheet"
-    >
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
 
 
-    <!-- MAIN CSS -->
+<!-- BOOTSTRAP ICONS -->
 
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css"
-    >
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+>
+
+
+<!-- MAIN CSS -->
+
+<link
+    rel="stylesheet"
+    href="assets/css/style.css"
+>
 
 
 <style>
+
 
 /* =========================================================
    GENERAL
@@ -424,7 +428,7 @@ body {
 
 
 /* =========================================================
-   MAIN ACCOMMODATION SECTION
+   ACCOMMODATION SECTION
 ========================================================= */
 
 .accommodation-section {
@@ -703,8 +707,7 @@ body {
 
 .stay-card:hover {
 
-    transform:
-        translateY(-8px);
+    transform: translateY(-8px);
 
     box-shadow:
         0 16px 35px rgba(0,0,0,0.15);
@@ -784,20 +787,19 @@ body {
 
 
 /* =========================================================
-   ACCOMMODATION ICON
+   ACCOMMODATION EMOJI
 ========================================================= */
 
-.stay-icon {
+.stay-emoji {
 
-    width: 95px;
+    width: 110px;
 
-    height: 95px;
+    height: 110px;
 
-    border-radius: 28px;
+    border-radius: 50%;
 
-    background: white;
-
-    color: #0057B8;
+    background:
+        rgba(255,255,255,0.96);
 
     display: flex;
 
@@ -805,23 +807,27 @@ body {
 
     justify-content: center;
 
-    font-size: 43px;
+    font-size: 4.5rem;
+
+    line-height: 1;
 
     position: relative;
 
     z-index: 2;
 
     box-shadow:
-        0 8px 20px rgba(0,0,0,0.18);
+        0 9px 22px rgba(0,0,0,0.20);
 
-    transition: 0.3s;
+    transition:
+        all 0.3s ease;
 
 }
 
 
-.stay-card:hover .stay-icon {
+.stay-card:hover .stay-emoji {
 
     transform:
+        translateY(-4px)
         scale(1.08);
 
 }
@@ -955,26 +961,10 @@ body {
 
     background: #FFD700;
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
         0 8px 18px rgba(0,87,184,0.20);
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 992px) {
-
-    .accommodation-header {
-
-        background-position: center;
-
-    }
 
 }
 
@@ -1076,6 +1066,17 @@ body {
 
     }
 
+
+    .stay-emoji {
+
+        width: 95px;
+
+        height: 95px;
+
+        font-size: 3.8rem;
+
+    }
+
 }
 
 
@@ -1161,21 +1162,24 @@ body {
     }
 
 
-    .stay-icon {
+    .stay-emoji {
 
         width: 82px;
 
         height: 82px;
 
-        font-size: 37px;
+        font-size: 3.3rem;
 
     }
 
 }
 
+
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -1289,8 +1293,7 @@ body {
 
         <a
             href="accommodation.php"
-            class="area-btn
-            <?= ($selectedArea == 'All') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'All') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-grid-fill me-1"></i>
@@ -1305,8 +1308,7 @@ body {
 
         <a
             href="accommodation.php?area=Kuala%20Perlis"
-            class="area-btn
-            <?= ($selectedArea == 'Kuala Perlis') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'Kuala Perlis') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-water me-1"></i>
@@ -1321,8 +1323,7 @@ body {
 
         <a
             href="accommodation.php?area=Padang%20Besar"
-            class="area-btn
-            <?= ($selectedArea == 'Padang Besar') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'Padang Besar') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-signpost-split-fill me-1"></i>
@@ -1337,8 +1338,7 @@ body {
 
         <a
             href="accommodation.php?area=Kangar"
-            class="area-btn
-            <?= ($selectedArea == 'Kangar') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'Kangar') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-building me-1"></i>
@@ -1353,8 +1353,7 @@ body {
 
         <a
             href="accommodation.php?area=Arau"
-            class="area-btn
-            <?= ($selectedArea == 'Arau') ? 'active' : '' ?>"
+            class="area-btn <?= ($selectedArea == 'Arau') ? 'active' : '' ?>"
         >
 
             <i class="bi bi-house-heart-fill me-1"></i>
@@ -1388,8 +1387,7 @@ body {
                 <div class="area-info-icon">
 
                     <i
-                        class="bi
-                        <?= htmlspecialchars(
+                        class="bi <?= htmlspecialchars(
                             $areas[$selectedArea]['icon']
                         ) ?>"
                     ></i>
@@ -1449,166 +1447,147 @@ body {
     <div class="row g-4">
 
 
-        <?php foreach (
-            $filteredAccommodations
-            as $accommodation
-        ): ?>
+        <?php if (count($filteredAccommodations) > 0): ?>
 
 
-            <?php
-
-            /* =================================================
-               CREATE GOOGLE MAPS SEARCH URL
-            ================================================= */
-
-            $mapUrl =
-
-                "https://www.google.com/maps/search/?api=1&query="
-
-                .
-
-                urlencode(
-                    $accommodation["search"]
-                );
-
-            ?>
+            <?php foreach (
+                $filteredAccommodations
+                as $accommodation
+            ): ?>
 
 
-            <div class="col-lg-4 col-md-6">
+                <?php
 
 
-                <div class="stay-card">
+                /* ============================================
+                   GOOGLE MAPS URL
+                ============================================ */
+
+                $mapUrl =
+
+                    "https://www.google.com/maps/search/?api=1&query="
+
+                    .
+
+                    urlencode(
+                        $accommodation["search"]
+                    );
 
 
-                    <!-- =========================================
-                         CARD TOP
-                    ========================================== -->
-
-                    <div class="stay-card-top">
+                ?>
 
 
-                        <div class="stay-icon">
+                <div class="col-lg-4 col-md-6">
 
 
-                            <i
-                                class="bi
-                                <?= htmlspecialchars(
-                                    $accommodation["icon"]
-                                ) ?>"
-                            ></i>
+                    <div class="stay-card">
+
+
+                        <!-- ==================================
+                             CARD TOP
+                        =================================== -->
+
+                        <div class="stay-card-top">
+
+
+                            <div class="stay-emoji">
+
+                                <?= $accommodation["emoji"] ?>
+
+                            </div>
 
 
                         </div>
 
 
-                    </div>
+
+                        <!-- ==================================
+                             CARD CONTENT
+                        =================================== -->
+
+                        <div class="stay-content">
 
 
+                            <!-- TYPE -->
 
-                    <!-- =========================================
-                         CARD CONTENT
-                    ========================================== -->
+                            <span class="stay-type">
 
-                    <div class="stay-content">
+                                <?= $accommodation["emoji"] ?>
 
-
-                        <!-- ACCOMMODATION TYPE -->
-
-                        <span class="stay-type">
-
-
-                            <i
-                                class="bi
                                 <?= htmlspecialchars(
-                                    $accommodation["icon"]
+                                    $accommodation["type"]
                                 ) ?>
-                                me-1"
-                            ></i>
 
-
-                            <?= htmlspecialchars(
-                                $accommodation["type"]
-                            ) ?>
-
-
-                        </span>
+                            </span>
 
 
 
-                        <!-- NAME -->
+                            <!-- NAME -->
 
-                        <h4>
+                            <h4>
 
-                            <?= htmlspecialchars(
-                                $accommodation["name"]
-                            ) ?>
+                                <?= htmlspecialchars(
+                                    $accommodation["name"]
+                                ) ?>
 
-                        </h4>
-
-
-
-                        <!-- LOCATION -->
-
-                        <div class="stay-location">
+                            </h4>
 
 
-                            <i class="bi bi-geo-alt-fill me-1"></i>
+
+                            <!-- LOCATION -->
+
+                            <div class="stay-location">
 
 
-                            <?= htmlspecialchars(
-                                $accommodation["area"]
-                            ) ?>, Perlis
+                                <i class="bi bi-geo-alt-fill me-1"></i>
+
+
+                                <?= htmlspecialchars(
+                                    $accommodation["area"]
+                                ) ?>, Perlis
+
+
+                            </div>
+
+
+
+                            <!-- DESCRIPTION -->
+
+                            <p class="stay-description">
+
+
+                                <?= htmlspecialchars(
+                                    $accommodation["description"]
+                                ) ?>
+
+
+                            </p>
+
+
+
+                            <!-- GOOGLE MAP BUTTON -->
+
+                            <a
+                                href="<?= htmlspecialchars(
+                                    $mapUrl
+                                ) ?>"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="map-btn"
+                            >
+
+                                <i class="bi bi-geo-alt-fill"></i>
+
+                                View
+                                <?= htmlspecialchars(
+                                    $accommodation["type"]
+                                ) ?>
+                                on Map
+
+                            </a>
 
 
                         </div>
-
-
-
-                        <!-- DESCRIPTION -->
-
-                        <p class="stay-description">
-
-
-                            <?= htmlspecialchars(
-                                $accommodation["description"]
-                            ) ?>
-
-
-                        </p>
-
-
-
-                        <!-- =====================================
-                             MAP BUTTON
-
-                             Button wording changes automatically:
-
-                             Hotel:
-                             View Hotel on Map
-
-                             Homestay:
-                             View Homestay on Map
-
-                             Resort:
-                             View Resort on Map
-                        ====================================== -->
-
-                        <a
-                            href="<?= htmlspecialchars(
-                                $mapUrl
-                            ) ?>"
-                            class="map-btn"
-                        >
-
-                            <i class="bi bi-geo-alt-fill"></i>
-
-                            View
-                            <?= htmlspecialchars(
-                                $accommodation["type"]
-                            ) ?>
-                            on Map
-
-                        </a>
 
 
                     </div>
@@ -1617,10 +1596,76 @@ body {
                 </div>
 
 
+            <?php endforeach; ?>
+
+
+        <?php else: ?>
+
+
+            <!-- =============================================
+                 NO RESULT
+            ============================================== -->
+
+            <div class="col-12">
+
+
+                <div
+                    class="text-center bg-white p-5 rounded-4 shadow-sm"
+                >
+
+
+                    <div
+                        style="
+                            font-size: 4rem;
+                            margin-bottom: 15px;
+                        "
+                    >
+
+                        🏨
+
+                    </div>
+
+
+                    <h3
+                        style="
+                            color: #0057B8;
+                            font-weight: 800;
+                        "
+                    >
+
+                        No Accommodation Found
+
+                    </h3>
+
+
+                    <p class="text-muted">
+
+                        Sorry, there are currently no
+                        accommodation options available
+                        for this area.
+
+                    </p>
+
+
+                    <a
+                        href="accommodation.php"
+                        class="btn btn-primary mt-2"
+                    >
+
+                        <i class="bi bi-arrow-left me-1"></i>
+
+                        View All Areas
+
+                    </a>
+
+
+                </div>
+
+
             </div>
 
 
-        <?php endforeach; ?>
+        <?php endif; ?>
 
 
     </div>
