@@ -13,6 +13,7 @@ include("../geopark_navbar.php");
 ?>
 
 <!DOCTYPE html>
+
 <html lang="ms">
 
 <head>
@@ -51,9 +52,7 @@ include("../geopark_navbar.php");
         }
 
         body {
-
             margin: 0;
-
             font-family: 'Inter', sans-serif;
 
             background: linear-gradient(
@@ -63,8 +62,8 @@ include("../geopark_navbar.php");
             );
 
             color: #263238;
-
         }
+
 
         /* -------------------------------------------------------
            HERO
@@ -81,15 +80,12 @@ include("../geopark_navbar.php");
                     rgba(0,87,184,.86),
                     rgba(0,114,206,.78)
                 ),
-                url("../assets/images/perlis-geopark.jpg")
+                url("../assets/images/perlis_geopark.jpg")
                 center/cover no-repeat;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             text-align: center;
 
             color: white;
@@ -97,9 +93,7 @@ include("../geopark_navbar.php");
             padding: 70px 20px;
 
             position: relative;
-
             overflow: hidden;
-
         }
 
         .page-hero::before {
@@ -109,7 +103,6 @@ include("../geopark_navbar.php");
             position: absolute;
 
             width: 350px;
-
             height: 350px;
 
             border-radius: 50%;
@@ -117,9 +110,7 @@ include("../geopark_navbar.php");
             background: rgba(255,215,0,.12);
 
             top: -180px;
-
             right: -80px;
-
         }
 
         .page-hero::after {
@@ -129,7 +120,6 @@ include("../geopark_navbar.php");
             position: absolute;
 
             width: 280px;
-
             height: 280px;
 
             border-radius: 50%;
@@ -137,9 +127,7 @@ include("../geopark_navbar.php");
             background: rgba(255,255,255,.08);
 
             bottom: -150px;
-
             left: -70px;
-
         }
 
         .page-hero-content {
@@ -149,13 +137,11 @@ include("../geopark_navbar.php");
             position: relative;
 
             z-index: 2;
-
         }
 
         .page-hero-icon {
 
             width: 80px;
-
             height: 80px;
 
             border-radius: 50%;
@@ -169,9 +155,7 @@ include("../geopark_navbar.php");
             border: 2px solid rgba(255,255,255,.7);
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             margin: 0 auto 25px;
@@ -182,7 +166,6 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 8px 25px rgba(0,0,0,.20);
-
         }
 
         .page-hero h1 {
@@ -197,7 +180,6 @@ include("../geopark_navbar.php");
 
             text-shadow:
                 0 4px 15px rgba(0,0,0,.20);
-
         }
 
         .page-hero p {
@@ -209,8 +191,8 @@ include("../geopark_navbar.php");
             margin: 0;
 
             opacity: .95;
-
         }
+
 
         /* -------------------------------------------------------
            MAIN CONTENT
@@ -219,7 +201,6 @@ include("../geopark_navbar.php");
         .content-section {
 
             padding: 70px 20px;
-
         }
 
         .content-container {
@@ -227,8 +208,8 @@ include("../geopark_navbar.php");
             max-width: 1100px;
 
             margin: auto;
-
         }
+
 
         /* -------------------------------------------------------
            INTRO CARD
@@ -252,7 +233,6 @@ include("../geopark_navbar.php");
             margin-bottom: 35px;
 
             border: 1px solid rgba(0,87,184,.08);
-
         }
 
         .section-title {
@@ -262,7 +242,6 @@ include("../geopark_navbar.php");
             font-weight: 800;
 
             margin-bottom: 20px;
-
         }
 
         .section-title i {
@@ -270,7 +249,6 @@ include("../geopark_navbar.php");
             color: #0057B8;
 
             margin-right: 8px;
-
         }
 
         .intro-card p {
@@ -282,8 +260,8 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
             text-align: justify;
-
         }
+
 
         /* -------------------------------------------------------
            HIGHLIGHT BOX
@@ -309,7 +287,6 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 6px 20px rgba(0,87,184,.06);
-
         }
 
         .highlight-box h5 {
@@ -319,13 +296,11 @@ include("../geopark_navbar.php");
             font-weight: 700;
 
             margin-bottom: 10px;
-
         }
 
         .highlight-box h5 i {
 
             color: #FFD700;
-
         }
 
         .highlight-box p {
@@ -335,8 +310,8 @@ include("../geopark_navbar.php");
             color: #455a64;
 
             line-height: 1.8;
-
         }
+
 
         /* -------------------------------------------------------
            THREE ELEMENTS
@@ -368,7 +343,6 @@ include("../geopark_navbar.php");
             position: relative;
 
             overflow: hidden;
-
         }
 
         .element-card::before {
@@ -378,11 +352,9 @@ include("../geopark_navbar.php");
             position: absolute;
 
             top: 0;
-
             left: 0;
 
             width: 100%;
-
             height: 4px;
 
             background: linear-gradient(
@@ -391,7 +363,6 @@ include("../geopark_navbar.php");
                 #0072CE,
                 #FFD700
             );
-
         }
 
         .element-card:hover {
@@ -400,13 +371,11 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 15px 35px rgba(0,87,184,.15);
-
         }
 
         .element-icon {
 
             width: 70px;
-
             height: 70px;
 
             margin: 0 auto 20px;
@@ -422,16 +391,13 @@ include("../geopark_navbar.php");
             color: #0057B8;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             font-size: 30px;
 
             box-shadow:
                 0 5px 15px rgba(0,87,184,.08);
-
         }
 
         .element-card h5 {
@@ -441,7 +407,6 @@ include("../geopark_navbar.php");
             font-weight: 700;
 
             margin-bottom: 12px;
-
         }
 
         .element-card p {
@@ -453,8 +418,8 @@ include("../geopark_navbar.php");
             line-height: 1.7;
 
             margin: 0;
-
         }
+
 
         /* -------------------------------------------------------
            IMPORTANCE SECTION
@@ -484,7 +449,6 @@ include("../geopark_navbar.php");
             position: relative;
 
             overflow: hidden;
-
         }
 
         .importance-card::after {
@@ -494,7 +458,6 @@ include("../geopark_navbar.php");
             position: absolute;
 
             width: 280px;
-
             height: 280px;
 
             border-radius: 50%;
@@ -502,9 +465,7 @@ include("../geopark_navbar.php");
             background: rgba(255,215,0,.10);
 
             right: -100px;
-
             top: -100px;
-
         }
 
         .importance-card h2 {
@@ -516,7 +477,6 @@ include("../geopark_navbar.php");
             position: relative;
 
             z-index: 2;
-
         }
 
         .importance-card p {
@@ -528,7 +488,6 @@ include("../geopark_navbar.php");
             position: relative;
 
             z-index: 2;
-
         }
 
         .importance-list {
@@ -538,7 +497,6 @@ include("../geopark_navbar.php");
             position: relative;
 
             z-index: 2;
-
         }
 
         .importance-item {
@@ -550,7 +508,6 @@ include("../geopark_navbar.php");
             margin-bottom: 18px;
 
             align-items: flex-start;
-
         }
 
         .importance-item i {
@@ -560,14 +517,13 @@ include("../geopark_navbar.php");
             font-size: 20px;
 
             margin-top: 3px;
-
         }
 
         .importance-item span {
 
             line-height: 1.7;
-
         }
+
 
         /* -------------------------------------------------------
            BOTTOM BUTTON
@@ -602,7 +558,6 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 6px 18px rgba(0,87,184,.18);
-
         }
 
         .back-button:hover {
@@ -620,7 +575,6 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 8px 20px rgba(255,193,7,.25);
-
         }
 
         .button-wrapper {
@@ -628,8 +582,8 @@ include("../geopark_navbar.php");
             text-align: center;
 
             margin-top: 45px;
-
         }
+
 
         /* -------------------------------------------------------
            RESPONSIVE
@@ -642,27 +596,22 @@ include("../geopark_navbar.php");
                 min-height: 300px;
 
                 padding: 55px 20px;
-
             }
 
             .intro-card {
 
                 padding: 28px 22px;
-
             }
 
             .importance-card {
 
                 padding: 30px 22px;
-
             }
 
             .content-section {
 
                 padding: 50px 15px;
-
             }
-
         }
 
     </style>
@@ -682,7 +631,8 @@ include("../geopark_navbar.php");
 
         <div class="page-hero-icon">
 
-            <i class="bi bi-globe-asia-australia-fill"></i>
+            <!-- ICON FIXED -->
+            <i class="bi bi-globe2"></i>
 
         </div>
 
@@ -720,31 +670,25 @@ include("../geopark_navbar.php");
             </h2>
 
             <p>
-
                 Perlis Geopark merupakan sebuah kawasan yang mempunyai
                 kepelbagaian warisan semula jadi dan budaya yang unik.
                 Kawasan ini memperlihatkan kekayaan warisan geologi,
                 kepelbagaian biologi serta nilai budaya yang menjadi
                 sebahagian daripada identiti Negeri Perlis.
-
             </p>
 
             <p>
-
                 Keunikan landskap Perlis dapat dilihat melalui
                 pembentukan batu kapur, bukit-bukit batuan, gua,
                 tasik, kawasan hutan serta pelbagai bentuk muka bumi
                 yang mempunyai nilai geologi dan pendidikan.
-
             </p>
 
             <p>
-
                 Pada masa yang sama, kawasan Perlis turut mempunyai
                 kepelbagaian flora dan fauna serta warisan budaya
                 masyarakat tempatan yang telah berkembang dari
                 generasi ke generasi.
-
             </p>
 
 
@@ -759,12 +703,10 @@ include("../geopark_navbar.php");
                 </h5>
 
                 <p>
-
                     Perlis Geopark menggabungkan elemen geologi,
                     biologi dan budaya dalam satu kawasan warisan
                     yang mempunyai nilai pendidikan, pemuliharaan,
                     penyelidikan dan pelancongan.
-
                 </p>
 
             </div>
@@ -785,18 +727,17 @@ include("../geopark_navbar.php");
 
                     <div class="element-icon">
 
-                        <i class="bi bi-mountains"></i>
+                        <!-- ICON FIXED -->
+                        <i class="bi bi-gem"></i>
 
                     </div>
 
                     <h5>Geologi</h5>
 
                     <p>
-
                         Mempunyai pelbagai formasi batuan,
                         landskap batu kapur, gua dan ciri-ciri
                         geologi yang menarik.
-
                     </p>
 
                 </div>
@@ -819,11 +760,9 @@ include("../geopark_navbar.php");
                     <h5>Biologi</h5>
 
                     <p>
-
                         Kepelbagaian flora dan fauna serta
                         ekosistem semula jadi yang menyumbang
                         kepada kekayaan biodiversiti Perlis.
-
                     </p>
 
                 </div>
@@ -846,17 +785,14 @@ include("../geopark_navbar.php");
                     <h5>Budaya</h5>
 
                     <p>
-
                         Warisan ketara dan tidak ketara yang
                         menggambarkan sejarah, tradisi dan
                         kehidupan masyarakat tempatan.
-
                     </p>
 
                 </div>
 
             </div>
-
 
         </div>
 
@@ -874,12 +810,10 @@ include("../geopark_navbar.php");
             </h2>
 
             <p>
-
                 Perlis Geopark bukan sahaja menjadi kawasan
                 pemuliharaan warisan, malah mempunyai peranan
                 dalam pendidikan, penyelidikan dan pembangunan
                 pelancongan yang berasaskan warisan.
-
             </p>
 
 
@@ -891,11 +825,9 @@ include("../geopark_navbar.php");
                     <i class="bi bi-check-circle-fill"></i>
 
                     <span>
-
                         Meningkatkan kesedaran masyarakat terhadap
                         kepentingan pemuliharaan warisan semula jadi
                         dan budaya.
-
                     </span>
 
                 </div>
@@ -906,10 +838,8 @@ include("../geopark_navbar.php");
                     <i class="bi bi-check-circle-fill"></i>
 
                     <span>
-
                         Menjadi sumber pendidikan dan penyelidikan
                         berkaitan geologi, biodiversiti dan budaya.
-
                     </span>
 
                 </div>
@@ -920,10 +850,8 @@ include("../geopark_navbar.php");
                     <i class="bi bi-check-circle-fill"></i>
 
                     <span>
-
                         Menggalakkan aktiviti pelancongan yang
                         menghargai dan memelihara warisan tempatan.
-
                     </span>
 
                 </div>
@@ -934,14 +862,11 @@ include("../geopark_navbar.php");
                     <i class="bi bi-check-circle-fill"></i>
 
                     <span>
-
                         Membantu mempromosikan keunikan Negeri
                         Perlis kepada pelawat dari dalam dan luar negara.
-
                     </span>
 
                 </div>
-
 
             </div>
 
@@ -965,7 +890,6 @@ include("../geopark_navbar.php");
 
         </div>
 
-
     </div>
 
 </section>
@@ -978,7 +902,6 @@ include("../geopark_navbar.php");
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 ></script>
-
 
 </body>
 

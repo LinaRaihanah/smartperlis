@@ -13,6 +13,7 @@ include("../geopark_navbar.php");
 ?>
 
 <!DOCTYPE html>
+
 <html lang="ms">
 
 <head>
@@ -26,23 +27,30 @@ include("../geopark_navbar.php");
 
     <title>Geologi | Perlis Geopark</title>
 
+
     <!-- Bootstrap -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
+
     <!-- Bootstrap Icons -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
         rel="stylesheet"
     >
 
+
     <!-- Google Font -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
+
 
     <style>
 
@@ -62,6 +70,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         /* =====================================================
            HERO
         ===================================================== */
@@ -75,7 +84,7 @@ include("../geopark_navbar.php");
                     rgba(20, 83, 45, .78),
                     rgba(15, 118, 110, .82)
                 ),
-                url("../assets/images/bukit-chabang.jpg")
+                url("../../assets/images/bukit_chabang.jpg")
                 center/cover no-repeat;
 
             display: flex;
@@ -92,11 +101,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .page-hero-content {
 
             max-width: 900px;
 
         }
+
 
         .page-hero-icon {
 
@@ -124,6 +135,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .page-hero h1 {
 
             font-size: clamp(2.2rem, 5vw, 3.7rem);
@@ -133,6 +145,7 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
         }
+
 
         .page-hero p {
 
@@ -146,6 +159,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         /* =====================================================
            CONTENT
         ===================================================== */
@@ -156,6 +170,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .content-container {
 
             max-width: 1150px;
@@ -163,6 +178,7 @@ include("../geopark_navbar.php");
             margin: auto;
 
         }
+
 
         /* =====================================================
            INTRO CARD
@@ -183,6 +199,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .intro-card h2 {
 
             color: #14532d;
@@ -193,11 +210,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .intro-card h2 i {
 
             color: #0057B8;
 
         }
+
 
         .intro-card p {
 
@@ -210,6 +229,7 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
         }
+
 
         /* =====================================================
            GEOLOGY STATS
@@ -239,6 +259,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .stat-icon {
 
             font-size: 32px;
@@ -249,6 +270,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .stat-card h3 {
 
             font-size: 1.15rem;
@@ -258,6 +280,7 @@ include("../geopark_navbar.php");
             margin-bottom: 8px;
 
         }
+
 
         .stat-card p {
 
@@ -271,6 +294,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         /* =====================================================
            SECTION HEADING
         ===================================================== */
@@ -283,6 +307,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .section-heading h2 {
 
             color: #14532d;
@@ -293,6 +318,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .section-heading p {
 
             color: #6c757d;
@@ -300,6 +326,7 @@ include("../geopark_navbar.php");
             margin: 0;
 
         }
+
 
         /* =====================================================
            GEOLOGY TYPES
@@ -324,6 +351,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .geology-card:hover {
 
             transform: translateY(-6px);
@@ -332,6 +360,7 @@ include("../geopark_navbar.php");
                 0 15px 35px rgba(0,0,0,.12);
 
         }
+
 
         .geology-icon {
 
@@ -357,6 +386,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .geology-card h4 {
 
             color: #14532d;
@@ -366,6 +396,7 @@ include("../geopark_navbar.php");
             margin-bottom: 12px;
 
         }
+
 
         .geology-card p {
 
@@ -378,6 +409,7 @@ include("../geopark_navbar.php");
             margin: 0;
 
         }
+
 
         /* =====================================================
            SITE CARDS
@@ -400,6 +432,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .site-card:hover {
 
             transform: translateY(-7px);
@@ -408,6 +441,7 @@ include("../geopark_navbar.php");
                 0 16px 38px rgba(0,0,0,.14);
 
         }
+
 
         .site-image {
 
@@ -418,6 +452,7 @@ include("../geopark_navbar.php");
             position: relative;
 
         }
+
 
         .site-image img {
 
@@ -431,11 +466,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .site-card:hover .site-image img {
 
             transform: scale(1.06);
 
         }
+
 
         .site-badge {
 
@@ -461,11 +498,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .site-content {
 
             padding: 25px;
 
         }
+
 
         .site-content h4 {
 
@@ -476,6 +515,7 @@ include("../geopark_navbar.php");
             margin-bottom: 12px;
 
         }
+
 
         .site-content p {
 
@@ -489,6 +529,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .site-location {
 
             color: #0057B8;
@@ -498,6 +539,7 @@ include("../geopark_navbar.php");
             font-weight: 600;
 
         }
+
 
         /* =====================================================
            IMPORTANCE BOX
@@ -526,6 +568,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .importance-box h2 {
 
             font-weight: 800;
@@ -533,6 +576,7 @@ include("../geopark_navbar.php");
             margin-bottom: 18px;
 
         }
+
 
         .importance-box > p {
 
@@ -544,6 +588,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .importance-item {
 
             display: flex;
@@ -553,6 +598,7 @@ include("../geopark_navbar.php");
             margin-bottom: 17px;
 
         }
+
 
         .importance-item i {
 
@@ -564,11 +610,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .importance-item span {
 
             line-height: 1.7;
 
         }
+
 
         /* =====================================================
            BUTTON
@@ -581,6 +629,7 @@ include("../geopark_navbar.php");
             margin-top: 45px;
 
         }
+
 
         .back-button {
 
@@ -606,6 +655,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .back-button:hover {
 
             background: #14532d;
@@ -615,6 +665,7 @@ include("../geopark_navbar.php");
             transform: translateY(-2px);
 
         }
+
 
         /* =====================================================
            RESPONSIVE
@@ -630,11 +681,13 @@ include("../geopark_navbar.php");
 
             }
 
+
             .intro-card {
 
                 padding: 28px 22px;
 
             }
+
 
             .importance-box {
 
@@ -642,11 +695,13 @@ include("../geopark_navbar.php");
 
             }
 
+
             .content-section {
 
                 padding: 50px 15px;
 
             }
+
 
             .site-image {
 
@@ -674,7 +729,8 @@ include("../geopark_navbar.php");
 
         <div class="page-hero-icon">
 
-            <i class="bi bi-mountains"></i>
+            <!-- GEOLOGI ICON FIX -->
+            <i class="bi bi-gem"></i>
 
         </div>
 
@@ -920,7 +976,8 @@ include("../geopark_navbar.php");
 
                     <div class="geology-icon">
 
-                        <i class="bi bi-mountains"></i>
+                        <!-- BUKIT ICON FIX -->
+                        <i class="bi bi-triangle-fill"></i>
 
                     </div>
 

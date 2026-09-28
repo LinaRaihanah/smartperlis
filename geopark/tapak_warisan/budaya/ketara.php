@@ -84,7 +84,7 @@ include("../../geopark_navbar.php");
                     rgba(20, 83, 45, .78),
                     rgba(15, 118, 110, .84)
                 ),
-                url("../../assets/images/kuala-perlis.jpg")
+                url("../../../assets/images/kualaperlis.jpg")
                 center/cover no-repeat;
 
             display: flex;

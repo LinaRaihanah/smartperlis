@@ -13,6 +13,7 @@ include("../geopark_navbar.php");
 ?>
 
 <!DOCTYPE html>
+
 <html lang="ms">
 
 <head>
@@ -26,23 +27,30 @@ include("../geopark_navbar.php");
 
     <title>Tadbir Urus | Perlis Geopark</title>
 
+
     <!-- Bootstrap -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
+
     <!-- Bootstrap Icons -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
         rel="stylesheet"
     >
 
+
     <!-- Google Font -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
+
 
     <style>
 
@@ -64,8 +72,8 @@ include("../geopark_navbar.php");
                 );
 
             color: #263238;
-
         }
+
 
         /* =====================================================
            HERO
@@ -82,7 +90,7 @@ include("../geopark_navbar.php");
                     rgba(0,87,184,.86),
                     rgba(0,114,206,.78)
                 ),
-                url("../assets/images/perlis-geopark.jpg")
+                url("../assets/images/perlis_geopark.jpg")
                 center/cover no-repeat;
 
             display: flex;
@@ -100,8 +108,8 @@ include("../geopark_navbar.php");
             position: relative;
 
             overflow: hidden;
-
         }
+
 
         .page-hero::before {
 
@@ -120,8 +128,8 @@ include("../geopark_navbar.php");
             top: -180px;
 
             right: -80px;
-
         }
+
 
         .page-hero::after {
 
@@ -140,8 +148,8 @@ include("../geopark_navbar.php");
             bottom: -150px;
 
             left: -70px;
-
         }
+
 
         .page-hero-content {
 
@@ -150,8 +158,8 @@ include("../geopark_navbar.php");
             position: relative;
 
             z-index: 2;
-
         }
+
 
         .page-hero-icon {
 
@@ -184,8 +192,8 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 8px 25px rgba(0,0,0,.20);
-
         }
+
 
         .page-hero h1 {
 
@@ -197,8 +205,8 @@ include("../geopark_navbar.php");
 
             text-shadow:
                 0 4px 15px rgba(0,0,0,.20);
-
         }
+
 
         .page-hero p {
 
@@ -209,8 +217,8 @@ include("../geopark_navbar.php");
             margin: 0;
 
             opacity: .95;
-
         }
+
 
         /* =====================================================
            CONTENT
@@ -219,16 +227,16 @@ include("../geopark_navbar.php");
         .content-section {
 
             padding: 70px 20px;
-
         }
+
 
         .content-container {
 
             max-width: 1100px;
 
             margin: auto;
-
         }
+
 
         /* =====================================================
            INTRO CARD
@@ -253,8 +261,8 @@ include("../geopark_navbar.php");
             margin-bottom: 40px;
 
             border: 1px solid rgba(0,87,184,.08);
-
         }
+
 
         .section-title {
 
@@ -263,16 +271,16 @@ include("../geopark_navbar.php");
             font-weight: 800;
 
             margin-bottom: 20px;
-
         }
+
 
         .section-title i {
 
             color: #0057B8;
 
             margin-right: 8px;
-
         }
+
 
         .intro-card p {
 
@@ -283,8 +291,8 @@ include("../geopark_navbar.php");
             text-align: justify;
 
             margin-bottom: 15px;
-
         }
+
 
         /* =====================================================
            GOVERNANCE FLOW
@@ -299,8 +307,8 @@ include("../geopark_navbar.php");
             font-weight: 800;
 
             margin-bottom: 35px;
-
         }
+
 
         .governance-title span {
 
@@ -313,14 +321,14 @@ include("../geopark_navbar.php");
             font-weight: 400;
 
             margin-top: 8px;
-
         }
+
 
         .governance-flow {
 
             position: relative;
-
         }
+
 
         .governance-card {
 
@@ -355,8 +363,8 @@ include("../geopark_navbar.php");
             border-bottom: 1px solid rgba(0,87,184,.06);
 
             overflow: hidden;
-
         }
+
 
         .governance-card::before {
 
@@ -379,8 +387,8 @@ include("../geopark_navbar.php");
                     #0072CE,
                     #FFD700
                 );
-
         }
+
 
         .governance-card:hover {
 
@@ -388,8 +396,8 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 15px 35px rgba(0,87,184,.15);
-
         }
+
 
         .governance-icon {
 
@@ -420,8 +428,8 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 5px 15px rgba(0,87,184,.08);
-
         }
+
 
         .governance-card h4 {
 
@@ -432,8 +440,8 @@ include("../geopark_navbar.php");
             font-weight: 700;
 
             margin-bottom: 12px;
-
         }
+
 
         .governance-card p {
 
@@ -444,8 +452,8 @@ include("../geopark_navbar.php");
             line-height: 1.7;
 
             margin: 0;
-
         }
+
 
         /* =====================================================
            CENTRAL ROLE
@@ -477,8 +485,8 @@ include("../geopark_navbar.php");
             position: relative;
 
             overflow: hidden;
-
         }
+
 
         .main-governance::after {
 
@@ -497,8 +505,8 @@ include("../geopark_navbar.php");
             right: -100px;
 
             top: -100px;
-
         }
+
 
         .main-governance-icon {
 
@@ -532,8 +540,8 @@ include("../geopark_navbar.php");
             position: relative;
 
             z-index: 2;
-
         }
+
 
         .main-governance h2 {
 
@@ -544,8 +552,8 @@ include("../geopark_navbar.php");
             position: relative;
 
             z-index: 2;
-
         }
+
 
         .main-governance p {
 
@@ -560,8 +568,8 @@ include("../geopark_navbar.php");
             position: relative;
 
             z-index: 2;
-
         }
+
 
         /* =====================================================
            RESPONSIBILITIES
@@ -584,8 +592,8 @@ include("../geopark_navbar.php");
                 0 10px 30px rgba(0,59,122,.07);
 
             border: 1px solid rgba(0,87,184,.08);
-
         }
+
 
         .responsibility-section h2 {
 
@@ -594,8 +602,8 @@ include("../geopark_navbar.php");
             font-weight: 800;
 
             margin-bottom: 30px;
-
         }
+
 
         .responsibility-item {
 
@@ -606,14 +614,14 @@ include("../geopark_navbar.php");
             padding: 18px 0;
 
             border-bottom: 1px solid #e1eaf4;
-
         }
+
 
         .responsibility-item:last-child {
 
             border-bottom: none;
-
         }
+
 
         .responsibility-icon {
 
@@ -644,8 +652,8 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 4px 12px rgba(0,87,184,.08);
-
         }
+
 
         .responsibility-item h5 {
 
@@ -654,8 +662,8 @@ include("../geopark_navbar.php");
             font-weight: 700;
 
             margin-bottom: 6px;
-
         }
+
 
         .responsibility-item p {
 
@@ -664,8 +672,8 @@ include("../geopark_navbar.php");
             color: #666;
 
             line-height: 1.7;
-
         }
+
 
         /* =====================================================
            BUTTON
@@ -676,8 +684,8 @@ include("../geopark_navbar.php");
             text-align: center;
 
             margin-top: 45px;
-
         }
+
 
         .back-button {
 
@@ -708,8 +716,8 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 6px 18px rgba(0,87,184,.18);
-
         }
+
 
         .back-button:hover {
 
@@ -726,8 +734,8 @@ include("../geopark_navbar.php");
 
             box-shadow:
                 0 8px 20px rgba(255,193,7,.25);
-
         }
+
 
         /* =====================================================
            RESPONSIVE
@@ -740,28 +748,26 @@ include("../geopark_navbar.php");
                 min-height: 300px;
 
                 padding: 55px 20px;
-
             }
+
 
             .intro-card,
             .responsibility-section {
 
                 padding: 28px 22px;
-
             }
+
 
             .main-governance {
 
                 padding: 30px 22px;
-
             }
+
 
             .content-section {
 
                 padding: 50px 15px;
-
             }
-
         }
 
     </style>
@@ -1007,7 +1013,6 @@ include("../geopark_navbar.php");
 
             </div>
 
-
         </div>
 
 
@@ -1139,13 +1144,14 @@ include("../geopark_navbar.php");
             </div>
 
 
-            <!-- ITEM 5 -->
+            <!-- ITEM 5 - KERJASAMA STRATEGIK -->
 
             <div class="responsibility-item">
 
                 <div class="responsibility-icon">
 
-                    <i class="bi bi-handshake-fill"></i>
+                    <!-- ICON FIXED -->
+                    <i class="bi bi-people-fill"></i>
 
                 </div>
 

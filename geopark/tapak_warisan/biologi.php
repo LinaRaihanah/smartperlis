@@ -13,6 +13,7 @@ include("../geopark_navbar.php");
 ?>
 
 <!DOCTYPE html>
+
 <html lang="ms">
 
 <head>
@@ -26,23 +27,30 @@ include("../geopark_navbar.php");
 
     <title>Biologi | Perlis Geopark</title>
 
+
     <!-- Bootstrap -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
+
     <!-- Bootstrap Icons -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
         rel="stylesheet"
     >
 
+
     <!-- Google Font -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
+
 
     <style>
 
@@ -62,6 +70,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         /* =====================================================
            HERO
         ===================================================== */
@@ -75,7 +84,7 @@ include("../geopark_navbar.php");
                     rgba(20, 83, 45, .76),
                     rgba(15, 118, 110, .82)
                 ),
-                url("../assets/images/bukit-ayer.jpg")
+                url("../../assets/images/bukit_ayer.jpg")
                 center/cover no-repeat;
 
             display: flex;
@@ -92,11 +101,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .page-hero-content {
 
             max-width: 900px;
 
         }
+
 
         .page-hero-icon {
 
@@ -124,6 +135,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .page-hero h1 {
 
             font-size: clamp(2.2rem, 5vw, 3.7rem);
@@ -133,6 +145,7 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
         }
+
 
         .page-hero p {
 
@@ -146,6 +159,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         /* =====================================================
            CONTENT
         ===================================================== */
@@ -156,6 +170,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .content-container {
 
             max-width: 1150px;
@@ -163,6 +178,7 @@ include("../geopark_navbar.php");
             margin: auto;
 
         }
+
 
         /* =====================================================
            INTRO
@@ -183,6 +199,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .intro-card h2 {
 
             color: #14532d;
@@ -193,11 +210,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .intro-card h2 i {
 
             color: #0057B8;
 
         }
+
 
         .intro-card p {
 
@@ -210,6 +229,7 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
         }
+
 
         /* =====================================================
            BIODIVERSITY STATS
@@ -236,11 +256,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .stat-card:hover {
 
             transform: translateY(-5px);
 
         }
+
 
         .stat-icon {
 
@@ -266,6 +288,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .stat-card h4 {
 
             color: #14532d;
@@ -275,6 +298,7 @@ include("../geopark_navbar.php");
             margin-bottom: 10px;
 
         }
+
 
         .stat-card p {
 
@@ -288,6 +312,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         /* =====================================================
            SECTION HEADING
         ===================================================== */
@@ -300,6 +325,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .section-heading h2 {
 
             color: #14532d;
@@ -310,6 +336,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .section-heading p {
 
             color: #6c757d;
@@ -317,6 +344,7 @@ include("../geopark_navbar.php");
             margin: 0;
 
         }
+
 
         /* =====================================================
            BIOLOGICAL ELEMENTS
@@ -343,6 +371,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .bio-card::before {
 
             content: "";
@@ -367,6 +396,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .bio-card:hover {
 
             transform: translateY(-6px);
@@ -375,6 +405,7 @@ include("../geopark_navbar.php");
                 0 15px 35px rgba(0,0,0,.12);
 
         }
+
 
         .bio-icon {
 
@@ -400,6 +431,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .bio-card h4 {
 
             color: #14532d;
@@ -409,6 +441,7 @@ include("../geopark_navbar.php");
             margin-bottom: 12px;
 
         }
+
 
         .bio-card p {
 
@@ -421,6 +454,7 @@ include("../geopark_navbar.php");
             margin: 0;
 
         }
+
 
         /* =====================================================
            HABITAT SECTION
@@ -443,6 +477,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .habitat-card:hover {
 
             transform: translateY(-7px);
@@ -452,6 +487,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .habitat-image {
 
             height: 230px;
@@ -459,6 +495,7 @@ include("../geopark_navbar.php");
             overflow: hidden;
 
         }
+
 
         .habitat-image img {
 
@@ -472,17 +509,20 @@ include("../geopark_navbar.php");
 
         }
 
+
         .habitat-card:hover .habitat-image img {
 
             transform: scale(1.06);
 
         }
 
+
         .habitat-content {
 
             padding: 25px;
 
         }
+
 
         .habitat-content h4 {
 
@@ -493,6 +533,7 @@ include("../geopark_navbar.php");
             margin-bottom: 12px;
 
         }
+
 
         .habitat-content p {
 
@@ -505,6 +546,7 @@ include("../geopark_navbar.php");
             margin-bottom: 15px;
 
         }
+
 
         .habitat-tag {
 
@@ -527,6 +569,7 @@ include("../geopark_navbar.php");
             font-weight: 600;
 
         }
+
 
         /* =====================================================
            CONSERVATION BOX
@@ -555,6 +598,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .conservation-box h2 {
 
             font-weight: 800;
@@ -562,6 +606,7 @@ include("../geopark_navbar.php");
             margin-bottom: 18px;
 
         }
+
 
         .conservation-box > p {
 
@@ -572,6 +617,7 @@ include("../geopark_navbar.php");
             margin-bottom: 28px;
 
         }
+
 
         .conservation-item {
 
@@ -585,6 +631,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .conservation-item i {
 
             color: #FFD700;
@@ -595,11 +642,13 @@ include("../geopark_navbar.php");
 
         }
 
+
         .conservation-item span {
 
             line-height: 1.7;
 
         }
+
 
         /* =====================================================
            BUTTON
@@ -612,6 +661,7 @@ include("../geopark_navbar.php");
             margin-top: 45px;
 
         }
+
 
         .back-button {
 
@@ -637,6 +687,7 @@ include("../geopark_navbar.php");
 
         }
 
+
         .back-button:hover {
 
             background: #14532d;
@@ -646,6 +697,7 @@ include("../geopark_navbar.php");
             transform: translateY(-2px);
 
         }
+
 
         /* =====================================================
            RESPONSIVE
@@ -661,11 +713,13 @@ include("../geopark_navbar.php");
 
             }
 
+
             .intro-card {
 
                 padding: 28px 22px;
 
             }
+
 
             .conservation-box {
 
@@ -673,11 +727,13 @@ include("../geopark_navbar.php");
 
             }
 
+
             .content-section {
 
                 padding: 50px 15px;
 
             }
+
 
             .habitat-image {
 
@@ -914,7 +970,7 @@ include("../geopark_navbar.php");
             </div>
 
 
-            <!-- FAUNA -->
+            <!-- HIDUPAN LIAR -->
 
             <div class="col-md-6 col-lg-3">
 
@@ -922,7 +978,7 @@ include("../geopark_navbar.php");
 
                     <div class="bio-icon">
 
-                        <i class="bi bi-bird"></i>
+                        <i class="bi bi-heart-fill"></i>
 
                     </div>
 
@@ -1033,7 +1089,7 @@ include("../geopark_navbar.php");
                     <div class="habitat-image">
 
                         <img
-                            src="../assets/images/bukit-ayer.jpg"
+                            src="../../assets/images/bukit_ayer.jpg"
                             alt="Bukit Ayer"
                         >
 
@@ -1077,7 +1133,7 @@ include("../geopark_navbar.php");
                     <div class="habitat-image">
 
                         <img
-                            src="../assets/images/timah-tasoh.jpg"
+                            src="../../assets/images/timahtasoh.jpg"
                             alt="Tasik Timah Tasoh"
                         >
 
@@ -1121,7 +1177,7 @@ include("../geopark_navbar.php");
                     <div class="habitat-image">
 
                         <img
-                            src="../assets/images/bukit-chabang.jpg"
+                            src="../../assets/images/bukit_chabang.jpg"
                             alt="Bukit Chabang"
                         >
 
@@ -1143,7 +1199,7 @@ include("../geopark_navbar.php");
 
                         <span class="habitat-tag">
 
-                            <i class="bi bi-mountains"></i>
+                            <i class="bi bi-gem"></i>
 
                             Batu Kapur
 
