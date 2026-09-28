@@ -196,7 +196,7 @@ while ($row = mysqli_fetch_assoc($query)) {
     $countryLabels[] = $row['country'];
 
     $countryValues[] =
-        (int)$row['total_visitors'];
+        (int) $row['total_visitors'];
 
 }
 
@@ -243,7 +243,7 @@ while ($row = mysqli_fetch_assoc($query)) {
     $percentageLabels[] = $row['country'];
 
     $percentageValues[] =
-        (float)$row['percentage'];
+        (float) $row['percentage'];
 
 }
 
@@ -285,7 +285,7 @@ while ($row = mysqli_fetch_assoc($query)) {
         $row['month_name'];
 
     $monthValues[] =
-        (int)$row['total_visitors'];
+        (int) $row['total_visitors'];
 
 }
 
@@ -327,7 +327,7 @@ while ($row = mysqli_fetch_assoc($query)) {
         $row['destination_name'];
 
     $destinationValues[] =
-        (int)$row['total_visitors'];
+        (int) $row['total_visitors'];
 
 }
 
@@ -380,7 +380,7 @@ while ($row = mysqli_fetch_assoc($query)) {
     } else {
 
         $ratingValues[] =
-            (float)$row['average_rating'];
+            (float) $row['average_rating'];
 
     }
 
@@ -422,7 +422,7 @@ while ($row = mysqli_fetch_assoc($query)) {
         $row['category'];
 
     $categoryValues[] =
-        (int)$row['total'];
+        (int) $row['total'];
 
 }
 
@@ -459,7 +459,7 @@ while ($row = mysqli_fetch_assoc($query)) {
         $row['page'];
 
     $pageValues[] =
-        (int)$row['total_visits'];
+        (int) $row['total_visits'];
 
 }
 
@@ -475,357 +475,330 @@ while ($row = mysqli_fetch_assoc($query)) {
 <head>
 
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>
+    <title>
 
-Tourism Analytics Dashboard -
-PERLIS TOURISM SMART PORTAL
+        Tourism Analytics Dashboard -
+        PERLIS TOURISM SMART PORTAL
 
-</title>
+    </title>
 
 
 
-<!-- Bootstrap -->
+    <!-- Bootstrap -->
 
-<link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-rel="stylesheet"
->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 
-<!-- Bootstrap Icons -->
+    <!-- Bootstrap Icons -->
 
-<link
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-rel="stylesheet"
->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 
 
-<!-- Chart.js -->
+    <!-- Chart.js -->
 
-<script
-src="https://cdn.jsdelivr.net/npm/chart.js">
-</script>
-
-
-
-<!-- Website CSS -->
-
-<link
-rel="stylesheet"
-href="assets/css/style.css"
->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
 
 
 
-<style>
+    <!-- Website CSS -->
+
+    <link rel="stylesheet" href="assets/css/style.css">
 
 
-/* =====================================================
+
+    <style>
+        /* =====================================================
    BODY
    ===================================================== */
 
-body {
+        body {
 
-    background: #fefbea;
+            background: #fefbea;
 
-}
+        }
 
 
 
-/* =====================================================
+        /* =====================================================
    NAVBAR
    ===================================================== */
 
-.navbar {
+        .navbar {
 
-    background:
+            background:
 
-        linear-gradient(
-            90deg,
-            #FFD700 0%,
-            #F5C400 40%,
-            #0057B8 100%
-        ) !important;
+                linear-gradient(90deg,
+                    #FFD700 0%,
+                    #F5C400 40%,
+                    #0057B8 100%) !important;
 
-}
+        }
 
 
 
-/* =====================================================
+        /* =====================================================
    HEADER
    ORIGINAL HEADER
    NO DARK OVERLAY
    ===================================================== */
 
-.analytics-header {
+        .analytics-header {
 
-    background-image: url('assets/images/header.jpg');
+            background-image: url('assets/images/header.jpg');
 
-    background-size: cover;
+            background-size: cover;
 
-    background-position: center;
+            background-position: center;
 
-    background-repeat: no-repeat;
+            background-repeat: no-repeat;
 
-    min-height: 400px;
+            min-height: 400px;
 
-    display: flex;
+            display: flex;
 
-    flex-direction: column;
+            flex-direction: column;
 
-    justify-content: center;
+            justify-content: center;
 
-    align-items: center;
+            align-items: center;
 
-    color: white;
+            color: white;
 
-    padding: 50px;
+            padding: 50px;
 
-}
-
-
-
-.analytics-header h1 {
-
-    font-size: 3.5rem;
-
-    font-weight: 700;
-
-    margin-bottom: 10px;
-
-}
+        }
 
 
 
-.analytics-header p {
+        .analytics-header h1 {
 
-    margin: 0;
+            font-size: 3.5rem;
 
-    font-size: 18px;
+            font-weight: 700;
 
-}
+            margin-bottom: 10px;
+
+        }
 
 
 
-/* =====================================================
+        .analytics-header p {
+
+            margin: 0;
+
+            font-size: 18px;
+
+        }
+
+
+
+        /* =====================================================
    KPI CARD
    ===================================================== */
 
-.kpi-card {
+        .kpi-card {
 
-    background: white;
+            background: white;
 
-    border: none;
+            border: none;
 
-    border-radius: 18px;
+            border-radius: 18px;
 
-    padding: 25px;
+            padding: 25px;
 
-    height: 100%;
+            height: 100%;
 
-    box-shadow:
+            box-shadow:
 
-        0 5px 15px
-        rgba(0,0,0,0.08);
+                0 5px 15px rgba(0, 0, 0, 0.08);
 
-    transition: 0.3s;
+            transition: 0.3s;
 
-}
-
-
-
-.kpi-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-
-        0 10px 20px
-        rgba(0,0,0,0.12);
-
-}
+        }
 
 
 
-.kpi-icon {
+        .kpi-card:hover {
 
-    font-size: 42px;
+            transform: translateY(-5px);
 
-    margin-bottom: 10px;
+            box-shadow:
 
-}
+                0 10px 20px rgba(0, 0, 0, 0.12);
 
-
-
-.kpi-number {
-
-    font-size: 32px;
-
-    font-weight: 700;
-
-    margin: 0;
-
-}
+        }
 
 
 
-.kpi-title {
+        .kpi-icon {
 
-    color: #666;
+            font-size: 42px;
 
-    margin-top: 5px;
+            margin-bottom: 10px;
 
-    margin-bottom: 0;
-
-}
+        }
 
 
 
-/* =====================================================
+        .kpi-number {
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            margin: 0;
+
+        }
+
+
+
+        .kpi-title {
+
+            color: #666;
+
+            margin-top: 5px;
+
+            margin-bottom: 0;
+
+        }
+
+
+
+        /* =====================================================
    POPULAR DESTINATION
    ===================================================== */
 
-.popular-card {
+        .popular-card {
 
-    background:
+            background:
 
-        linear-gradient(
-            135deg,
-            #FFD700,
-            #0057B8
-        );
+                linear-gradient(135deg,
+                    #FFD700,
+                    #0057B8);
 
-    color: white;
+            color: white;
 
-    border-radius: 20px;
+            border-radius: 20px;
 
-    padding: 35px;
+            padding: 35px;
 
-    box-shadow:
+            box-shadow:
 
-        0 5px 15px
-        rgba(0,0,0,0.15);
+                0 5px 15px rgba(0, 0, 0, 0.15);
 
-}
+        }
 
 
 
-.popular-card h2 {
+        .popular-card h2 {
 
-    font-size: 32px;
+            font-size: 32px;
 
-    font-weight: 700;
+            font-weight: 700;
 
-}
+        }
 
 
 
-/* =====================================================
+        /* =====================================================
    ANALYTICS CARD
    ===================================================== */
 
-.analytics-card {
+        .analytics-card {
 
-    background: white;
+            background: white;
 
-    border: none;
+            border: none;
 
-    border-radius: 18px;
+            border-radius: 18px;
 
-    padding: 25px;
+            padding: 25px;
 
-    box-shadow:
+            box-shadow:
 
-        0 5px 15px
-        rgba(0,0,0,0.08);
+                0 5px 15px rgba(0, 0, 0, 0.08);
 
-    height: 100%;
+            height: 100%;
 
-}
-
-
-
-.analytics-card h4 {
-
-    font-weight: 700;
-
-    margin-bottom: 20px;
-
-}
+        }
 
 
 
-/* =====================================================
+        .analytics-card h4 {
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        /* =====================================================
    CHART
    ===================================================== */
 
-.chart-container {
+        .chart-container {
 
-    position: relative;
+            position: relative;
 
-    height: 320px;
+            height: 320px;
 
-}
+        }
 
 
 
-/* =====================================================
+        /* =====================================================
    SECTION TITLE
    ===================================================== */
 
-.section-title {
+        .section-title {
 
-    font-weight: 700;
+            font-weight: 700;
 
-    margin-bottom: 25px;
+            margin-bottom: 25px;
 
-}
+        }
 
 
 
-/* =====================================================
+        /* =====================================================
    INSIGHT CARD
    ===================================================== */
 
-.insight-card {
+        .insight-card {
 
-    background: white;
+            background: white;
 
-    border-radius: 18px;
+            border-radius: 18px;
 
-    padding: 25px;
+            padding: 25px;
 
-    box-shadow:
+            box-shadow:
 
-        0 5px 15px
-        rgba(0,0,0,0.08);
+                0 5px 15px rgba(0, 0, 0, 0.08);
 
-    height: 100%;
+            height: 100%;
 
-}
-
-
-
-.insight-card i {
-
-    font-size: 30px;
-
-}
+        }
 
 
 
-</style>
+        .insight-card i {
+
+            font-size: 30px;
+
+        }
+    </style>
 
 
 </head>
@@ -836,1429 +809,1420 @@ body {
 
 
 
-<!-- =====================================================
+    <!-- =====================================================
      NAVBAR
      ===================================================== -->
 
-<?php include("navbar.php"); ?>
+    <?php include("navbar.php"); ?>
 
 
 
-<!-- =====================================================
+    <!-- =====================================================
      HEADER
      ===================================================== -->
 
-<section
-class="analytics-header"
->
+    <section class="analytics-header">
 
 
-<h1>
+        <h1>
 
-Tourism Analytics Dashboard
+            Tourism Analytics Dashboard
 
-</h1>
-
-
-<p>
-
-Data-driven insights for PERLIS TOURISM SMART PORTAL
-
-</p>
+        </h1>
 
 
-</section>
+        <p>
+
+            Data-driven insights for PERLIS TOURISM SMART PORTAL
+
+        </p>
+
+
+    </section>
 
 
 
-<!-- =====================================================
+    <!-- =====================================================
      KPI CARDS
      ===================================================== -->
 
-<div class="container mt-5">
+    <div class="container mt-5">
 
 
-<div class="row g-4">
+        <div class="row g-4">
 
 
 
-<!-- TOTAL DESTINATIONS -->
+            <!-- TOTAL DESTINATIONS -->
 
-<div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6">
 
 
-<div
-class="kpi-card text-center"
->
+                <div class="kpi-card text-center">
 
 
-<i
-class="bi bi-map kpi-icon text-primary">
-</i>
+                    <i class="bi bi-map kpi-icon text-primary">
+                    </i>
 
 
-<h2 class="kpi-number">
+                    <h2 class="kpi-number">
 
-<?php
+                        <?php
 
-echo $totalDestination;
+                        echo $totalDestination;
 
-?>
+                        ?>
 
-</h2>
+                    </h2>
 
 
-<p class="kpi-title">
+                    <p class="kpi-title">
 
-Total Destinations
+                        Total Destinations
 
-</p>
+                    </p>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
 
-<!-- TOTAL EVENTS -->
+            <!-- TOTAL EVENTS -->
 
-<div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6">
 
 
-<div
-class="kpi-card text-center"
->
+                <div class="kpi-card text-center">
 
 
-<i
-class="bi bi-calendar-event kpi-icon text-primary">
-</i>
+                    <i class="bi bi-calendar-event kpi-icon text-primary">
+                    </i>
 
 
-<h2 class="kpi-number">
+                    <h2 class="kpi-number">
 
-<?php
+                        <?php
 
-echo $totalEvent;
+                        echo $totalEvent;
 
-?>
+                        ?>
 
-</h2>
+                    </h2>
 
 
-<p class="kpi-title">
+                    <p class="kpi-title">
 
-Total Events
+                        Total Events
 
-</p>
+                    </p>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
 
-<!-- TOTAL VISITORS -->
+            <!-- TOTAL VISITORS -->
 
-<div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6">
 
 
-<div
-class="kpi-card text-center"
->
+                <div class="kpi-card text-center">
 
 
-<i
-class="bi bi-people kpi-icon text-warning">
-</i>
+                    <i class="bi bi-people kpi-icon text-warning">
+                    </i>
 
 
-<h2 class="kpi-number">
+                    <h2 class="kpi-number">
 
-<?php
+                        <?php
 
-echo $totalVisitor;
+                        echo $totalVisitor;
 
-?>
+                        ?>
 
-</h2>
+                    </h2>
 
 
-<p class="kpi-title">
+                    <p class="kpi-title">
 
-Tourism Visitors
+                        Tourism Visitors
 
-</p>
+                    </p>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
 
-<!-- WEBSITE VISITS -->
+            <!-- WEBSITE VISITS -->
 
-<div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6">
 
 
-<div
-class="kpi-card text-center"
->
+                <div class="kpi-card text-center">
 
 
-<i
-class="bi bi-bar-chart-line kpi-icon text-danger">
-</i>
+                    <i class="bi bi-bar-chart-line kpi-icon text-danger">
+                    </i>
 
 
-<h2 class="kpi-number">
+                    <h2 class="kpi-number">
 
-<?php
+                        <?php
 
-echo $totalWebsiteVisit;
+                        echo $totalWebsiteVisit;
 
-?>
+                        ?>
 
-</h2>
+                    </h2>
 
 
-<p class="kpi-title">
+                    <p class="kpi-title">
 
-Website Visits
+                        Website Visits
 
-</p>
+                    </p>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
-</div>
+        </div>
 
 
-</div>
+    </div>
 
 
 
-<!-- =====================================================
+    <!-- =====================================================
      SECOND KPI ROW
      ===================================================== -->
 
-<div class="container mt-4">
+    <div class="container mt-4">
 
 
-<div class="row g-4">
-
-
-
-<!-- AVERAGE RATING -->
-
-<div class="col-md-6">
-
-
-<div
-class="kpi-card text-center"
->
-
-
-<i
-class="bi bi-star-fill kpi-icon text-warning">
-</i>
-
-
-<h2 class="kpi-number">
-
-
-<?php
-
-echo number_format(
-    $averageRating,
-    2
-);
-
-?>
-
-/ 5
-
-
-</h2>
-
-
-<p class="kpi-title">
-
-Average Destination Rating
-
-</p>
-
-
-</div>
-
-
-</div>
+        <div class="row g-4">
 
 
 
-<!-- TOTAL REVIEWS -->
+            <!-- AVERAGE RATING -->
 
-<div class="col-md-6">
-
-
-<div
-class="kpi-card text-center"
->
+            <div class="col-md-6">
 
 
-<i
-class="bi bi-chat-square-text kpi-icon text-info">
-</i>
+                <div class="kpi-card text-center">
 
 
-<h2 class="kpi-number">
+                    <i class="bi bi-star-fill kpi-icon text-warning">
+                    </i>
 
 
-<?php
-
-echo $totalReviews;
-
-?>
+                    <h2 class="kpi-number">
 
 
-</h2>
+                        <?php
+
+                        echo number_format(
+                            $averageRating,
+                            2
+                        );
+
+                        ?>
+
+                        / 5
 
 
-<p class="kpi-title">
-
-Total Destination Reviews
-
-</p>
+                    </h2>
 
 
-</div>
+                    <p class="kpi-title">
+
+                        Average Destination Rating
+
+                    </p>
 
 
-</div>
+                </div>
 
 
-</div>
-
-
-</div>
+            </div>
 
 
 
-<!-- =====================================================
+            <!-- TOTAL REVIEWS -->
+
+            <div class="col-md-6">
+
+
+                <div class="kpi-card text-center">
+
+
+                    <i class="bi bi-chat-square-text kpi-icon text-info">
+                    </i>
+
+
+                    <h2 class="kpi-number">
+
+
+                        <?php
+
+                        echo $totalReviews;
+
+                        ?>
+
+
+                    </h2>
+
+
+                    <p class="kpi-title">
+
+                        Total Destination Reviews
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
      POPULAR DESTINATION
      ===================================================== -->
 
-<div class="container mt-5">
+    <div class="container mt-5">
 
 
-<div
-class="popular-card text-center"
->
+        <div class="popular-card text-center">
 
 
-<i
-class="bi bi-trophy-fill"
-style="font-size:45px;">
-</i>
+            <i class="bi bi-trophy-fill" style="font-size:45px;">
+            </i>
 
 
-<h5 class="mt-3">
+            <h5 class="mt-3">
 
-Most Popular Destination
+                Most Popular Destination
 
-</h5>
-
-
-<h2>
-
-<?php
-
-echo htmlspecialchars(
-    $popularDestinationName
-);
-
-?>
-
-</h2>
+            </h5>
 
 
-<p>
+            <h2>
 
-<?php
+                <?php
 
-echo $popularDestinationVisitors;
+                echo htmlspecialchars(
+                    $popularDestinationName
+                );
 
-?>
+                ?>
 
-visitor(s) recorded
-
-</p>
-
-
-</div>
+            </h2>
 
 
-</div>
+            <p>
+
+                <?php
+
+                echo $popularDestinationVisitors;
+
+                ?>
+
+                visitor(s) recorded
+
+            </p>
+
+
+        </div>
+
+
+    </div>
 
 
 
-<!-- =====================================================
+    <!-- =====================================================
      VISITOR ANALYTICS
      ===================================================== -->
 
-<div class="container mt-5">
+    <div class="container mt-5">
 
 
-<h2
-class="text-center section-title">
+        <h2 class="text-center section-title">
 
-Visitor Analytics
+            Visitor Analytics
 
-</h2>
+        </h2>
 
 
 
-<div class="row g-4">
+        <div class="row g-4">
 
 
 
-<!-- VISITORS BY COUNTRY -->
+            <!-- VISITORS BY COUNTRY -->
 
-<div class="col-md-6">
+            <div class="col-md-6">
 
 
-<div
-class="analytics-card"
->
+                <div class="analytics-card">
 
 
-<h4>
+                    <h4>
 
-<i class="bi bi-globe2"></i>
+                        <i class="bi bi-globe2"></i>
 
-Visitors by Country
+                        Visitors by Country
 
-</h4>
+                    </h4>
 
 
-<div class="chart-container">
+                    <div class="chart-container">
 
 
-<canvas
-id="countryChart">
-</canvas>
+                        <canvas id="countryChart">
+                        </canvas>
 
 
-</div>
+                    </div>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
 
-<!-- VISITOR PERCENTAGE -->
+            <!-- VISITOR PERCENTAGE -->
 
-<div class="col-md-6">
+            <div class="col-md-6">
 
 
-<div
-class="analytics-card"
->
+                <div class="analytics-card">
 
 
-<h4>
+                    <h4>
 
-<i class="bi bi-pie-chart-fill"></i>
+                        <i class="bi bi-pie-chart-fill"></i>
 
-Visitor Percentage
+                        Visitor Percentage
 
-</h4>
+                    </h4>
 
 
-<div class="chart-container">
+                    <div class="chart-container">
 
 
-<canvas
-id="percentageChart">
-</canvas>
+                        <canvas id="percentageChart">
+                        </canvas>
 
 
-</div>
+                    </div>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
-</div>
+        </div>
 
 
 
-<!-- MONTHLY + DESTINATION -->
+        <!-- MONTHLY + DESTINATION -->
 
-<div class="row g-4 mt-1">
+        <div class="row g-4 mt-1">
 
 
 
-<!-- MONTHLY TREND -->
+            <!-- MONTHLY TREND -->
 
-<div class="col-md-6">
+            <div class="col-md-6">
 
 
-<div
-class="analytics-card"
->
+                <div class="analytics-card">
 
 
-<h4>
+                    <h4>
 
-<i class="bi bi-graph-up"></i>
+                        <i class="bi bi-graph-up"></i>
 
-Monthly Visitor Trend
+                        Monthly Visitor Trend
 
-</h4>
+                    </h4>
 
 
-<div class="chart-container">
+                    <div class="chart-container">
 
 
-<canvas
-id="monthChart">
-</canvas>
+                        <canvas id="monthChart">
+                        </canvas>
 
 
-</div>
+                    </div>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
 
-<!-- DESTINATION VISITORS -->
+            <!-- DESTINATION VISITORS -->
 
-<div class="col-md-6">
+            <div class="col-md-6">
 
 
-<div
-class="analytics-card"
->
+                <div class="analytics-card">
 
 
-<h4>
+                    <h4>
 
-<i class="bi bi-geo-alt-fill"></i>
+                        <i class="bi bi-geo-alt-fill"></i>
 
-Visitors by Destination
+                        Visitors by Destination
 
-</h4>
+                    </h4>
 
 
-<div class="chart-container">
+                    <div class="chart-container">
 
 
-<canvas
-id="destinationChart">
-</canvas>
+                        <canvas id="destinationChart">
+                        </canvas>
 
 
-</div>
+                    </div>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
-</div>
+        </div>
 
 
-</div>
+    </div>
 
 
 
-<!-- =====================================================
+    <!-- =====================================================
      DESTINATION ANALYTICS
      ===================================================== -->
 
-<div class="container mt-5">
+    <div class="container mt-5">
 
 
-<h2
-class="text-center section-title">
+        <h2 class="text-center section-title">
 
-Destination Analytics
+            Destination Analytics
 
-</h2>
-
-
-
-<div class="row g-4">
+        </h2>
 
 
 
-<!-- AVERAGE RATING -->
-
-<div class="col-md-6">
-
-
-<div
-class="analytics-card"
->
-
-
-<h4>
-
-<i class="bi bi-star-fill"></i>
-
-Average Rating by Destination
-
-</h4>
-
-
-<div class="chart-container">
-
-
-<canvas
-id="ratingChart">
-</canvas>
-
-
-</div>
-
-
-</div>
-
-
-</div>
+        <div class="row g-4">
 
 
 
-<!-- CATEGORY -->
+            <!-- AVERAGE RATING -->
 
-<div class="col-md-6">
-
-
-<div
-class="analytics-card"
->
+            <div class="col-md-6">
 
 
-<h4>
-
-<i class="bi bi-tags-fill"></i>
-
-Destinations by Category
-
-</h4>
+                <div class="analytics-card">
 
 
-<div class="chart-container">
+                    <h4>
+
+                        <i class="bi bi-star-fill"></i>
+
+                        Average Rating by Destination
+
+                    </h4>
 
 
-<canvas
-id="categoryChart">
-</canvas>
+                    <div class="chart-container">
 
 
-</div>
+                        <canvas id="ratingChart">
+                        </canvas>
 
 
-</div>
+                    </div>
 
 
-</div>
+                </div>
 
 
-</div>
-
-
-</div>
+            </div>
 
 
 
-<!-- =====================================================
+            <!-- CATEGORY -->
+
+            <div class="col-md-6">
+
+
+                <div class="analytics-card">
+
+
+                    <h4>
+
+                        <i class="bi bi-tags-fill"></i>
+
+                        Destinations by Category
+
+                    </h4>
+
+
+                    <div class="chart-container">
+
+
+                        <canvas id="categoryChart">
+                        </canvas>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
      WEBSITE ANALYTICS
      ===================================================== -->
 
-<div class="container mt-5 mb-5">
+    <div class="container mt-5 mb-5">
 
 
-<h2
-class="text-center section-title">
+        <h2 class="text-center section-title">
 
-Website Analytics
+            Website Analytics
 
-</h2>
-
-
-
-<div class="row g-4">
-
-
-<div class="col-md-12">
-
-
-<div
-class="analytics-card"
->
-
-
-<h4>
-
-<i class="bi bi-window"></i>
-
-Website Visits by Page
-
-</h4>
-
-
-<div class="chart-container">
-
-
-<canvas
-id="pageChart">
-</canvas>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
+        </h2>
 
 
 
-<!-- =====================================================
+        <div class="row g-4">
+
+
+            <div class="col-md-12">
+
+
+                <div class="analytics-card">
+
+
+                    <h4>
+
+                        <i class="bi bi-window"></i>
+
+                        Website Visits by Page
+
+                    </h4>
+
+
+                    <div class="chart-container">
+
+
+                        <canvas id="pageChart">
+                        </canvas>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================================
+     POWER BI INTERACTIVE ANALYTICS
+     ===================================================== -->
+
+    <div class="container mt-5 mb-5">
+
+        <h2 class="text-center section-title">
+            Interactive Power BI Analytics
+        </h2>
+
+        <div class="analytics-card text-center">
+
+            <i class="bi bi-bar-chart-fill text-warning" style="font-size: 55px;">
+            </i>
+
+            <h3 class="mt-3">
+                PERLIS TOURISM SMART PORTAL
+            </h3>
+
+            <h5 class="text-muted mt-2">
+                Interactive Analytics Dashboard
+            </h5>
+
+            <p class="mt-3">
+                Explore interactive tourism data,
+                visitor trends, destination analysis,
+                events, tourism trends, prediction forecasts
+                and tourism insights using Microsoft Power BI.
+            </p>
+
+            <a href="https://app.powerbi.com/groups/me/reports/2694ffe5-063c-4998-9adb-57f516af8449/36a346a3e6d3e246e68c?experience=power-bi"
+                target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg mt-3 px-5">
+
+                <i class="bi bi-box-arrow-up-right me-2"></i>
+
+                View Power BI Dashboard
+
+            </a>
+
+            <p class="text-muted mt-3 mb-0">
+                Opens the interactive Microsoft Power BI dashboard
+                in a new tab.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
      TOURISM INSIGHTS
      ===================================================== -->
 
-<div class="container mb-5">
+    <div class="container mb-5">
 
 
-<h2
-class="text-center section-title">
+        <h2 class="text-center section-title">
 
-Tourism Insights
+            Tourism Insights
 
-</h2>
+        </h2>
 
 
 
-<div class="row g-4">
+        <div class="row g-4">
 
 
 
-<!-- INSIGHT 1 -->
+            <!-- INSIGHT 1 -->
 
-<div class="col-md-4">
+            <div class="col-md-4">
 
 
-<div
-class="insight-card text-center"
->
+                <div class="insight-card text-center">
 
 
-<i
-class="bi bi-trophy-fill text-warning">
-</i>
+                    <i class="bi bi-trophy-fill text-warning">
+                    </i>
 
 
-<h5 class="mt-3">
+                    <h5 class="mt-3">
 
-Popular Destination
+                        Popular Destination
 
-</h5>
+                    </h5>
 
 
-<p>
+                    <p>
 
-<strong>
+                        <strong>
 
-<?php
+                            <?php
 
-echo htmlspecialchars(
-    $popularDestinationName
-);
+                            echo htmlspecialchars(
+                                $popularDestinationName
+                            );
 
-?>
+                            ?>
 
-</strong>
+                        </strong>
 
-currently has the highest
-number of recorded visitors.
+                        currently has the highest
+                        number of recorded visitors.
 
-</p>
+                    </p>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
 
-<!-- INSIGHT 2 -->
+            <!-- INSIGHT 2 -->
 
-<div class="col-md-4">
+            <div class="col-md-4">
 
 
-<div
-class="insight-card text-center"
->
+                <div class="insight-card text-center">
 
 
-<i
-class="bi bi-star-fill text-warning">
-</i>
+                    <i class="bi bi-star-fill text-warning">
+                    </i>
 
 
-<h5 class="mt-3">
+                    <h5 class="mt-3">
 
-Visitor Satisfaction
+                        Visitor Satisfaction
 
-</h5>
+                    </h5>
 
 
-<p>
+                    <p>
 
-The overall destination
-rating is
+                        The overall destination
+                        rating is
 
-<strong>
+                        <strong>
 
-<?php
+                            <?php
 
-echo number_format(
-    $averageRating,
-    2
-);
+                            echo number_format(
+                                $averageRating,
+                                2
+                            );
 
-?>
+                            ?>
 
-/ 5
+                            / 5
 
-</strong>
+                        </strong>
 
-</p>
+                    </p>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
 
-<!-- INSIGHT 3 -->
+            <!-- INSIGHT 3 -->
 
-<div class="col-md-4">
+            <div class="col-md-4">
 
 
-<div
-class="insight-card text-center"
->
+                <div class="insight-card text-center">
 
 
-<i
-class="bi bi-people-fill text-primary">
-</i>
+                    <i class="bi bi-people-fill text-primary">
+                    </i>
 
 
-<h5 class="mt-3">
+                    <h5 class="mt-3">
 
-Tourism Visitors
+                        Tourism Visitors
 
-</h5>
+                    </h5>
 
 
-<p>
+                    <p>
 
-The system has recorded
+                        The system has recorded
 
-<strong>
+                        <strong>
 
-<?php
+                            <?php
 
-echo $totalVisitor;
+                            echo $totalVisitor;
 
-?>
+                            ?>
 
-</strong>
+                        </strong>
 
-tourism visitor records.
+                        tourism visitor records.
 
-</p>
+                    </p>
 
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
 
-</div>
+        </div>
 
 
-</div>
+    </div>
 
 
 
-<!-- =====================================================
+    <!-- =====================================================
      CHART.JS
      ===================================================== -->
 
-<script>
+    <script>
 
 
-// =====================================================
-// VISITORS BY COUNTRY
-// =====================================================
+        // =====================================================
+        // VISITORS BY COUNTRY
+        // =====================================================
 
-new Chart(
+        new Chart(
 
-document.getElementById(
-    "countryChart"
-),
+            document.getElementById(
+                "countryChart"
+            ),
 
-{
+            {
 
-type: "bar",
+                type: "bar",
 
-data: {
+                data: {
 
-labels:
+                    labels:
 
-<?php
+                        <?php
 
-echo json_encode(
-    $countryLabels
-);
+                        echo json_encode(
+                            $countryLabels
+                        );
 
-?>,
+                        ?>,
 
-datasets: [
+                    datasets: [
 
-{
+                        {
 
-label: "Visitors",
+                            label: "Visitors",
 
-data:
+                            data:
 
-<?php
+                                <?php
 
-echo json_encode(
-    $countryValues
-);
+                                echo json_encode(
+                                    $countryValues
+                                );
 
-?>
+                                ?>
 
-}
+                        }
 
-]
+                    ]
 
-},
+                },
 
-options: {
+                options: {
 
-responsive: true,
+                    responsive: true,
 
-maintainAspectRatio: false,
+                    maintainAspectRatio: false,
 
-scales: {
+                    scales: {
 
-y: {
+                        y: {
 
-beginAtZero: true,
+                            beginAtZero: true,
 
-ticks: {
+                            ticks: {
 
-precision: 0
+                                precision: 0
 
-}
+                            }
 
-}
+                        }
 
-}
+                    }
 
-}
+                }
 
-}
+            }
 
-);
+        );
 
 
 
-// =====================================================
-// VISITOR PERCENTAGE
-// =====================================================
+        // =====================================================
+        // VISITOR PERCENTAGE
+        // =====================================================
 
-new Chart(
+        new Chart(
 
-document.getElementById(
-    "percentageChart"
-),
+            document.getElementById(
+                "percentageChart"
+            ),
 
-{
+            {
 
-type: "doughnut",
+                type: "doughnut",
 
-data: {
+                data: {
 
-labels:
+                    labels:
 
-<?php
+                        <?php
 
-echo json_encode(
-    $percentageLabels
-);
+                        echo json_encode(
+                            $percentageLabels
+                        );
 
-?>,
+                        ?>,
 
-datasets: [
+                    datasets: [
 
-{
+                        {
 
-label: "Percentage",
+                            label: "Percentage",
 
-data:
+                            data:
 
-<?php
+                                <?php
 
-echo json_encode(
-    $percentageValues
-);
+                                echo json_encode(
+                                    $percentageValues
+                                );
 
-?>
+                                ?>
 
-}
+                        }
 
-]
+                    ]
 
-},
+                },
 
-options: {
+                options: {
 
-responsive: true,
+                    responsive: true,
 
-maintainAspectRatio: false
+                    maintainAspectRatio: false
 
-}
+                }
 
-}
+            }
 
-);
+        );
 
 
 
-// =====================================================
-// MONTHLY VISITOR TREND
-// =====================================================
+        // =====================================================
+        // MONTHLY VISITOR TREND
+        // =====================================================
 
-new Chart(
+        new Chart(
 
-document.getElementById(
-    "monthChart"
-),
+            document.getElementById(
+                "monthChart"
+            ),
 
-{
+            {
 
-type: "line",
+                type: "line",
 
-data: {
+                data: {
 
-labels:
+                    labels:
 
-<?php
+                        <?php
 
-echo json_encode(
-    $monthLabels
-);
+                        echo json_encode(
+                            $monthLabels
+                        );
 
-?>,
+                        ?>,
 
-datasets: [
+                    datasets: [
 
-{
+                        {
 
-label: "Visitors",
+                            label: "Visitors",
 
-data:
+                            data:
 
-<?php
+                                <?php
 
-echo json_encode(
-    $monthValues
-);
+                                echo json_encode(
+                                    $monthValues
+                                );
 
-?>,
+                                ?>,
 
-tension: 0.3,
+                            tension: 0.3,
 
-fill: false
+                            fill: false
 
-}
+                        }
 
-]
+                    ]
 
-},
+                },
 
-options: {
+                options: {
 
-responsive: true,
+                    responsive: true,
 
-maintainAspectRatio: false,
+                    maintainAspectRatio: false,
 
-scales: {
+                    scales: {
 
-y: {
+                        y: {
 
-beginAtZero: true,
+                            beginAtZero: true,
 
-ticks: {
+                            ticks: {
 
-precision: 0
+                                precision: 0
 
-}
+                            }
 
-}
+                        }
 
-}
+                    }
 
-}
+                }
 
-}
+            }
 
-);
+        );
 
 
 
-// =====================================================
-// VISITORS BY DESTINATION
-// =====================================================
+        // =====================================================
+        // VISITORS BY DESTINATION
+        // =====================================================
 
-new Chart(
+        new Chart(
 
-document.getElementById(
-    "destinationChart"
-),
+            document.getElementById(
+                "destinationChart"
+            ),
 
-{
+            {
 
-type: "bar",
+                type: "bar",
 
-data: {
+                data: {
 
-labels:
+                    labels:
 
-<?php
+                        <?php
 
-echo json_encode(
-    $destinationLabels
-);
+                        echo json_encode(
+                            $destinationLabels
+                        );
 
-?>,
+                        ?>,
 
-datasets: [
+                    datasets: [
 
-{
+                        {
 
-label: "Visitors",
+                            label: "Visitors",
 
-data:
+                            data:
 
-<?php
+                                <?php
 
-echo json_encode(
-    $destinationValues
-);
+                                echo json_encode(
+                                    $destinationValues
+                                );
 
-?>
+                                ?>
 
-}
+                        }
 
-]
+                    ]
 
-},
+                },
 
-options: {
+                options: {
 
-indexAxis: "y",
+                    indexAxis: "y",
 
-responsive: true,
+                    responsive: true,
 
-maintainAspectRatio: false,
+                    maintainAspectRatio: false,
 
-scales: {
+                    scales: {
 
-x: {
+                        x: {
 
-beginAtZero: true,
+                            beginAtZero: true,
 
-ticks: {
+                            ticks: {
 
-precision: 0
+                                precision: 0
 
-}
+                            }
 
-}
+                        }
 
-}
+                    }
 
-}
+                }
 
-}
+            }
 
-);
+        );
 
 
 
-// =====================================================
-// AVERAGE RATING
-// =====================================================
+        // =====================================================
+        // AVERAGE RATING
+        // =====================================================
 
-new Chart(
+        new Chart(
 
-document.getElementById(
-    "ratingChart"
-),
+            document.getElementById(
+                "ratingChart"
+            ),
 
-{
+            {
 
-type: "bar",
+                type: "bar",
 
-data: {
+                data: {
 
-labels:
+                    labels:
 
-<?php
+                        <?php
 
-echo json_encode(
-    $ratingLabels
-);
+                        echo json_encode(
+                            $ratingLabels
+                        );
 
-?>,
+                        ?>,
 
-datasets: [
+                    datasets: [
 
-{
+                        {
 
-label: "Average Rating",
+                            label: "Average Rating",
 
-data:
+                            data:
 
-<?php
+                                <?php
 
-echo json_encode(
-    $ratingValues
-);
+                                echo json_encode(
+                                    $ratingValues
+                                );
 
-?>
+                                ?>
 
-}
+                        }
 
-]
+                    ]
 
-},
+                },
 
-options: {
+                options: {
 
-responsive: true,
+                    responsive: true,
 
-maintainAspectRatio: false,
+                    maintainAspectRatio: false,
 
-scales: {
+                    scales: {
 
-y: {
+                        y: {
 
-beginAtZero: true,
+                            beginAtZero: true,
 
-max: 5
+                            max: 5
 
-}
+                        }
 
-}
+                    }
 
-}
+                }
 
-}
+            }
 
-);
+        );
 
 
 
-// =====================================================
-// DESTINATION CATEGORY
-// =====================================================
+        // =====================================================
+        // DESTINATION CATEGORY
+        // =====================================================
 
-new Chart(
+        new Chart(
 
-document.getElementById(
-    "categoryChart"
-),
+            document.getElementById(
+                "categoryChart"
+            ),
 
-{
+            {
 
-type: "doughnut",
+                type: "doughnut",
 
-data: {
+                data: {
 
-labels:
+                    labels:
 
-<?php
+                        <?php
 
-echo json_encode(
-    $categoryLabels
-);
+                        echo json_encode(
+                            $categoryLabels
+                        );
 
-?>,
+                        ?>,
 
-datasets: [
+                    datasets: [
 
-{
+                        {
 
-label: "Destinations",
+                            label: "Destinations",
 
-data:
+                            data:
 
-<?php
+                                <?php
 
-echo json_encode(
-    $categoryValues
-);
+                                echo json_encode(
+                                    $categoryValues
+                                );
 
-?>
+                                ?>
 
-}
+                        }
 
-]
+                    ]
 
-},
+                },
 
-options: {
+                options: {
 
-responsive: true,
+                    responsive: true,
 
-maintainAspectRatio: false
+                    maintainAspectRatio: false
 
-}
+                }
 
-}
+            }
 
-);
+        );
 
 
 
-// =====================================================
-// WEBSITE VISITS BY PAGE
-// =====================================================
+        // =====================================================
+        // WEBSITE VISITS BY PAGE
+        // =====================================================
 
-new Chart(
+        new Chart(
 
-document.getElementById(
-    "pageChart"
-),
+            document.getElementById(
+                "pageChart"
+            ),
 
-{
+            {
 
-type: "bar",
+                type: "bar",
 
-data: {
+                data: {
 
-labels:
+                    labels:
 
-<?php
+                        <?php
 
-echo json_encode(
-    $pageLabels
-);
+                        echo json_encode(
+                            $pageLabels
+                        );
 
-?>,
+                        ?>,
 
-datasets: [
+                    datasets: [
 
-{
+                        {
 
-label: "Website Visits",
+                            label: "Website Visits",
 
-data:
+                            data:
 
-<?php
+                                <?php
 
-echo json_encode(
-    $pageValues
-);
+                                echo json_encode(
+                                    $pageValues
+                                );
 
-?>
+                                ?>
 
-}
+                        }
 
-]
+                    ]
 
-},
+                },
 
-options: {
+                options: {
 
-responsive: true,
+                    responsive: true,
 
-maintainAspectRatio: false,
+                    maintainAspectRatio: false,
 
-scales: {
+                    scales: {
 
-y: {
+                        y: {
 
-beginAtZero: true,
+                            beginAtZero: true,
 
-ticks: {
+                            ticks: {
 
-precision: 0
+                                precision: 0
 
-}
+                            }
 
-}
+                        }
 
-}
+                    }
 
-}
+                }
 
-}
+            }
 
-);
+        );
 
 
-</script>
+    </script>
 
 
 
-<!-- FOOTER -->
+    <!-- FOOTER -->
 
-<?php include("footer.php"); ?>
+    <?php include("footer.php"); ?>
 
 
 </body>
