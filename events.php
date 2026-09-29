@@ -105,6 +105,7 @@ $eventImages = [
 
 
     <style>
+
         /* =====================================
 
            PAGE
@@ -1112,6 +1113,7 @@ $eventImages = [
 
 
         }
+
     </style>
 
 
@@ -1668,33 +1670,33 @@ $eventImages = [
 
 
 
-                            <div class="card-body d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
 
 
 
 
 
-                                <h4 class="card-title fw-bold">
+                            <h4 class="card-title fw-bold">
 
 
 
-                                    <?php
+                                <?php
 
 
 
-                                    echo htmlspecialchars(
+                                echo htmlspecialchars(
 
-                                        $row['event_name']
+                                    $row['event_name']
 
-                                    );
+                                );
 
 
 
-                                    ?>
+                                ?>
 
 
 
-                                </h4>
+                            </h4>
 
 
 
@@ -1702,45 +1704,45 @@ $eventImages = [
 
 
 
-                                <!-- START DATE -->
+                            <!-- START DATE -->
 
 
 
-                                <p>
+                            <p>
 
 
 
-                                    <i class="bi bi-calendar-event event-icon me-1">
+                                <i class="bi bi-calendar-event event-icon me-1">
 
-                                    </i>
+                                </i>
 
 
 
-                                    <strong>
+                                <strong>
 
-                                        Start Date:
+                                    Start Date:
 
-                                    </strong>
+                                </strong>
 
 
 
-                                    <?php
+                                <?php
 
 
 
-                                    echo $startDate->format(
+                                echo $startDate->format(
 
-                                        "d M Y"
+                                    "d M Y"
 
-                                    );
+                                );
 
 
 
-                                    ?>
+                                ?>
 
 
 
-                                </p>
+                            </p>
 
 
 
@@ -1748,45 +1750,45 @@ $eventImages = [
 
 
 
-                                <!-- END DATE -->
+                            <!-- END DATE -->
 
 
 
-                                <p>
+                            <p>
 
 
 
-                                    <i class="bi bi-calendar-check event-icon me-1">
+                                <i class="bi bi-calendar-check event-icon me-1">
 
-                                    </i>
+                                </i>
 
 
 
-                                    <strong>
+                                <strong>
 
-                                        End Date:
+                                    End Date:
 
-                                    </strong>
+                                </strong>
 
 
 
-                                    <?php
+                                <?php
 
 
 
-                                    echo $hasValidEndDate
+                                echo $hasValidEndDate
 
-                                        ? $endDate->format("d M Y")
+                                    ? $endDate->format("d M Y")
 
-                                        : "TBA";
+                                    : "TBA";
 
 
 
-                                    ?>
+                                ?>
 
 
 
-                                </p>
+                            </p>
 
 
 
@@ -1794,41 +1796,41 @@ $eventImages = [
 
 
 
-                                <!-- START DAY -->
+                            <!-- START DAY -->
 
 
 
-                                <p>
+                            <p>
 
 
 
-                                    <i class="bi bi-calendar-day event-icon me-1">
+                                <i class="bi bi-calendar-day event-icon me-1">
 
-                                    </i>
+                                </i>
 
 
 
-                                    <strong>
+                                <strong>
 
-                                        Start Day:
+                                    Start Day:
 
-                                    </strong>
+                                </strong>
 
 
 
-                                    <?php
+                                <?php
 
 
 
-                                    echo $day;
+                                echo $day;
 
 
 
-                                    ?>
+                                ?>
 
 
 
-                                </p>
+                            </p>
 
 
 
@@ -1836,51 +1838,51 @@ $eventImages = [
 
 
 
-                                <!-- DURATION -->
+                            <!-- DURATION -->
 
 
 
-                                <p>
+                            <p>
 
 
 
-                                    <i class="bi bi-clock event-icon me-1">
+                                <i class="bi bi-clock event-icon me-1">
 
-                                    </i>
+                                </i>
 
 
 
-                                    <strong>
+                                <strong>
 
-                                        Duration:
+                                    Duration:
 
-                                    </strong>
+                                </strong>
 
 
 
-                                    <?php
+                                <?php
 
 
 
-                                    echo $duration;
+                                echo $duration;
 
 
 
-                                    echo
+                                echo
 
-                                        ($duration == 1)
+                                    ($duration == 1)
 
-                                        ? " day"
+                                    ? " day"
 
-                                        : " days";
+                                    : " days";
 
 
 
-                                    ?>
+                                ?>
 
 
 
-                                </p>
+                            </p>
 
 
 
@@ -1888,45 +1890,45 @@ $eventImages = [
 
 
 
-                                <!-- LOCATION -->
+                            <!-- LOCATION -->
 
 
 
-                                <p>
+                            <p>
 
 
 
-                                    <i class="bi bi-geo-alt event-icon me-1">
+                                <i class="bi bi-geo-alt event-icon me-1">
 
-                                    </i>
+                                </i>
 
 
 
-                                    <strong>
+                                <strong>
 
-                                        Location:
+                                    Location:
 
-                                    </strong>
+                                </strong>
 
 
 
-                                    <?php
+                                <?php
 
 
 
-                                    echo htmlspecialchars(
+                                echo htmlspecialchars(
 
-                                        $row['location']
+                                    $row['location']
 
-                                    );
+                                );
 
 
 
-                                    ?>
+                                ?>
 
 
 
-                                </p>
+                            </p>
 
 
 
@@ -1934,31 +1936,31 @@ $eventImages = [
 
 
 
-                                <!-- DESCRIPTION -->
+                            <!-- DESCRIPTION -->
 
 
 
-                                <p class="event-description">
+                            <p class="event-description">
 
 
 
-                                    <?php
+                                <?php
 
 
 
-                                    echo htmlspecialchars(
+                                echo htmlspecialchars(
 
-                                        $row['description']
+                                    $row['description']
 
-                                    );
+                                );
 
 
 
-                                    ?>
+                                ?>
 
 
 
-                                </p>
+                            </p>
 
 
 
@@ -1966,28 +1968,27 @@ $eventImages = [
 
 
 
-                                <!-- BUTTON -->
+                            <!-- BUTTON -->
 
-                                <div class="mt-auto">
+                            <div class="mt-auto">
 
-                                    <button type="button" class="btn join-btn view-event-btn" onclick="showEventDetails(this)"
-                                        data-name="<?php echo htmlspecialchars($row['event_name'], ENT_QUOTES); ?>"
-                                        data-image="<?php echo htmlspecialchars($eventImages[$row['event_name']] ?? '', ENT_QUOTES); ?>"
-                                        data-start="<?php echo $startDate->format('d M Y'); ?>"
-                                        data-end="<?php echo $hasValidEndDate ? $endDate->format('d M Y') : 'TBA'; ?>"
-                                        data-day="<?php echo htmlspecialchars($day, ENT_QUOTES); ?>"
-                                        data-duration="<?php echo $duration; ?><?php echo ($duration == 1) ? ' day' : ' days'; ?>"
-                                        data-location="<?php echo htmlspecialchars($row['location'], ENT_QUOTES); ?>"
-                                        data-description="<?php echo htmlspecialchars($row['description'], ENT_QUOTES); ?>">
+                                <button
+                                    type="button"
+                                    class="btn join-btn view-event-btn"
+                                    onclick="showEventDetails(this)"
+                                    data-name="<?php echo htmlspecialchars($row['event_name'], ENT_QUOTES); ?>"
+                                    data-image="<?php echo htmlspecialchars($eventImages[$row['event_name']] ?? '', ENT_QUOTES); ?>"
+                                    data-start="<?php echo $startDate->format('d M Y'); ?>"
+                                    data-end="<?php echo $hasValidEndDate ? $endDate->format('d M Y') : 'TBA'; ?>"
+                                    data-day="<?php echo htmlspecialchars($day, ENT_QUOTES); ?>"
+                                    data-duration="<?php echo $duration; ?><?php echo ($duration == 1) ? ' day' : ' days'; ?>"
+                                    data-location="<?php echo htmlspecialchars($row['location'], ENT_QUOTES); ?>"
+                                    data-description="<?php echo htmlspecialchars($row['description'], ENT_QUOTES); ?>">
 
-                                        <i class="bi bi-eye me-1"></i>
-                                        View Event
+                                    <i class="bi bi-eye me-1"></i>
+                                    View Event
 
-                                    </button>
-
-                                </div>
-
-
+                                </button>
 
                             </div>
 
@@ -2001,9 +2002,13 @@ $eventImages = [
 
 
 
+                </div>
 
 
-                    <?php
+
+
+
+                <?php
 
 
 
@@ -2019,23 +2024,19 @@ $eventImages = [
 
 
 
-                <div class="col-12">
+            <div class="col-12">
 
 
 
-                    <div class="alert alert-info text-center">
+                <div class="alert alert-info text-center">
 
 
 
-                        <i class="bi bi-calendar-x me-1"></i>
+                    <i class="bi bi-calendar-x me-1"></i>
 
 
 
-                        No upcoming events available at the moment.
-
-
-
-                    </div>
+                    No upcoming events available at the moment.
 
 
 
@@ -2043,7 +2044,11 @@ $eventImages = [
 
 
 
-                <?php
+            </div>
+
+
+
+            <?php
 
 
 
@@ -2057,7 +2062,7 @@ $eventImages = [
 
 
 
-        </div>
+    </div>
 
 
 
@@ -2121,7 +2126,11 @@ $eventImages = [
 
                 <div class="modal-body p-4">
 
-                    <img id="modalEventImage" src="" alt="Event image" class="img-fluid rounded w-100 mb-4"
+                    <img
+                        id="modalEventImage"
+                        src=""
+                        alt="Event image"
+                        class="img-fluid rounded w-100 mb-4"
                         style="height: 280px; object-fit: cover; display: none;">
 
                     <p>
@@ -2671,7 +2680,7 @@ $eventImages = [
 
 
 
-                                                        {
+                                                {
 
 
 
@@ -2747,7 +2756,7 @@ $eventImages = [
 
 
 
-                                            allDay:
+                                                                                        allDay:
                                                 true,
 
                                             extendedProps: {
