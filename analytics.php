@@ -355,11 +355,6 @@
 
             <div class="powerbi-container">
 
-
-                <!-- =================================================
-                     POWER BI REPORT
-                ================================================== -->
-
                 <iframe
                     title="PERLIS TOURISM SMART PORTAL WITH INTERACTIVE ANALYTICS DASHBOARD"
                     src="https://app.powerbi.com/reportEmbed?reportId=2694ffe5-063c-4998-9adb-57f516af8449&autoAuth=true&ctid=221e8880-f1b1-41cd-8221-56d4277e4ffc"
