@@ -301,7 +301,7 @@ body {
             href="../analytics.php"
             class="btn btn-pastel"
         >
-            View Analytics
+            View
         </a>
 
     </div>

@@ -1,3 +1,4 @@
+
 <?php
 
 include("config.php");
@@ -192,7 +193,7 @@ body {
     "
 >
 
-PERLIS TOURISM SMART PORTAL Gallery
+Discover Perlis Through Our Lens
 
 </h1>
 
@@ -204,7 +205,7 @@ PERLIS TOURISM SMART PORTAL Gallery
     "
 >
 
-Explore beautiful moments around Perlis
+Explore the beauty and unforgettable moments of Perlis through photos and videos.
 
 </p>
 

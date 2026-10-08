@@ -1,145 +1,127 @@
+
 <?php
 
 include("config.php");
 
+// =========================================
+// SELECTED AREA
+// =========================================
 
 $selectedArea = $_GET['area'] ?? 'All';
 
-
-/*
-|--------------------------------------------------------------------------
-| RESTAURANT DATA
-|--------------------------------------------------------------------------
-*/
+// =========================================
+// RESTAURANT DATA
+// =========================================
 
 $restaurants = [
 
-    // =========================
     // KANGAR
-    // =========================
-
     [
-        "name" => "Kangar Seafood Corner",
+        "name" => "Seafood",
         "area" => "Kangar",
         "category" => "Seafood",
-        "description" => "Enjoy a variety of fresh seafood dishes around Kangar.",
+        "description" => "Discover seafood restaurants and delicious seafood dishes around Kangar.",
         "image" => "assets/images/restaurant/kangar1.jpg"
     ],
 
     [
-        "name" => "Kangar Local Food",
+        "name" => "Local Food",
         "area" => "Kangar",
         "category" => "Local Food",
-        "description" => "Taste delicious local Malaysian food in Kangar.",
+        "description" => "Enjoy traditional Malaysian dishes and local flavours around Kangar.",
         "image" => "assets/images/restaurant/kangar2.jpg"
     ],
 
     [
-        "name" => "Kangar Cafe & Dessert",
+        "name" => "Cafe",
         "area" => "Kangar",
         "category" => "Cafe",
-        "description" => "Relax and enjoy drinks, desserts and cafe-style food.",
+        "description" => "Explore cafes serving coffee, desserts and light meals in Kangar.",
         "image" => "assets/images/restaurant/kangar3.jpg"
     ],
 
-
-    // =========================
     // ARAU
-    // =========================
-
     [
-        "name" => "Arau Seafood House",
+        "name" => "Seafood",
         "area" => "Arau",
         "category" => "Seafood",
-        "description" => "A seafood dining option around the Arau area.",
+        "description" => "Search for seafood dining options around the royal town of Arau.",
         "image" => "assets/images/restaurant/arau1.jpg"
     ],
 
     [
-        "name" => "Arau Local Kitchen",
+        "name" => "Local Food",
         "area" => "Arau",
         "category" => "Local Food",
-        "description" => "Discover Malaysian local dishes around Arau.",
+        "description" => "Discover local Malaysian food and traditional dishes around Arau.",
         "image" => "assets/images/restaurant/arau2.jpg"
     ],
 
     [
-        "name" => "Arau Cafe",
+        "name" => "Cafe",
         "area" => "Arau",
         "category" => "Cafe",
-        "description" => "A cosy cafe experience for visitors around Arau.",
+        "description" => "Relax and enjoy coffee, desserts and cafe-style food around Arau.",
         "image" => "assets/images/restaurant/arau3.jpg"
     ],
 
-
-    // =========================
     // PADANG BESAR
-    // =========================
-
     [
-        "name" => "Padang Besar Seafood Corner",
+        "name" => "Seafood",
         "area" => "Padang Besar",
         "category" => "Seafood",
-        "description" => "Explore seafood dining options around Padang Besar.",
+        "description" => "Search for seafood restaurants and dining options around Padang Besar.",
         "image" => "assets/images/restaurant/padangbesar1.jpg"
     ],
 
     [
-        "name" => "Padang Besar Local Kitchen",
+        "name" => "Local Food",
         "area" => "Padang Besar",
         "category" => "Local Food",
-        "description" => "Enjoy local Malaysian flavours around Padang Besar.",
+        "description" => "Taste local Malaysian food and discover dining spots around Padang Besar.",
         "image" => "assets/images/restaurant/padangbesar2.jpg"
     ],
 
     [
-        "name" => "Padang Besar Cafe",
+        "name" => "Cafe",
         "area" => "Padang Besar",
         "category" => "Cafe",
-        "description" => "Relax with drinks and light meals at cafes around Padang Besar.",
+        "description" => "Enjoy coffee, drinks and light meals at cafes around Padang Besar.",
         "image" => "assets/images/restaurant/padangbesar3.jpg"
     ],
 
-
-    // =========================
     // KUALA PERLIS
-    // =========================
-
     [
-        "name" => "Kuala Perlis Seafood",
+        "name" => "Seafood",
         "area" => "Kuala Perlis",
         "category" => "Seafood",
-        "description" => "Enjoy seafood dishes near the famous Kuala Perlis area.",
+        "description" => "Explore fresh seafood and ikan bakar dining options in Kuala Perlis.",
         "image" => "assets/images/restaurant/kualaperlis1.jpg"
     ],
 
     [
-        "name" => "Kuala Perlis Local Kitchen",
+        "name" => "Local Food",
         "area" => "Kuala Perlis",
         "category" => "Local Food",
-        "description" => "Try local Malaysian food around Kuala Perlis.",
+        "description" => "Discover traditional local food and popular Malaysian dishes around Kuala Perlis.",
         "image" => "assets/images/restaurant/kualaperlis2.jpg"
     ],
 
     [
-        "name" => "Kuala Perlis Cafe",
+        "name" => "Cafe",
         "area" => "Kuala Perlis",
         "category" => "Cafe",
-        "description" => "Enjoy coffee, desserts and relaxing cafe food around Kuala Perlis.",
+        "description" => "Explore cafes offering coffee, desserts and relaxing dining experiences.",
         "image" => "assets/images/restaurant/kualaperlis3.jpg"
     ]
 
 ];
 
-
-/*
-|--------------------------------------------------------------------------
-| FILTER RESTAURANTS BY AREA
-|--------------------------------------------------------------------------
-*/
+// =========================================
+// FILTER RESTAURANTS
+// =========================================
 
 $filteredRestaurants = [];
-
 
 foreach ($restaurants as $restaurant) {
 
@@ -154,12 +136,9 @@ foreach ($restaurants as $restaurant) {
 
 }
 
-
-/*
-|--------------------------------------------------------------------------
-| AREA INFORMATION
-|--------------------------------------------------------------------------
-*/
+// =========================================
+// AREA INFORMATION
+// =========================================
 
 $areas = [
 
@@ -187,9 +166,7 @@ $areas = [
 
 ?>
 
-
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -200,654 +177,379 @@ $areas = [
 
 <title>Restaurants | Perlis Tourism</title>
 
-
-<!-- Bootstrap -->
-
+<!-- BOOTSTRAP -->
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
 >
 
-
-<!-- Bootstrap Icons -->
-
+<!-- BOOTSTRAP ICONS -->
 <link
-    rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
 >
 
-
-<!-- Existing CSS -->
-
+<!-- EXISTING CSS -->
 <link
     rel="stylesheet"
     href="assets/css/style.css"
 >
 
-
 <style>
 
-
-/* =========================================================
+/* =========================================
    GENERAL
-========================================================= */
+========================================= */
 
 body {
-
     background: #fefbea;
-
     color: #333;
-
     font-family: Arial, sans-serif;
-
 }
 
-
-/* =========================================================
+/* =========================================
    HERO HEADER
-========================================================= */
+========================================= */
 
 .restaurant-header {
 
     position: relative;
 
     background-image:
-
         linear-gradient(
             90deg,
             rgba(255,255,255,0.98) 0%,
             rgba(255,255,255,0.92) 40%,
             rgba(255,255,255,0.25) 100%
         ),
-
         url('assets/images/header.jpg');
 
     background-size: cover;
-
     background-position: center;
-
     min-height: 450px;
-
     padding: 60px 20px;
-
     display: flex;
-
     align-items: center;
-
     overflow: hidden;
 
 }
-
 
 .restaurant-header-content {
-
     max-width: 650px;
-
     margin-left: 5%;
-
     position: relative;
-
     z-index: 2;
-
 }
-
 
 .restaurant-header h1 {
-
     font-size: 3.2rem;
-
     font-weight: 800;
-
     color: #0057B8;
-
     margin-bottom: 15px;
-
 }
-
 
 .restaurant-header h1 span {
-
     color: #E0A800;
-
 }
-
 
 .restaurant-header p {
-
     font-size: 1.1rem;
-
     line-height: 1.7;
-
     color: #444;
-
     max-width: 600px;
-
 }
-
 
 .food-badge {
-
     display: inline-block;
-
-    background: linear-gradient(
-        135deg,
-        #FFD700,
-        #ffb300
-    );
-
+    background: linear-gradient(135deg, #FFD700, #ffb300);
     color: #333;
-
     font-weight: 700;
-
     padding: 9px 18px;
-
     border-radius: 30px;
-
     margin-bottom: 18px;
-
     box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-
 }
 
-
-/* =========================================================
+/* =========================================
    SECTION TITLE
-========================================================= */
+========================================= */
 
 .section-title {
-
     text-align: center;
-
     margin-bottom: 35px;
-
 }
-
 
 .section-title h2 {
-
     font-weight: 800;
-
     color: #0057B8;
-
     font-size: 2.2rem;
-
 }
-
 
 .section-title p {
-
     color: #777;
-
     max-width: 650px;
-
     margin: auto;
-
 }
 
-
-/* =========================================================
+/* =========================================
    AREA FILTER
-========================================================= */
+========================================= */
 
 .area-filter {
-
     display: flex;
-
     flex-wrap: wrap;
-
     justify-content: center;
-
     gap: 12px;
-
     margin-bottom: 45px;
-
 }
-
 
 .area-btn {
-
     text-decoration: none;
-
     padding: 12px 22px;
-
     border-radius: 30px;
-
     background: white;
-
     color: #0057B8;
-
     font-weight: 700;
-
     border: 2px solid #0057B8;
-
     transition: 0.3s;
-
     box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-
 }
-
 
 .area-btn:hover {
-
     background: #0057B8;
-
     color: white;
-
     transform: translateY(-3px);
-
 }
-
 
 .area-btn.active {
-
-    background: linear-gradient(
-        135deg,
-        #FFD700,
-        #0057B8
-    );
-
+    background: linear-gradient(135deg, #FFD700, #0057B8);
     color: white;
-
     border-color: transparent;
-
 }
 
-
-/* =========================================================
+/* =========================================
    AREA INFORMATION BOX
-========================================================= */
+========================================= */
 
 .area-info {
-
-    background: linear-gradient(
-        135deg,
-        #fff8c7,
-        #ffffff
-    );
-
+    background: linear-gradient(135deg, #fff8c7, #ffffff);
     border-radius: 25px;
-
     padding: 28px;
-
     margin-bottom: 45px;
-
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-
     border-left: 7px solid #FFD700;
-
 }
-
 
 .area-info-icon {
-
     width: 60px;
-
     height: 60px;
-
     border-radius: 50%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     background: #0057B8;
-
     color: white;
-
     font-size: 1.5rem;
-
 }
-
 
 .area-info h3 {
-
     color: #0057B8;
-
     font-weight: 800;
-
     margin-bottom: 5px;
-
 }
-
 
 .area-info p {
-
     margin: 0;
-
     color: #666;
-
 }
 
-
-/* =========================================================
+/* =========================================
    RESTAURANT CARD
-========================================================= */
+========================================= */
 
 .restaurant-card {
-
     background: white;
-
     border-radius: 22px;
-
     overflow: hidden;
-
     height: 100%;
-
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-
     transition: all 0.3s ease;
-
     border: none;
-
 }
-
 
 .restaurant-card:hover {
-
     transform: translateY(-8px);
-
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-
 }
-
 
 .restaurant-image {
-
     width: 100%;
-
     height: 230px;
-
     object-fit: cover;
-
 }
 
-
-/* =========================================================
-   NEW FOOD EMOJI PLACEHOLDER
-========================================================= */
+/* =========================================
+   FOOD EMOJI PLACEHOLDER
+========================================= */
 
 .restaurant-image-placeholder {
-
     height: 230px;
-
-    background: linear-gradient(
-        135deg,
-        #FFD700,
-        #0057B8
-    );
-
+    background: linear-gradient(135deg, #FFD700, #0057B8);
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
 }
-
 
 .food-emoji {
-
     width: 115px;
-
     height: 115px;
-
     background: rgba(255,255,255,0.96);
-
     border-radius: 50%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     font-size: 4.5rem;
-
     line-height: 1;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.20);
-
+    box-shadow: 0 10px 25px rgba(0,0,0,0.20);
     transition: all 0.3s ease;
-
 }
-
 
 .restaurant-card:hover .food-emoji {
-
-    transform:
-        translateY(-5px)
-        scale(1.08);
-
+    transform: translateY(-5px) scale(1.08);
 }
 
-
-/* =========================================================
+/* =========================================
    RESTAURANT CONTENT
-========================================================= */
+========================================= */
 
 .restaurant-content {
-
     padding: 25px;
-
 }
-
 
 .category-badge {
-
     display: inline-block;
-
     background: #fff3cd;
-
     color: #9a6b00;
-
     padding: 7px 13px;
-
     border-radius: 20px;
-
     font-size: 0.8rem;
-
     font-weight: 700;
-
     margin-bottom: 12px;
-
 }
-
 
 .restaurant-content h4 {
-
     color: #0057B8;
-
     font-weight: 800;
-
     margin-bottom: 10px;
-
 }
-
 
 .restaurant-content p {
-
     color: #777;
-
     line-height: 1.6;
-
     min-height: 75px;
-
 }
 
-
-/* =========================================================
+/* =========================================
    LOCATION BUTTON
-========================================================= */
+========================================= */
 
 .map-btn {
-
     width: 100%;
-
     border: none;
-
     border-radius: 12px;
-
     padding: 12px 18px;
-
-    background: linear-gradient(
-        135deg,
-        #0057B8,
-        #007bff
-    );
-
+    background: linear-gradient(135deg, #0057B8, #007bff);
     color: white;
-
     font-weight: 700;
-
     text-decoration: none;
-
     display: inline-flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 8px;
-
     transition: 0.3s;
-
 }
-
 
 .map-btn:hover {
-
     color: white;
-
     transform: translateY(-2px);
-
-    background: linear-gradient(
-        135deg,
-        #003f88,
-        #0057B8
-    );
-
+    background: linear-gradient(135deg, #003f88, #0057B8);
     box-shadow: 0 8px 18px rgba(0,87,184,0.25);
-
 }
 
-
-/* =========================================================
+/* =========================================
    EMPTY RESULT
-========================================================= */
+========================================= */
 
 .empty-box {
-
     text-align: center;
-
     padding: 70px 20px;
-
     background: white;
-
     border-radius: 25px;
-
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-
 }
-
 
 .empty-box i {
-
     font-size: 4rem;
-
     color: #FFD700;
-
     margin-bottom: 20px;
-
 }
-
 
 .empty-box h3 {
-
     color: #0057B8;
-
     font-weight: 800;
-
 }
 
-
-/* =========================================================
+/* =========================================
    MOBILE
-========================================================= */
+========================================= */
 
 @media (max-width: 768px) {
 
     .restaurant-header {
-
         min-height: 400px;
-
         padding: 40px 20px;
-
     }
-
 
     .restaurant-header-content {
-
         margin-left: 0;
-
     }
-
 
     .restaurant-header h1 {
-
         font-size: 2.3rem;
-
     }
-
 
     .restaurant-header p {
-
         font-size: 1rem;
-
     }
 
-
     .food-emoji {
-
         width: 100px;
-
         height: 100px;
-
         font-size: 4rem;
-
     }
 
 }
-
 
 </style>
 
 </head>
 
-
-
 <body>
 
-
-<!-- =========================================================
+<!-- =========================================
      NAVBAR
-========================================================= -->
+========================================= -->
 
 <?php include("navbar.php"); ?>
 
 
-
-<!-- =========================================================
+<!-- =========================================
      HERO
-========================================================= -->
+========================================= -->
 
 <section class="restaurant-header">
 
-
     <div class="restaurant-header-content">
-
 
         <div class="food-badge">
 
@@ -857,7 +559,6 @@ body {
 
         </div>
 
-
         <h1>
 
             Discover
@@ -866,7 +567,6 @@ body {
 
         </h1>
 
-
         <p>
 
             Explore restaurants, seafood spots, local food
@@ -874,23 +574,18 @@ body {
 
         </p>
 
-
     </div>
-
 
 </section>
 
 
-
-<!-- =========================================================
+<!-- =========================================
      MAIN CONTENT
-========================================================= -->
+========================================= -->
 
 <div class="container py-5">
 
-
     <div class="section-title">
-
 
         <h2>
 
@@ -900,7 +595,6 @@ body {
 
         </h2>
 
-
         <p>
 
             Choose an area to discover food and dining
@@ -908,17 +602,14 @@ body {
 
         </p>
 
-
     </div>
 
 
-
-    <!-- =====================================================
+    <!-- =====================================
          AREA FILTER
-    ====================================================== -->
+    ====================================== -->
 
     <div class="area-filter">
-
 
         <a
             href="restaurant.php"
@@ -931,9 +622,7 @@ body {
 
         </a>
 
-
         <?php foreach ($areas as $areaName => $areaData): ?>
-
 
             <a
                 href="restaurant.php?area=<?= urlencode($areaName) ?>"
@@ -946,26 +635,20 @@ body {
 
             </a>
 
-
         <?php endforeach; ?>
-
 
     </div>
 
 
-
-    <!-- =====================================================
+    <!-- =====================================
          AREA INFORMATION
-    ====================================================== -->
+    ====================================== -->
 
     <?php if ($selectedArea != "All" && isset($areas[$selectedArea])): ?>
 
-
         <div class="area-info">
 
-
             <div class="d-flex align-items-center gap-3">
-
 
                 <div class="area-info-icon">
 
@@ -973,9 +656,7 @@ body {
 
                 </div>
 
-
                 <div>
-
 
                     <h3>
 
@@ -983,80 +664,61 @@ body {
 
                     </h3>
 
-
                     <p>
 
                         <?= htmlspecialchars($areas[$selectedArea]['description']) ?>
 
                     </p>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     <?php endif; ?>
 
 
-
-    <!-- =====================================================
+    <!-- =====================================
          RESTAURANT CARDS
-    ====================================================== -->
+    ====================================== -->
 
     <div class="row g-4">
 
-
         <?php if (count($filteredRestaurants) > 0): ?>
-
 
             <?php foreach ($filteredRestaurants as $restaurant): ?>
 
-
                 <?php
-
-
-                /*
-                |--------------------------------------------------------------------------
-                | RESTAURANT CATEGORY
-                |--------------------------------------------------------------------------
-                */
 
                 $category = $restaurant["category"];
 
                 $area = $restaurant["area"];
 
-
-                /*
-                |--------------------------------------------------------------------------
-                | MAP SEARCH
-                |--------------------------------------------------------------------------
-                */
+                // =====================================
+                // GOOGLE MAPS SEARCH BY AREA
+                // =====================================
 
                 if ($category == "Seafood") {
 
                     $mapSearch =
                         "Seafood restaurants in "
                         . $area
-                        . ", Perlis";
+                        . ", Perlis, Malaysia";
 
                 } elseif ($category == "Cafe") {
 
                     $mapSearch =
                         "Cafes in "
                         . $area
-                        . ", Perlis";
+                        . ", Perlis, Malaysia";
 
                 } elseif ($category == "Local Food") {
 
                     $mapSearch =
                         "Local food restaurants in "
                         . $area
-                        . ", Perlis";
+                        . ", Perlis, Malaysia";
 
                 } else {
 
@@ -1064,51 +726,30 @@ body {
                         $category
                         . " restaurants in "
                         . $area
-                        . ", Perlis";
+                        . ", Perlis, Malaysia";
 
                 }
 
-
-                /*
-                |--------------------------------------------------------------------------
-                | GOOGLE MAPS URL
-                |--------------------------------------------------------------------------
-                */
-
+                // GOOGLE MAPS URL
                 $mapUrl =
                     "https://www.google.com/maps/search/?api=1&query="
                     . urlencode($mapSearch);
 
-
-                /*
-                |--------------------------------------------------------------------------
-                | CHECK IMAGE
-                |--------------------------------------------------------------------------
-                */
-
+                // CHECK IMAGE
                 $imageExists =
                     file_exists($restaurant["image"]);
 
-
                 ?>
 
-
-                <!-- =================================================
-                     CARD
-                ================================================== -->
+                <!-- RESTAURANT CARD -->
 
                 <div class="col-lg-4 col-md-6">
 
-
                     <div class="restaurant-card">
 
-
-                        <!-- =========================================
-                             IMAGE OR EMOJI
-                        ========================================== -->
+                        <!-- IMAGE OR EMOJI -->
 
                         <?php if ($imageExists): ?>
-
 
                             <img
                                 src="<?= htmlspecialchars($restaurant["image"]) ?>"
@@ -1116,111 +757,59 @@ body {
                                 class="restaurant-image"
                             >
 
-
                         <?php else: ?>
-
 
                             <div class="restaurant-image-placeholder">
 
-
                                 <div class="food-emoji">
-
 
                                     <?php if ($category == "Seafood"): ?>
 
                                         🦐
 
-
                                     <?php elseif ($category == "Local Food"): ?>
 
                                         🍜
-
 
                                     <?php elseif ($category == "Cafe"): ?>
 
                                         ☕
 
-
                                     <?php else: ?>
 
                                         🍽️
 
-
                                     <?php endif; ?>
-
 
                                 </div>
 
-
                             </div>
-
 
                         <?php endif; ?>
 
 
-
-                        <!-- =========================================
-                             CONTENT
-                        ========================================== -->
+                        <!-- RESTAURANT CONTENT -->
 
                         <div class="restaurant-content">
 
-
-                            <!-- CATEGORY BADGE -->
+                            <!-- AREA BADGE -->
 
                             <span class="category-badge">
 
+                                <i class="bi bi-geo-alt-fill me-1"></i>
 
-                                <?php if ($category == "Seafood"): ?>
-
-                                    🦐
-
-
-                                <?php elseif ($category == "Local Food"): ?>
-
-                                    🍜
-
-
-                                <?php elseif ($category == "Cafe"): ?>
-
-                                    ☕
-
-
-                                <?php else: ?>
-
-                                    🍽️
-
-
-                                <?php endif; ?>
-
-
-                                <?= htmlspecialchars($category) ?>
-
+                                <?= htmlspecialchars($area) ?>
 
                             </span>
 
 
-
-                            <!-- RESTAURANT NAME -->
+                            <!-- FOOD CATEGORY NAME -->
 
                             <h4>
 
                                 <?= htmlspecialchars($restaurant["name"]) ?>
 
                             </h4>
-
-
-
-                            <!-- AREA -->
-
-                            <div class="mb-2 text-muted">
-
-                                <i class="bi bi-geo-alt-fill me-1"></i>
-
-                                <?= htmlspecialchars($area) ?>, Perlis
-
-                            </div>
-
 
 
                             <!-- DESCRIPTION -->
@@ -1230,7 +819,6 @@ body {
                                 <?= htmlspecialchars($restaurant["description"]) ?>
 
                             </p>
-
 
 
                             <!-- MAP BUTTON -->
@@ -1248,30 +836,21 @@ body {
 
                             </a>
 
-
                         </div>
-
 
                     </div>
 
-
                 </div>
-
 
             <?php endforeach; ?>
 
-
         <?php else: ?>
-
 
             <div class="col-12">
 
-
                 <div class="empty-box">
 
-
                     <i class="bi bi-emoji-frown"></i>
-
 
                     <h3>
 
@@ -1279,14 +858,12 @@ body {
 
                     </h3>
 
-
                     <p class="text-muted">
 
                         Sorry, there are currently no restaurants
                         available for this area.
 
                     </p>
-
 
                     <a
                         href="restaurant.php"
@@ -1299,36 +876,29 @@ body {
 
                     </a>
 
-
                 </div>
-
 
             </div>
 
-
         <?php endif; ?>
 
-
     </div>
-
 
 </div>
 
 
-
-<!-- =========================================================
+<!-- =========================================
      FOOTER
-========================================================= -->
+========================================= -->
 
 <?php include("footer.php"); ?>
 
 
-<!-- Bootstrap JS -->
+<!-- BOOTSTRAP JS -->
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
-
 
 </body>
 
