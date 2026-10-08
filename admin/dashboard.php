@@ -1,14 +1,12 @@
+
 <?php
 
 session_start();
 
 // Check admin login
-if(!isset($_SESSION['admin'])){
-
+if (!isset($_SESSION['admin'])) {
     header("Location: ../login.php");
-
     exit();
-
 }
 
 ?>
@@ -20,486 +18,302 @@ if(!isset($_SESSION['admin'])){
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<title>
-    Dashboard
-</title>
-
+<title>Dashboard</title>
 
 <!-- Bootstrap -->
-
 <link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
 >
-
 
 <!-- Bootstrap Icons -->
-
 <link
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
 >
-
 
 <style>
 
-/* ===============================
-   GENERAL
-================================ */
-
+/* GENERAL */
 body {
-
     background-color: #f5f8fc;
-
 }
 
-
-/* ===============================
-   NAVBAR
-================================ */
-
+/* NAVBAR */
 .navbar-blue {
-
     background-color: #0057B8;
-
 }
-
 
 .navbar-brand {
-
     font-size: 1.2rem;
-
     font-weight: 600;
-
 }
 
-
-/* ===============================
-   DASHBOARD TITLE
-================================ */
-
+/* DASHBOARD TITLE */
 .dashboard-title {
-
     font-size: 3rem;
-
     font-weight: 700;
-
     color: #0057B8;
-
     margin-bottom: 40px;
-
 }
-
 
 .dashboard-title i {
-
     font-size: 2.8rem;
-
 }
 
-
-/* ===============================
-   CARDS
-================================ */
-
+/* CARDS */
 .card {
-
     border: none;
-
     border-top: 5px solid #FFD700;
-
     border-radius: 12px;
-
     background-color: white;
-
     transition: 0.3s;
-
 }
-
 
 .card:hover {
-
     transform: translateY(-7px);
-
     box-shadow:
         0 8px 20px rgba(0,0,0,0.15) !important;
-
 }
 
-
-/* ===============================
-   CARD ICON
-================================ */
-
+/* CARD ICON */
 .card-icon {
-
     font-size: 3rem;
-
     color: #0057B8;
-
     margin-bottom: 10px;
-
 }
 
-
-/* ===============================
-   CARD TITLE
-================================ */
-
+/* CARD TITLE */
 .card h4 {
-
     font-size: 1.4rem;
-
     font-weight: 600;
-
     color: #333;
-
     margin-bottom: 18px;
-
 }
 
-
-/* ===============================
-   PASTEL YELLOW BUTTON
-================================ */
-
+/* PASTEL YELLOW BUTTON */
 .btn-pastel {
-
     background-color: #FFF3B0;
-
     color: #0057B8;
-
     border: 2px solid #FFE680;
-
     font-weight: 600;
-
     padding: 10px 28px;
-
     border-radius: 8px;
-
     transition: 0.3s;
-
 }
 
-
-/* ===============================
-   BUTTON HOVER
-================================ */
-
+/* BUTTON HOVER */
 .btn-pastel:hover {
-
     background-color: #FFE680;
-
     color: #003F88;
-
     border-color: #FFD966;
-
     transform: scale(1.05);
-
     box-shadow:
         0 4px 10px rgba(0,0,0,0.12);
-
 }
 
-
-/* ===============================
-   LOGOUT
-================================ */
-
+/* LOGOUT */
 .logout-btn {
-
     font-weight: 600;
-
     border-radius: 7px;
-
 }
-
 
 </style>
 
 </head>
 
-
 <body>
 
-
-<!-- =================================
-     NAVBAR
-================================= -->
-
+<!-- NAVBAR -->
 <nav class="navbar navbar-dark navbar-blue">
 
 <div class="container">
 
+    <span class="navbar-brand">
 
-<span class="navbar-brand">
+        <i class="bi bi-geo-alt-fill"></i>
 
-<i class="bi bi-geo-alt-fill"></i>
+        PERLIS TOURISM SMART PORTAL - Admin
 
-PERLIS TOURISM SMART PORTAL - Admin
+    </span>
 
-</span>
+    <a
+        href="../logout.php"
+        class="btn btn-light logout-btn"
+    >
 
+        <i class="bi bi-box-arrow-right"></i>
 
-<a
-href="../logout.php"
-class="btn btn-light logout-btn"
->
+        Logout
 
-<i class="bi bi-box-arrow-right"></i>
-
-Logout
-
-</a>
-
+    </a>
 
 </div>
 
 </nav>
 
-
-
-<!-- =================================
-     DASHBOARD
-================================= -->
-
+<!-- DASHBOARD -->
 <div class="container mt-5">
-
 
 <h2 class="dashboard-title text-center">
 
-<i class="bi bi-speedometer2"></i>
+    <i class="bi bi-speedometer2"></i>
 
-Dashboard
+    Dashboard
 
 </h2>
 
-
-
 <div class="row g-4">
 
-
-
-<!-- =================================
-     DESTINATION
-================================= -->
-
+<!-- DESTINATION -->
 <div class="col-md-4">
 
-<div class="card shadow p-4 text-center">
+    <div class="card shadow p-4 text-center">
 
+        <i class="bi bi-geo-alt-fill card-icon"></i>
 
-<i class="bi bi-geo-alt-fill card-icon"></i>
+        <h4>Destination</h4>
 
+        <a
+            href="manage_destination.php"
+            class="btn btn-pastel"
+        >
+            Manage
+        </a>
 
-<h4>
-
-Destination
-
-</h4>
-
-
-<a
-href="manage_destination.php"
-class="btn btn-pastel"
->
-
-Manage
-
-</a>
-
+    </div>
 
 </div>
 
-</div>
-
-
-
-<!-- =================================
-     EVENT
-================================= -->
-
+<!-- EVENT -->
 <div class="col-md-4">
 
-<div class="card shadow p-4 text-center">
+    <div class="card shadow p-4 text-center">
 
+        <i class="bi bi-calendar-event card-icon"></i>
 
-<i class="bi bi-calendar-event card-icon"></i>
+        <h4>Event</h4>
 
+        <a
+            href="manage_event.php"
+            class="btn btn-pastel"
+        >
+            Manage
+        </a>
 
-<h4>
-
-Event
-
-</h4>
-
-
-<a
-href="manage_event.php"
-class="btn btn-pastel"
->
-
-Manage
-
-</a>
-
+    </div>
 
 </div>
 
-</div>
-
-
-
-<!-- =================================
-     GALLERY
-================================= -->
-
+<!-- GALLERY -->
 <div class="col-md-4">
 
-<div class="card shadow p-4 text-center">
+    <div class="card shadow p-4 text-center">
 
+        <i class="bi bi-images card-icon"></i>
 
-<i class="bi bi-images card-icon"></i>
+        <h4>Gallery</h4>
 
+        <a
+            href="manage_gallery.php"
+            class="btn btn-pastel"
+        >
+            Manage
+        </a>
 
-<h4>
-
-Gallery
-
-</h4>
-
-
-<a
-href="manage_gallery.php"
-class="btn btn-pastel"
->
-
-Manage
-
-</a>
-
+    </div>
 
 </div>
 
-</div>
-
-
-
-<!-- =================================
-     VISITOR RATING
-================================= -->
-
+<!-- VISITOR RATING -->
 <div class="col-md-4">
 
-<div class="card shadow p-4 text-center">
+    <div class="card shadow p-4 text-center">
 
+        <i class="bi bi-star-fill card-icon"></i>
 
-<i class="bi bi-star-fill card-icon"></i>
+        <h4>Visitor Rating</h4>
 
+        <a
+            href="manage_rating.php"
+            class="btn btn-pastel"
+        >
+            View
+        </a>
 
-<h4>
-
-Visitor Rating
-
-</h4>
-
-
-<a
-href="manage_rating.php"
-class="btn btn-pastel"
->
-
-View
-
-</a>
-
+    </div>
 
 </div>
 
-</div>
-
-
-
-<!-- =================================
-     MESSAGES
-================================= -->
-
+<!-- MESSAGES -->
 <div class="col-md-4">
 
-<div class="card shadow p-4 text-center">
+    <div class="card shadow p-4 text-center">
 
+        <i class="bi bi-envelope-fill card-icon"></i>
 
-<i class="bi bi-envelope-fill card-icon"></i>
+        <h4>Messages</h4>
 
+        <a
+            href="messages.php"
+            class="btn btn-pastel"
+        >
+            Respond
+        </a>
 
-<h4>
-
-Messages
-
-</h4>
-
-
-<a
-href="messages.php"
-class="btn btn-pastel"
->
-
-Respond
-
-</a>
-
+    </div>
 
 </div>
 
-</div>
-
-
-
-<!-- =================================
-     VISITOR ANALYTICS
-================================= -->
-
+<!-- VISITOR ANALYTICS -->
 <div class="col-md-4">
 
-<div class="card shadow p-4 text-center">
+    <div class="card shadow p-4 text-center">
 
+        <i class="bi bi-bar-chart-fill card-icon"></i>
 
-<i class="bi bi-bar-chart-fill card-icon"></i>
+        <h4>Visitor Analytics</h4>
 
+        <a
+            href="visitor_report.php"
+            class="btn btn-pastel"
+        >
+            View
+        </a>
 
-<h4>
+    </div>
 
-Visitor Analytics
+</div>
 
-</h4>
+<!-- NEW: ANALYTICS DASHBOARD -->
+<div class="col-md-4">
 
+    <div class="card shadow p-4 text-center">
 
-<a
-href="visitor_report.php"
-class="btn btn-pastel"
->
+        <i class="bi bi-graph-up-arrow card-icon"></i>
 
-View
+        <h4>Analytics Dashboard</h4>
 
-</a>
+        <a
+            href="../analytics.php"
+            class="btn btn-pastel"
+        >
+            View Analytics
+        </a>
 
+    </div>
 
 </div>
 
 </div>
 
-
-
 </div>
 
-</div>
-
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>

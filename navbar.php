@@ -1,3 +1,4 @@
+
 <?php
 
 // ================================
@@ -6,41 +7,26 @@
 
 ?>
 
-
 <!-- GOOGLE FONT - SAME AS INDEX.PHP -->
-
 <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
 >
 
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
 
     <div class="container">
 
-
-        <!-- ================================= -->
         <!-- LOGO -->
-        <!-- ================================= -->
-
         <a
             class="navbar-brand fw-bold"
             href="index.php"
         >
-
             <i class="bi bi-geo-alt-fill"></i>
-
             PERLIS TOURISM SMART PORTAL
-
         </a>
 
-
-
-        <!-- ================================= -->
         <!-- MOBILE BUTTON -->
-        <!-- ================================= -->
-
         <button
             class="navbar-toggler"
             type="button"
@@ -50,51 +36,31 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
         >
-
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
-
-
-        <!-- ================================= -->
         <!-- MENU -->
-        <!-- ================================= -->
-
         <div
             class="collapse navbar-collapse"
             id="navbarMenu"
         >
 
-
             <ul class="navbar-nav ms-auto">
 
-
-                <!-- ================================= -->
                 <!-- HOME -->
-                <!-- ================================= -->
-
                 <li class="nav-item">
 
                     <a
                         class="nav-link"
                         href="index.php"
                     >
-
                         <i class="bi bi-house-fill"></i>
-
                         Home
-
                     </a>
 
                 </li>
 
-
-
-                <!-- ================================= -->
                 <!-- EXPLORE / DESTINATIONS -->
-                <!-- ================================= -->
-
                 <li class="nav-item destination-dropdown">
 
                     <a
@@ -102,186 +68,100 @@
                         href="destinations.php"
                         id="exploreButton"
                     >
-
-                    <i class="bi bi-geo-alt-fill"></i>
-
+                        <i class="bi bi-geo-alt-fill"></i>
                         Explore
-
                     </a>
 
-
-
-                    <!-- ================================= -->
                     <!-- EXPLORE DROPDOWN -->
-                    <!-- ================================= -->
-
                     <div class="destination-menu">
 
-
-                        <!-- ================================= -->
                         <!-- DESTINATIONS -->
-                        <!-- ================================= -->
-
                         <a href="destinations.php">
 
                             <i class="bi bi-geo-alt-fill me-2"></i>
-
                             Destinations
 
                         </a>
 
-
-
-                        <!-- ================================= -->
                         <!-- TRANSPORTATION -->
-                        <!-- ================================= -->
-
                         <a href="transportation.php">
 
                             <i class="bi bi-car-front-fill me-2"></i>
-
                             Transportation
 
                         </a>
 
-
-
-                        <!-- ================================= -->
                         <!-- ACCOMMODATION -->
-                        <!-- ================================= -->
-
                         <a href="accommodation.php">
 
                             <i class="bi bi-building-fill me-2"></i>
-
                             Accommodation
 
                         </a>
 
-
-
-                        <!-- ================================= -->
                         <!-- RESTAURANT -->
-                        <!-- ================================= -->
-
                         <a href="restaurant.php">
 
                             <i class="bi bi-cup-hot-fill me-2"></i>
-
                             Restaurant
 
                         </a>
-
 
                     </div>
 
                 </li>
 
-
-
-                <!-- ================================= -->
                 <!-- EVENTS -->
-                <!-- ================================= -->
-
                 <li class="nav-item">
 
                     <a
                         class="nav-link"
                         href="events.php"
                     >
-
                         <i class="bi bi-calendar-event-fill"></i>
-
                         Events
-
                     </a>
 
                 </li>
 
-
-
-                <!-- ================================= -->
-                <!-- ANALYTICS -->
-                <!-- ================================= -->
-
-                <li class="nav-item">
-
-                    <a
-                        class="nav-link"
-                        href="analytics.php"
-                    >
-
-                        <i class="bi bi-bar-chart-fill"></i>
-
-                        Analytics
-
-                    </a>
-
-                </li>
-
-
-
-                <!-- ================================= -->
                 <!-- MAP -->
-                <!-- ================================= -->
-
                 <li class="nav-item">
 
                     <a
                         class="nav-link"
                         href="map.php"
                     >
-
                         <i class="bi bi-map-fill"></i>
-
                         Map
-
                     </a>
 
                 </li>
 
-
-
-                <!-- ================================= -->
                 <!-- CONTACT -->
-                <!-- ================================= -->
-
                 <li class="nav-item">
 
                     <a
                         class="nav-link"
                         href="contact.php"
                     >
-
                         <i class="bi bi-envelope-fill"></i>
-
                         Contact
-
                     </a>
 
                 </li>
 
-
-
-                <!-- ================================= -->
                 <!-- GALLERY -->
-                <!-- ================================= -->
-
                 <li class="nav-item">
 
                     <a
                         class="nav-link"
                         href="gallery.php"
                     >
-
                         <i class="bi bi-images"></i>
-
                         Gallery
-
                     </a>
 
                 </li>
-
 
             </ul>
 
@@ -291,10 +171,7 @@
 
 </nav>
 
-
-
 <style>
-
 
 /* ================================= */
 /* NAVBAR LOGO */
@@ -313,8 +190,6 @@
 
 }
 
-
-
 /* ================================= */
 /* LOGO LOCATION ICON */
 /* ================================= */
@@ -326,8 +201,6 @@
     font-size: 1rem;
 
 }
-
-
 
 /* ================================= */
 /* NAVBAR */
@@ -345,8 +218,6 @@
 
 }
 
-
-
 /* ================================= */
 /* NAVBAR LINKS */
 /* ================================= */
@@ -359,14 +230,11 @@
 
 }
 
-
 .navbar .nav-link:hover {
 
     color: #fff;
 
 }
-
-
 
 /* ================================= */
 /* DESTINATION DROPDOWN */
@@ -377,8 +245,6 @@
     position: relative;
 
 }
-
-
 
 /* ================================= */
 /* DROPDOWN MENU */
@@ -409,8 +275,6 @@
 
 }
 
-
-
 /* ================================= */
 /* SHOW DROPDOWN WHEN HOVER */
 /* ================================= */
@@ -420,8 +284,6 @@
     display: block;
 
 }
-
-
 
 /* ================================= */
 /* DROPDOWN LINK */
@@ -445,8 +307,6 @@
 
 }
 
-
-
 /* ================================= */
 /* DROPDOWN ICON */
 /* ================================= */
@@ -459,28 +319,27 @@
 
 }
 
-
-
 /* ================================= */
 /* DROPDOWN HOVER */
 /* ================================= */
 
 .destination-menu a:hover {
+
     background: #FFD700;
+
     color: #0057B8;
+
 }
-
-
 
 /* ================================= */
 /* DROPDOWN HOVER ICON */
 /* ================================= */
 
 .destination-menu a:hover i {
+
     color: #0057B8;
+
 }
-
-
 
 /* ================================= */
 /* MOBILE */
@@ -489,44 +348,64 @@
 @media (max-width: 991px) {
 
     .destination-menu {
+
         display: none;
+
         position: static;
+
         box-shadow: none;
+
         border-radius: 0;
+
         background: transparent;
+
         padding-left: 15px;
+
         min-width: auto;
+
     }
 
     .destination-menu a {
+
         color: #fff;
+
         padding: 8px 10px;
+
     }
 
     .destination-menu a i {
+
         color: #FFD700;
+
     }
 
     .destination-menu a:hover {
+
         background: rgba(255,255,255,0.15);
+
         color: white;
+
     }
 
     .destination-menu a:hover i {
+
         color: #FFD700;
+
     }
 
 }
 
 </style>
 
-
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const exploreButton = document.getElementById("exploreButton");
-    const destinationMenu = document.querySelector(".destination-menu");
+    const exploreButton =
+        document.getElementById("exploreButton");
+
+    const destinationMenu =
+        document.querySelector(".destination-menu");
 
     if (exploreButton && destinationMenu) {
 
